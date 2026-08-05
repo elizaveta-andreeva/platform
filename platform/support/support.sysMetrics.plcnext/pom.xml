@@ -72,13 +72,6 @@
   </dependencies>
   
   <build>
-  <extensions>
-      <extension>
-        <groupId>kr.motd.maven</groupId>
-        <artifactId>os-maven-plugin</artifactId>
-        <version>${kr.motd.maven.os.version}</version>
-      </extension>
-    </extensions>
     <plugins>
     
       <plugin>
@@ -99,31 +92,6 @@
               <goal>test-compile</goal>
             </goals>
           </execution>
-        </executions>
-      </plugin>
-
-      <plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-        <version>${org.jacoco.maven.jacoco.version}</version>
-        <configuration>
-            <excludes>
-                <exclude>**/Arp/*.class</exclude>
-            </excludes>
-        </configuration>
-        <executions>
-            <execution>
-                <goals>
-                    <goal>prepare-agent</goal>
-                </goals>
-            </execution>
-            <execution>
-                <id>report</id>
-                <phase>test</phase>
-                <goals>
-                    <goal>report</goal>
-                </goals>
-            </execution>
         </executions>
       </plugin>
       
@@ -166,8 +134,53 @@
                  </execution>
              </executions>
          </plugin>
-
     </plugins>
+      <extensions>
+          <extension>
+            <groupId>kr.motd.maven</groupId>
+            <artifactId>os-maven-plugin</artifactId>
+            <version>${kr.motd.maven.os.version}</version>
+          </extension>
+        </extensions>
   </build>
+
+  <profiles>
+    <profile>
+      <id>CI</id>
+      <activation>
+        <property>
+          <name>inCI</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>${org.jacoco.maven.jacoco.version}</version>
+            <configuration>
+                <excludes>
+                    <exclude>**/Arp/*.class</exclude>
+                </excludes>
+            </configuration>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>prepare-agent</goal>
+                    </goals>
+                </execution>
+                <execution>
+                    <id>report</id>
+                    <phase>test</phase>
+                    <goals>
+                        <goal>report</goal>
+                    </goals>
+                </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
 </project>
