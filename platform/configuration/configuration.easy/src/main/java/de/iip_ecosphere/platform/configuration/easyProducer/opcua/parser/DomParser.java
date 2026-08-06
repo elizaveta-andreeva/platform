@@ -1328,9 +1328,11 @@ public class DomParser {
                             if (toOsPath(files[i]).equals(toOsPath(path + "/RequiredModels/Opc.Ua.NodeSet2.xml"))) {
                                 model = "UA";
                             } else {
-                                model = toOsPath(files[i]).toUpperCase()
-                                        .replace(toOsPath(path.toUpperCase() + "/REQUIREDMODELS/OPC.UA."), "")
-                                        .replace(".NODESET2.XML", "");
+                                String actualFileName = files[i].getName().toUpperCase();
+                                model = actualFileName.replace(".NODESET2.XML", "");
+                                if (model.startsWith("OPC.UA.")) {
+                                    model = model.substring("OPC.UA.".length());
+                                }
                             }
                             if (model.equals(s)) {
                                 if (model.equals("UA")) {
