@@ -30,7 +30,7 @@ public class DomParserBenchmarkTest {
     private static final File NODESET_DIR = new File("src/test/resources/NodeSets");
     private static final File OUT_DIR     = new File("target/benchmark");
     private static final File CSV_FILE    = new File(OUT_DIR, "benchmark_results.csv");
-    private static final int  RUNS        = 3;
+    private static final int RUNS         = 3;
     private static final Charset UTF8     = Charset.forName("UTF-8");
 
     private static final List<String[]> rows = new ArrayList<>();
@@ -47,9 +47,12 @@ public class DomParserBenchmarkTest {
         List<Object[]> params = new ArrayList<>();
         File[] files = NODESET_DIR.listFiles(f ->
             f.isFile() && f.getName().toLowerCase().endsWith(".xml"));
+        String selectedNodeSet = System.getProperty("nodeset");
         if (files != null) {
             for (File f : files) {
-                params.add(new Object[]{f});
+                if (selectedNodeSet == null || f.getName().equals(selectedNodeSet)) {
+                    params.add(new Object[] { f });
+                }
             }
         }
         return params;
@@ -72,11 +75,6 @@ public class DomParserBenchmarkTest {
 
     @AfterClass
     public static void writeResults() throws IOException {
-        try (PrintWriter pw = new PrintWriter(new FileWriter(CSV_FILE, true))) {
-            for (String[] row : rows) {
-                pw.println(String.join(",", row));
-            }
-        }
         System.out.println("\nBenchmark complete. Results: " + CSV_FILE.getAbsolutePath());
     }
 
@@ -161,6 +159,9 @@ public class DomParserBenchmarkTest {
 
         synchronized (rows) {
             rows.add(row);
+            try (PrintWriter pw = new PrintWriter(new FileWriter(CSV_FILE, true))) {
+                pw.println(String.join(",", row));
+            }
         }
 
         System.out.printf("%-70s | avg=%4d ms | ivml=%5d lines | unknown=%d%n",
