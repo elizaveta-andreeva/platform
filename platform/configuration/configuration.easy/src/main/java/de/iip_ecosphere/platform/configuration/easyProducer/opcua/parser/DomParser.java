@@ -1,6 +1,7 @@
 package de.iip_ecosphere.platform.configuration.easyProducer.opcua.parser;
 
 import java.io.File;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -8,6 +9,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -91,6 +94,16 @@ public class DomParser {
     private String baseNameSpace;
     private NodeList namespaceUris;
     private ArrayList<NodeList> externAliasLists;
+    
+    private Map<String, Element> objectTypeMap;
+    private Map<String, Element> objectMap;
+    private Map<String, Element> variableMap;
+    private Map<String, Element> methodMap;
+    private Map<String, Element> dataTypeMap;
+    private Map<String, Element> variableTypeMap;
+    
+    private Map<String, BaseType> hierarchyByNodeId = new HashMap<>();
+    private Map<String, BaseType> hierarchyByVarName = new HashMap<>();
 
     // checkstyle: stop parameter number check
 
@@ -116,6 +129,26 @@ public class DomParser {
         this.variableTypeList = variableTypeList;
         this.aliasList = aliasList;
         this.hierarchy = hierarchy;
+    }
+    
+    /**
+     * Builds a HashMap index from a NodeList, keyed by NodeId attribute.
+     *
+     * @param nodes the node list to index
+     * @return map from NodeId to Element
+     */
+    private static Map<String, Element> buildIndex(NodeList nodes) {
+        Map<String, Element> map = new HashMap<>();
+        for (int i = 0; i < nodes.getLength(); i++) {
+            Element e = getNextNodeElement(nodes, i);
+            if (e != null) {
+                String nodeId = e.getAttribute("NodeId");
+                if (nodeId != null && !nodeId.isEmpty()) {
+                    map.put(nodeId, e);
+                }
+            }
+        }
+        return map;
     }
 
     /**
@@ -350,24 +383,30 @@ public class DomParser {
 
     /**
      * Checks the relations and returns a node with NodeId {@code currentNodeId}.
-     * 
+     * Uses pre-built HashMap index for O(1) lookup instead of O(n) linear scan.
+     *
      * @param currentNodeId the node id to search for
-     * @param nodes         the nodes to search
+     * @param nodes         the nodes to search (kept for API compatibility, ignored)
+     * @param map           the pre-built index for this NodeList
      * @return the found element
      */
+    private static Element checkRelation(String currentNodeId, Map<String, Element> map) {
+        return map != null ? map.get(currentNodeId) : null;
+    }
+ 
+    /**
+     * Legacy overload - kept for call sites that pass dynamic NodeLists
+     * (e.g. from required model documents). Falls back to linear scan.
+     */
     private static Element checkRelation(String currentNodeId, NodeList nodes) {
-
-        Element relatedElement = null;
-
+        if (nodes == null) return null;
         for (int i = 0; i < nodes.getLength(); i++) {
             Element node = getNextNodeElement(nodes, i);
-            String nodeId = node.getAttribute("NodeId");
-            if (currentNodeId.equals(nodeId)) {
-                relatedElement = node;
-                i = nodes.getLength();
+            if (node != null && currentNodeId.equals(node.getAttribute("NodeId"))) {
+                return node;
             }
         }
-        return relatedElement;
+        return null;
     }
 
     /**
@@ -763,15 +802,15 @@ public class DomParser {
             if (refNode != null
                     && IDENTIFY_FIELDS_PERMITTED_REFERENCE_TYPE.contains(refNode.getAttribute("ReferenceType"))) {
                 String refId = refNode.getTextContent();
-                Element refElement = checkRelation(refId, variableList);
+                Element refElement = checkRelation(refId, variableMap);
                 if (refElement != null) {
                     retrieveAttributesForRefElement(fields, refId, refElement, ElementType.FIELDVARIABLE);
                 } else {
-                    refElement = checkRelation(refId, objectList);
+                    refElement = checkRelation(refId, objectMap);
                     if (refElement != null && !(refNode.getAttribute("IsForward").equals("false"))) {
                         retrieveAttributesForRefElement(fields, refId, refElement, ElementType.FIELDOBJECT);
                     } else {
-                        refElement = checkRelation(refId, methodList);
+                        refElement = checkRelation(refId, methodMap);
                         if (refElement != null) {
                             retrieveAttributesForRefElement(fields, refId, refElement, ElementType.FIELDMETHOD);
                         }
@@ -828,10 +867,10 @@ public class DomParser {
 
         for (FieldType field : subElements) {
             if (!(field instanceof FieldVariableType) && !(field instanceof FieldMethodType)) {
-                Element object = checkRelation(field.getNodeId(), objectList);
+                Element object = checkRelation(field.getNodeId(), objectMap);
                 retrieveAttributes(object, fields, ElementType.SUBOBJECT, null);
             } else if (!(field instanceof FieldVariableType) && !(field instanceof FieldObjectType)) {
-                Element method = checkRelation(field.getNodeId(), methodList);
+                Element method = checkRelation(field.getNodeId(), methodMap);
                 retrieveAttributes(method, fields, ElementType.SUBMETHOD, null);
             }
         }
@@ -874,14 +913,7 @@ public class DomParser {
      * @return the found element or <b>null</b>
      */
     private BaseType findInHierarchy(String nodeId) {
-        BaseType result = null;
-        for (BaseType b : hierarchy) {
-            if (b.getNodeId().equals(nodeId)) {
-                result = b;
-                break;
-            }
-        }
-        return result;
+        return hierarchyByNodeId.get(nodeId);
     }
 
     /**
@@ -1064,7 +1096,7 @@ public class DomParser {
         case ROOTVARIABLE:
             dataType = element.getAttribute("DataType");
             if (dataType.equals("EnumValueType")) {
-                Element relatedDataTypeElement = checkRelation(element.getAttribute("ParentNodeId"), dataTypeList);
+                Element relatedDataTypeElement = checkRelation(element.getAttribute("ParentNodeId"), dataTypeMap);
                 if (relatedDataTypeElement != null) {
                     NodeList dataChildNodeList = relatedDataTypeElement.getChildNodes();
                     for (int j = 0; j < dataChildNodeList.getLength(); j++) {
@@ -1120,6 +1152,8 @@ public class DomParser {
                 }
                 println(uaSubObject.toString());
                 hierarchy.add(uaSubObject);
+                hierarchyByNodeId.put(uaSubObject.getNodeId(), uaSubObject);
+                hierarchyByVarName.put(uaSubObject.getVarName(), uaSubObject);
                 if (!uaSubObject.getFields().isEmpty()) {
                     retrieveRelatedSubElements(uaSubObject.getFields());
                 }
@@ -1135,6 +1169,8 @@ public class DomParser {
                 }
                 println(uaMethod.toString());
                 hierarchy.add(uaMethod);
+                hierarchyByNodeId.put(uaMethod.getNodeId(), uaMethod);
+                hierarchyByVarName.put(uaMethod.getVarName(), uaMethod);
                 if (!uaMethod.getFields().isEmpty()) {
                     retrieveRelatedSubElements(uaMethod.getFields());
                 }
@@ -1152,7 +1188,7 @@ public class DomParser {
         case FIELDVARIABLE:
             dataType = element.getAttribute("DataType");
             if (dataType.equals("EnumValueType")) {
-                Element relatedDataTypeElement = checkRelation(element.getAttribute("ParentNodeId"), dataTypeList);
+                Element relatedDataTypeElement = checkRelation(element.getAttribute("ParentNodeId"), dataTypeMap);
                 NodeList dataChildNodeList = relatedDataTypeElement.getChildNodes();
                 for (int j = 0; j < dataChildNodeList.getLength(); j++) {
                     Element childNode = getNextNodeElement(dataChildNodeList, j);
@@ -1230,14 +1266,21 @@ public class DomParser {
             if (!checkRedundancy(element.getVarName(), null)) {
                 println(element.toString());
                 hierarchy.add(element);
+                hierarchyByNodeId.put(element.getNodeId(), element);
+                hierarchyByVarName.put(element.getVarName(), element);
             }
         } else if (type == ElementType.ROOTOBJECT && !(existing instanceof RootObjectType)) {
             element.setVarName(existing.getVarName());
             hierarchy.remove(existing);
+            hierarchyByNodeId.remove(existing.getNodeId());
+            hierarchyByVarName.remove(existing.getVarName());
             println(element.toString());
             hierarchy.add(element);
+            hierarchyByNodeId.put(element.getNodeId(), element);
+            hierarchyByVarName.put(element.getVarName(), element);
         }
     }
+    
     /**
      * Checks for redundant/duplicate variable names in {@link #hierarchy}.
      * 
@@ -1246,23 +1289,16 @@ public class DomParser {
      * @return {@code true} if there are duplicates, {@code false} else
      */
     private boolean checkRedundancy(String varName, ArrayList<FieldType> list) {
-        boolean duplicateVar = false;
         if (list != null) {
             for (FieldType f : list) {
                 if (f.getVarName().equals(varName)) {
-                    duplicateVar = true;
-                    break;
+                    return true;
                 }
             }
+            return false;
         } else {
-            for (BaseType o : hierarchy) {
-                if (o.getVarName().equals(varName)) {
-                    duplicateVar = true;
-                    break;
-                }
-            }
+            return hierarchyByVarName.containsKey(varName);
         }
-        return duplicateVar;
     }
 
     /**
@@ -1452,7 +1488,7 @@ public class DomParser {
             Element object = getNextNodeElement(objectList, i);
             if (object != null) {
                 String parentNodeId = object.getAttribute("ParentNodeId");
-                Element rootObject = checkRelation(parentNodeId, objectTypeList);
+                Element rootObject = checkRelation(parentNodeId, objectTypeMap);
                 if (rootObject != null) {
                     retrieveRootElement(object, ElementType.ROOTOBJECT);
                 }
@@ -1463,7 +1499,7 @@ public class DomParser {
             Element variable = getNextNodeElement(variableList, i);
             if (variable != null) {
                 String parentNodeId = variable.getAttribute("ParentNodeId");
-                Element rootVariable = checkRelation(parentNodeId, objectTypeList);
+                Element rootVariable = checkRelation(parentNodeId, objectTypeMap);
                 if (rootVariable != null) {
                     retrieveRootElement(variable, ElementType.ROOTVARIABLE);
                 }
@@ -1474,7 +1510,7 @@ public class DomParser {
             Element method = getNextNodeElement(methodList, i);
             if (method != null) {
                 String parentNodeId = method.getAttribute("ParentNodeId");
-                Element rootMethod = checkRelation(parentNodeId, objectTypeList);
+                Element rootMethod = checkRelation(parentNodeId, objectTypeMap);
                 if (rootMethod != null) {
                     retrieveRootElement(method, ElementType.ROOTMETHOD);
                 }
@@ -1487,7 +1523,7 @@ public class DomParser {
             Element variable = getNextNodeElement(variableList, i);
             if (variable != null) {
                 String parentNodeId = variable.getAttribute("ParentNodeId");
-                Element rootVariable = checkRelation(parentNodeId, objectTypeList);
+                Element rootVariable = checkRelation(parentNodeId, objectTypeMap);
                 if (rootVariable != null) {
                     retrieveRootElement(variable, ElementType.ROOTVARIABLE);
                 }
@@ -1541,6 +1577,12 @@ public class DomParser {
 
             parser = new DomParser(objectTypeList, objectList, variableList, methodList, dataTypeList, variableTypeList,
                     aliasList, hierarchy);
+            parser.objectTypeMap = buildIndex(objectTypeList);
+            parser.objectMap = buildIndex(objectList);
+            parser.variableMap = buildIndex(variableList);
+            parser.methodMap = buildIndex(methodList);
+            parser.dataTypeMap = buildIndex(dataTypeList);
+            parser.variableTypeMap = buildIndex(variableTypeList);
             parser.namespaceUris = nameSpaceUris;
             File[] reqModels = checkRequiredModels(parser, modelName, path,
                     toOsPath(compSpec).replace(toOsPath(path + "/Opc.Ua."), "").replace(".NodeSet.xml", ""),
