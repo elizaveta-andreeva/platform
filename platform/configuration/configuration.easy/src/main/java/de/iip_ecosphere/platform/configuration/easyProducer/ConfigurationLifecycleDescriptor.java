@@ -18,6 +18,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Consumer;
 
+import de.iip_ecosphere.platform.configuration.cfg.ConfigurationFactory;
 import de.iip_ecosphere.platform.configuration.cfg.StatusCache;
 import de.iip_ecosphere.platform.configuration.easyProducer.EasyLogger.LogConsumer;
 import de.iip_ecosphere.platform.configuration.easyProducer.EasyLogger.LogLevel;
@@ -25,10 +26,14 @@ import de.iip_ecosphere.platform.services.environment.services.Sender;
 import de.iip_ecosphere.platform.services.environment.services.TransportConverterFactory;
 import de.iip_ecosphere.platform.support.LifecycleDescriptor;
 import de.iip_ecosphere.platform.support.OsUtils;
+import de.iip_ecosphere.platform.support.TaskRegistry;
 import de.iip_ecosphere.platform.support.TaskRegistry.TaskData;
 import de.iip_ecosphere.platform.support.logging.Logger;
 import de.iip_ecosphere.platform.support.logging.LoggerFactory;
-import de.iip_ecosphere.platform.transport.serialization.TypeTranslators;
+import de.iip_ecosphere.platform.transport.status.ActionTypes;
+import de.iip_ecosphere.platform.transport.status.ComponentTypes;
+import de.iip_ecosphere.platform.transport.status.StatusMessage;
+import de.iip_ecosphere.platform.transport.status.StatusMessageSerializer;
 import de.uni_hildesheim.sse.easy.loader.ManifestLoader;
 import de.uni_hildesheim.sse.easy.loader.framework.Log;
 import net.ssehub.easy.basics.logger.EASyLoggerFactory;
@@ -47,6 +52,9 @@ import net.ssehub.easy.producer.core.mgmt.EasyExecutor;
  * through the UI, only needs IVML rather than VIL/VTL. If the caller needs more configuration abilities, please use
  * {@link ExecutionMode#TOOLING} or {@link ExecutionMode#FULL} with {@link #setExecutionMode(ExecutionMode)} before
  * calling {@link #startup(String[])}.
+ * 
+ * This lifecycle descriptor is not loaded as usual via JSL rather than indirectly via {@link ConfigurationFactory} 
+ * and taken up then by a generic, delegating lifecycle descriptor.
  * 
  * @author Holger Eichelberger, SSE
  */
@@ -302,7 +310,7 @@ public class ConfigurationLifecycleDescriptor implements LifecycleDescriptor {
      */
     public static class SenderCloseable {
         
-        private Sender<String> sender;
+        private Sender<?> sender;
         private TracerFactory factory;
         private TracerFactory origFactory;
 
@@ -344,8 +352,8 @@ public class ConfigurationLifecycleDescriptor implements LifecycleDescriptor {
         if (logPath != null && logPath.length() > 0 && executionMode != ExecutionMode.TOOLING) {
             ConfigurationSetup setup = ConfigurationSetup.getSetup();
             // instead of TypeTranslators.STRING: new StatusMessageSerializer();
-            Sender<String> sender = TransportConverterFactory.getInstance().createSender(setup.getAas(), 
-                setup.getTransport(), logPath, TypeTranslators.STRING, String.class);
+            Sender<StatusMessage> sender = TransportConverterFactory.getInstance().createSender(setup.getAas(), 
+                setup.getTransport(), logPath, StatusMessageSerializer.createTypeTranslator(), StatusMessage.class);
             TracerFactory factory = null;
             try {
                 sender.connectBlocking();
@@ -356,12 +364,12 @@ public class ConfigurationLifecycleDescriptor implements LifecycleDescriptor {
                         if (LogLevel.TEXT != l) {
                             prefix = l.name() + " ";
                         }
-                        sender.send(prefix + m);
-                        /*TaskData td = null == taskData ? TaskRegistry.getTaskData() : taskData;
+                        //sender.send(prefix + m);
+                        TaskData td = null == taskData ? TaskRegistry.getTaskData() : taskData;
                         StatusMessage sm = new StatusMessage(ComponentTypes.INSTANTIATION, ActionTypes.LOG, "", "")
                             .withDescription(prefix + m)
-                            .withTask(taskData);
-                        sender.send(sm);*/
+                            .withTask(td);
+                        sender.send(sm);
                     } catch (IOException e) {
                         getLogger().warn("Logging to transport: {}", e.getMessage());
                     }
@@ -461,6 +469,8 @@ public class ConfigurationLifecycleDescriptor implements LifecycleDescriptor {
         throws ModelManagementException {
         EasyExecutor.enablePrepareArtifactsDefault(INCREMENTAL);
         EasyExecutor.enableIncrementalInstantiation(INCREMENTAL);
+        //EasyExecutor.setModelReload(ExecutionMode.TOOLING == executionMode);
+        //EasyExecutor.setResourceSetReuse(ExecutionMode.TOOLING == executionMode);
         if (INCREMENTAL) { // not always
             getLogger().info("Setting up incremental build mode: {}", INCREMENTAL);
         }

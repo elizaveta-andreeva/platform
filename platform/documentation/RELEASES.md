@@ -4,6 +4,7 @@
 
 In progress:
 
+* [#205](https://github.com/iip-ecosphere/platform/issues/205): Hide service start/stop commands in CLI
 * [#192](https://github.com/iip-ecosphere/platform/issues/192): More flexible connector value handling
 * [#180](https://github.com/iip-ecosphere/platform/issues/180): Add application templates to UI
 * [#183](https://github.com/iip-ecosphere/platform/issues/183): Enable AAS metamodel v3 in mgmt UI
@@ -13,6 +14,7 @@ In progress:
 * [#187](https://github.com/iip-ecosphere/platform/issues/187): Integrate expression editor
 * [#122](https://github.com/iip-ecosphere/platform/issues/122): Transparent encryption, RBAC on AAS (incl. UI authentication)
 * [#117](https://github.com/iip-ecosphere/platform/issues/117): Multiple service managers per device
+* [#202](https://github.com/iip-ecosphere/platform/issues/202): Update dependencies/libraries (woth plugins)
 
 ### Version 0.8.1 (Fall '26)
 
@@ -20,7 +22,11 @@ Improvements:
 * Determined start sequence for standalone apps/tests: sinks, transformers/probes, sources
 * Improved type display consistency in managementUI
 * Support for Linux symlinks in file paths, in particular for the configuration models
+* Support for XML data format, akin to Json but simplified
+* XML and Protobuf as alternative transport wire formats
+* Improvements, testing of OPC-UA XML to IVML
 * [#190](https://github.com/iip-ecosphere/platform/issues/190): Integration of oktoflo2grafana
+* [#191](https://github.com/iip-ecosphere/platform/issues/191): Update dependencies/libraries
 * [#193](https://github.com/iip-ecosphere/platform/issues/193): Improve OPC integration
 * [#195](https://github.com/iip-ecosphere/platform/issues/195): Templates contain wrong file names for connectors, issue persists for versions 0.7.1-SNAPSHOT, 0.8.0
 * [#185](https://github.com/iip-ecosphere/platform/issues/185): Performance improvements

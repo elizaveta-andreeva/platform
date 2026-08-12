@@ -117,6 +117,7 @@
       </plugins>
 
   </build>
-
+  
+  <!-- For running tests without plugin loading, see tools.pluginEnv -->
   
 </project>

@@ -61,8 +61,9 @@ enum ElementType {
  */
 public class DomParser {
 
+    private static final String IVML_OUTPUT_PROPERTY = "opcua.ivml.output";
     private static boolean verboseDefault = false;
-    private static String usingIvmlFolder = "src/test/easy";
+    private static String usingIvmlFolder = System.getProperty(IVML_OUTPUT_PROPERTY, "target/opcua-parser");
     private static final Set<String> IDENTIFY_FIELDS_PERMITTED_REFERENCE_TYPE;
 
     static {
@@ -88,6 +89,7 @@ public class DomParser {
 
     private boolean verbose = verboseDefault;
     private String baseNameSpace;
+    private NodeList namespaceUris;
     private ArrayList<NodeList> externAliasLists;
 
     // checkstyle: stop parameter number check
@@ -369,6 +371,75 @@ public class DomParser {
     }
 
     /**
+     * Returns the namespace URI denoted by the namespace index in {@code nodeId}.
+     *
+     * @param nodeId the node id in the source document
+     * @return the namespace URI
+     */
+    private String getNamespaceUri(String nodeId) {
+        int start = nodeId.indexOf("ns=") + 3;
+        int end = nodeId.indexOf(";", start);
+        int namespaceIndex = Integer.parseInt(nodeId.substring(start, end));
+        NodeList uris = ((Element) namespaceUris.item(0)).getElementsByTagName("Uri");
+        if (namespaceIndex <= 0 || namespaceIndex > uris.getLength()) {
+            throw new IllegalArgumentException("No namespace URI for " + nodeId);
+        }
+        return uris.item(namespaceIndex - 1).getTextContent();
+    }
+
+    /**
+     * Returns the loaded document declaring {@code namespaceUri} as its model URI.
+     *
+     * @param namespaceUri the namespace URI
+     * @return the matching document
+     */
+    private Document getRequiredModel(String namespaceUri) {
+        Document result = null;
+        for (Document document : documents) {
+            Node model = document.getElementsByTagName("Model").item(0);
+            if (model instanceof Element && namespaceUri.equals(((Element) model).getAttribute("ModelUri"))) {
+                result = document;
+                break;
+            }
+        }
+        if (result == null) {
+            throw new IllegalArgumentException("No required model loaded for namespace URI " + namespaceUri);
+        }
+        return result;
+    }
+
+    /**
+     * Returns the namespace index of {@code namespaceUri} in {@code document}.
+     *
+     * @param document the target document
+     * @param namespaceUri the namespace URI
+     * @return the namespace index
+     */
+    private static int getNamespaceIndex(Document document, String namespaceUri) {
+        NodeList namespaceUriElements = document.getElementsByTagName("NamespaceUris");
+        NodeList uris = ((Element) namespaceUriElements.item(0)).getElementsByTagName("Uri");
+        for (int i = 0; i < uris.getLength(); i++) {
+            if (namespaceUri.equals(uris.item(i).getTextContent())) {
+                return i + 1;
+            }
+        }
+        throw new IllegalArgumentException("No namespace index for " + namespaceUri + " in required model");
+    }
+
+    /**
+     * Replaces the namespace index in {@code nodeId}.
+     *
+     * @param nodeId the node id
+     * @param namespaceIndex the new namespace index
+     * @return the adjusted node id
+     */
+    private static String replaceNamespaceIndex(String nodeId, int namespaceIndex) {
+        int start = nodeId.indexOf("ns=") + 3;
+        int end = nodeId.indexOf(";", start);
+        return nodeId.substring(0, start) + namespaceIndex + nodeId.substring(end);
+    }
+
+    /**
      * Returns the next node element.
      * 
      * @param nodes    the nodes to search for
@@ -557,32 +628,24 @@ public class DomParser {
                     }
                 } else {
                     // other models
-                    String newRefId = refId.substring(0, refId.indexOf("=") + 1) + 1
-                            + refId.substring(refId.indexOf(";"), refId.length());
-                    for (int i = 1; i < documents.length; i++) {
-                        NodeList typeList = null;
-                        if (type == ElementType.ROOTOBJECT || type == ElementType.SUBOBJECT) {
-                            typeList = documents[i].getElementsByTagName("UAObjectType");
-                            type = ElementType.OBJECTTYPE;
-                        } else if (type == ElementType.FIELDVARIABLE || type == ElementType.ROOTVARIABLE) {
-                            typeList = documents[i].getElementsByTagName("UAVariableType");
-                            type = ElementType.VARIABLETYPE;
-                        }
-                        Element refElement = checkRelation(newRefId, typeList);
-                        if (refElement != null) {
-                            DescriptionOrDocumentation d = getDescriptionOrDocumentation(reference, refElement);
-                            // create Attribute
-                            reference = d.reference;
-                            createElement(type, refElement, refId, d.displayName, d.description, d.documentation, null,
-                                    null, null, null, null, false);
-                            break;
-                        } else if (type == ElementType.OBJECTTYPE) {
-                            type = ElementType.ROOTOBJECT;
-                        } else if (type == ElementType.VARIABLETYPE) {
-                            type = ElementType.FIELDVARIABLE;
-                        }
+                    String namespaceUri = getNamespaceUri(refId);
+                    Document document = getRequiredModel(namespaceUri);
+                    String newRefId = replaceNamespaceIndex(refId, getNamespaceIndex(document, namespaceUri));
+                    NodeList typeList = null;
+                    if (type == ElementType.ROOTOBJECT || type == ElementType.SUBOBJECT) {
+                        typeList = document.getElementsByTagName("UAObjectType");
+                        type = ElementType.OBJECTTYPE;
+                    } else if (type == ElementType.FIELDVARIABLE || type == ElementType.ROOTVARIABLE) {
+                        typeList = document.getElementsByTagName("UAVariableType");
+                        type = ElementType.VARIABLETYPE;
                     }
-
+                    Element refElement = checkRelation(newRefId, typeList);
+                    if (refElement != null) {
+                        DescriptionOrDocumentation d = getDescriptionOrDocumentation(reference, refElement);
+                        reference = d.reference;
+                        createElement(type, refElement, refId, d.displayName, d.description, d.documentation, null,
+                                null, null, null, null, false);
+                    }
                 }
                 break;
             }
@@ -1036,6 +1099,7 @@ public class DomParser {
         case ROOTMETHOD:
             RootMethodType uaRootMethod = new RootMethodType(id,
                     element.getAttribute("BrowseName").replaceAll("[\u201C\u201D\"\\\\]", ""), displayName, description, optional,
+
                     null, retrieveParent(element.getAttribute("ParentNodeId"), objectTypeList), objectFields);
             uaRootMethod.setVarName(retrieveParent(element.getAttribute("ParentNodeId"), objectTypeList) + displayName);
             if (!objectFields.isEmpty()) {
@@ -1358,7 +1422,8 @@ public class DomParser {
                         System.out.println("The following models are still missing:\n" + missingModels);
                     }
                 }
-                // �berpr�fung, ob files fehlen und wenn, ja welche
+
+                // Überprüfung, ob files fehlen und wenn, ja welche
             }
             if (!correct) {
                 boolean confirmed = false;
@@ -1476,6 +1541,7 @@ public class DomParser {
 
             parser = new DomParser(objectTypeList, objectList, variableList, methodList, dataTypeList, variableTypeList,
                     aliasList, hierarchy);
+            parser.namespaceUris = nameSpaceUris;
             File[] reqModels = checkRequiredModels(parser, modelName, path,
                     toOsPath(compSpec).replace(toOsPath(path + "/Opc.Ua."), "").replace(".NodeSet.xml", ""),
                     nameSpaceUris);
@@ -1494,7 +1560,7 @@ public class DomParser {
             Collector.collectInformation(compSpec.getName(), objectTypeList, objectList, variableList, methodList,
                     dataTypeList, variableTypeList, hierarchy, reqModels.length);
         } catch (ParserConfigurationException | SAXException | IOException e) {
-            System.out.println(e.getMessage());
+            throw new IllegalArgumentException("Cannot parse OPC UA NodeSet '" + compSpec + "': " + e.getMessage(), e);
         }
         return parser;
     }
@@ -1502,10 +1568,24 @@ public class DomParser {
     /**
      * Sets the folder where to generate example using IVML models.
      * 
-     * @param folder the folder name (by default "src/test/easy")
+     * @param folder the folder name (by default "target/opcua-parser")
      */
     public static void setUsingIvmlFolder(String folder) {
         usingIvmlFolder = folder;
+    }
+
+    /**
+     * Returns the IVML output folder, creating it if needed.
+     *
+     * @return the IVML output folder
+     * @throws IllegalStateException if the folder cannot be created
+     */
+    private static File getUsingIvmlFolder() {
+        File result = new File(usingIvmlFolder);
+        if ((!result.isDirectory() && !result.mkdirs()) || !result.canWrite()) {
+            throw new IllegalStateException("Cannot create or write OPC UA parser output folder '" + result + "'");
+        }
+        return result;
     }
 
     /**
@@ -1515,8 +1595,9 @@ public class DomParser {
      * @param ivmlFile the output file
      */
     private void createIvmlModel(String fileName, File ivmlFile) {
+        File ivmlFolder = getUsingIvmlFolder();
         Generator.generateIVMLModel(fileName, ivmlFile, hierarchy);
-        Generator.generateVDWConnectorSettings(fileName, hierarchy, usingIvmlFolder);
+        Generator.generateVDWConnectorSettings(fileName, hierarchy, ivmlFolder.getPath());
         println("FINISHED");
     }
 
@@ -1546,6 +1627,28 @@ public class DomParser {
         parser.createIvmlModel(outName, ivmlOut);
     }
 
+    /**
+     * Derives the technical IVML model name from {@code sourceFileName}.
+     *
+     * @param sourceFileName the source file name
+     * @return the technical IVML model name
+     */
+    private static String getModelName(String sourceFileName) {
+        String modelName = StringUtils.removeStart(sourceFileName, "Opc.Ua");
+        modelName = StringUtils.removeEnd(modelName, ".xml");
+        modelName = StringUtils.removeEnd(modelName, ".NodeSet2");
+        modelName = modelName.replace(".", "");
+        modelName = modelName.replace("-", "_");
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < modelName.length(); i++) {
+            char c = modelName.charAt(i);
+            if (!Character.isWhitespace(c)) {
+                result.append(c);
+            }
+        }
+        return result.toString();
+    }
+
     // checkstyle: stop method length check
 
     /**
@@ -1554,10 +1657,11 @@ public class DomParser {
      * @param args command line arguments (ignored)
      */
     public static void main(String[] args) {
-        File file;
         ArrayList<File> files = new ArrayList<File>();
-        if (args.length == 1) {
-            file = new File(args[0]);
+        if (args.length > 0) {
+            for (String argument : args) {
+                files.add(new File(argument));
+            }
         } else {
             File baseDir = new File("src/main/resources/NodeSets/");
             files.add(new File(baseDir, "Opc.Ua.Woodworking.NodeSet2.xml"));
@@ -1647,16 +1751,16 @@ public class DomParser {
             //files.add(new File(baseDir, "Opc.Ua.Gds.NodeSet2.xml"));
             files.add(new File(baseDir, "Opc.Ua.Machinery.NodeSet2.xml"));
         }
-        for (File f : files) {
-            file = f;
-            String fileName = file.getName();
-            fileName = StringUtils.removeStart(fileName, "Opc.Ua");
-            fileName = StringUtils.removeEnd(fileName, ".xml");
-            fileName = StringUtils.removeEnd(fileName, ".NodeSet2");
-            fileName = fileName.replace(".", "");
-            fileName = fileName.replace("-", "_");
-            File ivmlFile = new File("target/gen/Opc" + fileName + ".ivml");
-            process(file, fileName, ivmlFile, verboseDefault);
+        File ivmlFolder = getUsingIvmlFolder();
+        File collectorFolder = new File("target/tmp");
+        if (!collectorFolder.isDirectory() && !collectorFolder.mkdirs()) {
+            throw new IllegalStateException("Cannot create OPC UA parser collector folder '" + collectorFolder + "'");
+        }
+        for (File sourceFile : files) {
+            String sourceFileName = sourceFile.getName();
+            String modelName = getModelName(sourceFileName);
+            File ivmlFile = new File(ivmlFolder, "Opc" + modelName + ".ivml");
+            process(sourceFile, modelName, ivmlFile, verboseDefault);
         }
         Collector.informationToExcel();
     }

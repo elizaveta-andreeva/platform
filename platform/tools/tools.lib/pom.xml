@@ -79,22 +79,9 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
+  
   <build>
       <plugins>
-          <plugin>
-            <groupId>kr.motd.maven</groupId>
-            <artifactId>os-maven-plugin</artifactId>
-            <version>${kr.motd.maven.os.version}</version>
-            <executions>
-              <execution>
-                <phase>initialize</phase>
-                <goals>
-                  <goal>detect</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>    
 
            <plugin>
              <artifactId>maven-compiler-plugin</artifactId>
@@ -187,28 +174,7 @@
             </dependencies>        
           </plugin>
           
-          <plugin>
-            <groupId>org.jacoco</groupId>
-            <artifactId>jacoco-maven-plugin</artifactId>
-            <version>${org.jacoco.maven.jacoco.version}</version>
-            <executions>
-                <execution>
-                    <goals>
-                        <goal>prepare-agent</goal>
-                    </goals>
-                </execution>
-                <execution>
-                    <id>report</id>
-                    <phase>test</phase>
-                    <goals>
-                        <goal>report</goal>
-                    </goals>
-                </execution>
-            </executions>
-          </plugin>
-          
       </plugins>
-  
       <pluginManagement>
           <plugins>
             <plugin>
@@ -266,8 +232,41 @@
          <version>1.0-beta-6</version>
       </extension>       
     </extensions>
-      
   </build>
+
+  <profiles>
+    <profile>
+      <id>CI</id>
+      <activation>
+        <property>
+          <name>inCI</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>${org.jacoco.maven.jacoco.version}</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>prepare-agent</goal>
+                    </goals>
+                </execution>
+                <execution>
+                    <id>report</id>
+                    <phase>test</phase>
+                    <goals>
+                        <goal>report</goal>
+                    </goals>
+                </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
   <distributionManagement>
     <repository>

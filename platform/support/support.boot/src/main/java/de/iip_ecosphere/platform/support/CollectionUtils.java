@@ -36,12 +36,77 @@ public class CollectionUtils {
      * @param <T> the element type
      * @param elements the elements
      * @return the list containing all {@code elements}
+     * @see #toListWithNull(Object[])
      */
     @SafeVarargs
     public static <T> List<T> toList(T... elements) {
         List<T> result = new ArrayList<T>();
         for (T e : elements) {
             result.add(e);
+        }
+        return result;
+    }
+
+    /**
+     * Turns an array into a list.
+     * 
+     * @param <T> the element type
+     * @param elements the array to convert, may be <b>null</b>
+     * @return the converted list, may be <b>null</b> if {@code elements} was <b>null</b>
+     * @see #toList(Object...)
+     */
+    public static <T> List<T> toListWithNull(T[] elements) {
+        return null == elements ? null : toList(elements);
+    }
+    
+    /**
+     * Converts a number list to a byte array.
+     * 
+     * @param list the list to be converted, may be <b>null</b>
+     * @return the converted array, may be <b>null</b> if {@code list} was <b>null</b>
+     */
+    public static byte[] toByteArray(List<? extends Number> list) {
+        byte[] result = null;
+        if (null != list) {
+            result = new byte[list.size()];
+            for (int i = 0; i < list.size(); i++) {
+                result[i] = list.get(i).byteValue();
+            }
+        }
+        return result;
+    }
+    
+    /**
+     * Adds all values from {@code data} to {@code list}.
+     * 
+     * @param list the list to modify, may be <b>null</b> for no action
+     * @param data the array to copy from, may be <b>null</b> for no action
+     * @return {@code list}
+     */
+    public static List<Integer> addAllBytes(List<Integer> list, byte[] data) {
+        if (null != list && null != data) {
+            for (int i = 0; i < data.length; i++) {
+                list.add(Integer.valueOf(data[i]));
+            }
+        }
+        return list;
+    }
+
+    /**
+     * Turns a list into an array.
+     * 
+     * @param <T> the element type
+     * @param list the list to convert, may be <b>null</b>
+     * @return the converted array, may be <b>null</b> if {@code list} was null
+     */
+    @SuppressWarnings("unchecked")
+    public static <T> T[] toArray(List<T> list, Class<T> cls) {
+        T[] result;
+        if (list != null) {
+            result = (T[]) java.lang.reflect.Array.newInstance(cls, list.size());
+            list.toArray(result);
+        } else {
+            result = null;
         }
         return result;
     }
@@ -222,7 +287,7 @@ public class CollectionUtils {
      * Merges source into target recursively.
      *
      * If a key exists in both maps:
-     * a) If both values are Map<String, Object>, they are merged recursively.
+     * a) If both values are Map&lt;String, Object&gt;, they are merged recursively.
      * b) Otherwise, the value from source replaces the one in target.
      *
      * @param <K> the key type (assumed to be homogeneous even in sub maps)
@@ -245,5 +310,34 @@ public class CollectionUtils {
         }
         return target;
     }    
+    
+    /**
+     * Returns whether two objects are equal even if they are <b>null</b>.
+     * 
+     * @param o1 the first object
+     * @param o2 the second object
+     * @return {@code true} for equal or both are <b>null</b>, {@code false} for different
+     */
+    public static boolean equals(Object o1, Object o2) {
+        return o1 == null ? o1 == o2 : o1.equals(o2);
+    }
+
+    /**
+     * Returns whether {@code element} is in {@code array}, compared by equality.
+     * 
+     * @param <T> the element type
+     * @param array the array, may be <b>null</b>
+     * @param element the element, may be <b>null</b> 
+     * @return {@code true} for containment, {@code false} else
+     */
+    public static <T> boolean contains(T[] array, T element) {
+        boolean found = false;
+        if (null != array) {
+            for (int i = 0; !found && i < array.length; i++) {
+                found |=  equals(array[i], element);
+            }
+        }
+        return found;
+    }
     
 }

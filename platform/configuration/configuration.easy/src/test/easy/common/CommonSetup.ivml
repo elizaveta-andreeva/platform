@@ -6,11 +6,11 @@ project CommonSetup {
 
     // ------------ component setup ------------------
 
-    serializer = Serializer::Json;
+    // serializer is now individual per model
 
     // containerManager is already defined    
     serviceManager = SpringCloudStream {
-        memLimit = 512
+        memLimit = 768
     };
     
     //aas = AasImpl::BaSyx2; // > for BaSyx2/plugins
@@ -107,7 +107,6 @@ project CommonSetup {
         aasPersistency;
         aasProtocol;
         aasAccessControlAllowOrigin;
-        serializer;
         transportProtocol;
         serviceManager;
         serviceProtocol;

@@ -79,6 +79,8 @@ The plugin supports the following configuration settings:
   - `enableJavadoc` (default `false`, user property `enableJava`) enables JavaDoc generation
   - `disablePython` (default `false`, user property `disablePython`) sets system properties to disable platform Python "compilation" and testing.
   - `disablePythonTests` (default `false`, user property `disablePythonTests`) sets system properties to disable platform Python testing.
+  - `disableAppTests` (default `false`, user property `disableAppTests`) sets system properties to disable oktoflow app testing.
+  - `disableTests` (default `false`, user property `disableTests`) is a shortcut for `disableJavaTests` and `disablePythonTests` and `disableAppTests`.
   - `disableBuild` (default `false`, user property `disableBuild`) is a shortcut for `disableJava` and `disablePython`.
   - `python-compile.hashDir` (default `""`, user property `python-compile.hashDir`) defines the hash directory for python compile tests, if empty use the Maven build directory of this execution.
   - `systemProperties` properties to be set for the Maven POM to be called, given in terms of `key` and `value` entries (default: not given)
@@ -97,4 +99,4 @@ The plugin supports the following configuration settings:
   - `configSkipMapDashboard` (default unset, user-property `configuration.skipMapDashboard`) passes on whether the dashboard mapper shall be skipped
   - `omitProperties` (default `false`, user property `omitProperties`) omit most of the maven system settings, let the invoked POM decide
   
-The plugin takes over the system properties of the original request, in particular `-Dunpack.force` and passes them to the invoked maven processes.
+The plugin takes over the system properties of the original request, in particular `-Dunpack.force` and passes them to the invoked maven processes. The invoker plugin also considers `-Dprofile` as requested by the `maven-profile`, which nicely traces invoker calls, and, to prevent overwriting the last inner invocation by the POM this plugin is specified in, delays the end of this invoker plugin (logged on the command line).
