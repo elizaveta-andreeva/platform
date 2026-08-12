@@ -12,15 +12,24 @@
 
 package test.de.iip_ecosphere.platform.configuration.easyProducer.opcua;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Method;
+import java.io.PrintStream;
 import java.nio.charset.Charset;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.xml.sax.SAXException;
 
+import de.uni_hildesheim.sse.easy.loader.ManifestLoader;
 import de.iip_ecosphere.platform.configuration.easyProducer.opcua.parser.DomParser;
 import de.iip_ecosphere.platform.support.FileUtils;
+import net.ssehub.easy.basics.modelManagement.ModelManagementException;
+import net.ssehub.easy.producer.core.mgmt.EasyExecutor;
+import net.ssehub.easy.varModel.confModel.Configuration;
 
 /**
  * Tests {@link DomParser}.
@@ -28,6 +37,269 @@ import de.iip_ecosphere.platform.support.FileUtils;
  * @author Holger Eichelberger, SSE
  */
 public class DomParserTest {
+
+    /**
+     * Tests creating and using a dedicated parser output folder.
+     *
+     * @throws IOException shall not occur
+     */
+    @Test
+    public void testDomParserOutputFolder() throws IOException {
+        File in = new File("src/test/resources/NodeSets/Opc.Ua.Woodworking.NodeSet2.xml");
+        File output = new File("target/opcua-parser-test");
+        File legacyOutput = new File("src/test/easy/VDW_ToolOutput.ivml");
+        FileUtils.deleteDirectory(output);
+        Assert.assertFalse(output.exists());
+        Assert.assertFalse(legacyOutput.exists());
+        DomParser.setUsingIvmlFolder(output.getPath());
+        try {
+            DomParser.process(in, "ToolOutput", new File(output, "OpcToolOutput.ivml"), false);
+            Assert.assertTrue(new File(output, "OpcToolOutput.ivml").isFile());
+            Assert.assertTrue(new File(output, "VDW.ivml").isFile());
+            Assert.assertTrue(new File(output, "VDW_ToolOutput.ivml").isFile());
+            Assert.assertFalse(legacyOutput.exists());
+        } finally {
+            DomParser.setUsingIvmlFolder("target/tmp");
+            FileUtils.deleteDirectory(output);
+        }
+    }
+
+    /**
+     * Tests reporting an invalid parser output folder.
+     *
+     * @throws IOException shall not occur
+     */
+    @Test
+    public void testDomParserInvalidOutputFolder() throws IOException {
+        File output = new File("target/opcua-parser-output-file");
+        FileUtils.deleteQuietly(output);
+        Assert.assertTrue(output.createNewFile());
+        DomParser.setUsingIvmlFolder(output.getPath());
+        try {
+            DomParser.process(new File("src/test/resources/NodeSets/Opc.Ua.Woodworking.NodeSet2.xml"),
+                "ToolOutput", new File(output, "OpcToolOutput.ivml"), false);
+            Assert.fail("Expected an invalid output folder to be rejected");
+        } catch (IllegalStateException e) {
+            Assert.assertTrue(e.getMessage().contains(output.getPath()));
+        } finally {
+            DomParser.setUsingIvmlFolder("target/tmp");
+            FileUtils.deleteQuietly(output);
+        }
+    }
+
+    /**
+     * Tests processing one explicitly supplied companion specification.
+     */
+    @Test
+    public void testDomParserSingleInput() {
+        File in = new File("src/test/resources/NodeSets/Opc.Ua.MachineTool.NodeSet2.xml");
+        Assert.assertTrue(in.isFile());
+        File out = new File("target/tmp/OpcMachineTool.ivml");
+        out.getParentFile().mkdirs();
+        if (out.exists()) {
+            Assert.assertTrue(out.delete());
+        }
+        DomParser.setDefaultVerbose(false);
+        DomParser.setUsingIvmlFolder("target/tmp");
+
+        DomParser.main(new String[] {in.toString()});
+
+        Assert.assertTrue(out.isFile());
+    }
+
+    /**
+     * Tests deriving technical IVML model names.
+     *
+     * @throws ReflectiveOperationException shall not occur
+     */
+    @Test
+    public void testDomParserModelNameDerivation() throws ReflectiveOperationException {
+        Method method = DomParser.class.getDeclaredMethod("getModelName", String.class);
+        method.setAccessible(true);
+        String[][] names = {
+            {"Opc.Ua.MachineTool.NodeSet2.xml", "MachineTool"},
+            {"Machine-Tool.xml", "Machine_Tool"},
+            {"Machine_Tool.xml", "Machine_Tool"},
+            {"Machine.Tool.v1.xml", "MachineToolv1"},
+            {"Machine  \t Tool.xml", "MachineTool"}
+        };
+        for (String[] name : names) {
+            Assert.assertEquals(name[1], method.invoke(null, name[0]));
+        }
+    }
+
+    /**
+     * Tests processing and loading a NodeSet with whitespace in its file name.
+     *
+     * @throws IOException shall not occur
+     * @throws ModelManagementException shall not occur
+     */
+    @Test
+    public void testDomParserWhitespaceModelName() throws IOException, ModelManagementException {
+        File nodeSets = new File("src/test/resources/NodeSets");
+        File testFolder = new File("target/tmp/domParserWhitespaceModelName");
+        File output = new File(testFolder, "connector/OpcMachineTool.ivml");
+        File invalidOutput = new File(testFolder, "connector/OpcMachine Tool.ivml");
+        if (testFolder.exists()) {
+            FileUtils.deleteDirectory(testFolder);
+        }
+        Assert.assertTrue(testFolder.mkdirs());
+        FileUtils.copyDirectory(new File(nodeSets, "RequiredModels"), new File(testFolder, "RequiredModels"));
+        File sourceFile = new File(testFolder, "Machine Tool.xml");
+        FileUtils.copyFile(new File(nodeSets, "Opc.Ua.MachineTool.NodeSet2.xml"), sourceFile);
+        output.delete();
+        invalidOutput.delete();
+        DomParser.setDefaultVerbose(false);
+        DomParser.setUsingIvmlFolder(new File(testFolder, "connector").getPath());
+
+        try {
+            DomParser.main(new String[] {sourceFile.getPath()});
+
+            Assert.assertTrue(output.isFile());
+            String contents = FileUtils.readFileToString(output, Charset.forName("UTF-8"));
+            Assert.assertTrue(contents.startsWith("project OpcMachineTool {"));
+            Assert.assertFalse(invalidOutput.exists());
+            assertModelLoads(output.getParentFile(), "OpcMachineTool");
+        } finally {
+            output.delete();
+            invalidOutput.delete();
+            FileUtils.deleteDirectory(testFolder);
+            DomParser.setUsingIvmlFolder("target/tmp");
+        }
+    }
+
+    /**
+     * Asserts that {@code modelName} can be loaded from {@code modelFolder}.
+     *
+     * @param modelFolder the model folder
+     * @param modelName the model name
+     * @throws IOException shall not occur
+     * @throws ModelManagementException shall not occur
+     */
+    private static void assertModelLoads(File modelFolder, String modelName)
+        throws IOException, ModelManagementException {
+        File metaModelFolder = new File("src/main/easy");
+        ManifestLoader loader = new ManifestLoader(false, DomParserTest.class.getClassLoader());
+        loader.startup();
+        EasyExecutor executor = new EasyExecutor(new File("."), metaModelFolder, modelName);
+        executor.prependIvmlFolder(modelFolder);
+        try {
+            executor.setupLocations();
+            executor.loadIvmlModel();
+            Configuration configuration = executor.getConfiguration();
+            Assert.assertNotNull(configuration);
+            Assert.assertEquals(modelName, configuration.getProject().getName());
+        } finally {
+            executor.discardLocations();
+            executor.clearModels();
+            loader.shutdown();
+        }
+    }
+
+    /**
+     * Tests processing explicit inputs exactly once in caller order.
+     */
+    @Test
+    public void testDomParserMultipleInputs() {
+        File first = new File("src/test/resources/NodeSets/Opc.Ua.Woodworking.NodeSet2.xml");
+        File second = new File("src/test/resources/NodeSets/Opc.Ua.MachineTool.NodeSet2.xml");
+        File firstOut = new File("target/tmp/OpcWoodworking.ivml");
+        File secondOut = new File("target/tmp/OpcMachineTool.ivml");
+        Assert.assertTrue(first.isFile());
+        Assert.assertTrue(second.isFile());
+        firstOut.getParentFile().mkdirs();
+        if (firstOut.exists()) {
+            Assert.assertTrue(firstOut.delete());
+        }
+        if (secondOut.exists()) {
+            Assert.assertTrue(secondOut.delete());
+        }
+        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+        PrintStream previousOut = System.out;
+        try {
+            System.setOut(new PrintStream(buffer));
+            DomParser.setDefaultVerbose(false);
+            DomParser.setUsingIvmlFolder("target/tmp");
+            DomParser.main(new String[] {first.toString(), second.toString()});
+        } finally {
+            System.setOut(previousOut);
+        }
+
+        Assert.assertTrue(firstOut.isFile());
+        Assert.assertTrue(secondOut.isFile());
+        String output = new String(buffer.toByteArray(), Charset.defaultCharset());
+        String firstMessage = "Processing " + first;
+        String secondMessage = "Processing " + second;
+        Assert.assertTrue(output.indexOf(firstMessage) >= 0);
+        Assert.assertTrue(output.indexOf(secondMessage) >= 0);
+        Assert.assertTrue(output.indexOf(firstMessage) < output.indexOf(secondMessage));
+        Assert.assertEquals(output.indexOf(firstMessage), output.lastIndexOf(firstMessage));
+        Assert.assertEquals(output.indexOf(secondMessage), output.lastIndexOf(secondMessage));
+    }
+    
+
+    /**
+     * Tests propagation of XML parser failures.
+     * Tests namespace-aware resolution if a colliding required model is loaded first.
+     *
+     * @throws IOException shall not occur
+     */
+    @Test
+    public void testParserErrorPropagation() throws IOException {
+        File tmp = new File("target/tmp");
+        tmp.mkdirs();
+        File invalid = File.createTempFile("invalid-opcua-input-", ".xml", tmp);
+        try (FileWriter writer = new FileWriter(invalid)) {
+            writer.write("<invalid>");
+        }
+        try {
+            DomParser.process(invalid, "Invalid", new File(tmp, "OpcInvalid.ivml"), false);
+            Assert.fail("Expected malformed XML input to be rejected");
+        } catch (IllegalArgumentException e) {
+            Assert.assertTrue(e.getMessage().contains(invalid.toString()));
+            Assert.assertTrue(e.getCause() instanceof SAXException);
+        } finally {
+            Assert.assertTrue(invalid.delete());
+        }
+    }    
+
+    /**
+     * Tests external reference resolution, shall fail first.
+     *
+     * @throws IOException shall not occur
+     */
+    @Test
+    public void testExternalReferenceResolutionWrongFirst() throws IOException {
+        assertExternalReferenceResolution("WrongFirst");
+    }
+
+    /**
+     * Tests namespace-aware resolution if the referenced required model is loaded first.
+     *
+     * @throws IOException shall not occur
+     */
+    @Test
+    public void testExternalReferenceResolutionCorrectFirst() throws IOException {
+        assertExternalReferenceResolution("CorrectFirst");
+    }
+
+    /**
+     * Tests rejecting an external reference with an unknown source namespace index.
+     */
+    @Test
+    public void testUnknownExternalNamespaceIndex() {
+        File in = new File("src/test/resources/NodeSets/Opc.Ua.ExternalReferenceUnknownNamespace.NodeSet2.xml");
+        Assert.assertTrue(in.isFile());
+        File out = new File("target/tmp/ExternalReferenceUnknownNamespace.ivml");
+
+        try {
+            DomParser.process(in, "ExternalReferenceUnknownNamespace", out, false);
+            Assert.fail("Expected an invalid namespace index to be rejected");
+        } catch (IllegalArgumentException e) {
+            Assert.assertTrue(e.getMessage().contains("No namespace URI"));
+            Assert.assertTrue(e.getMessage().contains("ns=4;i=1002"));
+        }
+    }
     
     /**
      * Tests {@link DomParser} on the machine tool companion spec XML.
@@ -52,6 +324,69 @@ public class DomParserTest {
         String exContents = normalize(FileUtils.readFileToString(expected, charset));
         String outContents = normalize(FileUtils.readFileToString(out, charset));
         Assert.assertEquals(exContents, outContents);
+        Assert.assertTrue(outContents.contains("UADataType opcNumberType = {"));
+        Assert.assertTrue(outContents.contains("UADataType opcLocalizedTextType = {"));
+        Assert.assertTrue(outContents.contains("UADataType opcUtcTimeType = {"));
+        Assert.assertTrue(outContents.contains("UADataType opcNodeIdType = {"));
+    }
+
+    /**
+     * Parses and checks a synthetic external-reference case.
+     *
+     * @param order the required-model order suffix
+     * @throws IOException shall not occur
+     */
+    private void assertExternalReferenceResolution(String order) throws IOException {
+        String name = "ExternalReferenceResolution" + order;
+        File in = new File("src/test/resources/NodeSets/Opc.Ua." + name + ".NodeSet2.xml");
+        Assert.assertTrue(in.isFile());
+        File out = new File("target/tmp", name + ".ivml");
+        out.getParentFile().mkdirs();
+        if (out.exists()) {
+            Assert.assertTrue(out.delete());
+        }
+
+        DomParser.setDefaultVerbose(false);
+        DomParser.setUsingIvmlFolder("target/tmp");
+        DomParser.process(in, name, out, false);
+
+        String contents = normalize(FileUtils.readFileToString(out, Charset.forName("UTF-8")));
+        Assert.assertTrue(contents.contains("typeDefinition = refBy(opcCorrectTargetType)"));
+        Assert.assertTrue(contents.contains("UAObjectTypeType opcCorrectTargetType = {"));
+        Assert.assertFalse(contents.contains("opcWrongTargetType"));
+    }
+
+    /**
+     * Tests resolving an external type definition for root variables.
+     *
+     * @throws IOException shall not occur
+     */
+    @Test
+    public void testExternalRootVariableTypeDefinition() throws IOException {
+        File in = new File("src/test/resources/NodeSets/Opc.Ua.ExternalRootVariable.NodeSet2.xml");
+        Assert.assertTrue(in.isFile());
+        File tmp = new File("target/tmp");
+        tmp.mkdirs();
+        File out = new File(tmp, "OpcExternalRootVariable.ivml");
+        if (out.exists()) {
+            Assert.assertTrue(out.delete());
+        }
+
+        DomParser.setUsingIvmlFolder("target/tmp");
+        DomParser.process(in, "ExternalRootVariable", out, false);
+
+        Assert.assertTrue(out.isFile());
+        String contents = FileUtils.readFileToString(out, Charset.forName("UTF-8"));
+        Assert.assertTrue(contents.contains("UAVariableTypeType opcExternalMeasurementValueTypeType"));
+        Assert.assertTrue(contents.contains("nodeId = {nameSpaceIndex = 2, identifier = 2001}"));
+        Assert.assertTrue(contents.contains("UARootVariableType opcSyntheticRootTypePressure"));
+        Assert.assertTrue(contents.contains("nodeId = {nameSpaceIndex = 1, identifier = 6001}"));
+        Assert.assertTrue(contents.contains("typeDefinition = refBy(opcExternalMeasurementValueTypeType)"));
+        Assert.assertTrue(contents.contains("rootParent = refBy(opcSyntheticRootType)"));
+        Assert.assertTrue(contents.contains("optional = false,\n\t\ttype = refBy(FloatType)"));
+        Assert.assertTrue(contents.contains("UARootVariableType opcSyntheticRootTypeTemperature"));
+        Assert.assertTrue(contents.contains("nodeId = {nameSpaceIndex = 1, identifier = 6002}"));
+        Assert.assertTrue(contents.contains("optional = true,\n\t\ttype = refBy(DoubleType)"));
     }
 
     /**
@@ -77,6 +412,7 @@ public class DomParserTest {
         String exContents = normalize(FileUtils.readFileToString(expected, charset));
         String outContents = normalize(FileUtils.readFileToString(out, charset));
         Assert.assertEquals(exContents, outContents);
+        Assert.assertTrue(outContents.contains("UADataType opcGuidType = {"));
     }
     
     /**
@@ -125,6 +461,7 @@ public class DomParserTest {
      * @return the normalized text
      */
     private static String normalize(String text) {
+        text = text.replace("\r\n", "\n");
         StringBuilder tmp = new StringBuilder(text);
         for (int i = 0; i < tmp.length(); i++) {
             int c = (int) tmp.charAt(i);

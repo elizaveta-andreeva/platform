@@ -138,7 +138,13 @@ public class AbstractInvokerMojo extends AbstractMojo implements Logger { // Abs
 
     @Parameter(property = "disableJavaTests", defaultValue = "false") 
     private boolean disableJavaTests;
-    
+
+    @Parameter(property = "disableTests", defaultValue = "false") 
+    private boolean disableTests;
+
+    @Parameter(property = "disableAppTests", defaultValue = "false") 
+    private boolean disableAppTests;
+
     @Parameter(property = "disablePython", defaultValue = "false") 
     private boolean disablePython;
 
@@ -198,6 +204,9 @@ public class AbstractInvokerMojo extends AbstractMojo implements Logger { // Abs
     
     @Parameter(property = "configuration.skipMapDashboard")
     private String configSkipMapDashboard;
+
+    @Parameter(property = "profile")
+    private boolean profile; // is maven-profiler active?
 
     /**
      * A specific <code>fileSet</code> rule to select files and directories.
@@ -304,7 +313,8 @@ public class AbstractInvokerMojo extends AbstractMojo implements Logger { // Abs
             } else {
                 value = Boolean.valueOf(skipTests);
             }
-            value = value || disableJava || disableBuild || disableJavaTests;
+            value |= disableJava || disableJavaTests;
+            value |= disableBuild || disableTests;
             sysProperties.put("maven.test.skip", String.valueOf(value));
             sysProperties.put("skipTests", String.valueOf(value)); // maven.test.skip might be sufficient
             sysProperties.put("jacoco.skip", String.valueOf(skipJacoco));
@@ -313,11 +323,14 @@ public class AbstractInvokerMojo extends AbstractMojo implements Logger { // Abs
             setAsProperty(sysProperties, "easy.docker.skip", easyDockerSkip);
             setAsProperty(sysProperties, "configuration.tracingLevel", configTracingLevel);
             setAsProperty(sysProperties, "configuration.skipMapDashboard", configSkipMapDashboard);
-            value = (disablePython || disableBuild);
+            value = disablePython || disableBuild;
             sysProperties.put("python-compile.skip", String.valueOf(value));
+            value = disablePython || disableBuild || disableTests;
             sysProperties.put("python-test.skip", String.valueOf(value));
             value = disablePythonTests;
             sysProperties.put("python-test.skip", String.valueOf(value));
+            value = disableAppTests || disableTests;
+            sysProperties.put("configuration.testApp.skip", String.valueOf(value));
         }
         if (buildId != null && buildId.length() > 0) { // CI defined build id for time collector
             sysProperties.put("iip.ciBuildId", buildId);
@@ -500,6 +513,14 @@ public class AbstractInvokerMojo extends AbstractMojo implements Logger { // Abs
                 }
             } else {
                 getLog().info("Maven invoker disabled, not executing.");
+            }
+        }
+        if (profile) { // quick solution so that last inner report is not overridden by outer report
+            try {
+                final long wait = 1100;
+                getLog().info("For maven-profiler: Delaying execution by " + wait + "ms");
+                Thread.sleep(wait);
+            } catch (InterruptedException e) {
             }
         }
     }

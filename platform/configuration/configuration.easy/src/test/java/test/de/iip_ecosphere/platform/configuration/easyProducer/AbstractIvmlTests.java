@@ -17,13 +17,12 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.HashSet;
-import java.util.Optional;
-import java.util.ServiceLoader;
 import java.util.Set;
 import java.util.concurrent.ExecutionException;
 
 import org.junit.Assert;
 
+import de.iip_ecosphere.platform.configuration.cfg.ConfigurationFactory;
 import de.iip_ecosphere.platform.configuration.easyProducer.ConfigurationLifecycleDescriptor;
 import de.iip_ecosphere.platform.configuration.easyProducer.ConfigurationLifecycleDescriptor.ExecutionMode;
 import de.iip_ecosphere.platform.configuration.easyProducer.ConfigurationSetup;
@@ -37,7 +36,6 @@ import de.iip_ecosphere.platform.support.FileUtils;
 import de.iip_ecosphere.platform.support.LifecycleDescriptor;
 import de.iip_ecosphere.platform.support.OsUtils;
 import de.iip_ecosphere.platform.support.ZipUtils;
-import de.iip_ecosphere.platform.support.jsl.ServiceLoaderUtils;
 import net.ssehub.easy.reasoning.core.reasoner.ReasoningResult;
 import net.ssehub.easy.varModel.confModel.Configuration;
 import test.de.iip_ecosphere.platform.support.aas.TestWithPlugin;
@@ -75,6 +73,16 @@ public abstract class AbstractIvmlTests extends TestWithPlugin {
         }
         System.setProperty("iip.resources", f.getAbsolutePath());
         PlatformInstantiator.setTraceFilter();
+    }
+    
+    /**
+     * Creates a sibling test folder relative to {@link #TEST_BASE_FOLDER}.
+     * 
+     * @param name the name of the test folder, shall differ from {@link #TEST_BASE_FOLDER}
+     * @return the sibling folder
+     */
+    public static File siblingTestFolder(String name) {
+        return new File(TEST_BASE_FOLDER.getParentFile(), name);
     }
     
     /**
@@ -148,13 +156,10 @@ public abstract class AbstractIvmlTests extends TestWithPlugin {
      */
     protected static ConfigurationLifecycleDescriptor assertLifecycleDescriptor() {
         // check that the registration works, but do not execute all descriptors
-        ServiceLoader<LifecycleDescriptor> loader = ServiceLoaderUtils.load(LifecycleDescriptor.class);
-        Optional<LifecycleDescriptor> first = ServiceLoaderUtils
-            .stream(loader)
-            .filter(s -> s instanceof ConfigurationLifecycleDescriptor)
-            .findFirst();
-        Assert.assertTrue(first.isPresent());
-        ConfigurationLifecycleDescriptor lcd = (ConfigurationLifecycleDescriptor) first.get(); 
+        LifecycleDescriptor desc = ConfigurationFactory.getLifecycleDescriptor();
+        Assert.assertNotNull(desc);
+        Assert.assertTrue(desc instanceof ConfigurationLifecycleDescriptor);
+        ConfigurationLifecycleDescriptor lcd = (ConfigurationLifecycleDescriptor) desc; 
         lcd.setExecutionMode(ExecutionMode.TOOLING);
         Assert.assertNotNull(lcd);
         return lcd;
@@ -177,7 +182,8 @@ public abstract class AbstractIvmlTests extends TestWithPlugin {
          * 
          * @param ivmlModelName the name of the IVML model representing the topmost platform configuration
          * @param modelFolder the folder where the model is located (ignored if <b>null</b>)
-         * @param outputFolder the output folder for code generation
+         * @param outputFolder the output folder for code generation, will be cleaned 
+         *     depending on {@link #cleanOutputFolder()}
          */
         public TestConfigurer(String ivmlModelName, File modelFolder, File outputFolder) {
             super(ivmlModelName, relocateTestModel(modelFolder), outputFolder);
