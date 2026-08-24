@@ -72,30 +72,53 @@ project Energy {
                 cachingTime = CACHE_ALWAYS
             }
         }
-    };    
-    RecordType opcOut = {
-        name = "OpcOut",
-        fields = {
-            Field {
-                name = "NonElectricalEnergy",
-                type = refBy(opcINonElectricalEnergyType),
-                cachingTime = CACHE_ALWAYS
-            }, Field {
-                name = "BaseFlow",
-                type = refBy(opcIBaseFlowType),
-                cachingTime = CACHE_ALWAYS
-            }, Field {
-                name = "VolumeFlow",
-                type = refBy(opcIVolumeFlowType),
-                cachingTime = CACHE_ALWAYS
-            }, Field {
-                name = "MassFlow",
-                type = refBy(opcIMassFlowType),
-                cachingTime = CACHE_ALWAYS
-            }
-        }
     };
-
+    
+RecordType opcOut = {
+    name = "OpcOut",
+    fields = {
+        Field {
+            name = "NeEnergyImportHp",
+            type = refBy(DoubleType),
+            cachingTime = CACHE_ALWAYS
+        },
+        Field {
+            name = "NeEnergyExportHp",
+            type = refBy(DoubleType),
+            cachingTime = CACHE_ALWAYS
+        },
+        Field {
+            name = "Pressure",
+            type = refBy(FloatType),
+            cachingTime = CACHE_ALWAYS
+        },
+        Field {
+            name = "Temperature",
+            type = refBy(FloatType),
+            cachingTime = CACHE_ALWAYS
+        },
+        Field {
+            name = "Volume",
+            type = refBy(FloatType),
+            cachingTime = CACHE_ALWAYS
+        },
+        Field {
+            name = "VolumeFlowRate",
+            type = refBy(FloatType),
+            cachingTime = CACHE_ALWAYS
+        },
+        Field {
+            name = "Mass",
+            type = refBy(FloatType),
+            cachingTime = CACHE_ALWAYS
+        },
+        Field {
+            name = "MassFlowRate",
+            type = refBy(FloatType),
+            cachingTime = CACHE_ALWAYS
+        }
+    }
+};
     // ------------ individual, reusable services ------------------
 
     OpcUaV1Connector myOpcUaConn = {
@@ -109,8 +132,8 @@ project Energy {
         
         input = {{type=refBy(opcIn)}},
         output = {{type=refBy(opcOut)}},
-        inInterface = {{type=refBy(opcIn), path="Objects/Sinumerik/Energy"}}, 
-        outInterface = {{type=refBy(opcOut), path="Objects/Sinumerik/Energy"}}
+        inInterface = {{type=refBy(opcIn), path="Objects/Sinumerik/Energy/"}}, 
+        outInterface = {{type=refBy(opcOut), path="Objects/Sinumerik/Energy/"}}
         /*operations = {
           FieldAssignmentOperation{field=myConnPltfIn.fields[1], 
             operation=AddDataTranslationOperation{
