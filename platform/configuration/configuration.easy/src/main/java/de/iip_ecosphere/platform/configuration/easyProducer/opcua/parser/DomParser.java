@@ -5,12 +5,12 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -65,6 +65,7 @@ enum ElementType {
 public class DomParser {
 
     private static final String IVML_OUTPUT_PROPERTY = "opcua.ivml.output";
+    private static final int INDEX_THRESHOLD = 50;
     private static boolean verboseDefault = false;
     private static String usingIvmlFolder = System.getProperty(IVML_OUTPUT_PROPERTY, "target/opcua-parser");
     private static final Set<String> IDENTIFY_FIELDS_PERMITTED_REFERENCE_TYPE;
@@ -95,15 +96,14 @@ public class DomParser {
     private NodeList namespaceUris;
     private ArrayList<NodeList> externAliasLists;
     
-    private Map<String, Element> objectTypeMap;
-    private Map<String, Element> objectMap;
-    private Map<String, Element> variableMap;
-    private Map<String, Element> methodMap;
-    private Map<String, Element> dataTypeMap;
-    private Map<String, Element> variableTypeMap;
-    
-    private Map<String, BaseType> hierarchyByNodeId = new HashMap<>();
-    private Map<String, BaseType> hierarchyByVarName = new HashMap<>();
+    private final Map<String, Element> objectTypeMap;
+    private final Map<String, Element> objectMap;
+    private final Map<String, Element> variableMap;
+    private final Map<String, Element> methodMap;
+    private final Map<String, Element> dataTypeMap;
+
+    private final Map<String, BaseType> hierarchyByNodeId = new HashMap<>();
+    private final Map<String, BaseType> hierarchyByVarName = new HashMap<>();
 
     // checkstyle: stop parameter number check
 
@@ -129,8 +129,24 @@ public class DomParser {
         this.variableTypeList = variableTypeList;
         this.aliasList = aliasList;
         this.hierarchy = hierarchy;
+        objectTypeMap = buildIndexIfBeneficial(objectTypeList);
+        objectMap = buildIndexIfBeneficial(objectList);
+        variableMap = buildIndexIfBeneficial(variableList);
+        methodMap = buildIndexIfBeneficial(methodList);
+        dataTypeMap = buildIndexIfBeneficial(dataTypeList);
     }
-    
+
+    /**
+     * Builds an index only when direct lookups are expected to be cheaper than
+     * repeatedly scanning the node list.
+     *
+     * @param nodes the node list to consider
+     * @return the index, or {@code null} when the list remains on the linear lookup path
+     */
+    private static Map<String, Element> buildIndexIfBeneficial(NodeList nodes) {
+        return nodes != null && nodes.getLength() > INDEX_THRESHOLD ? buildIndex(nodes) : null;
+    }
+
     /**
      * Builds a HashMap index from a NodeList, keyed by NodeId attribute.
      *
@@ -144,7 +160,8 @@ public class DomParser {
             if (e != null) {
                 String nodeId = e.getAttribute("NodeId");
                 if (nodeId != null && !nodeId.isEmpty()) {
-                    map.put(nodeId, e);
+                    // Linear lookup returns the first matching element, so the index must do the same.
+                    map.putIfAbsent(nodeId, e);
                 }
             }
         }
@@ -383,27 +400,36 @@ public class DomParser {
 
     /**
      * Checks the relations and returns a node with NodeId {@code currentNodeId}.
-     * Uses pre-built HashMap index for O(1) lookup instead of O(n) linear scan.
+     * Uses a pre-built HashMap index for O(1) lookup instead of an O(n) linear scan.
      *
      * @param currentNodeId the node id to search for
-     * @param nodes         the nodes to search (kept for API compatibility, ignored)
      * @param map           the pre-built index for this NodeList
      * @return the found element
      */
     private static Element checkRelation(String currentNodeId, Map<String, Element> map) {
         return map != null ? map.get(currentNodeId) : null;
     }
-    
+
+    /**
+     * Looks up a relation in the index, falling back to a linear scan when no index was built.
+     *
+     * @param currentNodeId the node id to search for
+     * @param map the optional pre-built index
+     * @param fallback the node list to scan when {@code map} is {@code null}
+     * @return the found element, or {@code null} if there is no match
+     */
     private Element checkRelationFast(String currentNodeId, Map<String, Element> map, NodeList fallback) {
         return map != null ? map.get(currentNodeId) : checkRelation(currentNodeId, fallback);
     }
- 
+
     /**
      * Legacy overload - kept for call sites that pass dynamic NodeLists
      * (e.g. from required model documents). Falls back to linear scan.
      */
     private static Element checkRelation(String currentNodeId, NodeList nodes) {
-        if (nodes == null) return null;
+        if (nodes == null) {
+            return null;
+        }
         for (int i = 0; i < nodes.getLength(); i++) {
             Element node = getNextNodeElement(nodes, i);
             if (node != null && currentNodeId.equals(node.getAttribute("NodeId"))) {
@@ -1581,12 +1607,6 @@ public class DomParser {
 
             parser = new DomParser(objectTypeList, objectList, variableList, methodList, dataTypeList, variableTypeList,
                     aliasList, hierarchy);
-            parser.objectTypeMap  = objectTypeList.getLength()    > 50 ? buildIndex(objectTypeList)    : null;
-            parser.objectMap      = objectList.getLength()        > 50 ? buildIndex(objectList)        : null;
-            parser.variableMap    = variableList.getLength()      > 50 ? buildIndex(variableList)      : null;
-            parser.methodMap      = methodList.getLength()        > 50 ? buildIndex(methodList)        : null;
-            parser.dataTypeMap    = dataTypeList.getLength()      > 50 ? buildIndex(dataTypeList)      : null;
-            parser.variableTypeMap= variableTypeList.getLength()  > 50 ? buildIndex(variableTypeList)  : null;
             parser.namespaceUris = nameSpaceUris;
             File[] reqModels = checkRequiredModels(parser, modelName, path,
                     toOsPath(compSpec).replace(toOsPath(path + "/Opc.Ua."), "").replace(".NodeSet.xml", ""),
