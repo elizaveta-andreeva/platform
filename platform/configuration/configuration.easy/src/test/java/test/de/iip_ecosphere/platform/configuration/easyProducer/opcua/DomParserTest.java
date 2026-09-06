@@ -331,6 +331,28 @@ public class DomParserTest {
     }
 
     /**
+     * Tests parsing the Machinery Jobs companion specification, including its
+     * self-referencing ISA95 parameter data type.
+     *
+     * @throws IOException shall not occur
+     */
+    @Test
+    public void testDomParserMachineryJobs() throws IOException {
+        File in = new File("src/test/resources/NodeSets/Opc.Ua.Machinery.Jobs.Nodeset2.xml");
+        Assert.assertTrue(in.isFile());
+        File out = new File("target/tmp/OpcMachineryJobs.ivml");
+        out.getParentFile().mkdirs();
+        DomParser.setDefaultVerbose(false);
+        DomParser.setUsingIvmlFolder("target/tmp");
+        DomParser.process(in, "MachineryJobs", out, false);
+
+        Assert.assertTrue(out.isFile());
+        String contents = FileUtils.readFileToString(out, Charset.forName("UTF-8"));
+        Assert.assertTrue(contents.contains("UADataType opcISA95ParameterDataTypeType = {"));
+        Assert.assertTrue(contents.contains("type = refBy(opcISA95ParameterDataTypeType)"));
+    }
+
+    /**
      * Parses and checks a synthetic external-reference case.
      *
      * @param order the required-model order suffix

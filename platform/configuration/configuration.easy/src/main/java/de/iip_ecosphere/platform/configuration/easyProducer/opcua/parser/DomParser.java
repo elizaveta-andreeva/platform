@@ -91,6 +91,8 @@ public class DomParser {
     private String baseNameSpace;
     private NodeList namespaceUris;
     private ArrayList<NodeList> externAliasLists;
+    // Prevent recursive structured data types from expanding their own definition indefinitely.
+    private final Set<String> externalDataTypesInProgress = new HashSet<>();
 
     // checkstyle: stop parameter number check
 
@@ -571,30 +573,39 @@ public class DomParser {
      * @return the data type
      */
     private String retrieveAttributesForExternDataType(String nodeId) {
+        boolean resolveDefinition = externalDataTypesInProgress.add(nodeId);
         String dataType = "";
-        for (int k = 0; k < documents.length; k++) {
-            NodeList typeList = documents[k].getElementsByTagName("UADataType");
-            String externNodeId = nodeId;
-            if (externNodeId.contains("ns=")) {
-                externNodeId = externNodeId.substring(0, externNodeId.indexOf("=") + 1) + 1
-                        + externNodeId.substring(externNodeId.indexOf(";"), externNodeId.length());
-            }
-            Element element = checkRelation(externNodeId, typeList);
-            if (element != null) {
+        try {
+            for (int k = 0; k < documents.length; k++) {
+                NodeList typeList = documents[k].getElementsByTagName("UADataType");
+                String externNodeId = nodeId;
+                if (externNodeId.contains("ns=")) {
+                    externNodeId = externNodeId.substring(0, externNodeId.indexOf("=") + 1) + 1
+                            + externNodeId.substring(externNodeId.indexOf(";"), externNodeId.length());
+                }
+                Element element = checkRelation(externNodeId, typeList);
+                if (element != null) {
 
-                NodeList childNodeList = element.getChildNodes();
+                    NodeList childNodeList = element.getChildNodes();
 
-                for (int j = 0; j < childNodeList.getLength(); j++) {
-                    Element childNode = getNextNodeElement(childNodeList, j);
-                    if (childNode != null && !childNode.getTagName().equals("References")) {
-                        if (childNode.getTagName().equals("DisplayName")) {
-                            dataType = childNode.getTextContent().replaceAll("[\u201C\u201D\"_\\\\]", "");
-                            break;
+                    for (int j = 0; j < childNodeList.getLength(); j++) {
+                        Element childNode = getNextNodeElement(childNodeList, j);
+                        if (childNode != null && !childNode.getTagName().equals("References")) {
+                            if (childNode.getTagName().equals("DisplayName")) {
+                                dataType = childNode.getTextContent().replaceAll("[\u201C\u201D\"_\\\\]", "");
+                                break;
+                            }
                         }
                     }
+                    if (resolveDefinition) {
+                        retrieveAttributes(element, null, ElementType.DATATYPE, nodeId);
+                    }
+                    break;
                 }
-                retrieveAttributes(element, null, ElementType.DATATYPE, nodeId);
-                break;
+            }
+        } finally {
+            if (resolveDefinition) {
+                externalDataTypesInProgress.remove(nodeId);
             }
         }
         return dataType;
