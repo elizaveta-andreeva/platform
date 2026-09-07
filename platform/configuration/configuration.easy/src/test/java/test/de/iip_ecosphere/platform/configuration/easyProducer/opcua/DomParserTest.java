@@ -353,6 +353,28 @@ public class DomParserTest {
     }
 
     /**
+     * Tests parsing Machinery Examples with sibling Machinery models as dependencies.
+     *
+     * @throws IOException shall not occur
+     */
+    @Test
+    public void testDomParserMachineryExamples() throws IOException {
+        File in = new File("src/test/resources/NodeSets/Opc.Ua.Machinery.Examples.NodeSet2.xml");
+        Assert.assertTrue(in.isFile());
+        File out = new File("target/tmp/OpcMachineryExamples.ivml");
+        out.getParentFile().mkdirs();
+        DomParser.setDefaultVerbose(false);
+        DomParser.setUsingIvmlFolder("target/tmp");
+        DomParser.process(in, "MachineryExamples", out, false);
+
+        Assert.assertTrue(out.isFile());
+        String contents = FileUtils.readFileToString(out, Charset.forName("UTF-8"));
+        Assert.assertTrue(contents.contains("UAObjectTypeType opcMachineryComponentIdentificationType = {"));
+        Assert.assertTrue(contents.contains("UAVariableTypeType opcProcessValueSetpointVariableTypeType = {"));
+        Assert.assertTrue(contents.contains("UAEnumType opcJobExecutionModeType = {"));
+    }
+
+    /**
      * Parses and checks a synthetic external-reference case.
      *
      * @param order the required-model order suffix

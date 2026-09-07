@@ -1320,6 +1320,48 @@ public class DomParser {
     }
 
     /**
+     * Adds the XML model files in {@code directory} to {@code files}.
+     *
+     * @param files the files to add to
+     * @param directory the directory to inspect
+     */
+    private static void addModelFiles(ArrayList<File> files, File directory) {
+        File[] candidates = directory.listFiles(file -> file.isFile()
+                && file.getName().toLowerCase().endsWith(".xml"));
+        if (candidates != null) {
+            Collections.addAll(files, candidates);
+        }
+    }
+
+    /**
+     * Normalizes a model name for matching URI-derived names with file names.
+     *
+     * @param name the model name
+     * @return the normalized model name
+     */
+    private static String normalizeModelName(String name) {
+        return name.replaceAll("[^A-Z0-9]", "");
+    }
+
+    /**
+     * Derives a normalized model name from {@code file}.
+     *
+     * @param file the model file
+     * @return the normalized model name
+     */
+    private static String getModelName(File file) {
+        String model = file.getName().toUpperCase();
+        if (model.equals("OPC.UA.NODESET2.XML")) {
+            return "UA";
+        }
+        model = StringUtils.removeEnd(model, ".NODESET2.XML");
+        if (model.startsWith("OPC.UA.")) {
+            model = model.substring("OPC.UA.".length());
+        }
+        return normalizeModelName(model);
+    }
+
+    /**
      * Checks for required models.
      * 
      * @param parser        the parser instance
@@ -1365,7 +1407,7 @@ public class DomParser {
 
         boolean correct = false;
         File[] models = null;
-        File[] files = null;
+        ArrayList<File> files = new ArrayList<File>();
         ArrayList<File> foundFiles = new ArrayList<File>();
         File f = new File(path, "/RequiredModels");
         do {
@@ -1384,8 +1426,11 @@ public class DomParser {
                 }
             } else {
                 File requiredModels = new File(path, "/RequiredModels");
-                files = f.listFiles();
-                if (files.length == 0) {
+                files.clear();
+                foundFiles.clear();
+                addModelFiles(files, requiredModels);
+                addModelFiles(files, new File(path));
+                if (files.isEmpty()) {
                     System.out.println("The folder RequiredModels is still empty.");
                     System.out.println("Please add the following models to " + requiredModels.toString() + ":");
                     for (String s : uris) {
@@ -1397,24 +1442,11 @@ public class DomParser {
                     for (String s : uris) {
                         s = StringUtils.removeEnd(s.replace("http://opcfoundation.org/UA/", ""), "/").replace("/", ".")
                                 .toUpperCase();
+                        String requiredModelName = normalizeModelName(s);
 
-                        for (int i = 0; i < files.length; i++) {
-                            String model = null;
-                            if (toOsPath(files[i]).equals(toOsPath(path + "/RequiredModels/Opc.Ua.NodeSet2.xml"))) {
-                                model = "UA";
-                            } else {
-                                model = toOsPath(files[i]).toUpperCase()
-                                        .replace(toOsPath(path.toUpperCase() + "/REQUIREDMODELS/OPC.UA."), "")
-                                        .replace(".NODESET2.XML", "");
-                            }
-                            if (model.equals(s)) {
-                                if (model.equals("UA")) {
-                                    File rModel = new File(files[i].toString());
-                                    foundFiles.add(rModel);
-                                } else {
-                                    File rModel = new File(files[i].toString());
-                                    foundFiles.add(rModel);
-                                }
+                        for (File file : files) {
+                            if (getModelName(file).equals(requiredModelName)) {
+                                foundFiles.add(file);
                                 modelFound = true;
                                 break;
                             }
