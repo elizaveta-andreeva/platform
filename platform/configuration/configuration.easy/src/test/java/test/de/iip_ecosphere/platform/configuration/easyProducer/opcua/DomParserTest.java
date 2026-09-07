@@ -19,9 +19,16 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import java.io.PrintStream;
 import java.nio.charset.Charset;
+import java.util.Map;
+
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import de.uni_hildesheim.sse.easy.loader.ManifestLoader;
@@ -37,6 +44,102 @@ import net.ssehub.easy.varModel.confModel.Configuration;
  * @author Holger Eichelberger, SSE
  */
 public class DomParserTest {
+
+    /**
+     * Tests the exact index threshold and verifies that indexed lookup keeps the
+     * first-match behavior of the original linear lookup.
+     *
+     * @throws ReflectiveOperationException shall not occur
+     * @throws ParserConfigurationException shall not occur
+     */
+    @Test
+    public void testRelationIndexThresholdAndDuplicateIds()
+            throws ReflectiveOperationException, ParserConfigurationException {
+        Assert.assertNull(invokeBuildIndexIfBeneficial(createNodeList(50)));
+
+        NodeList indexedNodes = createNodeList(51);
+        Map<String, Element> thresholdIndex = invokeBuildIndexIfBeneficial(indexedNodes);
+        Assert.assertNotNull(thresholdIndex);
+        Assert.assertEquals(51, thresholdIndex.size());
+        Assert.assertSame(indexedNodes.item(50), thresholdIndex.get("node-50"));
+
+        Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
+        Element root = document.createElement("nodes");
+        document.appendChild(root);
+        Element first = appendNode(document, root, "duplicate");
+        first.setAttribute("marker", "first");
+        Element second = appendNode(document, root, "duplicate");
+        second.setAttribute("marker", "second");
+        appendNode(document, root, "");
+
+        Map<String, Element> duplicateIndex = invokeBuildIndex(root.getChildNodes());
+        Assert.assertEquals(1, duplicateIndex.size());
+        Assert.assertSame(first, duplicateIndex.get("duplicate"));
+        Assert.assertFalse(duplicateIndex.containsKey(""));
+    }
+
+    /**
+     * Creates a DOM node list with unique NodeIds.
+     *
+     * @param count the number of nodes
+     * @return the created node list
+     * @throws ParserConfigurationException shall not occur
+     */
+    private static NodeList createNodeList(int count) throws ParserConfigurationException {
+        Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
+        Element root = document.createElement("nodes");
+        document.appendChild(root);
+        for (int i = 0; i < count; i++) {
+            appendNode(document, root, "node-" + i);
+        }
+        return root.getChildNodes();
+    }
+
+    /**
+     * Appends a node to {@code root}.
+     *
+     * @param document the owning document
+     * @param root the parent element
+     * @param nodeId the NodeId value
+     * @return the appended element
+     */
+    private static Element appendNode(Document document, Element root, String nodeId) {
+        Element node = document.createElement("node");
+        if (nodeId != null) {
+            node.setAttribute("NodeId", nodeId);
+        }
+        root.appendChild(node);
+        return node;
+    }
+
+    /**
+     * Invokes the production index builder.
+     *
+     * @param nodes the nodes to index
+     * @return the index
+     * @throws ReflectiveOperationException shall not occur
+     */
+    @SuppressWarnings("unchecked")
+    private static Map<String, Element> invokeBuildIndex(NodeList nodes) throws ReflectiveOperationException {
+        Method method = DomParser.class.getDeclaredMethod("buildIndex", NodeList.class);
+        method.setAccessible(true);
+        return (Map<String, Element>) method.invoke(null, nodes);
+    }
+
+    /**
+     * Invokes the production index-threshold decision.
+     *
+     * @param nodes the nodes to consider
+     * @return the index, or {@code null}
+     * @throws ReflectiveOperationException shall not occur
+     */
+    @SuppressWarnings("unchecked")
+    private static Map<String, Element> invokeBuildIndexIfBeneficial(NodeList nodes)
+            throws ReflectiveOperationException {
+        Method method = DomParser.class.getDeclaredMethod("buildIndexIfBeneficial", NodeList.class);
+        method.setAccessible(true);
+        return (Map<String, Element>) method.invoke(null, nodes);
+    }
 
     /**
      * Tests creating and using a dedicated parser output folder.
