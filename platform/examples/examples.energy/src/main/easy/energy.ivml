@@ -129,6 +129,7 @@ RecordType opcOut = {
         host = "127.0.0.1",
     //host = "opcua.umati.app",
         port = 4840, // default localhost
+        samplingPeriod = 400,
         
         input = {{type=refBy(opcIn)}},
         output = {{type=refBy(opcOut)}},
@@ -152,7 +153,7 @@ RecordType opcOut = {
         description = "",
         ver = "0.1.0",
         deployable = true,
-        class = "ReceiverImpl",
+        class = "de.iip_ecosphere.platform.examples.energy.ReceiverImpl",
         artifact = "",
         kind = ServiceKind::SINK_SERVICE,
         input = {{type=refBy(opcOut)}}

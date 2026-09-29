@@ -220,12 +220,11 @@
                            <goal>generateApps</goal>
                          </goals>
                        </execution>
-	                    <execution>
+	                   <!-- <execution>
 	                        <id>testApp</id>
 	                        <goals>
 	                            <goal>testApp</goal>
 	                        </goals>
-	                        <!-- WARNING: Jenkins cannot contact UMATI OPCUA service. Disabling execution! -->
 	                        <configuration>
 	                            <appId>generatedConnector</appId>
 	                            <mvnArgs>
@@ -237,6 +236,7 @@
 	                            </logRegExprs>
 	                        </configuration>
 	                    </execution>
+	                    -->
                    </executions>
                    <configuration>
                        <model>Energy</model>
