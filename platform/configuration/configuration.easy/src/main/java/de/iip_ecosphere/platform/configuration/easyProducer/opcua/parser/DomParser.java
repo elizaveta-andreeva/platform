@@ -1612,9 +1612,11 @@ public class DomParser {
      * @param path     the path to the OPC UA nodeset models
      * @param compSpec the companion spec to be parsed
      * @param verbose  verbose output
+     * @param metrics  the timings to update
      * @return the DOM parser after parsing
      */
-    private static DomParser createParser(String path, File compSpec, boolean verbose) {
+    private static DomParser createParser(String path, File compSpec, boolean verbose, DomParserMetrics metrics) {
+        long loadAndIndexStart = System.nanoTime();
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DomParser parser = null;
         try {
@@ -1665,9 +1667,14 @@ public class DomParser {
             parser.setExternAliasLists(aliasLists);
             parser.setDocuments(documents);
             parser.verbose = verbose;
+            metrics.setLoadAndIndexNanos(System.nanoTime() - loadAndIndexStart);
+            long parseStart = System.nanoTime();
             parser.parseFile();
+            metrics.setParseNanos(System.nanoTime() - parseStart);
+            long collectorStart = System.nanoTime();
             Collector.collectInformation(compSpec.getName(), objectTypeList, objectList, variableList, methodList,
                     dataTypeList, variableTypeList, hierarchy, reqModels.length);
+            metrics.setCollectorNanos(System.nanoTime() - collectorStart);
         } catch (ParserConfigurationException | SAXException | IOException e) {
             throw new IllegalArgumentException("Cannot parse OPC UA NodeSet '" + compSpec + "': " + e.getMessage(), e);
         }
@@ -1730,10 +1737,29 @@ public class DomParser {
      * @param verbose verbose output
      */
     public static void process(File xmlIn, String outName, File ivmlOut, boolean verbose) {
+        processWithMetrics(xmlIn, outName, ivmlOut, verbose);
+    }
+
+    /**
+     * Processes an OPC XML file and returns timings for the individual processing stages.
+     *
+     * @param xmlIn   the input file
+     * @param outName the output file/model name
+     * @param ivmlOut the full output file name
+     * @param verbose verbose output
+     * @return timings for this processing invocation
+     */
+    public static DomParserMetrics processWithMetrics(File xmlIn, String outName, File ivmlOut, boolean verbose) {
+        long totalStart = System.nanoTime();
+        DomParserMetrics metrics = new DomParserMetrics();
         System.out.println("Processing " + xmlIn + " to " + outName + "(" + ivmlOut + ")");
         String path = xmlIn.getParent();
-        DomParser parser = createParser(path, xmlIn, verbose);
+        DomParser parser = createParser(path, xmlIn, verbose, metrics);
+        long generateStart = System.nanoTime();
         parser.createIvmlModel(outName, ivmlOut);
+        metrics.setGenerateNanos(System.nanoTime() - generateStart);
+        metrics.setTotalNanos(System.nanoTime() - totalStart);
+        return metrics;
     }
 
     /**
