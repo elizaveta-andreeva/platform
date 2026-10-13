@@ -4,19 +4,26 @@ import de.iip_ecosphere.platform.examples.energy.aggregator.model.MachineEnergyM
 import de.iip_ecosphere.platform.examples.energy.aggregator.model.MappedModelUpdate;
 import de.iip_ecosphere.platform.examples.energy.aggregator.model.MeasurementType;
 
+import de.iip_ecosphere.platform.examples.energy.aggregator.model.MeasurementQuality;
+import de.iip_ecosphere.platform.examples.energy.aggregator.model.OpcUaQuality;
+
 public class OpcEnergyModelMapper implements EnergyModelMapper {
 
-    @Override
-    public MappedModelUpdate map(MachineEnergyMeasurement measurement) {
+	@Override
+	public MappedModelUpdate map(MachineEnergyMeasurement measurement) {
 
-        if (measurement.measurementType() == MeasurementType.CURRENT_POWER) {
-            return mapCurrentPower(measurement);
-        }
+	    if (measurement.measurementType() == MeasurementType.CURRENT_POWER) {
+	        return mapCurrentPower(measurement);
+	    }
 
-        throw new IllegalArgumentException(
-            "Unsupported measurement type: " + measurement.measurementType()
-        );
-    }
+	    if (measurement.measurementType() == MeasurementType.CUMULATIVE_ENERGY) {
+	        return mapCumulativeEnergy(measurement);
+	    }
+
+	    throw new IllegalArgumentException(
+	        "Unsupported measurement type: " + measurement.measurementType()
+	    );
+	}
 
     private MappedModelUpdate mapCurrentPower(
     	    MachineEnergyMeasurement measurement
@@ -30,12 +37,41 @@ public class OpcEnergyModelMapper implements EnergyModelMapper {
     	    };
 
     	    return new MappedModelUpdate(
-    	        "AC_ACTIVE_POWER_TOTAL",
+    	        "AcActivePowerTotal",
     	        normalizedValue,
     	        "W",
     	        measurement.timestamp(),
-    	        measurement.quality()
+    	        mapQuality(measurement.quality())
     	    );
     	}
+    
+    private MappedModelUpdate mapCumulativeEnergy(
+    	    MachineEnergyMeasurement measurement
+    	) {
+    	    double normalizedValue = switch (measurement.unit()) {
+    	    case "Wh" -> measurement.value();
+    	    case "kWh" -> measurement.value() * 1000.0;
+    	    default -> throw new IllegalArgumentException(
+    	        "Unsupported energy unit: " + measurement.unit()
+    	    );
+    	    };
+
+    	    return new MappedModelUpdate(
+    	        "AcActiveEnergyTotalImportLp",
+    	        normalizedValue,
+    	        "Wh",
+    	        measurement.timestamp(),
+    	        mapQuality(measurement.quality())
+    	    );
+    	}
+    
+    private OpcUaQuality mapQuality(MeasurementQuality quality) {
+        return switch (quality) {
+        case VALID -> OpcUaQuality.GOOD;
+        case STALE -> OpcUaQuality.UNCERTAIN;
+        case UNAVAILABLE -> OpcUaQuality.BAD_NOT_CONNECTED;
+        case INVALID -> OpcUaQuality.BAD_INVALID_DATA;
+        };
+    }
 
 }

@@ -7,6 +7,6 @@ public record MappedModelUpdate(
     double value,
     String unit,
     Instant timestamp,
-    MeasurementQuality quality
+    OpcUaQuality quality
 ) {
 }
