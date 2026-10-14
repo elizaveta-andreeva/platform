@@ -62,6 +62,33 @@
       <type>test-jar</type>
       <scope>test</scope>
     </dependency>
+    <dependency>
+	  <groupId>org.eclipse.milo</groupId>
+	  <artifactId>sdk-server</artifactId>
+	  <version>0.6.4</version>
+	</dependency>
+	<dependency>
+	  <groupId>org.eclipse.milo</groupId>
+	  <artifactId>sdk-core</artifactId>
+	  <version>0.6.4</version>
+	</dependency>
+	<dependency>
+      <groupId>org.eclipse.paho</groupId>
+      <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+      <version>1.2.5</version>  <!-- verify against the version in connectors.mqttv3 -->
+	</dependency>
+	<!-- ModbusTCP client (j2mod, same library as the platform) -->
+	<dependency>
+	    <groupId>com.ghgande</groupId>
+	    <artifactId>j2mod</artifactId>
+	    <version>3.2.1</version>
+	</dependency>
+	
+	<!-- JSON (Jackson, managed by platformDependenciesBOM) -->
+	<dependency>
+	    <groupId>com.fasterxml.jackson.core</groupId>
+	    <artifactId>jackson-databind</artifactId>
+	</dependency>
   </dependencies>
 
   <properties>
