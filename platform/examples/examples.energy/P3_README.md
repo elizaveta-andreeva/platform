@@ -79,4 +79,4 @@ Browse: `Objects → EnergyAggregator → Machines → ShellyPro3EM → Power`
 
 ## Contact
 
-P3 — [your name]
+P3 
