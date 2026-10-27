@@ -37,12 +37,13 @@ public class OpcEnergyModelMapper implements EnergyModelMapper {
     	    };
 
     	    return new MappedModelUpdate(
-    	        "AcActivePowerTotal",
-    	        normalizedValue,
-    	        "W",
-    	        measurement.timestamp(),
-    	        mapQuality(measurement.quality())
-    	    );
+    	    	    measurement.deviceId(),
+    	    	    "AcActivePowerTotal",
+    	    	    normalizedValue,
+    	    	    "W",
+    	    	    measurement.timestamp(),
+    	    	    mapQuality(measurement.quality())
+    	    	);
     	}
     
     private MappedModelUpdate mapCumulativeEnergy(
@@ -57,12 +58,13 @@ public class OpcEnergyModelMapper implements EnergyModelMapper {
     	    };
 
     	    return new MappedModelUpdate(
-    	        "AcActiveEnergyTotalImportLp",
-    	        normalizedValue,
-    	        "Wh",
-    	        measurement.timestamp(),
-    	        mapQuality(measurement.quality())
-    	    );
+    	    	    measurement.deviceId(),
+    	    	    "AcActiveEnergyTotalImportLp",
+    	    	    normalizedValue,
+    	    	    "Wh",
+    	    	    measurement.timestamp(),
+    	    	    mapQuality(measurement.quality())
+    	    	);
     	}
     
     private OpcUaQuality mapQuality(MeasurementQuality quality) {
