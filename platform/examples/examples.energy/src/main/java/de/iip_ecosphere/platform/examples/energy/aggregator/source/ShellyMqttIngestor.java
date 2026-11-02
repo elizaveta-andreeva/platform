@@ -1,4 +1,4 @@
-package de.iip_ecosphere.platform.examples.energy.sources;
+package de.iip_ecosphere.platform.examples.energy.aggregator.source;
 
 import de.iip_ecosphere.platform.examples.energy.aggregator.model.MachineEnergyMeasurement;
 import de.iip_ecosphere.platform.examples.energy.aggregator.model.MeasurementQuality;

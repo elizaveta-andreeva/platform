@@ -1,0 +1,1514 @@
+[[1;34mINFO[m] Scanning for projects...
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/platformDependenciesBOM/0.8.1-SNAPSHOT/maven-metadata.xml
+Progress (1): 840 B                   Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/platformDependenciesBOM/0.8.1-SNAPSHOT/maven-metadata.xml (840 B at 1.1 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/platformDependencies/0.8.1-SNAPSHOT/maven-metadata.xml
+Progress (1): 837 B                   Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/platformDependencies/0.8.1-SNAPSHOT/maven-metadata.xml (837 B at 12 kB/s)
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-------------< [0;36mde.iip-ecosphere.platform:examples.energy[0;1m >--------------[m
+[[1;34mINFO[m] [1mBuilding Energy OPC-UA 0.8.1-SNAPSHOT[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+Downloading from SSE-plugins: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/maven-python/0.8.1-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.9 kB                    Downloaded from SSE-plugins: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/maven-python/0.8.1-SNAPSHOT/maven-metadata.xml (1.9 kB at 31 kB/s)
+Downloading from SSE-plugins: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/invoker-plugin/0.8.1-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.9 kB                    Downloaded from SSE-plugins: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/invoker-plugin/0.8.1-SNAPSHOT/maven-metadata.xml (1.9 kB at 21 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/connectors/0.8.1-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.9 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/connectors/0.8.1-SNAPSHOT/maven-metadata.xml (1.9 kB at 18 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/transport/0.8.1-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.9 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/transport/0.8.1-SNAPSHOT/maven-metadata.xml (1.9 kB at 24 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support.aas/0.8.1-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.9 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support.aas/0.8.1-SNAPSHOT/maven-metadata.xml (1.9 kB at 12 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support/0.8.1-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.9 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support/0.8.1-SNAPSHOT/maven-metadata.xml (1.9 kB at 27 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support.boot/0.8.1-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.9 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support.boot/0.8.1-SNAPSHOT/maven-metadata.xml (1.9 kB at 23 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/tools.lib/0.8.1-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.9 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/tools.lib/0.8.1-SNAPSHOT/maven-metadata.xml (1.9 kB at 15 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support.iip-aas/0.8.1-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.9 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support.iip-aas/0.8.1-SNAPSHOT/maven-metadata.xml (1.9 kB at 11 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/connectors.opcuav1/0.8.1-SNAPSHOT/maven-metadata.xml
+Progress (1): 2.1 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/connectors.opcuav1/0.8.1-SNAPSHOT/maven-metadata.xml (2.1 kB at 14 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/services.environment/0.8.1-SNAPSHOT/maven-metadata.xml
+Progress (1): 2.1 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/services.environment/0.8.1-SNAPSHOT/maven-metadata.xml (2.1 kB at 30 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/configuration.easy/0.8.1-SNAPSHOT/maven-metadata.xml
+Progress (1): 2.8 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/configuration.easy/0.8.1-SNAPSHOT/maven-metadata.xml (2.8 kB at 17 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/runtime/EASy-dependencies/1.3.11-SNAPSHOT/maven-metadata.xml
+Downloading from bintray: https://jcenter.bintray.com/net/ssehub/easy/runtime/EASy-dependencies/1.3.11-SNAPSHOT/maven-metadata.xml
+Progress (1): 621 B                   Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/runtime/EASy-dependencies/1.3.11-SNAPSHOT/maven-metadata.xml (621 B at 8.3 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/dependencies/1.3.11-SNAPSHOT/maven-metadata.xml
+Downloading from bintray: https://jcenter.bintray.com/net/ssehub/easy/dependencies/1.3.11-SNAPSHOT/maven-metadata.xml
+Downloading from sse: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/dependencies/1.3.11-SNAPSHOT/maven-metadata.xml
+Progress (1): 606 B                   Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/dependencies/1.3.11-SNAPSHOT/maven-metadata.xml (606 B at 2.5 kB/s)
+Progress (1): 606 B                   Downloaded from sse: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/dependencies/1.3.11-SNAPSHOT/maven-metadata.xml (606 B at 1.3 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.basics/1.3.11-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.basics/1.3.11-SNAPSHOT/maven-metadata.xml (1.7 kB at 11 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.varModel/1.3.11-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.varModel/1.3.11-SNAPSHOT/maven-metadata.xml (1.7 kB at 7.7 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/de.uni_hildesheim.sse.ivml/1.3.11-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/de.uni_hildesheim.sse.ivml/1.3.11-SNAPSHOT/maven-metadata.xml (1.7 kB at 9.8 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/commons-logging/commons-logging/maven-metadata.xml
+Downloading from central: https://repo1.maven.org/maven2/commons-logging/commons-logging/maven-metadata.xml
+Downloading from redhat: https://maven.repository.redhat.com/ga/commons-logging/commons-logging/maven-metadata.xml
+Downloading from bintray: https://jcenter.bintray.com/commons-logging/commons-logging/maven-metadata.xml
+Progress (1): 879 B                   Downloaded from central: https://repo1.maven.org/maven2/commons-logging/commons-logging/maven-metadata.xml (879 B at 2.5 kB/s)
+Progress (1): 1.5 kBProgress (2): 1.5 kB | 879 B                            Downloaded from redhat: https://maven.repository.redhat.com/ga/commons-logging/commons-logging/maven-metadata.xml (1.5 kB at 3.0 kB/s)
+Downloaded from bintray: https://jcenter.bintray.com/commons-logging/commons-logging/maven-metadata.xml (879 B at 1.2 kB/s)
+Downloading from central: https://repo1.maven.org/maven2/org/eclipse/platform/org.eclipse.osgi/maven-metadata.xml
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/org/eclipse/platform/org.eclipse.osgi/maven-metadata.xml
+Downloading from bintray: https://jcenter.bintray.com/org/eclipse/platform/org.eclipse.osgi/maven-metadata.xml
+Downloading from redhat: https://maven.repository.redhat.com/ga/org/eclipse/platform/org.eclipse.osgi/maven-metadata.xml
+Progress (1): 1.6 kB                    Downloaded from central: https://repo1.maven.org/maven2/org/eclipse/platform/org.eclipse.osgi/maven-metadata.xml (1.6 kB at 11 kB/s)
+Progress (1): 1.6 kB                    Downloaded from bintray: https://jcenter.bintray.com/org/eclipse/platform/org.eclipse.osgi/maven-metadata.xml (1.6 kB at 3.8 kB/s)
+Downloading from central: https://repo1.maven.org/maven2/org/eclipse/xtext/org.eclipse.xtext/maven-metadata.xml
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/org/eclipse/xtext/org.eclipse.xtext/maven-metadata.xml
+Downloading from bintray: https://jcenter.bintray.com/org/eclipse/xtext/org.eclipse.xtext/maven-metadata.xml
+Downloading from redhat: https://maven.repository.redhat.com/ga/org/eclipse/xtext/org.eclipse.xtext/maven-metadata.xml
+Progress (1): 4.1 kBProgress (1): 5.8 kBProgress (2): 5.8 kB | 4.1 kBProgress (2): 5.8 kB | 5.8 kB                             Downloaded from central: https://repo1.maven.org/maven2/org/eclipse/xtext/org.eclipse.xtext/maven-metadata.xml (5.8 kB at 16 kB/s)
+Downloaded from bintray: https://jcenter.bintray.com/org/eclipse/xtext/org.eclipse.xtext/maven-metadata.xml (5.8 kB at 15 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/org/eclipse/emf/org.eclipse.emf.common/maven-metadata.xml
+Downloading from central: https://repo1.maven.org/maven2/org/eclipse/emf/org.eclipse.emf.common/maven-metadata.xml
+Downloading from bintray: https://jcenter.bintray.com/org/eclipse/emf/org.eclipse.emf.common/maven-metadata.xml
+Downloading from redhat: https://maven.repository.redhat.com/ga/org/eclipse/emf/org.eclipse.emf.common/maven-metadata.xml
+Downloading from sonatype-snapshots: https://oss.sonatype.org/content/repositories/snapshots/org/eclipse/emf/org.eclipse.emf.common/maven-metadata.xml
+Progress (1): 1.7 kBProgress (2): 1.7 kB | 1.7 kB                             Downloaded from central: https://repo1.maven.org/maven2/org/eclipse/emf/org.eclipse.emf.common/maven-metadata.xml (1.7 kB at 6.8 kB/s)
+Downloaded from bintray: https://jcenter.bintray.com/org/eclipse/emf/org.eclipse.emf.common/maven-metadata.xml (1.7 kB at 5.7 kB/s)
+Downloading from central: https://repo1.maven.org/maven2/org/eclipse/emf/org.eclipse.emf.ecore/maven-metadata.xml
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/org/eclipse/emf/org.eclipse.emf.ecore/maven-metadata.xml
+Downloading from bintray: https://jcenter.bintray.com/org/eclipse/emf/org.eclipse.emf.ecore/maven-metadata.xml
+Downloading from redhat: https://maven.repository.redhat.com/ga/org/eclipse/emf/org.eclipse.emf.ecore/maven-metadata.xml
+Downloading from sonatype-snapshots: https://oss.sonatype.org/content/repositories/snapshots/org/eclipse/emf/org.eclipse.emf.ecore/maven-metadata.xml
+Progress (1): 1.7 kBProgress (2): 1.7 kB | 1.7 kB                             Downloaded from central: https://repo1.maven.org/maven2/org/eclipse/emf/org.eclipse.emf.ecore/maven-metadata.xml (1.7 kB at 4.7 kB/s)
+Downloaded from bintray: https://jcenter.bintray.com/org/eclipse/emf/org.eclipse.emf.ecore/maven-metadata.xml (1.7 kB at 4.5 kB/s)
+Downloading from redhat: https://maven.repository.redhat.com/ga/org/antlr/antlr-runtime/maven-metadata.xml
+Downloading from central: https://repo1.maven.org/maven2/org/antlr/antlr-runtime/maven-metadata.xml
+Downloading from bintray: https://jcenter.bintray.com/org/antlr/antlr-runtime/maven-metadata.xml
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/org/antlr/antlr-runtime/maven-metadata.xml
+Progress (1): 500 BProgress (2): 500 B | 881 B                           Downloaded from redhat: https://maven.repository.redhat.com/ga/org/antlr/antlr-runtime/maven-metadata.xml (500 B at 6.3 kB/s)
+Progress (2): 881 B | 881 B                           Downloaded from central: https://repo1.maven.org/maven2/org/antlr/antlr-runtime/maven-metadata.xml (881 B at 2.7 kB/s)
+Downloaded from bintray: https://jcenter.bintray.com/org/antlr/antlr-runtime/maven-metadata.xml (881 B at 2.2 kB/s)
+Downloading from central: https://repo1.maven.org/maven2/org/eclipse/platform/org.eclipse.equinox.common/maven-metadata.xml
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/org/eclipse/platform/org.eclipse.equinox.common/maven-metadata.xml
+Downloading from bintray: https://jcenter.bintray.com/org/eclipse/platform/org.eclipse.equinox.common/maven-metadata.xml
+Downloading from redhat: https://maven.repository.redhat.com/ga/org/eclipse/platform/org.eclipse.equinox.common/maven-metadata.xml
+Progress (1): 1.4 kBProgress (2): 1.4 kB | 1.4 kB                             Downloaded from central: https://repo1.maven.org/maven2/org/eclipse/platform/org.eclipse.equinox.common/maven-metadata.xml (1.4 kB at 4.2 kB/s)
+Downloaded from bintray: https://jcenter.bintray.com/org/eclipse/platform/org.eclipse.equinox.common/maven-metadata.xml (1.4 kB at 3.8 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/org/eclipse/platform/org.eclipse.core.runtime/maven-metadata.xml
+Downloading from central: https://repo1.maven.org/maven2/org/eclipse/platform/org.eclipse.core.runtime/maven-metadata.xml
+Downloading from redhat: https://maven.repository.redhat.com/ga/org/eclipse/platform/org.eclipse.core.runtime/maven-metadata.xml
+Downloading from bintray: https://jcenter.bintray.com/org/eclipse/platform/org.eclipse.core.runtime/maven-metadata.xml
+Progress (1): 1.4 kB                    Downloaded from central: https://repo1.maven.org/maven2/org/eclipse/platform/org.eclipse.core.runtime/maven-metadata.xml (1.4 kB at 11 kB/s)
+Progress (1): 1.4 kB                    Downloaded from bintray: https://jcenter.bintray.com/org/eclipse/platform/org.eclipse.core.runtime/maven-metadata.xml (1.4 kB at 4.3 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.dslCore/1.3.11-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.dslCore/1.3.11-SNAPSHOT/maven-metadata.xml (1.7 kB at 14 kB/s)
+Downloading from central: https://repo1.maven.org/maven2/org/eclipse/platform/org.eclipse.core.resources/maven-metadata.xml
+Downloading from bintray: https://jcenter.bintray.com/org/eclipse/platform/org.eclipse.core.resources/maven-metadata.xml
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/org/eclipse/platform/org.eclipse.core.resources/maven-metadata.xml
+Downloading from redhat: https://maven.repository.redhat.com/ga/org/eclipse/platform/org.eclipse.core.resources/maven-metadata.xml
+Progress (1): 1.5 kBProgress (2): 1.5 kB | 1.5 kB                             Downloaded from central: https://repo1.maven.org/maven2/org/eclipse/platform/org.eclipse.core.resources/maven-metadata.xml (1.5 kB at 5.3 kB/s)
+Downloaded from bintray: https://jcenter.bintray.com/org/eclipse/platform/org.eclipse.core.resources/maven-metadata.xml (1.5 kB at 3.5 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/de.uni_hildesheim.sse.vil.buildlang/1.3.11-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/de.uni_hildesheim.sse.vil.buildlang/1.3.11-SNAPSHOT/maven-metadata.xml (1.7 kB at 12 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.core/1.3.11-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.core/1.3.11-SNAPSHOT/maven-metadata.xml (1.7 kB at 12 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.reasoning.core/1.3.11-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.reasoning.core/1.3.11-SNAPSHOT/maven-metadata.xml (1.7 kB at 26 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/org/apache/ant/ant/maven-metadata.xml
+Downloading from central: https://repo1.maven.org/maven2/org/apache/ant/ant/maven-metadata.xml
+Downloading from bintray: https://jcenter.bintray.com/org/apache/ant/ant/maven-metadata.xml
+Downloading from redhat: https://maven.repository.redhat.com/ga/org/apache/ant/ant/maven-metadata.xml
+Progress (1): 399 BProgress (2): 399 B | 1.7 kB                            Downloaded from redhat: https://maven.repository.redhat.com/ga/org/apache/ant/ant/maven-metadata.xml (399 B at 2.8 kB/s)
+Downloaded from central: https://repo1.maven.org/maven2/org/apache/ant/ant/maven-metadata.xml (1.7 kB at 11 kB/s)
+Progress (1): 1.7 kB                    Downloaded from bintray: https://jcenter.bintray.com/org/apache/ant/ant/maven-metadata.xml (1.7 kB at 4.8 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/de.uni_hildesheim.sse.vil.expressions/1.3.11-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/de.uni_hildesheim.sse.vil.expressions/1.3.11-SNAPSHOT/maven-metadata.xml (1.7 kB at 11 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/org/apache/felix/org.apache.felix.scr/maven-metadata.xml
+Downloading from redhat: https://maven.repository.redhat.com/ga/org/apache/felix/org.apache.felix.scr/maven-metadata.xml
+Downloading from central: https://repo1.maven.org/maven2/org/apache/felix/org.apache.felix.scr/maven-metadata.xml
+Downloading from bintray: https://jcenter.bintray.com/org/apache/felix/org.apache.felix.scr/maven-metadata.xml
+Progress (1): 1.7 kB                    Downloaded from central: https://repo1.maven.org/maven2/org/apache/felix/org.apache.felix.scr/maven-metadata.xml (1.7 kB at 12 kB/s)
+Progress (1): 1.7 kB                    Downloaded from bintray: https://jcenter.bintray.com/org/apache/felix/org.apache.felix.scr/maven-metadata.xml (1.7 kB at 4.8 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/de.uni_hildesheim.sse.vil.templatelang/1.3.11-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/de.uni_hildesheim.sse.vil.templatelang/1.3.11-SNAPSHOT/maven-metadata.xml (1.7 kB at 31 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.reasoning.sseReasoner/1.3.11-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.reasoning.sseReasoner/1.3.11-SNAPSHOT/maven-metadata.xml (1.7 kB at 13 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.producer.core/1.3.11-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.producer.core/1.3.11-SNAPSHOT/maven-metadata.xml (1.7 kB at 24 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.producer.eclipse/1.3.11-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.producer.eclipse/1.3.11-SNAPSHOT/maven-metadata.xml (1.7 kB at 22 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/org/eclipse/jdt/org.eclipse.jdt.core/maven-metadata.xml
+Downloading from central: https://repo1.maven.org/maven2/org/eclipse/jdt/org.eclipse.jdt.core/maven-metadata.xml
+Downloading from bintray: https://jcenter.bintray.com/org/eclipse/jdt/org.eclipse.jdt.core/maven-metadata.xml
+Downloading from redhat: https://maven.repository.redhat.com/ga/org/eclipse/jdt/org.eclipse.jdt.core/maven-metadata.xml
+Progress (1): 1.7 kBProgress (2): 1.7 kB | 1.7 kB                             Downloaded from central: https://repo1.maven.org/maven2/org/eclipse/jdt/org.eclipse.jdt.core/maven-metadata.xml (1.7 kB at 4.5 kB/s)
+Downloaded from bintray: https://jcenter.bintray.com/org/eclipse/jdt/org.eclipse.jdt.core/maven-metadata.xml (1.7 kB at 4.7 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.loader/1.3.11-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.9 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.loader/1.3.11-SNAPSHOT/maven-metadata.xml (1.9 kB at 8.5 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.maven/1.3.11-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.maven/1.3.11-SNAPSHOT/maven-metadata.xml (1.7 kB at 28 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.java/1.3.11-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.java/1.3.11-SNAPSHOT/maven-metadata.xml (1.7 kB at 12 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/org/eclipse/platform/org.eclipse.text/maven-metadata.xml
+Downloading from bintray: https://jcenter.bintray.com/org/eclipse/platform/org.eclipse.text/maven-metadata.xml
+Downloading from central: https://repo1.maven.org/maven2/org/eclipse/platform/org.eclipse.text/maven-metadata.xml
+Downloading from redhat: https://maven.repository.redhat.com/ga/org/eclipse/platform/org.eclipse.text/maven-metadata.xml
+Progress (1): 1.3 kBProgress (2): 1.3 kB | 1.3 kB                             Downloaded from central: https://repo1.maven.org/maven2/org/eclipse/platform/org.eclipse.text/maven-metadata.xml (1.3 kB at 3.5 kB/s)
+Downloaded from bintray: https://jcenter.bintray.com/org/eclipse/platform/org.eclipse.text/maven-metadata.xml (1.3 kB at 3.4 kB/s)
+Downloading from central: https://repo1.maven.org/maven2/org/eclipse/platform/org.eclipse.core.filesystem/maven-metadata.xml
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/org/eclipse/platform/org.eclipse.core.filesystem/maven-metadata.xml
+Downloading from bintray: https://jcenter.bintray.com/org/eclipse/platform/org.eclipse.core.filesystem/maven-metadata.xml
+Downloading from redhat: https://maven.repository.redhat.com/ga/org/eclipse/platform/org.eclipse.core.filesystem/maven-metadata.xml
+Progress (1): 1.2 kBProgress (2): 1.2 kB | 1.2 kB                             Downloaded from central: https://repo1.maven.org/maven2/org/eclipse/platform/org.eclipse.core.filesystem/maven-metadata.xml (1.2 kB at 3.6 kB/s)
+Downloaded from bintray: https://jcenter.bintray.com/org/eclipse/platform/org.eclipse.core.filesystem/maven-metadata.xml (1.2 kB at 3.6 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.python/1.3.11-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.python/1.3.11-SNAPSHOT/maven-metadata.xml (1.7 kB at 29 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.ant/1.3.11-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.ant/1.3.11-SNAPSHOT/maven-metadata.xml (1.7 kB at 32 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/org/apache/ant/ant-launcher/maven-metadata.xml
+Downloading from central: https://repo1.maven.org/maven2/org/apache/ant/ant-launcher/maven-metadata.xml
+Downloading from bintray: https://jcenter.bintray.com/org/apache/ant/ant-launcher/maven-metadata.xml
+Downloading from redhat: https://maven.repository.redhat.com/ga/org/apache/ant/ant-launcher/maven-metadata.xml
+Progress (1): 408 BProgress (2): 408 B | 1.7 kB                            Downloaded from redhat: https://maven.repository.redhat.com/ga/org/apache/ant/ant-launcher/maven-metadata.xml (408 B at 3.1 kB/s)
+Progress (2): 1.7 kB | 1.7 kB                             Downloaded from central: https://repo1.maven.org/maven2/org/apache/ant/ant-launcher/maven-metadata.xml (1.7 kB at 4.9 kB/s)
+Downloaded from bintray: https://jcenter.bintray.com/org/apache/ant/ant-launcher/maven-metadata.xml (1.7 kB at 4.5 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.docker/1.3.11-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.docker/1.3.11-SNAPSHOT/maven-metadata.xml (1.7 kB at 13 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.lxc/1.3.11-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.lxc/1.3.11-SNAPSHOT/maven-metadata.xml (1.7 kB at 13 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.json/1.3.11-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.json/1.3.11-SNAPSHOT/maven-metadata.xml (1.7 kB at 13 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.yaml/1.3.11-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.yaml/1.3.11-SNAPSHOT/maven-metadata.xml (1.7 kB at 11 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/configuration.interface/0.8.1-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.9 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/configuration.interface/0.8.1-SNAPSHOT/maven-metadata.xml (1.9 kB at 11 kB/s)
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/deviceMgt/0.8.1-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.9 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/deviceMgt/0.8.1-SNAPSHOT/maven-metadata.xml (1.9 kB at 13 kB/s)
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-clean-plugin:2.5:clean[m [1m(default-clean)[m @ [36mexamples.energy[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/dev/platform/platform/examples/examples.energy/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mexamples.energy[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.7.0:compile[m [1m(default-compile)[m @ [36mexamples.energy[0;1m ---[m
+[[1;34mINFO[m] Not compiling main sources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-python:0.8.1-SNAPSHOT:compile-python[m [1m(py-compile)[m @ [36mexamples.energy[0;1m ---[m
+Downloading from SSE-plugins: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/tools.lib/0.8.1-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.9 kB                    Downloaded from SSE-plugins: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/tools.lib/0.8.1-SNAPSHOT/maven-metadata.xml (1.9 kB at 15 kB/s)
+[[1;34mINFO[m] Skipping Python syntax check
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mexamples.energy[0;1m ---[m
+[[1;34mINFO[m] Not copying test resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.7.0:testCompile[m [1m(default-testCompile)[m @ [36mexamples.energy[0;1m ---[m
+[[1;34mINFO[m] Not compiling test sources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:3.0.0-M3:test[m [1m(default-test)[m @ [36mexamples.energy[0;1m ---[m
+[[1;34mINFO[m] Tests are skipped.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-python:0.8.1-SNAPSHOT:test-python[m [1m(py-test)[m @ [36mexamples.energy[0;1m ---[m
+[[1;34mINFO[m] Skipping Python test execution
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:3.2.0:jar[m [1m(default-jar)[m @ [36mexamples.energy[0;1m ---[m
+[[1;33mWARNING[m] JAR will be empty - no content was marked for inclusion!
+[[1;34mINFO[m] Building jar: /home/dev/platform/platform/examples/examples.energy/target/examples.energy-0.8.1-SNAPSHOT.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-javadoc-plugin:3.2.0:jar[m [1m(default-cli)[m @ [36mexamples.energy[0;1m ---[m
+[[1;34mINFO[m] Skipping javadoc generation
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-javadoc-plugin:3.2.0:test-jar[m [1m(default-cli)[m @ [36mexamples.energy[0;1m ---[m
+[[1;34mINFO[m] Skipping javadoc generation
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:3.2.0:test-jar[m [1m(default)[m @ [36mexamples.energy[0;1m ---[m
+[[1;34mINFO[m] Skipping packaging of the test-jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-source-plugin:3.2.0:jar-no-fork[m [1m(attach-sources)[m @ [36mexamples.energy[0;1m ---[m
+[[1;34mINFO[m] Building jar: /home/dev/platform/platform/examples/examples.energy/target/examples.energy-0.8.1-SNAPSHOT-sources.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m>>> [0;32mmaven-source-plugin:3.2.0:test-jar[m [1m(attach-sources)[0;1m > [0;1mgenerate-sources[m @ [36mexamples.energy[0;1m >>>[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m<<< [0;32mmaven-source-plugin:3.2.0:test-jar[m [1m(attach-sources)[0;1m < [0;1mgenerate-sources[m @ [36mexamples.energy[0;1m <<<[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-source-plugin:3.2.0:test-jar[m [1m(attach-sources)[m @ [36mexamples.energy[0;1m ---[m
+[[1;34mINFO[m] Building jar: /home/dev/platform/platform/examples/examples.energy/target/examples.energy-0.8.1-SNAPSHOT-test-sources.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-install-plugin:2.4:install[m [1m(default-install)[m @ [36mexamples.energy[0;1m ---[m
+[[1;34mINFO[m] Installing /home/dev/platform/platform/examples/examples.energy/target/examples.energy-0.8.1-SNAPSHOT.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/examples.energy/0.8.1-SNAPSHOT/examples.energy-0.8.1-SNAPSHOT.jar
+[[1;34mINFO[m] Installing /home/dev/platform/platform/examples/examples.energy/pom.xml to /home/dev/.m2/repository/de/iip-ecosphere/platform/examples.energy/0.8.1-SNAPSHOT/examples.energy-0.8.1-SNAPSHOT.pom
+[[1;34mINFO[m] Installing /home/dev/platform/platform/examples/examples.energy/target/examples.energy-0.8.1-SNAPSHOT-sources.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/examples.energy/0.8.1-SNAPSHOT/examples.energy-0.8.1-SNAPSHOT-sources.jar
+[[1;34mINFO[m] Installing /home/dev/platform/platform/examples/examples.energy/target/examples.energy-0.8.1-SNAPSHOT-test-sources.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/examples.energy/0.8.1-SNAPSHOT/examples.energy-0.8.1-SNAPSHOT-test-sources.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32minvoker-plugin:0.8.1-SNAPSHOT:install[m [1m(genInterfaces)[m @ [36mexamples.energy[0;1m ---[m
+Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/maven-python/0.8.1-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.9 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/maven-python/0.8.1-SNAPSHOT/maven-metadata.xml (1.9 kB at 13 kB/s)
+[[1;34mINFO[m] Setting sys properties {python-test.skip=false, maven.test.skip=true, configuration.testApp.skip=false, python-compile.hashDir=/home/dev/platform/platform/examples/examples.energy/target, assembly.skipAssembly=false, maven.javadoc.skip=true, jacoco.skip=true, maven.main.skip=true, maven.source.skip=false, skipTests=true, maven.build.cache.enabled=false, python-compile.skip=true}
+[[1;34mINFO[m] Passing on env settings {MAVEN_SETTINGS_PATH=/usr/share/maven/conf/settings.xml, PYTHON_COMPILE_HASHDIR=/home/dev/platform/platform/examples/examples.energy/target, MAVEN_ARGS=-Dmaven.javadoc.skip=true}
+[[1;34mINFO[m] Actual POM: /home/dev/platform/platform/examples/examples.energy/pom.xml
+[[1;34mINFO[m] >>> Maven invoker: Using MAVEN_OPTS: null
+[[1;34mINFO[m] >>> Executing: /bin/sh -c cd /home/dev/platform/platform/examples/examples.energy && /usr/share/maven/bin/mvn -B -e -D maven.repo.local=/home/dev/.m2/repository -gs /etc/maven/settings.xml -D python-test.skip=false -D maven.test.skip=true -D configuration.testApp.skip=false -D python-compile.hashDir=/home/dev/platform/platform/examples/examples.energy/target -D assembly.skipAssembly=false -D maven.javadoc.skip=true -D jacoco.skip=true -D maven.main.skip=true -D maven.source.skip=false -D skipTests=true -D maven.build.cache.enabled=false -D python-compile.skip=true -P EasyGen process-sources
+[INFO] Error stacktraces are turned on.
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------< de.iip-ecosphere.platform:examples.energy >--------------
+[INFO] Building Energy OPC-UA 0.8.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency-plugin:0.8.1-SNAPSHOT:unpack (unpack) @ examples.energy ---
+[INFO] Configured Artifact: de.iip-ecosphere.platform:configuration.configuration:easy:0.8.1-SNAPSHOT:zip
+[INFO] Unpacking /home/dev/.m2/repository/de/iip-ecosphere/platform/configuration.configuration/0.8.1-SNAPSHOT/configuration.configuration-0.8.1-SNAPSHOT-easy.zip to /home/dev/platform/platform/examples/examples.energy/target/easy with includes "" and excludes ""
+[INFO] 
+[INFO] --- configuration-plugin:0.8.1-SNAPSHOT:generateAppsNoDeps (generateAppsNoDeps) @ examples.energy ---
+[INFO] Downloading from maven-default-http-blocker: http://0.0.0.0/com/google/guava/guava/maven-metadata.xml
+[WARNING] Could not transfer metadata com.google.guava:guava/maven-metadata.xml from/to maven-default-http-blocker (http://0.0.0.0/): transfer failed for http://0.0.0.0/com/google/guava/guava/maven-metadata.xml
+[INFO] Downloading from maven-default-http-blocker: http://0.0.0.0/commons-lang/commons-lang/maven-metadata.xml
+[WARNING] Could not transfer metadata commons-lang:commons-lang/maven-metadata.xml from/to maven-default-http-blocker (http://0.0.0.0/): transfer failed for http://0.0.0.0/commons-lang/commons-lang/maven-metadata.xml
+[INFO] Downloading from maven-default-http-blocker: http://0.0.0.0/commons-logging/commons-logging/maven-metadata.xml
+[WARNING] Could not transfer metadata commons-logging:commons-logging/maven-metadata.xml from/to maven-default-http-blocker (http://0.0.0.0/): transfer failed for http://0.0.0.0/commons-logging/commons-logging/maven-metadata.xml
+[INFO] Downloading from maven-default-http-blocker: http://0.0.0.0/commons-codec/commons-codec/maven-metadata.xml
+[WARNING] Could not transfer metadata commons-codec:commons-codec/maven-metadata.xml from/to maven-default-http-blocker (http://0.0.0.0/): transfer failed for http://0.0.0.0/commons-codec/commons-codec/maven-metadata.xml
+[WARNING] commons-lang:commons-lang/maven-metadata.xmlfailed to transfer from http://0.0.0.0/ during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of maven-default-http-blocker has elapsed or updates are forced. Original error: Could not transfer metadata commons-lang:commons-lang/maven-metadata.xml from/to maven-default-http-blocker (http://0.0.0.0/): transfer failed for http://0.0.0.0/commons-lang/commons-lang/maven-metadata.xml
+[WARNING] com.google.guava:guava/maven-metadata.xmlfailed to transfer from http://0.0.0.0/ during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of maven-default-http-blocker has elapsed or updates are forced. Original error: Could not transfer metadata com.google.guava:guava/maven-metadata.xml from/to maven-default-http-blocker (http://0.0.0.0/): transfer failed for http://0.0.0.0/com/google/guava/guava/maven-metadata.xml
+[INFO] Downloading from maven-default-http-blocker: http://0.0.0.0/commons-io/commons-io/maven-metadata.xml
+[WARNING] Could not transfer metadata commons-io:commons-io/maven-metadata.xml from/to maven-default-http-blocker (http://0.0.0.0/): transfer failed for http://0.0.0.0/commons-io/commons-io/maven-metadata.xml
+[WARNING] commons-codec:commons-codec/maven-metadata.xmlfailed to transfer from http://0.0.0.0/ during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of maven-default-http-blocker has elapsed or updates are forced. Original error: Could not transfer metadata commons-codec:commons-codec/maven-metadata.xml from/to maven-default-http-blocker (http://0.0.0.0/): transfer failed for http://0.0.0.0/commons-codec/commons-codec/maven-metadata.xml
+[INFO] Using Maven bin path: null
+[INFO] Wrote hash file /home/dev/platform/platform/examples/examples.energy/target/easy-meta-generateAppsNoDeps.fpf
+[INFO] Changed null files: [/home/dev/platform/platform/examples/examples.energy/target/easy/files/python.xml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/ServiceStateMachines.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Applications.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/UI.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Nameplate.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Devices.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/types/DataTypesPartEnergy.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/types/DataTypesPartEnergy.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/MetaConcepts.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Nameplate.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/DataOperations.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Devices.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/README.md, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/ServiceStateMachines.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/DataOperations.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Services.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/NameplateBase.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/NameplatePartRapidminer.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/README.md, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/ServicePartFlowerAI.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/ConnectorsPartNovoAI.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/NameplatePartKiprotect.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/ConnectorsPartMIP.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/ServerPartFlowerAI.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/ServerPartFlowerAI.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/ServicePartRtsa.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/NameplatePartKiprotect.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/ServicePartRtsa.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/NameplatePartRapidminer.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/ServicePartKodex.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/ServicePartFlowerAI.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/ServicePartKodex.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/ConnectorsPartMIP.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/ConnectorsPartNovoAI.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/DataTypes.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/devices/README.md, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/devices/DevicePartPhoenixContact.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/devices/PhoenixContactEem.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/devices/DevicePartBitmotec.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/devices/DevicePartPhoenixContact.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/devices/DevicePartBitmotec.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/devices/PhoenixContactEem.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Connectors.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Connectors.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Resources.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/NameplateBase.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Resources.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Applications.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Transport.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Services.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Aas.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/easy-base.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/UI.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Aas.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/DataTypes.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Transport.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/MetaConcepts.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/connectors/AASDataTypes.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/connectors/OpcUaBaseTypes.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/connectors/OpcUaDataTypes.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/connectors/AASDataTypes.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/connectors/OpcUaDataTypes.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/connectors/OpcUaBaseTypes.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/connectors/Vdma40001_4DataTypes.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/connectors/Vdma40001_4DataTypes.text, /home/dev/platform/platform/examples/examples.energy/target/easy/README.md, /home/dev/platform/platform/examples/examples.energy/target/easy/IIPEcosphere.vil, /home/dev/platform/platform/examples/examples.energy/target/easy/constraints.txt, /home/dev/platform/platform/examples/examples.energy/target/easy/.EASyConfig, /home/dev/platform/platform/examples/examples.energy/target/easy/IIPEcosphereBase.vil, /home/dev/platform/platform/examples/examples.energy/target/easy/IIPEcosphere.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/Broker.vil, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/README.md, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonServer.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonMeshElementTemplateBase.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonAssembly.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonServerBase.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonServiceInterface.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonTestTemplate.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonMeshElementInterface.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonEnum.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonServerInterface.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonAssemblyTemplate.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonBasics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonJsonSerializer.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonServerTestTemplate.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonMeshElementTemplate.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonType.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/amqp/AmqpWin.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/amqp/AmqpLinux.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/amqp/AmqpPom.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/amqp/AmqpConf.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/amqp/AmqpLinuxSysd.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/NoBroker.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/mqtt/MqttLinuxSysd.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/mqtt/MqttConf.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/mqtt/MqttBasics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/mqtt/MqttLinux.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/mqtt/MqttPom.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/mqtt/MqttWin.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/README.md, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/ui/UiAngularExpress.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/ui/UiAngularBasics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/ui/UiAngularPom.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/ui/UiAngularWin.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/ui/UiAngularConfig.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/ui/UiAngularLinux.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/ui/UiAngularLinuxSysd.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/JavaServiceInterfacePartTraceToAas.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/DeploymentPlan.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/README.md, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/Rtsa.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/JavaSpringCloudStreamMeshElementPartTraceToAas.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/JavaSpringCloudStreamMeshElementPartKodex.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/flower/PythonServerPartFlowerAI.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/flower/PythonFlowerServerStrategy.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/flower/IIPEcospherePartFlowerAI.vil, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/flower/TemplatesFlowerConfig.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/flower/PythonMeshElementTemplatePartFlowerAI.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/flower/SpringCloudStreamDeploymentDescriptorPartFlowerAI.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/flower/PythonFlowerServerClient.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/SpringCloudStreamDeploymentDescriptorPartRtsa.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/KodexMapping.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/IIPEcospherePartRtsa.vil, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/IIPEcospherePartKodex.vil, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/SpringCloudStreamDeploymentDescriptorPartKodex.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/KodexActions.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/KodexApi.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/JavaSpringCloudStreamMeshElementPartRtsa.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/KodexData.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/KodexArtifactsAssembly.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesArtifactAssemblyTemplate.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesMvnBash.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesTestLogbackXml.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/vscode/TemplatesVsCodeEnvProject.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/vscode/TemplatesVsCodeExtraPathProject.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesTestDataJson.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesMvnBatch.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesIdentityStoreYaml.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEasyProducer.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEclipsePyDevProject.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEclipseReadme.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEclipseClasspath.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEclipseProject.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEclipseGitignore.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesArtifactsAssembly.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/ServiceBasics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/DockerfileAllApps.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/WrapperScriptPlatform.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/IIPEcospherePartLxc.vil, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/InstalledDependencies.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/MeshInfoAllApps.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/ContainerRunScriptAllApps.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/IIPEcospherePartDocker.vil, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/Dockerfile_3_ecs.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/Dockerfile_PythonAllApps.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/PythonReq.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/DockerfileBase_Python.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/DockerBasics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/DockerfileBaseAllApps_Python.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/LxcTemplateFile.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/PythonReqPlatform.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/MeshInfo.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/DockerfilePlatform.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/PythonBaseReq.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/Dockerfile_Python.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/Dockerfile.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/DockerfileBase.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/WrapperScript.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/ContainerRunScript.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/DockerfileBaseAllApps.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/Dockerfile_3_ecsAllApps.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/LxcTemplate_Python.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/Basics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/os/README.md, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/os/LinuxSysd.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/os/Readme.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/os/LinuxBash.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/os/JavaOsBasics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/os/WinBatch.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaConnectorSerializer.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AasImplTest.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaBasics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaAllTestsTemplate.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaXmlSerializer.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaPluginSetupDescriptor.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaConnector.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/ConnectorResource.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaYamlTest.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/EcsServiceControlMvn.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServiceImplStateMachine.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaProtoBufSpec.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/README.md, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/ServiceControlSpringCloudStreamYaml.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSerializerBase.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AppMvn.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/EcsRuntimeDockerContainerManagerYaml.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudStreamStarter.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/SpringCloudStreamBasics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/PlatformMvn.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudStreamMeshElement.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServiceInterfaceBase.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudFamilyInterface.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/SpringBasics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/MavenBasics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaLogbackXml.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AppAnt.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudStreamYaml.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaMeshElementTemplate.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaEnum.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServiceBaseImpl.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServiceTestTemplate.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServer.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaConnectorRestImpl.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AasBuilderImpl.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AasAccessorImpl.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaMapping.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaConnectorConnectivityTest.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AasBasics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaMeshElementInterface.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AppMvnTest.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/PlatformYaml.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/ServiceControlMvn.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaProtoBufSerializer.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/MeshBasics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/DataOperationBasics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServices.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaInterfaceAssembly.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/SpringCloudStreamDeploymentDescriptor.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudStreamMeshElementTest.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/LoggingBasics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/ApiMvn.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudStreamAssembly.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/EcsServiceControlSpringCloudStreamYaml.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudStreamMeshElementBase.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaConnectorRestType.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServiceInterface.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/EcsRuntimeMvn.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/SpringCloudStreamDeploymentDescriptorBase.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/IIPEcosphere.text]
+[INFO] Wrote hash file /home/dev/platform/platform/examples/examples.energy/target/easy-generateAppsNoDeps.fpf
+[INFO] Changed IVML model files: [/home/dev/platform/platform/examples/examples.energy/src/main/easy/energy.ivml, /home/dev/platform/platform/examples/examples.energy/src/main/easy/.EASyConfig, /home/dev/platform/platform/examples/examples.energy/src/main/easy/Opc.ivml, /home/dev/platform/platform/examples/examples.energy/src/main/easy/OpcEnergy.ivml, /home/dev/platform/platform/examples/examples.energy/src/main/easy/OpcWoodworking.ivml]
+Loading classpath from config.classpath
+[INFO] Calling platform instantiator as process with [Energy, /home/dev/platform/platform/examples/examples.energy/src/main/easy, /home/dev/platform/platform/examples/examples.energy/target/gen/energy, generateAppsNoDeps, /home/dev/platform/platform/examples/examples.energy/target/easy], tracing TOP
+21:09:50 [main] INFO d.i.p.s.r.ResourceLoader - Registered resource resolver Classloader
+21:09:50 [main] WARN d.i.p.s.a.AasFactory - No AAS factory implementation known. This may be intended in a simple testing setup where AAS operations are optional, but also a severe misconfiguration if this occurs in the context of a full platform instance where AAS operations are mandatory.
+21:09:50 [main] INFO d.i.p.c.e.PlatformInstantiator - Deleting /home/dev/platform/platform/examples/examples.energy/target/gen/energy ...
+21:09:50 [main] INFO d.i.p.c.e.PlatformInstantiator - Cleaned output folder /home/dev/platform/platform/examples/examples.energy/target/gen/energy in 13 ms
+21:09:52 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - EASy-Producer is starting (TOOLING mode)
+21:09:54 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - EASy-Producer started in 4010 ms
+21:09:54 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - Setting up configuration base: .
+21:09:54 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - Setting up configuration meta model: /home/dev/platform/platform/examples/examples.energy/target/easy
+21:09:54 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - Setting up configuration model name: Energy
+21:09:54 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - Setting up generation target: /home/dev/platform/platform/examples/examples.energy/target/gen/energy
+21:09:54 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - Setting up configuration folder: /home/dev/platform/platform/examples/examples.energy/src/main/easy
+21:09:54 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - Setting up EASy-Producer locations, loading models
+21:09:58 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - EASy-Producer models loaded in 3226 ms
+21:10:02 [main] INFO d.i.p.c.e.ConfigurationManager - EASy-Producer model reasoning done in 1466 ms
+21:10:02 [main] WARN d.i.p.c.e.ConfigurationManager - No (username) identity token for key 'docker' found. Container deployment may fail
+executing script IIPEcosphere (VIL)  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/IIPEcosphere.vil
+  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcIn.java
+  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcInImpl.java
+  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcInSerializer.java
+  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcInImplSerializer.java
+  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcINonElectricalEnergyType.java
+  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcINonElectricalEnergyTypeImpl.java
+  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcINonElectricalEnergyTypeSerializer.java
+  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcINonElectricalEnergyTypeImplSerializer.java
+  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcIBaseFlowType.java
+  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcIBaseFlowTypeImpl.java
+  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcIBaseFlowTypeSerializer.java
+  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcIBaseFlowTypeImplSerializer.java
+  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcIVolumeFlowType.java
+  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcIVolumeFlowTypeImpl.java
+  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcIVolumeFlowTypeSerializer.java
+  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcIVolumeFlowTypeImplSerializer.java
+  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcIMassFlowType.java
+  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcIMassFlowTypeImpl.java
+  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcIMassFlowTypeSerializer.java
+  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcIMassFlowTypeImplSerializer.java
+  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcOut.java
+  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcOutImpl.java
+  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcOutSerializer.java
+  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcOutImplSerializer.java
+  JavaServiceInterface  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServiceInterface.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/interfaces/OPCReceiverInterface.java
+  JavaServiceBaseImpl  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServiceBaseImpl.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/impl/OPCReceiverImpl.java
+  AppMvn  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AppMvn.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/pom.xml
+  AppAnt  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AppAnt.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/build-jk.xml
+  Calling maven with /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces {}
+   Scanning for projects...
+   
+   -------< de.iip-ecosphere.platform:apps.EnergyOpcAppInterfaces >--------
+   Building apps.EnergyOpcAppInterfaces 0.8.1-SNAPSHOT
+     from pom.xml
+   --------------------------------[ jar ]---------------------------------
+   
+   --- clean:2.5:clean (default-clean) @ apps.EnergyOpcAppInterfaces ---
+   
+   --- resources:3.2.0:copy-resources (platf-res) @ apps.EnergyOpcAppInterfaces ---
+   Using 'UTF-8' encoding to copy filtered resources.
+   Using 'UTF-8' encoding to copy filtered properties files.
+   skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/./resources/platform
+   
+   --- resources:3.2.0:copy-resources (sw-res) @ apps.EnergyOpcAppInterfaces ---
+   Using 'UTF-8' encoding to copy filtered resources.
+   Using 'UTF-8' encoding to copy filtered properties files.
+   skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/./resources/software
+   
+   --- clean:2.5:clean (auto-clean) @ apps.EnergyOpcAppInterfaces ---
+   
+   --- resources:3.2.0:resources (default-resources) @ apps.EnergyOpcAppInterfaces ---
+   Using 'UTF-8' encoding to copy filtered resources.
+   Using 'UTF-8' encoding to copy filtered properties files.
+   skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/resources
+   
+   --- compiler:3.7.0:compile (default-compile) @ apps.EnergyOpcAppInterfaces ---
+   Changes detected - recompiling the module!
+   Compiling 26 source files to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/classes
+   
+   --- python:0.8.1-SNAPSHOT:compile-python (py-compile) @ apps.EnergyOpcAppInterfaces ---
+   Using Python /usr/lib/python3
+   Wrote hash file /home/dev/platform/platform/examples/examples.energy/target/apps.EnergyOpcAppInterfaces-python-compile.fpf
+   
+   --- resources:3.2.0:testResources (default-testResources) @ apps.EnergyOpcAppInterfaces ---
+   Using 'UTF-8' encoding to copy filtered resources.
+   Using 'UTF-8' encoding to copy filtered properties files.
+   skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/test/resources
+   
+   --- compiler:3.7.0:testCompile (default-testCompile) @ apps.EnergyOpcAppInterfaces ---
+   No sources to compile
+   
+   --- surefire:3.0.0-M3:test (default-test) @ apps.EnergyOpcAppInterfaces ---
+   No tests to run.
+   
+   --- python:0.8.1-SNAPSHOT:test-python (py-test) @ apps.EnergyOpcAppInterfaces ---
+   Using Python: /usr/lib/python3
+   Using PYTHONPATH=, PRJ_HOME=/home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces
+   
+   --- dependency:0.8.1-SNAPSHOT:copy-dependencies (copy-dependencies) @ apps.EnergyOpcAppInterfaces ---
+   Copying support-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/support-0.8.1-SNAPSHOT.jar
+   Copying support.boot-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/support.boot-0.8.1-SNAPSHOT.jar
+   Copying support.yaml-snakeyaml-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/support.yaml-snakeyaml-0.8.1-SNAPSHOT.jar
+   Copying snakeyaml-1.27.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/snakeyaml-1.27.jar
+   Copying support.json-jackson-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/support.json-jackson-0.8.1-SNAPSHOT.jar
+   Copying jackson-core-2.11.4.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jackson-core-2.11.4.jar
+   Copying jackson-databind-2.11.4.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jackson-databind-2.11.4.jar
+   Copying jackson-annotations-2.11.4.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jackson-annotations-2.11.4.jar
+   Copying jackson-dataformat-xml-2.11.4.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jackson-dataformat-xml-2.11.4.jar
+   Copying jackson-module-jaxb-annotations-2.11.4.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jackson-module-jaxb-annotations-2.11.4.jar
+   Copying jakarta.xml.bind-api-2.3.3.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jakarta.xml.bind-api-2.3.3.jar
+   Copying jakarta.activation-api-1.2.2.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jakarta.activation-api-1.2.2.jar
+   Copying stax2-api-4.2.1.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/stax2-api-4.2.1.jar
+   Copying woodstox-core-6.2.3.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/woodstox-core-6.2.3.jar
+   Copying javax.json-1.1.4.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/javax.json-1.1.4.jar
+   Copying jsoniter-0.9.23.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jsoniter-0.9.23.jar
+   Copying support.commons-apache-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/support.commons-apache-0.8.1-SNAPSHOT.jar
+   Copying commons-io-2.18.0.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/commons-io-2.18.0.jar
+   Copying commons-lang3-3.11.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/commons-lang3-3.11.jar
+   Copying commons-text-1.9.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/commons-text-1.9.jar
+   Copying commons-validator-1.7.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/commons-validator-1.7.jar
+   Copying commons-beanutils-1.9.4.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/commons-beanutils-1.9.4.jar
+   Copying commons-digester-2.1.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/commons-digester-2.1.jar
+   Copying commons-logging-1.2.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/commons-logging-1.2.jar
+   Copying commons-collections-3.2.2.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/commons-collections-3.2.2.jar
+   Copying joda-time-2.11.2.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/joda-time-2.11.2.jar
+   Copying support.websocket-websocket-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/support.websocket-websocket-0.8.1-SNAPSHOT.jar
+   Copying Java-WebSocket-1.6.0.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/Java-WebSocket-1.6.0.jar
+   Copying slf4j-api-1.7.25.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/slf4j-api-1.7.25.jar
+   Copying support.rest-spark-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/support.rest-spark-0.8.1-SNAPSHOT.jar
+   Copying spark-core-2.9.4.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/spark-core-2.9.4.jar
+   Copying jetty-server-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jetty-server-9.4.36.v20210114.jar
+   Copying javax.servlet-api-4.0.1.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/javax.servlet-api-4.0.1.jar
+   Copying jetty-http-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jetty-http-9.4.36.v20210114.jar
+   Copying jetty-util-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jetty-util-9.4.36.v20210114.jar
+   Copying jetty-io-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jetty-io-9.4.36.v20210114.jar
+   Copying jetty-webapp-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jetty-webapp-9.4.36.v20210114.jar
+   Copying jetty-xml-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jetty-xml-9.4.36.v20210114.jar
+   Copying jetty-servlet-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jetty-servlet-9.4.36.v20210114.jar
+   Copying jetty-security-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jetty-security-9.4.36.v20210114.jar
+   Copying jetty-util-ajax-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jetty-util-ajax-9.4.36.v20210114.jar
+   Copying websocket-server-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/websocket-server-9.4.36.v20210114.jar
+   Copying websocket-common-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/websocket-common-9.4.36.v20210114.jar
+   Copying websocket-client-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/websocket-client-9.4.36.v20210114.jar
+   Copying jetty-client-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jetty-client-9.4.36.v20210114.jar
+   Copying websocket-servlet-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/websocket-servlet-9.4.36.v20210114.jar
+   Copying websocket-api-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/websocket-api-9.4.36.v20210114.jar
+   Copying jersey-client-2.32.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jersey-client-2.32.jar
+   Copying jakarta.ws.rs-api-2.1.6.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jakarta.ws.rs-api-2.1.6.jar
+   Copying jersey-common-2.32.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jersey-common-2.32.jar
+   Copying jakarta.annotation-api-1.3.5.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jakarta.annotation-api-1.3.5.jar
+   Copying osgi-resource-locator-1.0.3.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/osgi-resource-locator-1.0.3.jar
+   Copying jakarta.activation-1.2.2.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jakarta.activation-1.2.2.jar
+   Copying jakarta.inject-2.6.1.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jakarta.inject-2.6.1.jar
+   Copying jersey-hk2-2.32.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jersey-hk2-2.32.jar
+   Copying hk2-locator-2.6.1.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/hk2-locator-2.6.1.jar
+   Copying aopalliance-repackaged-2.6.1.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/aopalliance-repackaged-2.6.1.jar
+   Copying hk2-api-2.6.1.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/hk2-api-2.6.1.jar
+   Copying hk2-utils-2.6.1.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/hk2-utils-2.6.1.jar
+   Copying javassist-3.25.0-GA.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/javassist-3.25.0-GA.jar
+   Copying support.processInfo-oshi-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/support.processInfo-oshi-0.8.1-SNAPSHOT.jar
+   Copying oshi-core-7.3.1.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/oshi-core-7.3.1.jar
+   Copying oshi-common-7.3.1.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/oshi-common-7.3.1.jar
+   Copying jna-jpms-5.19.0.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jna-jpms-5.19.0.jar
+   Copying jna-platform-jpms-5.19.0.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jna-platform-jpms-5.19.0.jar
+   Copying support.bytecode-bytebuddy-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/support.bytecode-bytebuddy-0.8.1-SNAPSHOT.jar
+   Copying byte-buddy-1.10.20.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/byte-buddy-1.10.20.jar
+   Copying support.http-apache-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/support.http-apache-0.8.1-SNAPSHOT.jar
+   Copying httpclient-4.5.13.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/httpclient-4.5.13.jar
+   Copying httpcore-4.4.14.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/httpcore-4.4.14.jar
+   Copying commons-codec-1.15.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/commons-codec-1.15.jar
+   Copying commons-pool2-2.9.0.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/commons-pool2-2.9.0.jar
+   Copying support.metrics-micrometer-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/support.metrics-micrometer-0.8.1-SNAPSHOT.jar
+   Copying micrometer-core-1.6.4.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/micrometer-core-1.6.4.jar
+   Copying HdrHistogram-2.1.12.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/HdrHistogram-2.1.12.jar
+   Copying LatencyUtils-2.0.3.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/LatencyUtils-2.0.3.jar
+   Copying support.aas-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/support.aas-0.8.1-SNAPSHOT.jar
+   Copying transport-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/transport-0.8.1-SNAPSHOT.jar
+   Copying support.iip-aas-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/support.iip-aas-0.8.1-SNAPSHOT.jar
+   Copying connectors-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/connectors-0.8.1-SNAPSHOT.jar
+   Copying services.environment-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/services.environment-0.8.1-SNAPSHOT.jar
+   Copying tools.lib-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/tools.lib-0.8.1-SNAPSHOT.jar
+   Copying jakarta.el-3.0.4.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jakarta.el-3.0.4.jar
+   
+   --- dependency:0.8.1-SNAPSHOT:build-classpath (build-classpath) @ apps.EnergyOpcAppInterfaces ---
+   Wrote classpath file '/home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/classes/classpath'.
+   
+   --- jar:3.2.0:jar (default-jar) @ apps.EnergyOpcAppInterfaces ---
+   Building jar: /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/apps.EnergyOpcAppInterfaces-0.8.1-SNAPSHOT.jar
+   
+   --- javadoc:3.2.0:jar (default-cli) @ apps.EnergyOpcAppInterfaces ---
+   Skipping javadoc generation
+   
+   --- javadoc:3.2.0:test-jar (default-cli) @ apps.EnergyOpcAppInterfaces ---
+   Skipping javadoc generation
+   
+   --- jar:3.2.0:test-jar (default) @ apps.EnergyOpcAppInterfaces ---
+   JAR will be empty - no content was marked for inclusion!
+   Building jar: /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/apps.EnergyOpcAppInterfaces-0.8.1-SNAPSHOT-tests.jar
+   
+   --- source:3.2.0:jar-no-fork (attach-sources) @ apps.EnergyOpcAppInterfaces ---
+   Building jar: /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/apps.EnergyOpcAppInterfaces-0.8.1-SNAPSHOT-sources.jar
+   
+   >>> source:3.2.0:test-jar (attach-sources) > generate-sources @ apps.EnergyOpcAppInterfaces >>>
+   
+   --- resources:3.2.0:copy-resources (platf-res) @ apps.EnergyOpcAppInterfaces ---
+   Using 'UTF-8' encoding to copy filtered resources.
+   Using 'UTF-8' encoding to copy filtered properties files.
+   skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/./resources/platform
+   
+   --- resources:3.2.0:copy-resources (sw-res) @ apps.EnergyOpcAppInterfaces ---
+   Using 'UTF-8' encoding to copy filtered resources.
+   Using 'UTF-8' encoding to copy filtered properties files.
+   skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/./resources/software
+   
+   --- clean:2.5:clean (auto-clean) @ apps.EnergyOpcAppInterfaces ---
+   Deleting /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target (includes = [*-bin.jar, *-spring.jar], excludes = [])
+   
+   <<< source:3.2.0:test-jar (attach-sources) < generate-sources @ apps.EnergyOpcAppInterfaces <<<
+   
+   
+   --- source:3.2.0:test-jar (attach-sources) @ apps.EnergyOpcAppInterfaces ---
+   No sources in project. Archive not created.
+   
+   --- dependency:0.8.1-SNAPSHOT:touch (touch-deployed) @ apps.EnergyOpcAppInterfaces ---
+   
+   --- install:3.1.1:install (default-install) @ apps.EnergyOpcAppInterfaces ---
+   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/pom.xml to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps.EnergyOpcAppInterfaces/0.8.1-SNAPSHOT/apps.EnergyOpcAppInterfaces-0.8.1-SNAPSHOT.pom
+   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/apps.EnergyOpcAppInterfaces-0.8.1-SNAPSHOT.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps.EnergyOpcAppInterfaces/0.8.1-SNAPSHOT/apps.EnergyOpcAppInterfaces-0.8.1-SNAPSHOT.jar
+   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/apps.EnergyOpcAppInterfaces-0.8.1-SNAPSHOT-tests.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps.EnergyOpcAppInterfaces/0.8.1-SNAPSHOT/apps.EnergyOpcAppInterfaces-0.8.1-SNAPSHOT-tests.jar
+   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/apps.EnergyOpcAppInterfaces-0.8.1-SNAPSHOT-sources.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps.EnergyOpcAppInterfaces/0.8.1-SNAPSHOT/apps.EnergyOpcAppInterfaces-0.8.1-SNAPSHOT-sources.jar
+   ------------------------------------------------------------------------
+   BUILD SUCCESS
+   ------------------------------------------------------------------------
+   Total time:  11.222 s
+   Finished at: 2026-11-02T21:10:29Z
+   ------------------------------------------------------------------------
+  JavaSpringCloudStreamMeshElement  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudStreamMeshElement.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/main/java/iip/nodes/MyOpcConnExample.java
+  JavaSpringCloudStreamMeshElement  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudStreamMeshElement.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/main/java/iip/nodes/OPCReceiver.java
+  JavaSpringCloudStreamStarter  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudStreamStarter.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/main/java/iip/Starter.java
+  JavaSpringCloudStreamYaml  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudStreamYaml.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/main/resources/application.yml
+  SpringCloudStreamDeploymentDescriptor  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/SpringCloudStreamDeploymentDescriptor.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/main/resources/deployment.yml
+  JavaLogbackXml  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaLogbackXml.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/main/resources/logback.xml
+  JavaServices  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServices.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/main/resources/META-INF/services/de.iip_ecosphere.platform.support.identities.IdentityStoreDescriptor
+  JavaServices  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServices.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/main/resources/META-INF/services/de.iip_ecosphere.platform.support.iip_aas.IdProviderDescriptor
+  AppMvn  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AppMvn.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/pom.xml
+  AppAnt  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AppAnt.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/build-jk.xml
+  Calling maven with /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp {}
+   Scanning for projects...
+   
+   -------< de.iip-ecosphere.platform.apps:SimpleEnergyOPCDemoApp >--------
+   Building SimpleEnergyOPCDemoApp 0.1.0-SNAPSHOT
+     from pom.xml
+   --------------------------------[ jar ]---------------------------------
+   
+   --- clean:2.5:clean (default-clean) @ SimpleEnergyOPCDemoApp ---
+   
+   --- resources:3.2.0:copy-resources (platf-res) @ SimpleEnergyOPCDemoApp ---
+   Using 'UTF-8' encoding to copy filtered resources.
+   Using 'UTF-8' encoding to copy filtered properties files.
+   skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/./resources/platform
+   
+   --- resources:3.2.0:copy-resources (sw-res) @ SimpleEnergyOPCDemoApp ---
+   Using 'UTF-8' encoding to copy filtered resources.
+   Using 'UTF-8' encoding to copy filtered properties files.
+   skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/./resources/software
+   
+   --- clean:2.5:clean (auto-clean) @ SimpleEnergyOPCDemoApp ---
+   
+   --- resources:3.2.0:resources (default-resources) @ SimpleEnergyOPCDemoApp ---
+   Using 'UTF-8' encoding to copy filtered resources.
+   Using 'UTF-8' encoding to copy filtered properties files.
+   Copying 5 resources
+   
+   --- compiler:3.7.0:compile (default-compile) @ SimpleEnergyOPCDemoApp ---
+   Changes detected - recompiling the module!
+   Compiling 3 source files to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/classes
+   
+   --- python:0.8.1-SNAPSHOT:compile-python (py-compile) @ SimpleEnergyOPCDemoApp ---
+   Using Python /usr/lib/python3
+   Wrote hash file /home/dev/platform/platform/examples/examples.energy/target/SimpleEnergyOPCDemoApp-python-compile.fpf
+   
+   --- resources:3.2.0:testResources (default-testResources) @ SimpleEnergyOPCDemoApp ---
+   Using 'UTF-8' encoding to copy filtered resources.
+   Using 'UTF-8' encoding to copy filtered properties files.
+   skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/test/resources
+   
+   --- compiler:3.7.0:testCompile (default-testCompile) @ SimpleEnergyOPCDemoApp ---
+   No sources to compile
+   
+   --- surefire:3.0.0-M3:test (default-test) @ SimpleEnergyOPCDemoApp ---
+   No tests to run.
+   
+   --- python:0.8.1-SNAPSHOT:test-python (py-test) @ SimpleEnergyOPCDemoApp ---
+   Using Python: /usr/lib/python3
+   Using PYTHONPATH=, PRJ_HOME=/home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp
+   
+   --- dependency:0.8.1-SNAPSHOT:build-classpath (build-classpath) @ SimpleEnergyOPCDemoApp ---
+   Wrote classpath file '/home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/classes/classpath'.
+   
+   --- jar:3.2.0:jar (default-jar) @ SimpleEnergyOPCDemoApp ---
+   Building jar: /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT.jar
+   
+   --- javadoc:3.2.0:jar (default-cli) @ SimpleEnergyOPCDemoApp ---
+   Skipping javadoc generation
+   
+   --- javadoc:3.2.0:test-jar (default-cli) @ SimpleEnergyOPCDemoApp ---
+   Skipping javadoc generation
+   
+   --- jar:3.2.0:test-jar (default) @ SimpleEnergyOPCDemoApp ---
+   JAR will be empty - no content was marked for inclusion!
+   Building jar: /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-tests.jar
+   
+   --- source:3.2.0:jar-no-fork (attach-sources) @ SimpleEnergyOPCDemoApp ---
+   Building jar: /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-sources.jar
+   
+   >>> source:3.2.0:test-jar (attach-sources) > generate-sources @ SimpleEnergyOPCDemoApp >>>
+   
+   --- resources:3.2.0:copy-resources (platf-res) @ SimpleEnergyOPCDemoApp ---
+   Using 'UTF-8' encoding to copy filtered resources.
+   Using 'UTF-8' encoding to copy filtered properties files.
+   skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/./resources/platform
+   
+   --- resources:3.2.0:copy-resources (sw-res) @ SimpleEnergyOPCDemoApp ---
+   Using 'UTF-8' encoding to copy filtered resources.
+   Using 'UTF-8' encoding to copy filtered properties files.
+   skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/./resources/software
+   
+   --- clean:2.5:clean (auto-clean) @ SimpleEnergyOPCDemoApp ---
+   Deleting /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target (includes = [*-bin.jar, *-spring.jar], excludes = [])
+   
+   <<< source:3.2.0:test-jar (attach-sources) < generate-sources @ SimpleEnergyOPCDemoApp <<<
+   
+   
+   --- source:3.2.0:test-jar (attach-sources) @ SimpleEnergyOPCDemoApp ---
+   No sources in project. Archive not created.
+   
+   --- spring-boot:2.4.2:repackage (default) @ SimpleEnergyOPCDemoApp ---
+   Attaching repackaged archive /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-bin.jar with classifier bin
+   
+   --- dependency:0.8.1-SNAPSHOT:touch (touch-deployed) @ SimpleEnergyOPCDemoApp ---
+   
+   --- install:3.1.1:install (default-install) @ SimpleEnergyOPCDemoApp ---
+   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/pom.xml to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps/SimpleEnergyOPCDemoApp/0.1.0-SNAPSHOT/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT.pom
+   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps/SimpleEnergyOPCDemoApp/0.1.0-SNAPSHOT/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT.jar
+   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-tests.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps/SimpleEnergyOPCDemoApp/0.1.0-SNAPSHOT/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-tests.jar
+   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-sources.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps/SimpleEnergyOPCDemoApp/0.1.0-SNAPSHOT/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-sources.jar
+   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-bin.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps/SimpleEnergyOPCDemoApp/0.1.0-SNAPSHOT/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-bin.jar
+   ------------------------------------------------------------------------
+   BUILD SUCCESS
+   ------------------------------------------------------------------------
+   Total time:  14.397 s
+   Finished at: 2026-11-02T21:10:53Z
+   ------------------------------------------------------------------------
+  TemplatesEclipseProject  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEclipseProject.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/.project
+  TemplatesEclipseClasspath  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEclipseClasspath.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/.classpath
+  TemplatesEclipsePyDevProject  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEclipsePyDevProject.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/.pydevproject
+  TemplatesEclipseGitignore  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEclipseGitignore.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/.gitignore
+  TemplatesEasyProducer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEasyProducer.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/.EASyProducer
+  TemplatesMvnBash  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesMvnBash.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/build.sh
+  TemplatesMvnBash  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesMvnBash.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/updateModel.sh
+  TemplatesMvnBash  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesMvnBash.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/run.sh
+  TemplatesMvnBash  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesMvnBash.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/updateArtifacts.sh
+  TemplatesMvnBatch  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesMvnBatch.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/build.bat
+  TemplatesMvnBatch  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesMvnBatch.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/updateModel.bat
+  TemplatesMvnBatch  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesMvnBatch.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/run.bat
+  TemplatesMvnBatch  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesMvnBatch.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/updateArtifacts.bat
+  MqttPom  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/mqtt/MqttPom.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/target/gen/broker/pom.xml
+  MqttLinuxSysd  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/mqtt/MqttLinuxSysd.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/target/gen/broker/iip-broker.service
+  MqttLinux  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/mqtt/MqttLinux.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/target/gen/broker/broker.sh
+  MqttWin  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/mqtt/MqttWin.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/target/gen/broker/broker.bat
+  MqttConf  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/mqtt/MqttConf.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/target/gen/broker/src/test/config.xml
+  TemplatesVsCodeEnvProject  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/vscode/TemplatesVsCodeEnvProject.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/.vscode/settings.json
+  TemplatesVsCodeExtraPathProject  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/vscode/TemplatesVsCodeExtraPathProject.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/.vscode/pref.json
+  JavaConnectorConnectivityTest  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaConnectorConnectivityTest.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/src/test/java/iip/connectivity/MyOpcConnExampleTest.java
+  TemplatesTestDataJson  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesTestDataJson.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/resources/software/testData-OpcUaConnector_OpcOut.json.tmpl
+  JavaMeshElementTemplate  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaMeshElementTemplate.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/src/main/java/de/iip_ecosphere/platform/examples/energy/ReceiverImpl.java
+  TemplatesTestDataJson  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesTestDataJson.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/src/test/resources/testData-OPCReceiver.json.tmpl
+  JavaServiceTestTemplate  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServiceTestTemplate.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/src/test/java/de/iip_ecosphere/platform/examples/energy/ReceiverImplTest.java
+  JavaAllTestsTemplate  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaAllTestsTemplate.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/src/test/java/AllTests.java
+  JavaServices  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServices.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/src/main/resources/META-INF/services/de.iip_ecosphere.platform.support.plugins.PluginDescriptor
+  TemplatesEclipseReadme  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEclipseReadme.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/README.md
+  AppMvnTest  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AppMvnTest.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/pom.xml
+  TemplatesIdentityStoreYaml  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesIdentityStoreYaml.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/src/main/resources/identityStore.yml
+  TemplatesTestLogbackXml  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesTestLogbackXml.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/src/test/resources/logback.xml
+  JavaServices  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServices.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/src/test/resources/META-INF/services/de.iip_ecosphere.platform.support.identities.IdentityStoreDescriptor
+21:10:57 [main] INFO d.i.p.c.e.ConfigurationManager - EASy-Producer instantiation done in 55027 ms
+21:10:57 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - EASy-Producer is stopping
+21:10:57 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - EASy-Producer stopped
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:14 min
+[INFO] Finished at: 2026-11-02T21:10:57Z
+[INFO] ------------------------------------------------------------------------
+[[1;34mINFO[m] <<< Maven invoker completed
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32minvoker-plugin:0.8.1-SNAPSHOT:install[m [1m(installServices)[m @ [36mexamples.energy[0;1m ---[m
+[[1;34mINFO[m] Setting sys properties {python-test.skip=false, maven.test.skip=true, configuration.testApp.skip=false, python-compile.hashDir=/home/dev/platform/platform/examples/examples.energy/target, assembly.skipAssembly=false, maven.javadoc.skip=false, jacoco.skip=true, maven.main.skip=false, maven.source.skip=false, skipTests=true, maven.build.cache.enabled=false, python-compile.skip=false}
+[[1;34mINFO[m] Passing on env settings {MAVEN_SETTINGS_PATH=/usr/share/maven/conf/settings.xml, PYTHON_COMPILE_HASHDIR=/home/dev/platform/platform/examples/examples.energy/target, MAVEN_ARGS=-Dmaven.javadoc.skip=true}
+[[1;34mINFO[m] Actual POM: /home/dev/platform/platform/examples/examples.energy/pom.xml
+[[1;34mINFO[m] >>> Maven invoker: Using MAVEN_OPTS: null
+[[1;34mINFO[m] >>> Executing: /bin/sh -c cd /home/dev/platform/platform/examples/examples.energy && /usr/share/maven/bin/mvn -B -e -D maven.repo.local=/home/dev/.m2/repository -gs /etc/maven/settings.xml -D python-test.skip=false -D maven.test.skip=true -D configuration.testApp.skip=false -D python-compile.hashDir=/home/dev/platform/platform/examples/examples.energy/target -D assembly.skipAssembly=false -D maven.javadoc.skip=false -D jacoco.skip=true -D maven.main.skip=false -D maven.source.skip=false -D skipTests=true -D maven.build.cache.enabled=false -D python-compile.skip=false -P App install
+[INFO] Error stacktraces are turned on.
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------< de.iip-ecosphere.platform:examples.energy >--------------
+[INFO] Building Energy OPC-UA 0.8.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ examples.energy ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ examples.energy ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 23 source files to /home/dev/platform/platform/examples/examples.energy/target/classes
+[INFO] /home/dev/platform/platform/examples/examples.energy/src/main/java/de/iip_ecosphere/platform/examples/energy/aggregator/server/EnergyNamespace.java: /home/dev/platform/platform/examples/examples.energy/src/main/java/de/iip_ecosphere/platform/examples/energy/aggregator/server/EnergyNamespace.java uses or overrides a deprecated API.
+[INFO] /home/dev/platform/platform/examples/examples.energy/src/main/java/de/iip_ecosphere/platform/examples/energy/aggregator/server/EnergyNamespace.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-python:0.8.1-SNAPSHOT:compile-python (py-compile) @ examples.energy ---
+[INFO] Using Python /usr/lib/python3
+[INFO] Wrote hash file /home/dev/platform/platform/examples/examples.energy/target/examples.energy-python-compile.fpf
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ examples.energy ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ examples.energy ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M3:test (default-test) @ examples.energy ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-python:0.8.1-SNAPSHOT:test-python (py-test) @ examples.energy ---
+[INFO] Skipping Python test execution
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:jar (default-jar) @ examples.energy ---
+[INFO] Building jar: /home/dev/platform/platform/examples/examples.energy/target/examples.energy-0.8.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:3.2.0:jar (default-cli) @ examples.energy ---
+[ERROR] MavenReportException: Error while generating Javadoc: Unable to find javadoc command: The environment variable JAVA_HOME is not correctly set.
+org.apache.maven.reporting.MavenReportException: Unable to find javadoc command: The environment variable JAVA_HOME is not correctly set.
+    at org.apache.maven.plugins.javadoc.AbstractJavadocMojo.executeReport (AbstractJavadocMojo.java:2019)
+    at org.apache.maven.plugins.javadoc.JavadocJar.doExecute (JavadocJar.java:199)
+    at org.apache.maven.plugins.javadoc.AbstractJavadocMojo.execute (AbstractJavadocMojo.java:1935)
+    at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo (DefaultBuildPluginManager.java:137)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute2 (MojoExecutor.java:370)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute (MojoExecutor.java:351)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:215)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:171)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:163)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:117)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:81)
+    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build (SingleThreadedBuilder.java:56)
+    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:128)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:298)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:192)
+    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:105)
+    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:960)
+    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:293)
+    at org.apache.maven.cli.MavenCli.main (MavenCli.java:196)
+    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0 (Native Method)
+    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke (NativeMethodAccessorImpl.java:77)
+    at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke (DelegatingMethodAccessorImpl.java:43)
+    at java.lang.reflect.Method.invoke (Method.java:569)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:283)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:226)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:407)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:348)
+Caused by: java.io.IOException: The environment variable JAVA_HOME is not correctly set.
+    at org.apache.maven.plugins.javadoc.AbstractJavadocMojo.getJavadocExecutable (AbstractJavadocMojo.java:3818)
+    at org.apache.maven.plugins.javadoc.AbstractJavadocMojo.executeReport (AbstractJavadocMojo.java:2015)
+    at org.apache.maven.plugins.javadoc.JavadocJar.doExecute (JavadocJar.java:199)
+    at org.apache.maven.plugins.javadoc.AbstractJavadocMojo.execute (AbstractJavadocMojo.java:1935)
+    at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo (DefaultBuildPluginManager.java:137)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute2 (MojoExecutor.java:370)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute (MojoExecutor.java:351)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:215)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:171)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:163)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:117)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:81)
+    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build (SingleThreadedBuilder.java:56)
+    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:128)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:298)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:192)
+    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:105)
+    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:960)
+    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:293)
+    at org.apache.maven.cli.MavenCli.main (MavenCli.java:196)
+    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0 (Native Method)
+    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke (NativeMethodAccessorImpl.java:77)
+    at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke (DelegatingMethodAccessorImpl.java:43)
+    at java.lang.reflect.Method.invoke (Method.java:569)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:283)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:226)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:407)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:348)
+[INFO] 
+[INFO] --- maven-javadoc-plugin:3.2.0:test-jar (default-cli) @ examples.energy ---
+[ERROR] MavenReportException: Error while generating Javadoc: Unable to find javadoc command: The environment variable JAVA_HOME is not correctly set.
+org.apache.maven.reporting.MavenReportException: Unable to find javadoc command: The environment variable JAVA_HOME is not correctly set.
+    at org.apache.maven.plugins.javadoc.AbstractJavadocMojo.executeReport (AbstractJavadocMojo.java:2019)
+    at org.apache.maven.plugins.javadoc.JavadocJar.doExecute (JavadocJar.java:199)
+    at org.apache.maven.plugins.javadoc.AbstractJavadocMojo.execute (AbstractJavadocMojo.java:1935)
+    at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo (DefaultBuildPluginManager.java:137)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute2 (MojoExecutor.java:370)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute (MojoExecutor.java:351)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:215)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:171)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:163)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:117)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:81)
+    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build (SingleThreadedBuilder.java:56)
+    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:128)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:298)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:192)
+    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:105)
+    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:960)
+    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:293)
+    at org.apache.maven.cli.MavenCli.main (MavenCli.java:196)
+    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0 (Native Method)
+    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke (NativeMethodAccessorImpl.java:77)
+    at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke (DelegatingMethodAccessorImpl.java:43)
+    at java.lang.reflect.Method.invoke (Method.java:569)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:283)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:226)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:407)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:348)
+Caused by: java.io.IOException: The environment variable JAVA_HOME is not correctly set.
+    at org.apache.maven.plugins.javadoc.AbstractJavadocMojo.getJavadocExecutable (AbstractJavadocMojo.java:3818)
+    at org.apache.maven.plugins.javadoc.AbstractJavadocMojo.executeReport (AbstractJavadocMojo.java:2015)
+    at org.apache.maven.plugins.javadoc.JavadocJar.doExecute (JavadocJar.java:199)
+    at org.apache.maven.plugins.javadoc.AbstractJavadocMojo.execute (AbstractJavadocMojo.java:1935)
+    at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo (DefaultBuildPluginManager.java:137)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute2 (MojoExecutor.java:370)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute (MojoExecutor.java:351)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:215)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:171)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:163)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:117)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:81)
+    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build (SingleThreadedBuilder.java:56)
+    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:128)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:298)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:192)
+    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:105)
+    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:960)
+    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:293)
+    at org.apache.maven.cli.MavenCli.main (MavenCli.java:196)
+    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0 (Native Method)
+    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke (NativeMethodAccessorImpl.java:77)
+    at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke (DelegatingMethodAccessorImpl.java:43)
+    at java.lang.reflect.Method.invoke (Method.java:569)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:283)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:226)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:407)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:348)
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:test-jar (default) @ examples.energy ---
+[INFO] Skipping packaging of the test-jar
+[INFO] 
+[INFO] --- maven-source-plugin:3.2.0:jar-no-fork (attach-sources) @ examples.energy ---
+[INFO] Building jar: /home/dev/platform/platform/examples/examples.energy/target/examples.energy-0.8.1-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:3.2.0:test-jar (attach-sources) > generate-sources @ examples.energy >>>
+[INFO] 
+[INFO] <<< maven-source-plugin:3.2.0:test-jar (attach-sources) < generate-sources @ examples.energy <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:3.2.0:test-jar (attach-sources) @ examples.energy ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ examples.energy ---
+[INFO] Installing /home/dev/platform/platform/examples/examples.energy/target/examples.energy-0.8.1-SNAPSHOT.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/examples.energy/0.8.1-SNAPSHOT/examples.energy-0.8.1-SNAPSHOT.jar
+[INFO] Installing /home/dev/platform/platform/examples/examples.energy/pom.xml to /home/dev/.m2/repository/de/iip-ecosphere/platform/examples.energy/0.8.1-SNAPSHOT/examples.energy-0.8.1-SNAPSHOT.pom
+[INFO] Installing /home/dev/platform/platform/examples/examples.energy/target/examples.energy-0.8.1-SNAPSHOT-sources.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/examples.energy/0.8.1-SNAPSHOT/examples.energy-0.8.1-SNAPSHOT-sources.jar
+[INFO] Installing /home/dev/platform/platform/examples/examples.energy/target/examples.energy-0.8.1-SNAPSHOT-test-sources.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/examples.energy/0.8.1-SNAPSHOT/examples.energy-0.8.1-SNAPSHOT-test-sources.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  10.193 s
+[INFO] Finished at: 2026-11-02T21:11:10Z
+[INFO] ------------------------------------------------------------------------
+[[1;34mINFO[m] <<< Maven invoker completed
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32minvoker-plugin:0.8.1-SNAPSHOT:install[m [1m(integrateApp)[m @ [36mexamples.energy[0;1m ---[m
+[[1;34mINFO[m] Setting sys properties {python-test.skip=false, maven.test.skip=true, configuration.testApp.skip=false, python-compile.hashDir=/home/dev/platform/platform/examples/examples.energy/target, assembly.skipAssembly=false, maven.javadoc.skip=true, jacoco.skip=true, maven.main.skip=true, maven.source.skip=false, skipTests=true, maven.build.cache.enabled=false, python-compile.skip=true}
+[[1;34mINFO[m] Passing on env settings {MAVEN_SETTINGS_PATH=/usr/share/maven/conf/settings.xml, PYTHON_COMPILE_HASHDIR=/home/dev/platform/platform/examples/examples.energy/target, MAVEN_ARGS=-Dmaven.javadoc.skip=true}
+[[1;34mINFO[m] Actual POM: /home/dev/platform/platform/examples/examples.energy/pom.xml
+[[1;34mINFO[m] >>> Maven invoker: Using MAVEN_OPTS: null
+[[1;34mINFO[m] >>> Executing: /bin/sh -c cd /home/dev/platform/platform/examples/examples.energy && /usr/share/maven/bin/mvn -B -e -D maven.repo.local=/home/dev/.m2/repository -gs /etc/maven/settings.xml -D python-test.skip=false -D maven.test.skip=true -D configuration.testApp.skip=false -D python-compile.hashDir=/home/dev/platform/platform/examples/examples.energy/target -D assembly.skipAssembly=false -D maven.javadoc.skip=true -D jacoco.skip=true -D maven.main.skip=true -D maven.source.skip=false -D skipTests=true -D maven.build.cache.enabled=false -D python-compile.skip=true -P EasyGen package
+[INFO] Error stacktraces are turned on.
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------< de.iip-ecosphere.platform:examples.energy >--------------
+[INFO] Building Energy OPC-UA 0.8.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency-plugin:0.8.1-SNAPSHOT:unpack (unpack) @ examples.energy ---
+[INFO] 
+[INFO] --- configuration-plugin:0.8.1-SNAPSHOT:generateAppsNoDeps (generateAppsNoDeps) @ examples.energy ---
+[INFO] Downloading from maven-default-http-blocker: http://0.0.0.0/com/google/guava/guava/maven-metadata.xml
+[WARNING] Could not transfer metadata com.google.guava:guava/maven-metadata.xml from/to maven-default-http-blocker (http://0.0.0.0/): transfer failed for http://0.0.0.0/com/google/guava/guava/maven-metadata.xml
+[INFO] Downloading from maven-default-http-blocker: http://0.0.0.0/commons-lang/commons-lang/maven-metadata.xml
+[WARNING] Could not transfer metadata commons-lang:commons-lang/maven-metadata.xml from/to maven-default-http-blocker (http://0.0.0.0/): transfer failed for http://0.0.0.0/commons-lang/commons-lang/maven-metadata.xml
+[INFO] Downloading from maven-default-http-blocker: http://0.0.0.0/commons-logging/commons-logging/maven-metadata.xml
+[WARNING] Could not transfer metadata commons-logging:commons-logging/maven-metadata.xml from/to maven-default-http-blocker (http://0.0.0.0/): transfer failed for http://0.0.0.0/commons-logging/commons-logging/maven-metadata.xml
+[INFO] Downloading from maven-default-http-blocker: http://0.0.0.0/commons-codec/commons-codec/maven-metadata.xml
+[WARNING] Could not transfer metadata commons-codec:commons-codec/maven-metadata.xml from/to maven-default-http-blocker (http://0.0.0.0/): transfer failed for http://0.0.0.0/commons-codec/commons-codec/maven-metadata.xml
+[WARNING] commons-lang:commons-lang/maven-metadata.xmlfailed to transfer from http://0.0.0.0/ during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of maven-default-http-blocker has elapsed or updates are forced. Original error: Could not transfer metadata commons-lang:commons-lang/maven-metadata.xml from/to maven-default-http-blocker (http://0.0.0.0/): transfer failed for http://0.0.0.0/commons-lang/commons-lang/maven-metadata.xml
+[WARNING] com.google.guava:guava/maven-metadata.xmlfailed to transfer from http://0.0.0.0/ during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of maven-default-http-blocker has elapsed or updates are forced. Original error: Could not transfer metadata com.google.guava:guava/maven-metadata.xml from/to maven-default-http-blocker (http://0.0.0.0/): transfer failed for http://0.0.0.0/com/google/guava/guava/maven-metadata.xml
+[INFO] Downloading from maven-default-http-blocker: http://0.0.0.0/commons-io/commons-io/maven-metadata.xml
+[WARNING] Could not transfer metadata commons-io:commons-io/maven-metadata.xml from/to maven-default-http-blocker (http://0.0.0.0/): transfer failed for http://0.0.0.0/commons-io/commons-io/maven-metadata.xml
+[WARNING] commons-codec:commons-codec/maven-metadata.xmlfailed to transfer from http://0.0.0.0/ during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of maven-default-http-blocker has elapsed or updates are forced. Original error: Could not transfer metadata commons-codec:commons-codec/maven-metadata.xml from/to maven-default-http-blocker (http://0.0.0.0/): transfer failed for http://0.0.0.0/commons-codec/commons-codec/maven-metadata.xml
+[INFO] Using Maven bin path: null
+[INFO] Using hash file /home/dev/platform/platform/examples/examples.energy/target/easy-meta-generateAppsNoDeps.fpf
+[INFO] Wrote hash file /home/dev/platform/platform/examples/examples.energy/target/easy-meta-generateAppsNoDeps.fpf
+[INFO] Changed null files: []
+[INFO] Using hash file /home/dev/platform/platform/examples/examples.energy/target/easy-generateAppsNoDeps.fpf
+[INFO] Skipping IVML model for /home/dev/platform/platform/examples/examples.energy/src/main/easy/energy.ivml as unchanged.
+[INFO] Skipping IVML model for /home/dev/platform/platform/examples/examples.energy/src/main/easy/.EASyConfig as unchanged.
+[INFO] Skipping IVML model for /home/dev/platform/platform/examples/examples.energy/src/main/easy/Opc.ivml as unchanged.
+[INFO] Skipping IVML model for /home/dev/platform/platform/examples/examples.energy/src/main/easy/OpcEnergy.ivml as unchanged.
+[INFO] Skipping IVML model for /home/dev/platform/platform/examples/examples.energy/src/main/easy/OpcWoodworking.ivml as unchanged.
+[INFO] Wrote hash file /home/dev/platform/platform/examples/examples.energy/target/easy-generateAppsNoDeps.fpf
+[INFO] Changed IVML model files: []
+[INFO] Skipped as code in output directory '/home/dev/platform/platform/examples/examples.energy/target/gen/energy' is newer than IVML model.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ examples.energy ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ examples.energy ---
+[INFO] Not compiling main sources
+[INFO] 
+[INFO] --- maven-python:0.8.1-SNAPSHOT:compile-python (py-compile) @ examples.energy ---
+[INFO] Skipping Python syntax check
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ examples.energy ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ examples.energy ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M3:test (default-test) @ examples.energy ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-python:0.8.1-SNAPSHOT:test-python (py-test) @ examples.energy ---
+[INFO] Skipping Python test execution
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:jar (default-jar) @ examples.energy ---
+[INFO] 
+[INFO] --- maven-javadoc-plugin:3.2.0:jar (default-cli) @ examples.energy ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-javadoc-plugin:3.2.0:test-jar (default-cli) @ examples.energy ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:test-jar (default) @ examples.energy ---
+[INFO] Skipping packaging of the test-jar
+[INFO] 
+[INFO] --- maven-source-plugin:3.2.0:jar-no-fork (attach-sources) @ examples.energy ---
+[INFO] 
+[INFO] >>> maven-source-plugin:3.2.0:test-jar (attach-sources) > generate-sources @ examples.energy >>>
+[INFO] 
+[INFO] --- dependency-plugin:0.8.1-SNAPSHOT:unpack (unpack) @ examples.energy ---
+[INFO] 
+[INFO] --- configuration-plugin:0.8.1-SNAPSHOT:generateAppsNoDeps (generateAppsNoDeps) @ examples.energy ---
+[INFO] Using Maven bin path: null
+[INFO] Using hash file /home/dev/platform/platform/examples/examples.energy/target/easy-meta-generateAppsNoDeps.fpf
+[INFO] Wrote hash file /home/dev/platform/platform/examples/examples.energy/target/easy-meta-generateAppsNoDeps.fpf
+[INFO] Changed null files: []
+[INFO] Using hash file /home/dev/platform/platform/examples/examples.energy/target/easy-generateAppsNoDeps.fpf
+[INFO] Skipping IVML model for /home/dev/platform/platform/examples/examples.energy/src/main/easy/energy.ivml as unchanged.
+[INFO] Skipping IVML model for /home/dev/platform/platform/examples/examples.energy/src/main/easy/.EASyConfig as unchanged.
+[INFO] Skipping IVML model for /home/dev/platform/platform/examples/examples.energy/src/main/easy/Opc.ivml as unchanged.
+[INFO] Skipping IVML model for /home/dev/platform/platform/examples/examples.energy/src/main/easy/OpcEnergy.ivml as unchanged.
+[INFO] Skipping IVML model for /home/dev/platform/platform/examples/examples.energy/src/main/easy/OpcWoodworking.ivml as unchanged.
+[INFO] Wrote hash file /home/dev/platform/platform/examples/examples.energy/target/easy-generateAppsNoDeps.fpf
+[INFO] Changed IVML model files: []
+[INFO] Skipped as code in output directory '/home/dev/platform/platform/examples/examples.energy/target/gen/energy' is newer than IVML model.
+[INFO] 
+[INFO] <<< maven-source-plugin:3.2.0:test-jar (attach-sources) < generate-sources @ examples.energy <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:3.2.0:test-jar (attach-sources) @ examples.energy ---
+[INFO] 
+[INFO] --- configuration-plugin:0.8.1-SNAPSHOT:generateApps (generateApps) @ examples.energy ---
+[INFO] Using Maven bin path: null
+Loading classpath from config.classpath
+[INFO] Calling platform instantiator as process with [Energy, /home/dev/platform/platform/examples/examples.energy/src/main/easy, /home/dev/platform/platform/examples/examples.energy/target/gen/energy, generateApps, /home/dev/platform/platform/examples/examples.energy/target/easy], tracing TOP
+21:11:23 [main] INFO d.i.p.s.r.ResourceLoader - Registered resource resolver Classloader
+21:11:24 [main] WARN d.i.p.s.a.AasFactory - No AAS factory implementation known. This may be intended in a simple testing setup where AAS operations are optional, but also a severe misconfiguration if this occurs in the context of a full platform instance where AAS operations are mandatory.
+21:11:24 [main] INFO d.i.p.c.e.PlatformInstantiator - Deleting /home/dev/platform/platform/examples/examples.energy/target/gen/energy ...
+21:11:24 [main] INFO d.i.p.c.e.PlatformInstantiator - Cleaned output folder /home/dev/platform/platform/examples/examples.energy/target/gen/energy in 87 ms
+21:11:25 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - EASy-Producer is starting (TOOLING mode)
+21:11:27 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - EASy-Producer started in 3643 ms
+21:11:27 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - Setting up configuration base: .
+21:11:27 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - Setting up configuration meta model: /home/dev/platform/platform/examples/examples.energy/target/easy
+21:11:27 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - Setting up configuration model name: Energy
+21:11:27 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - Setting up generation target: /home/dev/platform/platform/examples/examples.energy/target/gen/energy
+21:11:27 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - Setting up configuration folder: /home/dev/platform/platform/examples/examples.energy/src/main/easy
+21:11:27 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - Setting up EASy-Producer locations, loading models
+21:11:31 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - EASy-Producer models loaded in 3658 ms
+21:11:35 [main] INFO d.i.p.c.e.ConfigurationManager - EASy-Producer model reasoning done in 1589 ms
+21:11:35 [main] WARN d.i.p.c.e.ConfigurationManager - No (username) identity token for key 'docker' found. Container deployment may fail
+executing script IIPEcosphere (VIL)  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/IIPEcosphere.vil
+  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcIn.java
+  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcInImpl.java
+  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcInSerializer.java
+  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcInImplSerializer.java
+  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcINonElectricalEnergyType.java
+  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcINonElectricalEnergyTypeImpl.java
+  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcINonElectricalEnergyTypeSerializer.java
+  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcINonElectricalEnergyTypeImplSerializer.java
+  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcIBaseFlowType.java
+  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcIBaseFlowTypeImpl.java
+  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcIBaseFlowTypeSerializer.java
+  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcIBaseFlowTypeImplSerializer.java
+  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcIVolumeFlowType.java
+  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcIVolumeFlowTypeImpl.java
+  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcIVolumeFlowTypeSerializer.java
+  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcIVolumeFlowTypeImplSerializer.java
+  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcIMassFlowType.java
+  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcIMassFlowTypeImpl.java
+  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcIMassFlowTypeSerializer.java
+  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcIMassFlowTypeImplSerializer.java
+  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcOut.java
+  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcOutImpl.java
+  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcOutSerializer.java
+  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcOutImplSerializer.java
+  JavaServiceInterface  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServiceInterface.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/interfaces/OPCReceiverInterface.java
+  JavaServiceBaseImpl  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServiceBaseImpl.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/impl/OPCReceiverImpl.java
+  AppMvn  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AppMvn.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/pom.xml
+  AppAnt  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AppAnt.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/build-jk.xml
+  Calling maven with /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces {}
+   Scanning for projects...
+   
+   -------< de.iip-ecosphere.platform:apps.EnergyOpcAppInterfaces >--------
+   Building apps.EnergyOpcAppInterfaces 0.8.1-SNAPSHOT
+     from pom.xml
+   --------------------------------[ jar ]---------------------------------
+   
+   --- clean:2.5:clean (default-clean) @ apps.EnergyOpcAppInterfaces ---
+   
+   --- resources:3.2.0:copy-resources (platf-res) @ apps.EnergyOpcAppInterfaces ---
+   Using 'UTF-8' encoding to copy filtered resources.
+   Using 'UTF-8' encoding to copy filtered properties files.
+   skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/./resources/platform
+   
+   --- resources:3.2.0:copy-resources (sw-res) @ apps.EnergyOpcAppInterfaces ---
+   Using 'UTF-8' encoding to copy filtered resources.
+   Using 'UTF-8' encoding to copy filtered properties files.
+   skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/./resources/software
+   
+   --- clean:2.5:clean (auto-clean) @ apps.EnergyOpcAppInterfaces ---
+   
+   --- resources:3.2.0:resources (default-resources) @ apps.EnergyOpcAppInterfaces ---
+   Using 'UTF-8' encoding to copy filtered resources.
+   Using 'UTF-8' encoding to copy filtered properties files.
+   skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/resources
+   
+   --- compiler:3.7.0:compile (default-compile) @ apps.EnergyOpcAppInterfaces ---
+   Changes detected - recompiling the module!
+   Compiling 26 source files to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/classes
+   
+   --- python:0.8.1-SNAPSHOT:compile-python (py-compile) @ apps.EnergyOpcAppInterfaces ---
+   Using Python /usr/lib/python3
+   Using hash file /home/dev/platform/platform/examples/examples.energy/target/apps.EnergyOpcAppInterfaces-python-compile.fpf
+   Wrote hash file /home/dev/platform/platform/examples/examples.energy/target/apps.EnergyOpcAppInterfaces-python-compile.fpf
+   
+   --- resources:3.2.0:testResources (default-testResources) @ apps.EnergyOpcAppInterfaces ---
+   Using 'UTF-8' encoding to copy filtered resources.
+   Using 'UTF-8' encoding to copy filtered properties files.
+   skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/test/resources
+   
+   --- compiler:3.7.0:testCompile (default-testCompile) @ apps.EnergyOpcAppInterfaces ---
+   No sources to compile
+   
+   --- surefire:3.0.0-M3:test (default-test) @ apps.EnergyOpcAppInterfaces ---
+   No tests to run.
+   
+   --- python:0.8.1-SNAPSHOT:test-python (py-test) @ apps.EnergyOpcAppInterfaces ---
+   Using Python: /usr/lib/python3
+   Using PYTHONPATH=, PRJ_HOME=/home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces
+   
+   --- dependency:0.8.1-SNAPSHOT:copy-dependencies (copy-dependencies) @ apps.EnergyOpcAppInterfaces ---
+   Copying support-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/support-0.8.1-SNAPSHOT.jar
+   Copying support.boot-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/support.boot-0.8.1-SNAPSHOT.jar
+   Copying support.yaml-snakeyaml-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/support.yaml-snakeyaml-0.8.1-SNAPSHOT.jar
+   Copying snakeyaml-1.27.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/snakeyaml-1.27.jar
+   Copying support.json-jackson-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/support.json-jackson-0.8.1-SNAPSHOT.jar
+   Copying jackson-core-2.11.4.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jackson-core-2.11.4.jar
+   Copying jackson-databind-2.11.4.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jackson-databind-2.11.4.jar
+   Copying jackson-annotations-2.11.4.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jackson-annotations-2.11.4.jar
+   Copying jackson-dataformat-xml-2.11.4.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jackson-dataformat-xml-2.11.4.jar
+   Copying jackson-module-jaxb-annotations-2.11.4.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jackson-module-jaxb-annotations-2.11.4.jar
+   Copying jakarta.xml.bind-api-2.3.3.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jakarta.xml.bind-api-2.3.3.jar
+   Copying jakarta.activation-api-1.2.2.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jakarta.activation-api-1.2.2.jar
+   Copying stax2-api-4.2.1.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/stax2-api-4.2.1.jar
+   Copying woodstox-core-6.2.3.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/woodstox-core-6.2.3.jar
+   Copying javax.json-1.1.4.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/javax.json-1.1.4.jar
+   Copying jsoniter-0.9.23.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jsoniter-0.9.23.jar
+   Copying support.commons-apache-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/support.commons-apache-0.8.1-SNAPSHOT.jar
+   Copying commons-io-2.18.0.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/commons-io-2.18.0.jar
+   Copying commons-lang3-3.11.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/commons-lang3-3.11.jar
+   Copying commons-text-1.9.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/commons-text-1.9.jar
+   Copying commons-validator-1.7.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/commons-validator-1.7.jar
+   Copying commons-beanutils-1.9.4.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/commons-beanutils-1.9.4.jar
+   Copying commons-digester-2.1.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/commons-digester-2.1.jar
+   Copying commons-logging-1.2.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/commons-logging-1.2.jar
+   Copying commons-collections-3.2.2.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/commons-collections-3.2.2.jar
+   Copying joda-time-2.11.2.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/joda-time-2.11.2.jar
+   Copying support.websocket-websocket-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/support.websocket-websocket-0.8.1-SNAPSHOT.jar
+   Copying Java-WebSocket-1.6.0.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/Java-WebSocket-1.6.0.jar
+   Copying slf4j-api-1.7.25.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/slf4j-api-1.7.25.jar
+   Copying support.rest-spark-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/support.rest-spark-0.8.1-SNAPSHOT.jar
+   Copying spark-core-2.9.4.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/spark-core-2.9.4.jar
+   Copying jetty-server-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jetty-server-9.4.36.v20210114.jar
+   Copying javax.servlet-api-4.0.1.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/javax.servlet-api-4.0.1.jar
+   Copying jetty-http-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jetty-http-9.4.36.v20210114.jar
+   Copying jetty-util-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jetty-util-9.4.36.v20210114.jar
+   Copying jetty-io-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jetty-io-9.4.36.v20210114.jar
+   Copying jetty-webapp-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jetty-webapp-9.4.36.v20210114.jar
+   Copying jetty-xml-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jetty-xml-9.4.36.v20210114.jar
+   Copying jetty-servlet-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jetty-servlet-9.4.36.v20210114.jar
+   Copying jetty-security-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jetty-security-9.4.36.v20210114.jar
+   Copying jetty-util-ajax-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jetty-util-ajax-9.4.36.v20210114.jar
+   Copying websocket-server-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/websocket-server-9.4.36.v20210114.jar
+   Copying websocket-common-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/websocket-common-9.4.36.v20210114.jar
+   Copying websocket-client-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/websocket-client-9.4.36.v20210114.jar
+   Copying jetty-client-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jetty-client-9.4.36.v20210114.jar
+   Copying websocket-servlet-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/websocket-servlet-9.4.36.v20210114.jar
+   Copying websocket-api-9.4.36.v20210114.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/websocket-api-9.4.36.v20210114.jar
+   Copying jersey-client-2.32.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jersey-client-2.32.jar
+   Copying jakarta.ws.rs-api-2.1.6.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jakarta.ws.rs-api-2.1.6.jar
+   Copying jersey-common-2.32.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jersey-common-2.32.jar
+   Copying jakarta.annotation-api-1.3.5.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jakarta.annotation-api-1.3.5.jar
+   Copying osgi-resource-locator-1.0.3.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/osgi-resource-locator-1.0.3.jar
+   Copying jakarta.activation-1.2.2.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jakarta.activation-1.2.2.jar
+   Copying jakarta.inject-2.6.1.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jakarta.inject-2.6.1.jar
+   Copying jersey-hk2-2.32.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jersey-hk2-2.32.jar
+   Copying hk2-locator-2.6.1.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/hk2-locator-2.6.1.jar
+   Copying aopalliance-repackaged-2.6.1.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/aopalliance-repackaged-2.6.1.jar
+   Copying hk2-api-2.6.1.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/hk2-api-2.6.1.jar
+   Copying hk2-utils-2.6.1.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/hk2-utils-2.6.1.jar
+   Copying javassist-3.25.0-GA.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/javassist-3.25.0-GA.jar
+   Copying support.processInfo-oshi-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/support.processInfo-oshi-0.8.1-SNAPSHOT.jar
+   Copying oshi-core-7.3.1.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/oshi-core-7.3.1.jar
+   Copying oshi-common-7.3.1.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/oshi-common-7.3.1.jar
+   Copying jna-jpms-5.19.0.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jna-jpms-5.19.0.jar
+   Copying jna-platform-jpms-5.19.0.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jna-platform-jpms-5.19.0.jar
+   Copying support.bytecode-bytebuddy-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/support.bytecode-bytebuddy-0.8.1-SNAPSHOT.jar
+   Copying byte-buddy-1.10.20.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/byte-buddy-1.10.20.jar
+   Copying support.http-apache-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/support.http-apache-0.8.1-SNAPSHOT.jar
+   Copying httpclient-4.5.13.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/httpclient-4.5.13.jar
+   Copying httpcore-4.4.14.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/httpcore-4.4.14.jar
+   Copying commons-codec-1.15.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/commons-codec-1.15.jar
+   Copying commons-pool2-2.9.0.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/commons-pool2-2.9.0.jar
+   Copying support.metrics-micrometer-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/support.metrics-micrometer-0.8.1-SNAPSHOT.jar
+   Copying micrometer-core-1.6.4.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/micrometer-core-1.6.4.jar
+   Copying HdrHistogram-2.1.12.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/HdrHistogram-2.1.12.jar
+   Copying LatencyUtils-2.0.3.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/LatencyUtils-2.0.3.jar
+   Copying support.aas-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/support.aas-0.8.1-SNAPSHOT.jar
+   Copying transport-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/transport-0.8.1-SNAPSHOT.jar
+   Copying support.iip-aas-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/support.iip-aas-0.8.1-SNAPSHOT.jar
+   Copying connectors-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/connectors-0.8.1-SNAPSHOT.jar
+   Copying services.environment-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/services.environment-0.8.1-SNAPSHOT.jar
+   Copying tools.lib-0.8.1-SNAPSHOT.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/tools.lib-0.8.1-SNAPSHOT.jar
+   Copying jakarta.el-3.0.4.jar to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/jars/jakarta.el-3.0.4.jar
+   
+   --- dependency:0.8.1-SNAPSHOT:build-classpath (build-classpath) @ apps.EnergyOpcAppInterfaces ---
+   Wrote classpath file '/home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/classes/classpath'.
+   
+   --- jar:3.2.0:jar (default-jar) @ apps.EnergyOpcAppInterfaces ---
+   Building jar: /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/apps.EnergyOpcAppInterfaces-0.8.1-SNAPSHOT.jar
+   
+   --- javadoc:3.2.0:jar (default-cli) @ apps.EnergyOpcAppInterfaces ---
+   Skipping javadoc generation
+   
+   --- javadoc:3.2.0:test-jar (default-cli) @ apps.EnergyOpcAppInterfaces ---
+   Skipping javadoc generation
+   
+   --- jar:3.2.0:test-jar (default) @ apps.EnergyOpcAppInterfaces ---
+   JAR will be empty - no content was marked for inclusion!
+   Building jar: /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/apps.EnergyOpcAppInterfaces-0.8.1-SNAPSHOT-tests.jar
+   
+   --- source:3.2.0:jar-no-fork (attach-sources) @ apps.EnergyOpcAppInterfaces ---
+   Building jar: /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/apps.EnergyOpcAppInterfaces-0.8.1-SNAPSHOT-sources.jar
+   
+   >>> source:3.2.0:test-jar (attach-sources) > generate-sources @ apps.EnergyOpcAppInterfaces >>>
+   
+   --- resources:3.2.0:copy-resources (platf-res) @ apps.EnergyOpcAppInterfaces ---
+   Using 'UTF-8' encoding to copy filtered resources.
+   Using 'UTF-8' encoding to copy filtered properties files.
+   skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/./resources/platform
+   
+   --- resources:3.2.0:copy-resources (sw-res) @ apps.EnergyOpcAppInterfaces ---
+   Using 'UTF-8' encoding to copy filtered resources.
+   Using 'UTF-8' encoding to copy filtered properties files.
+   skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/./resources/software
+   
+   --- clean:2.5:clean (auto-clean) @ apps.EnergyOpcAppInterfaces ---
+   Deleting /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target (includes = [*-bin.jar, *-spring.jar], excludes = [])
+   
+   <<< source:3.2.0:test-jar (attach-sources) < generate-sources @ apps.EnergyOpcAppInterfaces <<<
+   
+   
+   --- source:3.2.0:test-jar (attach-sources) @ apps.EnergyOpcAppInterfaces ---
+   No sources in project. Archive not created.
+   
+   --- dependency:0.8.1-SNAPSHOT:touch (touch-deployed) @ apps.EnergyOpcAppInterfaces ---
+   
+   --- install:3.1.1:install (default-install) @ apps.EnergyOpcAppInterfaces ---
+   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/pom.xml to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps.EnergyOpcAppInterfaces/0.8.1-SNAPSHOT/apps.EnergyOpcAppInterfaces-0.8.1-SNAPSHOT.pom
+   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/apps.EnergyOpcAppInterfaces-0.8.1-SNAPSHOT.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps.EnergyOpcAppInterfaces/0.8.1-SNAPSHOT/apps.EnergyOpcAppInterfaces-0.8.1-SNAPSHOT.jar
+   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/apps.EnergyOpcAppInterfaces-0.8.1-SNAPSHOT-tests.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps.EnergyOpcAppInterfaces/0.8.1-SNAPSHOT/apps.EnergyOpcAppInterfaces-0.8.1-SNAPSHOT-tests.jar
+   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/apps.EnergyOpcAppInterfaces-0.8.1-SNAPSHOT-sources.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps.EnergyOpcAppInterfaces/0.8.1-SNAPSHOT/apps.EnergyOpcAppInterfaces-0.8.1-SNAPSHOT-sources.jar
+   ------------------------------------------------------------------------
+   BUILD SUCCESS
+   ------------------------------------------------------------------------
+   Total time:  9.592 s
+   Finished at: 2026-11-02T21:12:01Z
+   ------------------------------------------------------------------------
+  JavaSpringCloudStreamMeshElement  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudStreamMeshElement.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/main/java/iip/nodes/MyOpcConnExample.java
+  JavaSpringCloudStreamMeshElementTest  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudStreamMeshElementTest.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/test/java/iip/nodes/MyOpcConnExampleTest.java
+  JavaSpringCloudStreamMeshElement  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudStreamMeshElement.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/main/java/iip/nodes/OPCReceiver.java
+  JavaSpringCloudStreamMeshElementTest  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudStreamMeshElementTest.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/test/java/iip/nodes/OPCReceiverTest.java
+  JavaSpringCloudStreamStarter  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudStreamStarter.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/main/java/iip/Starter.java
+  JavaSpringCloudStreamYaml  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudStreamYaml.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/main/resources/application.yml
+  SpringCloudStreamDeploymentDescriptor  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/SpringCloudStreamDeploymentDescriptor.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/main/resources/deployment.yml
+  JavaLogbackXml  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaLogbackXml.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/main/resources/logback.xml
+  JavaServices  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServices.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/main/resources/META-INF/services/de.iip_ecosphere.platform.support.identities.IdentityStoreDescriptor
+  JavaServices  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServices.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/main/resources/META-INF/services/de.iip_ecosphere.platform.support.iip_aas.IdProviderDescriptor
+  AppMvn  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AppMvn.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/pom.xml
+  AppAnt  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AppAnt.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/build-jk.xml
+  Calling maven with /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp {}
+   Scanning for projects...
+   
+   -------< de.iip-ecosphere.platform.apps:SimpleEnergyOPCDemoApp >--------
+   Building SimpleEnergyOPCDemoApp 0.1.0-SNAPSHOT
+     from pom.xml
+   --------------------------------[ jar ]---------------------------------
+   
+   --- clean:2.5:clean (default-clean) @ SimpleEnergyOPCDemoApp ---
+   
+   --- resources:3.2.0:copy-resources (platf-res) @ SimpleEnergyOPCDemoApp ---
+   Using 'UTF-8' encoding to copy filtered resources.
+   Using 'UTF-8' encoding to copy filtered properties files.
+   skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/./resources/platform
+   
+   --- resources:3.2.0:copy-resources (sw-res) @ SimpleEnergyOPCDemoApp ---
+   Using 'UTF-8' encoding to copy filtered resources.
+   Using 'UTF-8' encoding to copy filtered properties files.
+   skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/./resources/software
+   
+   --- clean:2.5:clean (auto-clean) @ SimpleEnergyOPCDemoApp ---
+   
+   --- resources:3.2.0:resources (default-resources) @ SimpleEnergyOPCDemoApp ---
+   Using 'UTF-8' encoding to copy filtered resources.
+   Using 'UTF-8' encoding to copy filtered properties files.
+   Copying 5 resources
+   
+   --- compiler:3.7.0:compile (default-compile) @ SimpleEnergyOPCDemoApp ---
+   Changes detected - recompiling the module!
+   Compiling 3 source files to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/classes
+   
+   --- python:0.8.1-SNAPSHOT:compile-python (py-compile) @ SimpleEnergyOPCDemoApp ---
+   Using Python /usr/lib/python3
+   Using hash file /home/dev/platform/platform/examples/examples.energy/target/SimpleEnergyOPCDemoApp-python-compile.fpf
+   Wrote hash file /home/dev/platform/platform/examples/examples.energy/target/SimpleEnergyOPCDemoApp-python-compile.fpf
+   
+   --- resources:3.2.0:testResources (default-testResources) @ SimpleEnergyOPCDemoApp ---
+   Using 'UTF-8' encoding to copy filtered resources.
+   Using 'UTF-8' encoding to copy filtered properties files.
+   skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/test/resources
+   
+   --- compiler:3.7.0:testCompile (default-testCompile) @ SimpleEnergyOPCDemoApp ---
+   Changes detected - recompiling the module!
+   Compiling 2 source files to /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/test-classes
+   
+   --- surefire:3.0.0-M3:test (default-test) @ SimpleEnergyOPCDemoApp ---
+   
+   --- python:0.8.1-SNAPSHOT:test-python (py-test) @ SimpleEnergyOPCDemoApp ---
+   Using Python: /usr/lib/python3
+   Using PYTHONPATH=, PRJ_HOME=/home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp
+   
+   --- dependency:0.8.1-SNAPSHOT:build-classpath (build-classpath) @ SimpleEnergyOPCDemoApp ---
+   Wrote classpath file '/home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/classes/classpath'.
+   
+   --- jar:3.2.0:jar (default-jar) @ SimpleEnergyOPCDemoApp ---
+   Building jar: /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT.jar
+   
+   --- javadoc:3.2.0:jar (default-cli) @ SimpleEnergyOPCDemoApp ---
+   Skipping javadoc generation
+   
+   --- javadoc:3.2.0:test-jar (default-cli) @ SimpleEnergyOPCDemoApp ---
+   Skipping javadoc generation
+   
+   --- jar:3.2.0:test-jar (default) @ SimpleEnergyOPCDemoApp ---
+   Building jar: /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-tests.jar
+   
+   --- source:3.2.0:jar-no-fork (attach-sources) @ SimpleEnergyOPCDemoApp ---
+   Building jar: /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-sources.jar
+   
+   >>> source:3.2.0:test-jar (attach-sources) > generate-sources @ SimpleEnergyOPCDemoApp >>>
+   
+   --- resources:3.2.0:copy-resources (platf-res) @ SimpleEnergyOPCDemoApp ---
+   Using 'UTF-8' encoding to copy filtered resources.
+   Using 'UTF-8' encoding to copy filtered properties files.
+   skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/./resources/platform
+   
+   --- resources:3.2.0:copy-resources (sw-res) @ SimpleEnergyOPCDemoApp ---
+   Using 'UTF-8' encoding to copy filtered resources.
+   Using 'UTF-8' encoding to copy filtered properties files.
+   skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/./resources/software
+   
+   --- clean:2.5:clean (auto-clean) @ SimpleEnergyOPCDemoApp ---
+   Deleting /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target (includes = [*-bin.jar, *-spring.jar], excludes = [])
+   
+   <<< source:3.2.0:test-jar (attach-sources) < generate-sources @ SimpleEnergyOPCDemoApp <<<
+   
+   
+   --- source:3.2.0:test-jar (attach-sources) @ SimpleEnergyOPCDemoApp ---
+   Building jar: /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-test-sources.jar
+   
+   --- spring-boot:2.4.2:repackage (default) @ SimpleEnergyOPCDemoApp ---
+   Attaching repackaged archive /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-bin.jar with classifier bin
+   
+   --- dependency:0.8.1-SNAPSHOT:touch (touch-deployed) @ SimpleEnergyOPCDemoApp ---
+   
+   --- install:3.1.1:install (default-install) @ SimpleEnergyOPCDemoApp ---
+   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/pom.xml to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps/SimpleEnergyOPCDemoApp/0.1.0-SNAPSHOT/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT.pom
+   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps/SimpleEnergyOPCDemoApp/0.1.0-SNAPSHOT/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT.jar
+   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-tests.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps/SimpleEnergyOPCDemoApp/0.1.0-SNAPSHOT/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-tests.jar
+   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-sources.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps/SimpleEnergyOPCDemoApp/0.1.0-SNAPSHOT/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-sources.jar
+   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-test-sources.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps/SimpleEnergyOPCDemoApp/0.1.0-SNAPSHOT/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-test-sources.jar
+   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-bin.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps/SimpleEnergyOPCDemoApp/0.1.0-SNAPSHOT/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-bin.jar
+   ------------------------------------------------------------------------
+   BUILD SUCCESS
+   ------------------------------------------------------------------------
+   Total time:  12.846 s
+   Finished at: 2026-11-02T21:12:23Z
+   ------------------------------------------------------------------------
+  TemplatesEclipseProject  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEclipseProject.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/.project
+  TemplatesEclipseClasspath  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEclipseClasspath.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/.classpath
+  TemplatesEclipsePyDevProject  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEclipsePyDevProject.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/.pydevproject
+  TemplatesEclipseGitignore  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEclipseGitignore.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/.gitignore
+  TemplatesEasyProducer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEasyProducer.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/.EASyProducer
+  TemplatesMvnBash  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesMvnBash.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/build.sh
+  TemplatesMvnBash  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesMvnBash.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/updateModel.sh
+  TemplatesMvnBash  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesMvnBash.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/run.sh
+  TemplatesMvnBash  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesMvnBash.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/updateArtifacts.sh
+  TemplatesMvnBatch  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesMvnBatch.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/build.bat
+  TemplatesMvnBatch  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesMvnBatch.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/updateModel.bat
+  TemplatesMvnBatch  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesMvnBatch.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/run.bat
+  TemplatesMvnBatch  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesMvnBatch.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/updateArtifacts.bat
+  MqttPom  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/mqtt/MqttPom.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/target/gen/broker/pom.xml
+  MqttLinuxSysd  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/mqtt/MqttLinuxSysd.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/target/gen/broker/iip-broker.service
+  MqttLinux  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/mqtt/MqttLinux.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/target/gen/broker/broker.sh
+  MqttWin  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/mqtt/MqttWin.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/target/gen/broker/broker.bat
+  MqttConf  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/mqtt/MqttConf.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/target/gen/broker/src/test/config.xml
+  TemplatesVsCodeEnvProject  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/vscode/TemplatesVsCodeEnvProject.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/.vscode/settings.json
+  TemplatesVsCodeExtraPathProject  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/vscode/TemplatesVsCodeExtraPathProject.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/.vscode/pref.json
+  JavaConnectorConnectivityTest  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaConnectorConnectivityTest.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/src/test/java/iip/connectivity/MyOpcConnExampleTest.java
+  TemplatesTestDataJson  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesTestDataJson.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/resources/software/testData-OpcUaConnector_OpcOut.json.tmpl
+  JavaMeshElementTemplate  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaMeshElementTemplate.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/src/main/java/de/iip_ecosphere/platform/examples/energy/ReceiverImpl.java
+  TemplatesTestDataJson  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesTestDataJson.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/src/test/resources/testData-OPCReceiver.json.tmpl
+  JavaServiceTestTemplate  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServiceTestTemplate.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/src/test/java/de/iip_ecosphere/platform/examples/energy/ReceiverImplTest.java
+  JavaAllTestsTemplate  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaAllTestsTemplate.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/src/test/java/AllTests.java
+  JavaServices  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServices.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/src/main/resources/META-INF/services/de.iip_ecosphere.platform.support.plugins.PluginDescriptor
+  TemplatesEclipseReadme  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEclipseReadme.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/README.md
+  AppMvnTest  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AppMvnTest.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/pom.xml
+  TemplatesIdentityStoreYaml  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesIdentityStoreYaml.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/src/main/resources/identityStore.yml
+  TemplatesTestLogbackXml  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesTestLogbackXml.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/src/test/resources/logback.xml
+  JavaServices  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServices.vtl
+      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/src/test/resources/META-INF/services/de.iip_ecosphere.platform.support.identities.IdentityStoreDescriptor
+21:12:28 [main] INFO d.i.p.c.e.ConfigurationManager - EASy-Producer instantiation done in 52562 ms
+21:12:28 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - EASy-Producer is stopping
+21:12:28 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - EASy-Producer stopped
+[INFO] Registered resource resolver Classloader
+[INFO] Registered resource resolver test.de.iip_ecosphere.platform.support.ResourceLoaderTest$MyResolver
+[INFO] Cannot load collector properties oktoflow-collector.yml. Disabling.
+[INFO] No collector setup, will discard collector entry for tag 'examples.energy-Energy-generateApps'.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:15 min
+[INFO] Finished at: 2026-11-02T21:12:28Z
+[INFO] ------------------------------------------------------------------------
+[[1;34mINFO[m] <<< Maven invoker completed
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  03:13 min
+[[1;34mINFO[m] Finished at: 2026-11-02T21:12:28Z
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m

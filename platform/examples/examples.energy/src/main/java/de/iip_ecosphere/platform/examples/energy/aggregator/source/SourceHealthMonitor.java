@@ -1,4 +1,4 @@
-package de.iip_ecosphere.platform.examples.energy.config;
+package de.iip_ecosphere.platform.examples.energy.aggregator.source;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

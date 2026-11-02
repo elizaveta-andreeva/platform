@@ -1,21 +1,26 @@
 package de.iip_ecosphere.platform.examples.energy;
 
+import de.iip_ecosphere.platform.examples.energy.aggregator.core.EnergyAggregator;
 import de.iip_ecosphere.platform.examples.energy.aggregator.mapping.OpcEnergyModelMapper;
+import de.iip_ecosphere.platform.examples.energy.aggregator.model.MachineEnergyMeasurement;
 import de.iip_ecosphere.platform.examples.energy.aggregator.model.MappedModelUpdate;
-import de.iip_ecosphere.platform.examples.energy.server.EnergyAggregatorServer;
-import de.iip_ecosphere.platform.examples.energy.server.EnergyNamespace;
-
-import de.iip_ecosphere.platform.examples.energy.sources.ShellyMqttIngestor;
+import de.iip_ecosphere.platform.examples.energy.aggregator.model.OpcUaQuality;
+import de.iip_ecosphere.platform.examples.energy.aggregator.server.EnergyAggregatorServer;
+import de.iip_ecosphere.platform.examples.energy.aggregator.server.EnergyNamespace;
+import de.iip_ecosphere.platform.examples.energy.aggregator.source.ShellyMqttIngestor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.time.Instant;
 
 /**
  * End-to-end smoke test:
  *
  * <pre>
- *   MQTT → MachineEnergyMeasurement → OpcEnergyModelMapper → MappedModelUpdate
- *        → EnergyAggregatorServer → OPC UA client reads
+ *   MQTT → MachineEnergyMeasurement → EnergyAggregator (P4)
+ *        → OpcEnergyModelMapper (P4) → MappedModelUpdate
+ *        → EnergyAggregatorServer (P3) → OPC UA client reads
  * </pre>
  *
  * <p>Enable MQTT with {@code -Dp3.mqtt.enabled=true}. Without it, the harness
@@ -25,58 +30,112 @@ public class EnergyAggregatorMain {
 
     private static final Logger LOG = LoggerFactory.getLogger(EnergyAggregatorMain.class);
 
-    public static void main(String[] args) throws Exception {
-        EnergyAggregatorServer server = new EnergyAggregatorServer("127.0.0.1", 4840, "smoke");
-        server.start();
+    public static void main(String[] args) {
+        try {
+            run();
+        } catch (Throwable t) {
+            // Bypass SLF4J so the error is visible even without a logging backend.
+            System.err.println("EnergyAggregatorMain failed:");
+            t.printStackTrace(System.err);
+            System.exit(1);
+        }
+    }
 
+    private static void run() throws Exception {
+
+        // 1. Start the OPC UA server
+        EnergyAggregatorServer server = new EnergyAggregatorServer("127.0.0.1", 4840, "smoke");
+        System.out.println("Starting EnergyAggregatorServer on " + server.getEndpointUrl() + " ...");
+        server.start();
+        System.out.println("EnergyAggregatorServer started. Namespace size: "
+            + server.getNamespace().size());
+
+        // 2. P4's aggregator (latest-state store) and mapper
+        EnergyAggregator aggregator = new EnergyAggregator();
         OpcEnergyModelMapper mapper = new OpcEnergyModelMapper();
 
-        java.util.function.Consumer<de.iip_ecosphere.platform.examples.energy.aggregator.model
-            .MachineEnergyMeasurement> pipeline = m -> {
-            LOG.info("Measurement: {} {} = {} {} ({})",
-                m.deviceId(), m.measurementType(), m.value(), m.unit(), m.quality());
+        // 3. Pipeline: measurement → aggregator → mapper → server
+        java.util.function.Consumer<MachineEnergyMeasurement> pipeline = measurement -> {
             try {
-                MappedModelUpdate update = mapper.map(m);
+                boolean accepted = aggregator.updateMeasurement(measurement);
+                if (!accepted) {
+                    LOG.debug("Ignoring older/duplicate: device={}, type={}, ts={}",
+                        measurement.deviceId(),
+                        measurement.measurementType(),
+                        measurement.timestamp());
+                    return;
+                }
+
+                MachineEnergyMeasurement latest = aggregator
+                    .getLatestMeasurement(measurement.deviceId(), measurement.measurementType())
+                    .orElse(null);
+                if (latest == null) {
+                    return;
+                }
+
+                MappedModelUpdate update = mapper.map(latest);
                 server.applyUpdate(update);
-                LOG.info("Applied update: target='{}' value={}",
-                    update.target(), update.value());
-            } catch (EnergyNamespace.UnknownTargetException e) {
-                LOG.error("Mapper produced unknown target '{}' — is the namespace initialized?",
-                    e.getTarget());
-            } catch (IllegalArgumentException e) {
-                LOG.error("Mapper rejected measurement: {}", e.getMessage());
+
+                LOG.info("Applied: device={}, target={}, value={}, unit={}",
+                    update.deviceId(), update.target(), update.value(), update.unit());
+
+            } catch (EnergyNamespace.UnknownTargetException | IllegalArgumentException e) {
+                LOG.error("Could not process measurement: {}", measurement, e);
             }
         };
 
+        // 4. Optional MQTT ingestion
         if (Boolean.parseBoolean(System.getProperty("p3.mqtt.enabled", "false"))) {
             ShellyMqttIngestor shelly = new ShellyMqttIngestor(
-                "mqtt", "ShellyPro3EM",
+                "mqtt",           // sourceId
+                "LatheNEF400",    // deviceId — must be a machine ID, not a source name
                 System.getProperty("p3.mqtt.broker", "tcp://localhost:1883"),
                 "energy-agg-shelly",
                 System.getProperty("p3.mqtt.topic", "shellies/shellypro3em/+/emeter/0"),
                 1, pipeline, t -> LOG.error("Shelly error", t));
             shelly.connect();
             shelly.start();
-            LOG.info("Shelly MQTT ingestor started");
+            System.out.println("Shelly MQTT ingestor started (sourceId=mqtt, deviceId=LatheNEF400)");
         } else {
-            LOG.info("MQTT ingestion disabled. Running server-only check.");
+            System.out.println("MQTT ingestion disabled. Running server-only check.");
             runServerOnlyCheck(server);
         }
 
-        LOG.info("Server running at {}", server.getEndpointUrl());
-        Runtime.getRuntime().addShutdownHook(new Thread(server::stop));
+        // 5. Keep the process alive and shut down cleanly
+        System.out.println("Server running at " + server.getEndpointUrl());
+        System.out.println("Connect with an OPC UA client (UaExpert or opcua-client) and browse:");
+        System.out.println("  Objects → EnergyAggregator → Machines → LatheNEF400 → Power");
+        System.out.println("Press Ctrl+C to stop.");
+
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            System.out.println("Stopping EnergyAggregatorServer ...");
+            server.stop();
+        }));
+
         Thread.currentThread().join();
     }
 
+    /**
+     * Applies two hand-crafted updates using P4's six-argument contract.
+     * Device ID must match a machine registered in {@link EnergyNamespace}.
+     */
     private static void runServerOnlyCheck(EnergyAggregatorServer server) throws Exception {
-        // Direct MappedModelUpdate — no device prefix because P4's mapper doesn't add one yet.
-        // These targets must exist in the namespace. With the flat aliases we registered,
-        // "AcActivePowerTotal" maps to ShellyPro3EM's node (first registered).
-        var good = de.iip_ecosphere.platform.examples.energy.aggregator.model.OpcUaQuality.GOOD;
-        var now  = java.time.Instant.now();
+        OpcUaQuality good = OpcUaQuality.GOOD;
+        Instant now = Instant.now();
 
-        server.applyUpdate(new MappedModelUpdate("AcActivePowerTotal",         1500.5, "W",  now, good));
-        server.applyUpdate(new MappedModelUpdate("AcActiveEnergyTotalImportLp", 123456.7, "Wh", now, good));
-        LOG.info("Server-only check: applied 2 updates. Browse with UaExpert.");
+        server.applyUpdate(new MappedModelUpdate(
+            "LatheNEF400", POWER_TARGET, 1500.5, "W", now, good));
+
+        server.applyUpdate(new MappedModelUpdate(
+            "LatheNEF400", ENERGY_TARGET, 123456.7, "Wh", now, good));
+
+        System.out.println(
+            "Server-only check: applied 2 updates to LatheNEF400. "
+            + "MarkingLaser should remain Bad_WaitingForInitialData.");
     }
+
+    /** Mirrors {@link EnergyNamespace#POWER_TARGET} for readability. */
+    private static final String POWER_TARGET  = EnergyNamespace.POWER_TARGET;
+    /** Mirrors {@link EnergyNamespace#ENERGY_TARGET} for readability. */
+    private static final String ENERGY_TARGET = EnergyNamespace.ENERGY_TARGET;
 }

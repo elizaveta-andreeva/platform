@@ -1,0 +1,14 @@
+[[1;34mINFO[m] Scanning for projects...
+[[1;33mWARNING[m] The POM for org.eclipse.m2e:lifecycle-mapping:jar:1.0.0 is missing, no dependency information available
+[[1;33mWARNING[m] Failed to retrieve plugin descriptor for org.eclipse.m2e:lifecycle-mapping:1.0.0: Plugin org.eclipse.m2e:lifecycle-mapping:1.0.0 or one of its dependencies could not be resolved: org.eclipse.m2e:lifecycle-mapping:jar:1.0.0 was not found in https://projects.sse.uni-hildesheim.de/qm/maven/ during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of SSE-plugins has elapsed or updates are forced
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-------------< [0;36mde.iip-ecosphere.platform:examples.energy[0;1m >--------------[m
+[[1;34mINFO[m] [1mBuilding Energy OPC-UA 0.8.1-SNAPSHOT[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;33mWARNING[m] The POM for org.eclipse.m2e:lifecycle-mapping:jar:1.0.0 is missing, no dependency information available
+[[1;33mWARNING[m] Failed to retrieve plugin descriptor for org.eclipse.m2e:lifecycle-mapping:1.0.0: Plugin org.eclipse.m2e:lifecycle-mapping:1.0.0 or one of its dependencies could not be resolved: org.eclipse.m2e:lifecycle-mapping:jar:1.0.0 was not found in https://projects.sse.uni-hildesheim.de/qm/maven/ during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of SSE-plugins has elapsed or updates are forced
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mexec-maven-plugin:3.6.4:java[m [1m(default-cli)[m @ [36mexamples.energy[0;1m ---[m
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.

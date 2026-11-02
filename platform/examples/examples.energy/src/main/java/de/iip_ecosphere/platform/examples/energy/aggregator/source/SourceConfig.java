@@ -1,4 +1,4 @@
-package de.iip_ecosphere.platform.examples.energy.config;
+package de.iip_ecosphere.platform.examples.energy.aggregator.source;
 
 /**
  * Configuration for a single source. Loaded from YAML or IVML-generated
