@@ -46,7 +46,7 @@ public class OsUtilsTest {
 
     /**
      * Tests {@link OsUtils#getPropertyOrEnv(String, String)}, {@link OsUtils#getPropertyOrEnv(String)} and 
-     * implicitly {@link OsUtils#getEnv(String)}.
+     * implicitly {@link OsUtils#getEnv(String)} and {@link OsUtils#setProperty(String, String)}.
      */
     @Test
     public void testSystemPropertyOrEnv() {
@@ -57,6 +57,10 @@ public class OsUtilsTest {
         
         Assert.assertFalse(OsUtils.getBooleanPropertyOrEnv("iip.nonsense1", false));
         Assert.assertFalse(OsUtils.getBooleanProperty("iip.nonsense1", false));
+        
+        Assert.assertEquals(1, OsUtils.getIntProperty("iip.test.intVal", 1));
+        OsUtils.setProperty("iip.test.intVal", "2");
+        Assert.assertEquals(2, OsUtils.getIntProperty("iip.test.intVal", 1));
     }
     
     /**
@@ -69,6 +73,16 @@ public class OsUtilsTest {
         OsUtils.isLinux();
         OsUtils.isUnix();
         OsUtils.isMac();
+    }
+    
+    /**
+     * Tests {@link OsUtils#getUserHome()}, {@link OsUtils#getUserName()} and {@link OsUtils#getUserName(String)}.
+     */
+    @Test
+    public void testUser() {
+        OsUtils.getUserHome(); // usually not empty
+        OsUtils.getUserName(); // usually not empty
+        Assert.assertTrue(OsUtils.getUserName("***").length() > 0); 
     }
     
 }

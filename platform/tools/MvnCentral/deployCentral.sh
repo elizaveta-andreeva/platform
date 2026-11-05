@@ -153,6 +153,7 @@ DeployArtifact() {
 
 # deploy the individual artifacts
 
+DeployArtifact "${PREFIX}" "toolsDependencies" "$OKTO_VERSION" "java"
 DeployArtifact "${PREFIX}" "tools.lib" "$OKTO_VERSION" "java"
 DeployArtifact "${PREFIX}" "dependency-plugin" "$OKTO_VERSION" "mvn"
 DeployArtifact "${PREFIX}" "invoker-plugin" "$OKTO_VERSION" "mvn"
@@ -179,6 +180,8 @@ DeployArtifact "${PREFIX}" "support.metrics-micrometer" "$OKTO_VERSION" "java pl
 DeployArtifact "${PREFIX}" "support.json-jackson" "$OKTO_VERSION" "java plugin"
 DeployArtifact "${PREFIX}" "support.http-apache" "$OKTO_VERSION" "java plugin"
 DeployArtifact "${PREFIX}" "support.bytecode-bytebuddy" "$OKTO_VERSION" "java plugin"
+
+DeployArtifact "${PREFIX}" "tools.pluginEnv" "$OKTO_VERSION" "mvn"
 
 DeployArtifact "${PREFIX}" "support.dfltSysMetrics" "$OKTO_VERSION" "java plugin"
 DeployArtifact "${PREFIX}" "support.metrics.plcNext" "$OKTO_VERSION" "java plugin"

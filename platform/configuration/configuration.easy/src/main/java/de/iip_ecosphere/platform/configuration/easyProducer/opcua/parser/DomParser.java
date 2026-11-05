@@ -30,6 +30,7 @@ import de.iip_ecosphere.platform.support.StringUtils;
  * Denotes the OPC UA element types.
  * 
  * @author Jan-Hendrik Cepok, SSE
+ * @author Elizaveta Andreeva
  */
 enum ElementType {
 
@@ -112,6 +113,11 @@ public class DomParser {
     private static final class StaticNodeList implements NodeList {
         private final ArrayList<Node> items = new ArrayList<>();
 
+        /**
+         * Creates a snapshot from a given node list.
+         * 
+         * @param src the node list
+         */
         StaticNodeList(NodeList src) {
             Node n;
             for (int i = 0; (n = src.item(i)) != null; i++) {
@@ -132,20 +138,6 @@ public class DomParser {
 
     private final Map<Node, Map<String, NodeList>> tagCache = new IdentityHashMap<>();
     private final Map<NodeList, Map<String, Element>> indexCache = new IdentityHashMap<>();
-
-    private static NodeList snapshot(NodeList live) {
-        return new StaticNodeList(live);
-    }
-
-    private NodeList elementsByTag(Document d, String tag) {
-        return tagCache.computeIfAbsent(d, k -> new HashMap<>())
-                .computeIfAbsent(tag, t -> new StaticNodeList(d.getElementsByTagName(t)));
-    }
-
-    private NodeList elementsByTag(Element e, String tag) {
-        return tagCache.computeIfAbsent(e, k -> new HashMap<>())
-                .computeIfAbsent(tag, t -> new StaticNodeList(e.getElementsByTagName(t)));
-    }
 
     // checkstyle: stop parameter number check
 
@@ -176,6 +168,40 @@ public class DomParser {
         variableMap = buildIndexIfBeneficial(variableList);
         methodMap = buildIndexIfBeneficial(methodList);
         dataTypeMap = buildIndexIfBeneficial(dataTypeList);
+    }
+
+    /**
+     * Creates a snapshot for the given node list.
+     * 
+     * @param live the node list to snapshot
+     * @return the node list
+     */
+    private static NodeList snapshot(NodeList live) {
+        return new StaticNodeList(live);
+    }
+
+    /**
+     * Returns elements by tag.
+     * 
+     * @param doc the document to retrieve the elements from
+     * @param tag the tag to look for
+     * @return the elements by tag, may be empty
+     */
+    private NodeList elementsByTag(Document doc, String tag) {
+        return tagCache.computeIfAbsent(doc, k -> new HashMap<>())
+                .computeIfAbsent(tag, t -> new StaticNodeList(doc.getElementsByTagName(t)));
+    }
+
+    /**
+     * Returns elements by tag.
+     * 
+     * @param elt the element to retrieve the elements from
+     * @param tag the tag to look for
+     * @return the elements by tag, may be empty
+     */
+    private NodeList elementsByTag(Element elt, String tag) {
+        return tagCache.computeIfAbsent(elt, k -> new HashMap<>())
+                .computeIfAbsent(tag, t -> new StaticNodeList(elt.getElementsByTagName(t)));
     }
 
     /**
@@ -390,12 +416,12 @@ public class DomParser {
      * top-level definitions for nodes referenced from multiple places (e.g. shared FromState/ToState
      * targets in state machines).
      *
-     * @param f the field referencing the target node
+     * @param field the field referencing the target node
      * @param predictedName the name that would be used if the target has not been created yet
      * @return the resolved target name
      */
-    private String resolveFieldTargetName(FieldType f, String predictedName) {
-        BaseType existing = findInHierarchy(f.getNodeId());
+    private String resolveFieldTargetName(FieldType field, String predictedName) {
+        BaseType existing = findInHierarchy(field.getNodeId());
         return (existing != null) ? existing.getVarName() : predictedName;
     }
 
@@ -438,18 +464,6 @@ public class DomParser {
      * Does nothing, just allows for code convention compliance while bugfixing.
      */
     private static void nop() {
-    }
-
-    /**
-     * Checks the relations and returns a node with NodeId {@code currentNodeId}.
-     * Uses a pre-built HashMap index for O(1) lookup instead of an O(n) linear scan.
-     *
-     * @param currentNodeId the node id to search for
-     * @param map           the pre-built index for this NodeList
-     * @return the found element
-     */
-    private static Element checkRelation(String currentNodeId, Map<String, Element> map) {
-        return map != null ? map.get(currentNodeId) : null;
     }
 
     /**
@@ -1051,7 +1065,8 @@ public class DomParser {
                     for (int k = 0; k < fields.getLength(); k++) {
                         Element fieldNode = getNextNodeElement(fields, k);
                         if (fieldNode != null) {
-                            String fieldName = "_" + fieldNode.getAttribute("Name").replaceAll("[,\u201C\u201D\"\\\\]", "_");
+                            String fieldName = "_" + fieldNode.getAttribute("Name")
+                                .replaceAll("[,\u201C\u201D\"\\\\]", "_");
                             if (fieldName.equals("") || fieldName.equals("_")) {
                                 fieldName = "placeholder_"
                                         + childNode.getAttribute("Name").replaceAll("[/,\u201C\u201D\"\\\\]", "_");
@@ -1130,6 +1145,17 @@ public class DomParser {
         }
         return fieldDescription;
     }
+    
+    /**
+     * Returns a cleaned browse name (attribute {@code BrowseName}, removing all left/right double quotation marks, 
+     * ordinary quotation marks and backslashes.
+     * 
+     * @param element the element
+     * @return the cleaned browse name
+     */
+    private static String getCleanBrowseName(Element element) {
+        return element.getAttribute("BrowseName").replaceAll("[\u201C\u201D\"\\\\]", "");
+    }
 
     /**
      * Creates an element.
@@ -1156,9 +1182,9 @@ public class DomParser {
         switch (type) {
         case ROOTOBJECT:
             ObjectType uaRootObject = new RootObjectType(id,
-                    element.getAttribute("BrowseName").replaceAll("[\u201C\u201D\"\\\\]", ""), displayName, description, optional,
-                    BaseType.validateVarName("opc" + typeDef),
-                    retrieveParent(element.getAttribute("ParentNodeId"), objectTypeList), objectFields);
+                getCleanBrowseName(element), displayName, description, optional,
+                BaseType.validateVarName("opc" + typeDef),
+                retrieveParent(element.getAttribute("ParentNodeId"), objectTypeList), objectFields);
             uaRootObject.setVarName(retrieveParent(element.getAttribute("ParentNodeId"), objectTypeList) + displayName);
             if (!objectFields.isEmpty()) {
                 adaptDatatypesToModel(uaRootObject, null);
@@ -1171,7 +1197,8 @@ public class DomParser {
         case ROOTVARIABLE:
             dataType = element.getAttribute("DataType");
             if (dataType.equals("EnumValueType")) {
-                Element relatedDataTypeElement = checkRelationFast(element.getAttribute("ParentNodeId"), dataTypeMap, dataTypeList);
+                Element relatedDataTypeElement = checkRelationFast(
+                    element.getAttribute("ParentNodeId"), dataTypeMap, dataTypeList);
                 if (relatedDataTypeElement != null) {
                     NodeList dataChildNodeList = relatedDataTypeElement.getChildNodes();
                     for (int j = 0; j < dataChildNodeList.getLength(); j++) {
@@ -1196,18 +1223,17 @@ public class DomParser {
                     ? nestedRootVariableParent.getVarName()
                     : retrieveParent(element.getAttribute("ParentNodeId"), objectTypeList);
             RootVariableType uaRootVariable = new RootVariableType(id,
-                    element.getAttribute("BrowseName").replaceAll("[\u201C\u201D\"\\\\]", ""), displayName, description, dataType,
-                    BaseType.validateVarName("opc" + typeDef + "Type"), optional, element.getAttribute("AccessLevel"),
-                    element.getAttribute("ValueRank"), dimension,
-                    parentVarName);
+                getCleanBrowseName(element), displayName, description, dataType,
+                BaseType.validateVarName("opc" + typeDef + "Type"), optional, element.getAttribute("AccessLevel"),
+                element.getAttribute("ValueRank"), dimension,
+                parentVarName);
             uaRootVariable.setVarName(parentVarName + displayName);
             addElement(uaRootVariable, type);
             break;
         case ROOTMETHOD:
-            RootMethodType uaRootMethod = new RootMethodType(id,
-                    element.getAttribute("BrowseName").replaceAll("[\u201C\u201D\"\\\\]", ""), displayName, description, optional,
-
-                    null, retrieveParent(element.getAttribute("ParentNodeId"), objectTypeList), objectFields);
+            RootMethodType uaRootMethod = new RootMethodType(id, getCleanBrowseName(element), 
+                displayName, description, optional,
+                null, retrieveParent(element.getAttribute("ParentNodeId"), objectTypeList), objectFields);
             uaRootMethod.setVarName(retrieveParent(element.getAttribute("ParentNodeId"), objectTypeList) + displayName);
             if (!objectFields.isEmpty()) {
                 adaptDatatypesToModel(uaRootMethod, null);
@@ -1219,8 +1245,8 @@ public class DomParser {
             break;
         case SUBOBJECT:
             if (findInHierarchy(id) == null) {
-                ObjectType uaSubObject = new ObjectType(id, element.getAttribute("BrowseName").replaceAll("[\u201C\u201D\"\\\\]", ""),
-                        displayName, description, optional, BaseType.validateVarName(typeDef), objectFields);
+                ObjectType uaSubObject = new ObjectType(id, getCleanBrowseName(element),
+                    displayName, description, optional, BaseType.validateVarName(typeDef), objectFields);
                 uaSubObject.setVarName(searchVarName(uaSubObject, hierarchy));
                 if (!objectFields.isEmpty()) {
                     adaptDatatypesToModel(uaSubObject, null);
@@ -1236,8 +1262,8 @@ public class DomParser {
             break;
         case SUBMETHOD:
             if (findInHierarchy(id) == null) {
-                MethodType uaMethod = new MethodType(id, element.getAttribute("BrowseName").replaceAll("[\u201C\u201D\"\\\\]", ""),
-                        displayName, description, optional, objectFields);
+                MethodType uaMethod = new MethodType(id, getCleanBrowseName(element), displayName, description, 
+                    optional, objectFields);
                 uaMethod.setVarName(searchVarName(uaMethod, hierarchy));
                 if (!objectFields.isEmpty()) {
                     adaptDatatypesToModel(null, uaMethod);
@@ -1252,9 +1278,8 @@ public class DomParser {
             }
             break;
         case FIELDOBJECT:
-            FieldObjectType uaFieldObject = new FieldObjectType(id,
-                    element.getAttribute("BrowseName").replaceAll("[\u201C\u201D\"\\\\]", ""), displayName, description, "",
-                    optional);
+            FieldObjectType uaFieldObject = new FieldObjectType(id, getCleanBrowseName(element), displayName, 
+                description, "", optional);
             uaFieldObject.setVarName("opc" + displayName);
             if (!checkRedundancy(uaFieldObject.getVarName(), subFields)) {
                 subFields.add(uaFieldObject);
@@ -1263,7 +1288,8 @@ public class DomParser {
         case FIELDVARIABLE:
             dataType = element.getAttribute("DataType");
             if (dataType.equals("EnumValueType")) {
-                Element relatedDataTypeElement = checkRelationFast(element.getAttribute("ParentNodeId"), dataTypeMap, dataTypeList);
+                Element relatedDataTypeElement = checkRelationFast(element.getAttribute("ParentNodeId"), dataTypeMap, 
+                    dataTypeList);
                 NodeList dataChildNodeList = relatedDataTypeElement.getChildNodes();
                 for (int j = 0; j < dataChildNodeList.getLength(); j++) {
                     Element childNode = getNextNodeElement(dataChildNodeList, j);
@@ -1280,10 +1306,10 @@ public class DomParser {
             if (fieldDimension.contains(",")) {
                 fieldDimension = fieldDimension.substring(0, fieldDimension.indexOf(","));
             }
-            FieldVariableType uaFieldVariable = new FieldVariableType(id,
-                    element.getAttribute("BrowseName").replaceAll("[\u201C\u201D\"\\\\]", ""), displayName, description, dataType,
-                    BaseType.validateVarName("opc" + typeDef + "Type"), optional, element.getAttribute("AccessLevel"),
-                    element.getAttribute("ValueRank"), fieldDimension);
+            FieldVariableType uaFieldVariable = new FieldVariableType(id, 
+                getCleanBrowseName(element), displayName, description, dataType,
+                BaseType.validateVarName("opc" + typeDef + "Type"), optional, element.getAttribute("AccessLevel"),
+                element.getAttribute("ValueRank"), fieldDimension);
             uaFieldVariable.setVarName(retrieveParent(element.getAttribute("ParentNodeId"), objectList) + displayName);
             if (!checkRedundancy(uaFieldVariable.getVarName(), subFields)) {
                 subFields.add(uaFieldVariable);
@@ -1291,36 +1317,34 @@ public class DomParser {
             break;
         case FIELDMETHOD:
             FieldMethodType uaFieldMethod = new FieldMethodType(id,
-                    element.getAttribute("BrowseName").replaceAll("[\u201C\u201D\"\\\\]", ""), displayName, description, "",
-                    optional);
+                getCleanBrowseName(element), displayName, description, "",
+                optional);
             uaFieldMethod.setVarName("opc" + displayName);
             if (!checkRedundancy(uaFieldMethod.getVarName(), subFields)) {
                 subFields.add(uaFieldMethod);
             }
             break;
         case ENUM:
-            EnumType enumeration = new EnumType(id, element.getAttribute("BrowseName").replaceAll("[\u201C\u201D\"\\\\]", ""),
-                    displayName, description, documentation, literals);
+            EnumType enumeration = new EnumType(id, getCleanBrowseName(element),
+                displayName, description, documentation, literals);
             enumeration.setVarName("opc" + displayName + "Type");
             addElement(enumeration, type);
             break;
         case DATATYPE:
-            DataType uaDataType = new DataType(id, element.getAttribute("BrowseName").replaceAll("[\u201C\u201D\"\\\\]", ""),
-                    displayName, description, documentation, dataLiterals);
+            DataType uaDataType = new DataType(id, getCleanBrowseName(element),
+                displayName, description, documentation, dataLiterals);
             uaDataType.setVarName("opc" + displayName + "Type");
             addElement(uaDataType, type);
             break;
         case OBJECTTYPE:
-            ObjectTypeType uaObjectType = new ObjectTypeType(id,
-                    element.getAttribute("BrowseName").replaceAll("[\u201C\u201D\"\\\\]", ""), displayName, description,
-                    documentation);
+            ObjectTypeType uaObjectType = new ObjectTypeType(id, getCleanBrowseName(element), 
+                displayName, description, documentation);
             uaObjectType.setVarName("opc" + displayName);
             addElement(uaObjectType, type);
             break;
         case VARIABLETYPE:
-            VariableTypeType uaVariableType = new VariableTypeType(id,
-                    element.getAttribute("BrowseName").replaceAll("[\u201C\u201D\"\\\\]", ""), displayName, description,
-                    documentation, changeVariableDataTypes(element.getAttribute("DataType")));
+            VariableTypeType uaVariableType = new VariableTypeType(id,  getCleanBrowseName(element), 
+                displayName, description, documentation, changeVariableDataTypes(element.getAttribute("DataType")));
             uaVariableType.setVarName("opc" + displayName + "Type");
             addElement(uaVariableType, type);
             break;

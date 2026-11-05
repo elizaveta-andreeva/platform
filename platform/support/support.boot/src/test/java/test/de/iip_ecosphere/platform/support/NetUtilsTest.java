@@ -16,6 +16,8 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -23,6 +25,7 @@ import org.junit.Test;
 import de.iip_ecosphere.platform.support.NetUtils;
 import de.iip_ecosphere.platform.support.ServerAddress;
 import de.iip_ecosphere.platform.support.TimeUtils;
+import de.iip_ecosphere.platform.support.logging.LoggerFactory;
 
 /**
  * Tests {@link NetUtils}.
@@ -40,6 +43,47 @@ public class NetUtilsTest {
         Assert.assertTrue(NetUtils.getEphemeralPort() > 0);
     }
 
+    /**
+     * Tests {@link NetUtils#getEphemeralPorts(int)} and {@link NetUtils#getEphemeralPorts(int, long)}.
+     */
+    @Test
+    public void testEphemeralPorts() {
+        Assert.assertNull(NetUtils.getEphemeralPorts(-1));
+        int[] ports = NetUtils.getEphemeralPorts(0);
+        Assert.assertNotNull(ports);
+        Assert.assertEquals(0, ports.length);
+        // if there is no free port, it probably makes no sense to run the tests at all
+        ports = NetUtils.getEphemeralPorts(3);
+        if (ports == null) {
+            LoggerFactory.getLogger(NetUtilsTest.class).warn("No enough free emphmeral ports found.");
+        } else {
+            Assert.assertEquals(3, ports.length);
+            // must be different
+            Set<Integer> tmp = new HashSet<>();
+            for (Integer p : ports) {
+                tmp.add(p);
+            }
+            Assert.assertEquals(3, tmp.size());
+            LoggerFactory.getLogger(NetUtilsTest.class).info("Free emphmeral ports: {}", ports);
+        }
+    }
+
+    /**
+     * Tests {@link NetUtils#getPortSafe(int[], int)}.
+     */
+    @Test
+    public void testGetPortSafe() {
+        Assert.assertTrue(NetUtils.getPortSafe(null, 0) > 0); // ephemeral
+        int[] ports = new int[0];
+        Assert.assertTrue(NetUtils.getPortSafe(ports, 0) > 0); // ephemeral
+        Assert.assertTrue(NetUtils.getPortSafe(ports, -1) > 0); // ephemeral
+        ports = new int[] {1024, 1025};
+        Assert.assertTrue(NetUtils.getPortSafe(ports, ports.length) > 0); // ephemeral
+        Assert.assertTrue(NetUtils.getPortSafe(ports, -1) > 0); // ephemeral
+        Assert.assertEquals(NetUtils.getPortSafe(ports, 0), ports[0]); 
+        Assert.assertEquals(NetUtils.getPortSafe(ports, 1), ports[1]); 
+    }
+    
     /**
      * Tests {@link NetUtils#getOwnHostname()}.
      */

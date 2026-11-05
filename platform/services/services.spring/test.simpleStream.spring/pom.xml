@@ -9,7 +9,8 @@
   <parent>
      <groupId>de.iip-ecosphere.platform</groupId>
      <artifactId>platformDependenciesSpring</artifactId>
-     <version>0.8.1-SNAPSHOT</version>
+     <version>0.8.2-SNAPSHOT</version>
+     <relativePath/>
   </parent>
 
   <dependencies>
@@ -132,7 +133,7 @@
       <plugin>
          <groupId>org.apache.maven.plugins</groupId>
          <artifactId>maven-assembly-plugin</artifactId>
-         <version>3.7.1</version>
+         <version>${org.apache.maven.assembly.version}</version>
          <executions>
              <execution>
                  <id>hivemqv5</id>
@@ -200,7 +201,7 @@
         <plugin>
            <groupId>org.springframework.boot</groupId>
            <artifactId>spring-boot-maven-plugin</artifactId>
-           <version>2.4.2</version>
+           <version>${org.spring.boot.maven.version}</version>
            <configuration>
                <addResources>false</addResources>
            </configuration>
@@ -356,7 +357,7 @@
         <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>exec-maven-plugin</artifactId>
-            <version>3.5.1</version>
+            <version>${org.codehaus.mojo.exec-maven-plugin.version}</version>
             <configuration>
                 <executable>java</executable>
                 <arguments>

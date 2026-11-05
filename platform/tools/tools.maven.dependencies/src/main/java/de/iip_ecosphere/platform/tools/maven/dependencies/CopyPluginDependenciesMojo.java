@@ -14,22 +14,37 @@ package de.iip_ecosphere.platform.tools.maven.dependencies;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.StringTokenizer;
 
+import javax.inject.Inject;
+
 import org.apache.commons.io.IOUtils;
+import org.apache.maven.artifact.handler.manager.ArtifactHandlerManager;
+import org.apache.maven.execution.MavenSession;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.plugins.annotations.ResolutionScope;
+import org.apache.maven.plugins.dependency.utils.CopyUtil;
+import org.apache.maven.plugins.dependency.utils.ResolverUtil;
+import org.apache.maven.project.MavenProject;
+import org.apache.maven.project.ProjectBuilder;
+import org.apache.maven.shared.transfer.artifact.install.ArtifactInstaller;
+import org.apache.maven.shared.transfer.repository.RepositoryManager;
+import org.eclipse.aether.RepositorySystem;
+import org.sonatype.plexus.build.incremental.BuildContext;
 
-import com.google.common.io.Files;
-
+import de.oktoflow.platform.tools.lib.HashUtils;
 import de.oktoflow.platform.tools.lib.loader.LoaderIndex;
 
 /**
@@ -58,6 +73,93 @@ public class CopyPluginDependenciesMojo extends CopyDependenciesMojo {
 
     @Parameter( property = "mdep.createIndex", defaultValue = "true")
     private boolean createIndex;
+
+    @Parameter( property = "mdep.incrementalIndex", defaultValue = "true")
+    private boolean incrementalIndex;
+
+    // checkstyle: stop parameter number check
+
+    /**
+     * Creates a mojo instance.
+     * 
+     * @param session the maven session
+     * @param buildContext the build context
+     * @param project the maven project
+     * @param resolverUtil the resolver util instance
+     * @param repositoryManager the repository manager
+     * @param projectBuilder the project builder
+     * @param artifactHandlerManager the artifact handler manager
+     * @param copyUtil the copy util instance
+     * @param installer the installer
+     * @param repoSystem the repository system instance
+     */
+    @Inject
+    public CopyPluginDependenciesMojo(
+        MavenSession session,
+        BuildContext buildContext,
+        MavenProject project,
+        ResolverUtil resolverUtil,
+        RepositoryManager repositoryManager,
+        ProjectBuilder projectBuilder,
+        ArtifactHandlerManager artifactHandlerManager,
+        CopyUtil copyUtil,
+        ArtifactInstaller installer,
+        RepositorySystem repoSystem) {
+        super(session, buildContext, project, resolverUtil, repositoryManager, projectBuilder, artifactHandlerManager, 
+            copyUtil, installer, repoSystem);
+    }
+    
+    /**
+     * Returns the hashes file object.
+     * 
+     * @return the hashes file object
+     */
+    private File getHashFile() {
+        return new File(targetDirectory, "classpath" + (asTest ? "-test" : "") + ".fpf");
+    }
+
+    /**
+     * Reads the hashes file.
+     * 
+     * @return the hashes file contents (resource-hash mapping), may be <b>empty</b> or null
+     * @see #getHashFile()
+     */
+    private Properties readHashes() {
+        Properties hashes = null;
+        if (incrementalIndex) {
+            hashes = new Properties();
+            File file = getHashFile();
+            if (file.exists()) {
+                try (FileReader reader = new FileReader(file)) {
+                    hashes.load(reader);
+                    getLog().info("Using file hashes from " + file);
+                } catch (IOException e) {
+                    getLog().warn("Cannot read hash file " + file + ": " + HashUtils.toMessage(e));
+                }
+            }
+        }
+        return hashes;
+    }
+
+    /**
+     * Writes the hashes file (resource-hash mapping).
+     * 
+     * @param hashes the hashes file, may be <b>empty</b> or null
+     * @see #getHashFile()
+     */
+    private void writeHashes(Properties hashes) {
+        if (incrementalIndex && hashes != null) {
+            File file = getHashFile();
+            try (FileWriter writer = new FileWriter(file)) {
+                hashes.store(writer, "Contents hash file for " + (asTest ? "-test" : "") + " classpath index file");
+                getLog().info("Stored file hashes in " + file);
+            } catch (IOException e) {
+                getLog().warn("Cannot write hash file " + file + ": " + HashUtils.toMessage(e));
+            }
+        }        
+    }
+
+    // checkstyle: resume parameter number check
 
     @Override
     protected void doExecute() throws MojoExecutionException {
@@ -91,6 +193,15 @@ public class CopyPluginDependenciesMojo extends CopyDependenciesMojo {
             if (jars.size() > 0) {
                 try {
                     long start = System.currentTimeMillis();
+                    Properties hashes = readHashes();
+                    LoaderIndex oldIdx = null;
+                    if (incrementalIndex && index.exists()) {
+                        try {
+                            oldIdx = LoaderIndex.fromFile(index);
+                        } catch (IOException e) {
+                            getLog().warn("Cannot read index " + index + ". Ignoring.");
+                        }
+                    }
                     getLog().info("Indexing classes...");
                     LoaderIndex idx = new LoaderIndex();
                     idx.setFileLocationProvider(f -> {
@@ -102,8 +213,9 @@ public class CopyPluginDependenciesMojo extends CopyDependenciesMojo {
                         return path;
                     });
                     LoaderIndex.addToIndex(idx, jars, 
-                        ex -> getLog().warn(ex.getClass().getSimpleName() + " " + ex.getMessage()));
+                        ex -> getLog().warn(ex.getClass().getSimpleName() + " " + ex.getMessage()), hashes, oldIdx);
                     LoaderIndex.toFile(idx, index);
+                    writeHashes(hashes);
                     getLog().info("Stored class index to " + index + " " + idx.getClassesCount() + " classes and " 
                         + idx.getResourcesCount() + " resources in " + idx.getLocationsCount() + " locations in " 
                         + (System.currentTimeMillis() - start) + " ms");
@@ -206,8 +318,9 @@ public class CopyPluginDependenciesMojo extends CopyDependenciesMojo {
                                 File srcFile = new File(outputDirectory, token);
                                 File tgtFile = new File(outputDirectory, origToken);
                                 if (!tgtFile.exists() || tgtFile.lastModified() < srcFile.lastModified()) {
+                                    tgtFile.getParentFile().mkdirs();
                                     try {
-                                        Files.copy(srcFile, tgtFile);
+                                        Files.copy(srcFile.toPath(), tgtFile.toPath());
                                     } catch (IOException e) {
                                         getLog().warn("Cannot copy dependency " + token + ": " + e.getMessage());
                                     }

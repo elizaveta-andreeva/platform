@@ -21,12 +21,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Stream;
 
 import de.iip_ecosphere.platform.configuration.cfg.StatusCache;
 import de.iip_ecosphere.platform.configuration.easyProducer.ConfigurationLifecycleDescriptor.ExecutionMode;
 import de.iip_ecosphere.platform.configuration.easyProducer.ivml.IvmlUtils;
+import de.iip_ecosphere.platform.support.CollectionUtils;
 import de.iip_ecosphere.platform.support.FileUtils;
 import de.iip_ecosphere.platform.support.collector.Collector;
 import de.iip_ecosphere.platform.support.identities.YamlIdentityFile;
@@ -52,8 +54,12 @@ public class PlatformInstantiator {
     public static final String KEY_PROPERTY_TRACING = "iip.easy.tracing";
     public static final String KEY_PROPERTY_MVNARGS = "iip.easy.mvnArgs";
     public static final String KEY_PROPERTY_INCREMENTAL = "easy.vil.incremental"; // maps to EASy-Producer
+    public static final String KEY_PROPERTY_MVNGOAL = "iip.easy.mvnGoal"; // maps to EASy-Producer
     public static final String KEY_PROPERTY_APPS = "iip.easy.apps";
+    public static final String KEY_PROPERTY_UPDATE_SNAPSHOTS = "iip.updateSnapshots";
+    public static final String KEY_PROPERTY_HOME_DIR = "iip.homeDir";
     public static final String KEY_PROPERTY_TEST = "iip.tests";
+    public static final String KEY_PROPERTY_UNPACKRESOURCES = "iip.unpackResources";
     private static final String ARG_PROPS_START = "props>";
     private static final String ARG_PROPS_END = "<props";
     private static int exitCode = 0;
@@ -312,7 +318,7 @@ public class PlatformInstantiator {
                 easySetup.setIvmlMetaModelFolder(metaModelFolder);
             }
             if (cleanOutputFolder()) {
-                PlatformInstantiator.cleanOutputFolder(outputFolder);
+                PlatformInstantiator.cleanOutputFolder(outputFolder, startRuleName);
             }
             easySetup.setGenTarget(outputFolder);    
             if (null != testIvmlMetaModelFolder) {
@@ -559,13 +565,23 @@ public class PlatformInstantiator {
         }
 
     }
-    
     /**
      * Cleans the given output folder.
      * 
      * @param outputFolder the output folder to clean
      */
     static void cleanOutputFolder(File outputFolder) {
+        cleanOutputFolder(outputFolder, null);
+    }
+    
+    /**
+     * Cleans the given output folder.
+     * 
+     * @param outputFolder the output folder to clean
+     * @param startRuleName the name of the VIL start rule, may be empty or <b>null</b> for none
+     */
+    static void cleanOutputFolder(File outputFolder, String startRuleName) {
+        startRuleName = startRuleName == null ? "" : startRuleName;
         long start = System.currentTimeMillis();
         if (ConfigurationLifecycleDescriptor.INCREMENTAL) {
             if (outputFolder.isDirectory()) {
@@ -582,12 +598,53 @@ public class PlatformInstantiator {
                 }
             }
         } else {
-            LoggerFactory.getLogger(PlatformInstantiator.class).info("Deleting {} ...", outputFolder);
-            FileUtils.deleteQuietly(outputFolder);
-            outputFolder.mkdirs();
+            // legacy may delete everything, keep broker anyway
+            Set<String> legacyAppStartRuleNames = CollectionUtils.toSet("generateAppsNoDeps", "generateApps", "", 
+                "main", "mainCli");
+            Set<String> appInterfacesStartRuleNames = CollectionUtils.toSet("generateInterfaces", 
+                "generateInterfacesAndCodeTemplates", "generateBootstrappedApps");
+            Set<String> templatesStartRuleNames = CollectionUtils.toSet(
+                "generateInterfacesAndCodeTemplates", "generateBootstrappedApps", "generateCodeTemplates");
+            Set<String> appStartRuleNames = CollectionUtils.toSet(
+                "generateBootstrappedApps", "generateAppsDirect", "generateAppsTemplatesDirect");
+            Set<String> brokerStartRuleNames = CollectionUtils.toSet("generateBroker");
+
+            boolean deleteAll = true;
+            File[] files = outputFolder.listFiles();
+            if (!legacyAppStartRuleNames.contains(startRuleName) && files != null) {
+                for (File f : files) {
+                    boolean deleteF = false;
+                    String name = f.getName();
+                    if (f.isDirectory()) {
+                        if ("ApplicationInterfaces".equals(name)) {
+                            deleteF = appInterfacesStartRuleNames.contains(startRuleName);
+                        } else if ("templates".equals(name)) {
+                            deleteF = templatesStartRuleNames.contains(startRuleName);
+                        } else if ("broker".equals(name)) {
+                            deleteF = brokerStartRuleNames.contains(startRuleName);
+                        } else if (appStartRuleNames.contains(startRuleName)) {
+                            deleteF = true;
+                        }
+                    } else {
+                        if ("ApplicationInterfaces.zip".equals(name)) {
+                            deleteF = appInterfacesStartRuleNames.contains(startRuleName);
+                        }
+                    }
+                    if (deleteF) {
+                        deleteAll = false;
+                        LoggerFactory.getLogger(PlatformInstantiator.class).info("Deleting {} ...", f);
+                        FileUtils.deleteQuietly(f);
+                    }
+                }
+            }
+            if (deleteAll) {
+                LoggerFactory.getLogger(PlatformInstantiator.class).info("Deleting {} ...", outputFolder);
+                FileUtils.deleteQuietly(outputFolder);
+            }
+            outputFolder.mkdirs(); // safe side, initial
         }
-        LoggerFactory.getLogger(PlatformInstantiator.class).info("Cleaned output folder {} in {} ms", outputFolder, 
-            System.currentTimeMillis() - start);
+        LoggerFactory.getLogger(PlatformInstantiator.class).info("Cleaned output folder {} for rule {} in {} ms", 
+            outputFolder, startRuleName, System.currentTimeMillis() - start);
     }
 
     /**

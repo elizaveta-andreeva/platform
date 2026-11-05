@@ -186,6 +186,33 @@ public class AbstractInvokerMojo extends AbstractMojo implements Logger { // Abs
 
     @Parameter(property = "iip.ciBuildId", defaultValue = "") 
     private String buildId;
+
+    @Parameter(property = "aether.remoteRepositoryFilter.prefixes.basedir", defaultValue = "") 
+    private String pfxBasedir;
+
+    @Parameter(property = "aether.remoteRepositoryFilter.prefixes.resolvePrefixFiles", defaultValue = "") 
+    private String resolvePfxFs;
+
+    @Parameter(property = "aether.remoteRepositoryFilter.prefixes.verifyDenied", defaultValue = "") 
+    private String verifyDenied;
+    
+    @Parameter(property = "aether.artifactResolver.existenceCheckRelabel", defaultValue = "") 
+    private String existenceCheckRelabel;
+
+    @Parameter(property = "touch.passJava", defaultValue = "") 
+    private String touchPassJava;
+
+    @Parameter(property = "inCI", defaultValue = "") 
+    private String inCI;
+
+    @Parameter(property = "test.exec.args", defaultValue = "") 
+    private String testExecArgs;
+
+    @Parameter(property = "test.exec.regEx", defaultValue = "") 
+    private String testExecRegex;
+    
+    @Parameter(property = "maven.resolver.validation", defaultValue = "") 
+    private String resolverValidation;
     
     @Parameter(property = "iip.tests", defaultValue = "") 
     private String iipTests;
@@ -204,6 +231,12 @@ public class AbstractInvokerMojo extends AbstractMojo implements Logger { // Abs
     
     @Parameter(property = "configuration.skipMapDashboard")
     private String configSkipMapDashboard;
+
+    @Parameter(property = "iip.unpackResources") 
+    private String unpackResources;
+    
+    @Parameter(property = "skipGenerateSources")
+    private String skipGenerateSources;
 
     @Parameter(property = "profile")
     private boolean profile; // is maven-profiler active?
@@ -323,6 +356,8 @@ public class AbstractInvokerMojo extends AbstractMojo implements Logger { // Abs
             setAsProperty(sysProperties, "easy.docker.skip", easyDockerSkip);
             setAsProperty(sysProperties, "configuration.tracingLevel", configTracingLevel);
             setAsProperty(sysProperties, "configuration.skipMapDashboard", configSkipMapDashboard);
+            setAsProperty(sysProperties, "configuration.skipGenerateSources", skipGenerateSources);
+            setAsProperty(sysProperties, "iip.unpackResources", unpackResources);
             value = disablePython || disableBuild;
             sysProperties.put("python-compile.skip", String.valueOf(value));
             value = disablePython || disableBuild || disableTests;
@@ -332,18 +367,19 @@ public class AbstractInvokerMojo extends AbstractMojo implements Logger { // Abs
             value = disableAppTests || disableTests;
             sysProperties.put("configuration.testApp.skip", String.valueOf(value));
         }
-        if (buildId != null && buildId.length() > 0) { // CI defined build id for time collector
-            sysProperties.put("iip.ciBuildId", buildId);
-        }
-        if (iipTests != null && iipTests.length() > 0) { // CI defined build id for model tests
-            sysProperties.put("iip.tests", iipTests);
-        }
-        if (oktoModelParent != null && oktoModelParent.length() > 0) {
-            sysProperties.put("okto.test.easy.model.parent", oktoModelParent);
-        }
-        if (oktoMvnHome != null && oktoMvnHome.length() > 0) { // CI defined maven
-            sysProperties.put("okto.mvn.home", oktoMvnHome);
-        }
+        setPropertyIfDefined(sysProperties, "iip.ciBuildId", buildId); // CI defined build id for time collector
+        setPropertyIfDefined(sysProperties, "iip.tests", iipTests); // CI defined build id for model tests
+        setPropertyIfDefined(sysProperties, "okto.test.easy.model.parent", oktoModelParent);
+        setPropertyIfDefined(sysProperties, "okto.mvn.home", oktoMvnHome);
+        setPropertyIfDefined(sysProperties, "aether.remoteRepositoryFilter.prefixes.basedir", pfxBasedir);
+        setPropertyIfDefined(sysProperties, "aether.remoteRepositoryFilter.prefixes.resolvePrefixFiles", resolvePfxFs);
+        setPropertyIfDefined(sysProperties, "aether.remoteRepositoryFilter.prefixes.verifyDenied", verifyDenied);
+        setPropertyIfDefined(sysProperties, "aether.artifactResolver.existenceCheckRelabel", existenceCheckRelabel);
+        setPropertyIfDefined(sysProperties, "touch.passJava", touchPassJava);
+        setPropertyIfDefined(sysProperties, "inCI", inCI);
+        setPropertyIfDefined(sysProperties, "test.exec.args", testExecArgs);
+        setPropertyIfDefined(sysProperties, "test.exec.regEx", testExecRegex);
+        setPropertyIfDefined(sysProperties, "maven.resolver.validation", resolverValidation);
         String hashDir = pythonCompileHashDir;
         if (null == hashDir || hashDir.length() == 0) {
             hashDir = project.getBuild().getDirectory();
@@ -352,6 +388,20 @@ public class AbstractInvokerMojo extends AbstractMojo implements Logger { // Abs
         request.addShellEnvironment("PYTHON_COMPILE_HASHDIR", hashDir); // invoker -D not correct?, pass on 2 mvn levels
         request.setProperties(sysProperties);
         getLog().info("Setting sys properties " + request.getProperties());
+    }
+    
+    /**
+     * Sets {@code value} as value of the property {@code key} in {@code properties} if {@code value} is defined, 
+     * i.e., not <b>null</b> and not empty.
+     * 
+     * @param properties the properties to modify
+     * @param key the property key
+     * @param value the property value, may be empty or <b>null</b> to be ignored
+     */
+    private void setPropertyIfDefined(Properties properties, String key, String value) {
+        if (value != null && value.length() > 0) { // CI defined build id for time collector
+            properties.put(key, value);
+        }
     }
     
     /**
@@ -409,27 +459,33 @@ public class AbstractInvokerMojo extends AbstractMojo implements Logger { // Abs
      */
     private void passThroughEnvSettings(final InvocationRequest request) {
         String settings = System.getenv("MAVEN_SETTINGS_PATH");
+        if (settings != null && !new File(settings).exists()) { // given but does not exist -> not set
+            settings = null;
+        }
         if (null == settings) {
             if (null != execRequest.getGlobalSettingsFile() && execRequest.getGlobalSettingsFile().exists()) {
+                getLog().info("Taking over global settings file " + execRequest.getGlobalSettingsFile());
                 request.setGlobalSettingsFile(execRequest.getGlobalSettingsFile());
             }
             if (null != execRequest.getUserSettingsFile() && execRequest.getUserSettingsFile().exists()) {
+                getLog().info("Taking over user settings file " + execRequest.getUserSettingsFile());
                 request.setUserSettingsFile(execRequest.getUserSettingsFile());
             }
             File tmp = execRequest.getUserSettingsFile();
-            if (null == settings) {
+            /*if (null == settings) { // overrides with that from maven installation, often empty :/
                 tmp = execRequest.getGlobalSettingsFile();
-            }
+            }*/
             if (null != tmp && tmp.exists()) {
                 settings = tmp.getAbsolutePath();
             }
         } else {
             request.setUserSettingsFile(new File(settings));
+            getLog().info("User settings file  " + request.getUserSettingsFile());
         }
         if (null != settings) {
             request.addShellEnvironment("MAVEN_SETTINGS_PATH", settings);
+            getLog().info("Passing on env settings " + request.getShellEnvironments());
         }
-        getLog().info("Passing on env settings " + request.getShellEnvironments());
     }
     
     /**

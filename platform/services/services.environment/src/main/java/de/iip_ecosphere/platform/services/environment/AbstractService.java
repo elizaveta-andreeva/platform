@@ -188,7 +188,35 @@ public abstract class AbstractService implements Service {
         String deploymentDescFile) {
         return createInstance(loader, className, cls, serviceId, deploymentDescFile);
     }
-    
+
+    /**
+     * Convenience method for creating service instances using the class loader of this class. This method is intended
+     * for runtime updates where potentially the created instance may be <b>null</b> and shall not accidentally 
+     * overwrite an existing instance.
+     * 
+     * @param <S> the service type (parent interface of <code>className</code>)
+     * @param className the name of the service class (must implement {@link Service} and provide a no-argument 
+     *     constructor) or the plugin id
+     * @param cls the class to cast to
+     * @param serviceId the id of the service as given in {@code deploymentDescFile} (may be <b>null</b>, then the 
+     *     default constructor is invoked)
+     * @param deploymentDescFile the resource name of the deployment descriptor containing a YAML artifact with the 
+     *     service description (may be <b>null</b>, then the default constructor is invoked)
+     * @param actualInstance the actual running instance
+     * @return the service instance ({@code actualInstance} if the service cannot be found/initialized)
+     * @see #createInstance(String, Class, String, String)
+     */
+    public static <S extends Service> S createInstance(String className, Class<S> cls, String serviceId, 
+        String deploymentDescFile, S actualInstance) {
+        S newInstance = createInstance(className, cls, serviceId, deploymentDescFile);
+        if (null != actualInstance && null != newInstance ) {
+            if (actualInstance.getClass() == newInstance.getClass()) {
+                newInstance = actualInstance;
+            }
+        }
+        return null == newInstance ? actualInstance : newInstance;
+    }
+
     /**
      * Loads a resource as stream from {@code loader}, first with given name, as fallback using {@code resource}
      * without leading slashes (may be present after ZIP unpacking), else as file (may be present after ZIP unpacking).
@@ -618,6 +646,12 @@ public abstract class AbstractService implements Service {
         case STOPPING:
             next = stop();
             break;
+        case PASSIVATING:
+            next = doPassivate();
+            break;
+        case ACTIVATING:
+            next = doActivate();
+            break;
         default:
             break;
         }
@@ -669,20 +703,43 @@ public abstract class AbstractService implements Service {
     public void activate() throws ExecutionException {
         if (getState() == ServiceState.PASSIVATED) {
             setState(ServiceState.ACTIVATING);
-            start();
-            setState(ServiceState.RUNNING);
+            setState(doActivate());
         }
+    }
+    
+    /**
+     * The actual actions for {@link #activate()}, being called when we transitioned from 
+     * {@link ServiceState#PASSIVATED} to {@link ServiceState#ACTIVATING}. Calls {@link #start()} as default behavior.
+     * Called from {@code #activate()} and {@link #setState(ServiceState)}.
+     * 
+     * @return the next service state, usually {@link ServiceState#RUNNING}
+     * @throws ExecutionException if the execution fails
+     */
+    protected ServiceState doActivate() throws ExecutionException {
+        return start();
     }
 
     @Override
     public void passivate() throws ExecutionException {
         if (getState() == ServiceState.RUNNING) {
             setState(ServiceState.PASSIVATING);
-            stop();
-            setState(ServiceState.PASSIVATED);
+            setState(doPassivate());
         }
     }
     
+    /**
+     * The actual actions for {@link #passivate()}, being called when we transitioned from 
+     * {@link ServiceState#RUNNING} to {@link ServiceState#PASSIVATING}. Calls {@link #stop()} as default behavior.
+     * Called from {@code #passivate()} and {@link #setState(ServiceState)}.
+     * 
+     * @return the next service state, usually {@link ServiceState#PASSIVATED}
+     * @throws ExecutionException if the execution fails
+     */
+    protected ServiceState doPassivate() throws ExecutionException {
+        stop();
+        return ServiceState.PASSIVATED;
+    }
+
     /**
      * Helper method to add parameter configurers to {@code configurers} (without getter for rollback).
      *  

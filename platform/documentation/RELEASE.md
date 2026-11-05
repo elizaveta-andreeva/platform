@@ -1,14 +1,15 @@
 # oktoflow platform release guideline
 
-For performing a release...
+## For performing a release...
 * Release/deploy EASy-Producer and change the snapshot versions in the platform to that version
 * Deploy software that is not in Maven Central, e.g., alert manager and its logger, jlxd in EASy-Producer.
 * Inform all developing parties that a release is on the way and no commits shall be done until the release is completed (assuming that all involved parties were informed before that outstanding commits shall be done so that the release can happen in a clean CI state).
 * Save relevant artifacts: install, documentation, container
 * Change the (non-SNAPSHOT) version number using the `ChangePomVersion` tool in `MvnCentral`, e.g., `java ChangePomVersion <pathToPlatform> --oldParentPOMVersion=0.7.1-SNAPSHOT --newParentPOMVersion=0.8.0 --oldPOMVersion=0.7.1-SNAPSHOT --newPOMVersion=0.8.0 --properties=iip.version --excludes=.*[/,\\]target[/,\\].*` Change manually
+  - the version number of EASy-Producer in `platformDependencies`
   - the version number in `DataTypes.ivml` in `configuration.configuration`. 
-  - the version number in `tools.pluginEnv`
 * For a minimal validation up to the configuration layer, build and deploy locally so that your IDE can initially build the remaining components
+  - `tools.dependencies`
   - `tools.lib`
   - `tools.maven.python`
   - `tools.maven.invoker`
@@ -27,7 +28,7 @@ For performing a release...
   - `support.http-apache`
   - `support.websocket-websocket`
   - `support.processInfo-oshi`
-  - `support.meter-micrometer`
+  - `support.metrics-micrometer`
   - `support.bytecode-bytebuddy`
   - `support.aas`
   - `support.sysmetrics.bitmotec`
@@ -50,32 +51,38 @@ For performing a release...
   - `connectors`  
   - `connectors.opcuav1`  
   - `connectors.mqttv3`  
-  - `services.environment` (with `-DskipTests`)
+  - `services.environment` (may fail if qpid remainders are still there, e.g., /tmp/qpid folder)
   - `services.environment.spring`
   - `services.spring.loader`
   - `services`
-  - `test.simplestream.spring`
+  - `services.spring/test.simplestream.spring`
   - `services.spring`
   - `kiServices.functions`  
-  - `kiServices.rapidminer.rtsaFake` (with `-DskipTests`) 
-  - `kiServices.rapidminer.rtsa` (with `-DskipTests`) 
+  - `kiServices.rapidminer.rtsaFake` (if neither `JAVA8_HOME` is set to the JDK8 home directory nor `-Diip.test.java8` is set to the java binary in JDK8, `-DskipTests` may be needed) 
+  - `kiServices.rapidminer.rtsa` (if neither `JAVA8_HOME` is set to the JDK8 home directory nor `-Diip.test.java8` is set to the java binary in JDK8, `-DskipTests` may be needed)
   - `security.services.kodex`  
   - `deviceMgt`
   - `deviceMgt.basicRegistry`
   - `deviceMgt.s3mock`
   - `ecsRuntime`
   - `ecsRuntime.docker`
-  - `monitoring` (with `-DskipTests`)
+  - `monitoring`
   - `monitoring.prometheus`
   - `configuration.interface`
   - `configuration.easy` (initial build steps see [README.md](../configuration/configuration.easy/README.md))
   - `configuration.maven`
   - `platform`
-  - `managementUi`
-- `examples`
+  - `managementUi` (may require cleanup of `gen` and `target/easy`, `target/easy-test` and `target/gen`))
+  - `examples`  (may require 2 runs), examples then with `-Dunpack.force=true`
 * Finalize platform, prepare record on Zenodo
 * **Check** platform dependencies installation POM in **Install** package! 
-* First, commit `tooks.lib` and the maven plugins in `tool`, then platform dependencies, then `support` and the rest. In most of the other cases, only changes to the POM parent entry are required. 
+* First, commit 
+  - `tools.dependencies`
+  - `tools.lib`
+  - the Maven plugins in `tools`
+  - the parent poms in `platformDependencies`, `platformDependenciesBOM`, `platformDependenciesSpring` 
+  - `support` and `test`
+  - the the rest. 
 * Change version of IIP-examples to corresponding release commit
 * Check the CI that all builds are completed, all required plugins are there. Generated test-apps or examples will not be released.
 * Deploy to Maven central. On the deployment machine
@@ -105,3 +112,11 @@ For performing a release...
     * `docker push iipecosphere/dev-container:<ver>`
     * `docker logout`
 * Inform all developing parties that the release is done, everybody shall update their workspaces, refresh their Maven dependencies and development can continue.
+
+## Examples in Eclipse after update
+
+Eclipse may still show build path errors even after re-building the project with the new version via maven. Typically, updating maven dependencies in Eclipse, updating the project, closing and re-opening helps, sometimes also re-booting Eclipse or manually deleting the error message and updating maven dependencies again.
+
+## oktoflow plugins after a release
+
+oktoflow plugins are loaded locally if tests are executed within the full git workspace (not for sparse checkouts as on CI). Local execution is based on the plugin classpath files/index files and bypasses the plugins in the Maven repository. This is usually faster than doing a full plugin round-trip, but requires careful rebuild of affected platform components after a change (see sequence above). By default, local execution is enabled and after a release, a local rebuild as listed above is required. If you want to disable local plugin execution in tests, use `-Dokto.plugins.enableLocal=false` or the corresponding environment variable `OKTO_PLUGINS_ENABLELOCAL=false`.

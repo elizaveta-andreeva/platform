@@ -12,6 +12,7 @@
 
 package test.de.iip_ecosphere.platform.connectors;
 
+import java.io.File;
 import java.io.IOException;
 
 import org.junit.Test;
@@ -22,10 +23,13 @@ import de.iip_ecosphere.platform.connectors.Connector;
 import de.iip_ecosphere.platform.connectors.ConnectorFactory;
 import de.iip_ecosphere.platform.connectors.ConnectorParameter;
 import de.iip_ecosphere.platform.connectors.ConnectorParameter.ConnectorParameterBuilder;
+import de.iip_ecosphere.platform.connectors.DefaultConnectorFactoryDescriptor;
 import de.iip_ecosphere.platform.connectors.model.ModelAccess;
 import de.iip_ecosphere.platform.connectors.types.ChannelProtocolAdapter;
+import de.iip_ecosphere.platform.connectors.types.ChanneledConnectorOutputTypeAdapter.ChanneledSerializer;
 import de.iip_ecosphere.platform.connectors.types.ProtocolAdapter;
 import de.iip_ecosphere.platform.support.iip_aas.NameplateSetup.Service;
+import de.iip_ecosphere.platform.support.metrics.MetricsProvider;
 import de.iip_ecosphere.platform.support.Version;
 
 import org.junit.Assert;
@@ -372,8 +376,6 @@ public class ConnectorFactoryTest {
 
     /**
      * Tests {@link ConnectorFactory}.
-     * 
-     * @author Holger Eichelberger, SSE
      */
     @Test
     public void testFactory() {
@@ -397,9 +399,167 @@ public class ConnectorFactoryTest {
         mc = ConnectorFactory.createConnector(
             MyMqttConnectorFactory.class.getName(), () -> v3p, new MyMqttProtocolAdapter());
         Assert.assertTrue(mc instanceof MyMqttv3Connector);
+        // using the shortcut, implicit supplier creation
         mc = ConnectorFactory.createConnector(
-            MyMqttConnectorFactory.class.getName(), () -> v0p, new MyMqttProtocolAdapter());
+            MyMqttConnectorFactory.class.getName(), v0p, new MyMqttProtocolAdapter());
         Assert.assertTrue(mc instanceof MyMqttv3Connector);
+    }
+
+    /**
+     * A channeled serializer for supplying.
+     * 
+     * @author Holger Eichelberger, SSE
+     */
+    private static class ObjectSerializer implements ChanneledSerializer<Object> {
+
+        @Override
+        public Object clone(Object origin) throws IOException {
+            return origin;
+        }
+
+        @Override
+        public Class<Object> getType() {
+            return Object.class;
+        }
+
+        @Override
+        public Object from(byte[] data) throws IOException {
+            return data;
+        }
+
+        @Override
+        public byte[] to(Object source) throws IOException {
+            return source.toString().getBytes();
+        }
+
+        @Override
+        public Object from(String channel, byte[] data) throws IOException {
+            return data;
+        }
+        
+    }
+
+    /**
+     * A test connector factory descriptor for the "connector" defined above, hooked in via JSL.
+     * 
+     * @author Holger Eichelberger, SSE
+     */
+    public static class MyConnectorFactoryDescriptor extends DefaultConnectorFactoryDescriptor {
+
+        public static final String SERVICE_ID = "myServiceId"; // typically generated into the service hierarchy
+        public static final String SERVICE_ID2 = "myServiceId2"; // typically generated into the service hierarchy
+
+        /**
+         * Creates the descriptor, registering {@link #SERVICE_ID} with a default connector factory creator for 
+         * {@link MyOpcUaConnector} using {@link #createConnectorParameter()} and {@link #createProtocolAdapter()}.
+         */
+        public MyConnectorFactoryDescriptor() {
+            addCreator(SERVICE_ID, new DefaultConnectorFactoryCreator(MyOpcUaConnector.class.getName())
+                .supply(() -> createConnectorParameter())
+                .supply((m, l, i, o) -> createProtocolAdapter(), DataItem.class, Object.class, Object.class, 
+                    Object.class)
+                .supplyForInput(() -> new ObjectSerializer(), Object.class)
+                // usually also supplyForOutput
+            );
+            addCreator(SERVICE_ID2, new DefaultConnectorFactoryCreator(MyOpcUaConnector.class.getName())
+                .supply(() -> createConnectorParameter())
+                .supplyMulti((m, l, i, o) -> createProtocolAdapterMulti(), DataItem.class, Object.class, Object.class, 
+                    Object.class)
+                // usually also supplyForInput
+                .supplyForOutput(() -> new ObjectSerializer(), Object.class)
+            );
+        }
+
+        /**
+         * Creates a connector parameter. Emulates a method typically created for a connector instance.
+         * 
+         * @return the connector parameter
+         */
+        public static ConnectorParameter createConnectorParameter() {
+            return ConnectorParameterBuilder.newBuilder("", 1).build(); // values irrelevant
+        }
+
+        /**
+         * Creates a protocol adapter. Emulates a method typically created for a connector instance.
+         * 
+         * @return the connector parameter
+         */
+        public static ProtocolAdapter<DataItem, Object, Object, Object> createProtocolAdapter() {
+            return new MyOpcProtocolAdapter();
+        }
+
+        /**
+         * Creates a protocol adapter. Emulates a method typically created for a connector instance.
+         * 
+         * @return the connector parameter
+         */
+        public static ProtocolAdapter<DataItem, Object, Object, Object>[] createProtocolAdapterMulti() {
+            @SuppressWarnings("unchecked")
+            ProtocolAdapter<DataItem, Object, Object, Object>[] result = new ProtocolAdapter[1];
+            result[0] = new MyOpcProtocolAdapter();
+            return result;
+        }
+        
+    }
+    
+    /**
+     * Tests {@link ConnectorFactory#createConnector(String, Class, Class, Class, Class)}.
+     */
+    @Test
+    public void createConnectorForServiceId() {
+        // typical generated code fragment, e.g., connector connectivity test
+        Connector<DataItem, Object, Object, Object> conn = ConnectorFactory.createConnector(
+            MyConnectorFactoryDescriptor.SERVICE_ID, DataItem.class, Object.class, Object.class, Object.class);
+        Assert.assertNotNull(conn);
+
+        MetricsProvider metrics = null;
+        File log = new File("log.log");
+        // with explicit/supplied connector parameter
+        ConnectorParameter param = ConnectorFactory.createConnectorParameter(MyConnectorFactoryDescriptor.SERVICE_ID);
+        Assert.assertNotNull(param);
+        conn = ConnectorFactory.createConnector(MyConnectorFactoryDescriptor.SERVICE_ID, param, 
+            DataItem.class, Object.class, Object.class, Object.class);
+        Assert.assertNotNull(conn);
+        conn = ConnectorFactory.createConnector(MyConnectorFactoryDescriptor.SERVICE_ID, param, () -> "", () -> "",
+            DataItem.class, Object.class, Object.class, Object.class);
+        Assert.assertNotNull(conn);
+        conn = ConnectorFactory.createConnector(MyConnectorFactoryDescriptor.SERVICE_ID, param, metrics, log,
+                DataItem.class, Object.class, Object.class, Object.class);
+        Assert.assertNotNull(conn);
+        conn = ConnectorFactory.createConnector(MyConnectorFactoryDescriptor.SERVICE_ID2, param, 
+            DataItem.class, Object.class, Object.class, Object.class);
+        Assert.assertNotNull(conn);
+        conn = ConnectorFactory.createConnector(MyConnectorFactoryDescriptor.SERVICE_ID2, param, () -> "", () -> "",
+            DataItem.class, Object.class, Object.class, Object.class);
+        Assert.assertNotNull(conn); // not supplied, but fallback
+
+        // shall fail, not provided serviceId
+        Assert.assertNull(ConnectorFactory.createConnectorParameter(""));
+        // shall fail, not provided serviceId
+        Assert.assertNull(ConnectorFactory.createConnectorParameter(null));
+        // shall fail, not provided serviceId
+        Assert.assertNull(ConnectorFactory.createConnector("", 
+            DataItem.class, Object.class, Object.class, Object.class));
+        // shall fail, not provided serviceId
+        Assert.assertNull(ConnectorFactory.createConnector(null, 
+            DataItem.class, Object.class, Object.class, Object.class));
+        // shall fail, wrong type parameter types
+        Assert.assertNull(ConnectorFactory.createConnector(null, 
+            Object.class, Object.class, Object.class, Object.class));
+
+        Assert.assertNotNull(
+            ConnectorFactory.createChanneledSerializer(MyConnectorFactoryDescriptor.SERVICE_ID, true, Object.class));
+        Assert.assertNull(
+            ConnectorFactory.createChanneledSerializer(MyConnectorFactoryDescriptor.SERVICE_ID, true, Integer.class));
+        Assert.assertNull(
+            ConnectorFactory.createChanneledSerializer(MyConnectorFactoryDescriptor.SERVICE_ID, false, Object.class));
+
+        Assert.assertNull(
+            ConnectorFactory.createChanneledSerializer(MyConnectorFactoryDescriptor.SERVICE_ID2, true, Object.class));
+        Assert.assertNotNull(
+            ConnectorFactory.createChanneledSerializer(MyConnectorFactoryDescriptor.SERVICE_ID2, false, Object.class));
+        Assert.assertNull(
+            ConnectorFactory.createChanneledSerializer(MyConnectorFactoryDescriptor.SERVICE_ID2, false, Integer.class));
     }
 
 }

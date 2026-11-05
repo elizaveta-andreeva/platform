@@ -43,11 +43,11 @@ import de.iip_ecosphere.platform.configuration.easyProducer.ConfigurationLifecyc
 import de.iip_ecosphere.platform.configuration.easyProducer.PlatformInstantiator.InstantiationConfigurer;
 import de.iip_ecosphere.platform.configuration.easyProducer.PlatformInstantiator.NonCleaningInstantiationConfigurer;
 import de.iip_ecosphere.platform.configuration.easyProducer.ivml.AasIvmlMapper;
-import de.iip_ecosphere.platform.configuration.easyProducer.ivml.AasIvmlMapper.InstantiationMode;
 import de.iip_ecosphere.platform.configuration.easyProducer.ivml.DefaultEdge;
 import de.iip_ecosphere.platform.configuration.easyProducer.ivml.DefaultGraph;
 import de.iip_ecosphere.platform.configuration.easyProducer.ivml.DefaultNode;
 import de.iip_ecosphere.platform.configuration.easyProducer.ivml.GraphFormat;
+import de.iip_ecosphere.platform.configuration.easyProducer.ivml.InstantiationMode;
 import de.iip_ecosphere.platform.configuration.easyProducer.ivml.IvmlGraphMapper;
 import de.iip_ecosphere.platform.configuration.easyProducer.ivml.IvmlGraphMapper.IvmlGraph;
 import de.iip_ecosphere.platform.configuration.easyProducer.ivml.IvmlGraphMapper.IvmlGraphEdge;
@@ -539,19 +539,52 @@ public class AasIvmlMapperTest extends TestWithPlugin {
         assertStringVar("a.b.C", mapper.getVariable("deviceIdProvider").getNestedElement("class"));
         assertStringVar("mg.art:art:1.2.3", mapper.getVariable("deviceIdProvider.artifact"));
         
-        assertIvmlFileChange(MODEL_NAME, false, "instDir", "javaExe", "deviceIdProvider");
-        mapper.assertChangesCount(values.size());
-        for (String name : values.keySet()) {
-            mapper.assertChange(n -> n.equals(name), ConfigurationChangeType.MODIFIED);
-        }
-        mapper.clearChanges();
+        assertIvmlFileChange(AasIvmlMapper.PRJ_NAME_TECHSETUP, false, "instDir", "javaExe", "deviceIdProvider");
+        assertAndClearChanges(values, mapper);
+        
+        values.clear();
+        values.put("deviceIdProvider", "HostnameDeviceIdProvider{class=\"a.b.D\", artifact=\"mg.art:art:1.2.4\"}");
+        mapper.changeValues(values);
 
+        assertStringVar("a.b.D", mapper.getVariable("deviceIdProvider").getNestedElement("class"));
+        assertStringVar("mg.art:art:1.2.4", mapper.getVariable("deviceIdProvider.artifact"));
+        assertAndClearChanges(values, mapper);
+        
+        values.clear();
+        values.put("UNUSED_Real", "1.24");
+        mapper.changeValues(values);
+
+        assertRealVar(1.24, mapper.getVariable("UNUSED_Real"));
+        assertIvmlFileChange("AllConstants", false, "UNUSED_Real");
+        assertAndClearChanges(values, mapper);
+        
+        values.clear();
+        values.put("feedback", "RecordType{name=\"Feedback\", fields={Field{name=\"data1\", type=refBy(StringType)}}}");
+        mapper.changeValues(values);
+        assertIvmlFileChange("AllTypes", false, "feedback");
+        assertAndClearChanges(values, mapper);
+        
         stopEasy(lcd);
         setupIvmlFiles(); // revert changes
     }
     
     // checkstyle: stop method length check
 
+    /**
+     * Asserts that all keys in {@code value} have a corresponding change entry in {@code mapper}. Clears the changes
+     * on {@code mapper}.
+     * 
+     * @param values the values to assert the changes for
+     * @param mapper the mapper to assert the changes on, modified through {@link MyAasIvmlMapper#clearChanges()}
+     */
+    private static void assertAndClearChanges(Map<String, String> values, MyAasIvmlMapper mapper) {
+        mapper.assertChangesCount(values.size());
+        for (String name : values.keySet()) {
+            mapper.assertChange(n -> n.equals(name), ConfigurationChangeType.MODIFIED);
+        }
+        mapper.clearChanges();
+    }
+    
     /**
      * Tests the set/delete graph functions.
      * 
@@ -858,7 +891,7 @@ public class AasIvmlMapperTest extends TestWithPlugin {
     }
 
     /**
-     * Asserts that {@code var} has the {@code expected} Boolean value.
+     * Asserts that {@code var} has the {@code expected} Integer value.
      * 
      * @param expected the expected value
      * @param var the variable
@@ -867,6 +900,17 @@ public class AasIvmlMapperTest extends TestWithPlugin {
     private void assertIntVar(int expected, IDecisionVariable var) {
         Assert.assertNotNull(var);
         Assert.assertEquals(expected, IvmlUtils.getIntValue(var, -1));
+    }
+
+    /**
+     * Asserts that {@code var} has the {@code expected} Real value.
+     * 
+     * @param expected the expected value
+     * @param var the variable
+     */
+    private void assertRealVar(double expected, IDecisionVariable var) {
+        Assert.assertNotNull(var);
+        Assert.assertEquals(expected, IvmlUtils.getRealValue(var, -1), 0.01);
     }
 
     /**

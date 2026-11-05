@@ -200,6 +200,25 @@ public abstract class AbstractIvmlModifier implements DecisionVariableProvider {
     protected abstract String getIvmlSubpath(Project project);
     
     /**
+     * Returns the IVML subpath for the given project for an intended change, i.e., this method can enable writing to 
+     * {@link #isAllowedForModification(Project)} modifiable IVML projects).
+     * 
+     * @param project the project
+     * @return the subpath, may be the name of {@code project} for a top-level or a non-writable project, may be
+     *    empty for the top-level folder or a sub-folder
+     * @see #getIvmlSubpath(Project)
+     */
+    protected String getIvmlSubpathForChange(Project project) {
+        String result = getIvmlSubpath(project);
+        if (null == result) {
+            if (isAllowedForModification(project)) {
+                result = ""; // not null
+            }
+        }
+        return result;
+    }
+    
+    /**
      * Creates an IVML configuration (not meta-model) model path with {@code subpath} and for project {@code p}.
      *  
      * @param subpath the subpath, may be <b>null</b> for none
@@ -226,7 +245,6 @@ public abstract class AbstractIvmlModifier implements DecisionVariableProvider {
      * 
      * @param prj the project
      * @return {@code true} allowed, {@code false} else
-     * @see #getVariableTarget(Project, IDatatype, String, List)
      */
     protected boolean isAllowedForModification(Project prj) {
         return false; 
@@ -803,7 +821,7 @@ public abstract class AbstractIvmlModifier implements DecisionVariableProvider {
         Project root = cfg.getProject();
         IDatatype appType = findType(root, targetType);
         Project appPrj = adaptTarget(root, null == context.targetProject 
-            ? getVariableTarget(root, appType, varName, context.getMeshNames()) : context.targetProject);
+            ? getVariableTarget(root, null, appType, varName, context.getMeshNames()) : context.targetProject);
         if (null != appType) {
             DecisionVariableDeclaration var;
             if (mode.create) {
@@ -934,6 +952,7 @@ public abstract class AbstractIvmlModifier implements DecisionVariableProvider {
      * Returns the target for a variable to be created.
      * 
      * @param root the root project (may be used as default)
+     * @param varParent the parent project of the variable, may be <b>null</b> if unknown/irrelevant/not yet created
      * @param type the actual type of the variable to be created, may be <b>null</b> then anyway no variable will 
      *     be created
      * @param name optional name if the name may influence the target, may be <b>null</b>
@@ -942,8 +961,8 @@ public abstract class AbstractIvmlModifier implements DecisionVariableProvider {
      * @see #isAllowedForModification(Project prj)
      * @throws ExecutionException if model management operations fail
      */
-    protected Project getVariableTarget(Project root, IDatatype type, String name, List<String> meshes) 
-        throws ExecutionException {
+    protected Project getVariableTarget(Project root, Project varParent, IDatatype type, String name, 
+        List<String> meshes) throws ExecutionException {
         return root;
     }
     
@@ -1073,7 +1092,7 @@ public abstract class AbstractIvmlModifier implements DecisionVariableProvider {
         Project root = cfg.getProject();
         try {
             IDatatype t = findType(root, type);
-            Project target = adaptTarget(root, getVariableTarget(root, t, varName, null));
+            Project target = adaptTarget(root, getVariableTarget(root, null, t, varName, null));
             if (null != t) {
                 DecisionVariableDeclaration var;
                 if (asConst) {
@@ -1209,8 +1228,10 @@ public abstract class AbstractIvmlModifier implements DecisionVariableProvider {
             IDecisionVariable var = vars.get(ent.getKey());
             try {
                 AbstractVariable varDecl = var.getDeclaration();
-                Project target = varDecl.getProject();
-                String subpath = getIvmlSubpath(target);
+                //Project target = varDecl.getProject();
+                Project target = adaptTarget(root, getVariableTarget(root, varDecl.getProject(), 
+                    varDecl.getType(), varDecl.getName(), null));
+                String subpath = getIvmlSubpathForChange(target);
                 if (null == subpath) { // if it is one of the "writable" wildcard imports
                     target = root;
                 }
@@ -1221,7 +1242,6 @@ public abstract class AbstractIvmlModifier implements DecisionVariableProvider {
                     createAssignment(varDecl, ent.getValue(), target); 
                 }
                 projects.add(target);
-                notifyChange(var, ConfigurationChangeType.MODIFIED);
             } catch (ExecutionException e) {
                 history.rollback();
                 throw e;
@@ -1259,6 +1279,10 @@ public abstract class AbstractIvmlModifier implements DecisionVariableProvider {
                 getLogger().info("Writing IVML file {}", f);
             }
             reloadAndValidate(copies);
+            cfg = getVilConfiguration();
+            for (String varName: values.keySet()) {
+                notifyChange(getVariable(cfg, varName), ConfigurationChangeType.MODIFIED);
+            }
         }
     }
 

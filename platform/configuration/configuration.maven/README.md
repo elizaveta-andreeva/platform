@@ -5,8 +5,12 @@ Maven plugin for the following platform configuration tasks (represented as Mave
 # Platform instantiation
 
 * ``generateInterfaces`` (default lifecycle phase `generate-sources`): generate app interfaces, but no apps - executed only if `outputDirectory` is empty or IVML files in `modelDirectory`are newer than `outputDirectory`
+* ``generateBootstrappedApps`` (default lifecycle phase `generate-sources`): generate a minimal skeleton app for bootstrapping service implementation - executed only if `outputDirectory` is empty or IVML files in `modelDirectory` are newer than `outputDirectory`
 * ``generateAppsNoDeps`` (default lifecycle phase `generate-sources`): app interfaces with apps, but without dependencies to artifacts - executed only if `outputDirectory` is empty or IVML files in `modelDirectory` are newer than `outputDirectory`
 * ``generateApps`` (default lifecycle phase `package`): app interfaces with apps including artifact dependencies - executed always
+* ``generateAppsDirect`` (default lifecycle phase `package`): apps including artifact dependencies but no interfaces or code templates - executed always
+* ``generateCodeTemplates`` (default lifecycle phase `generate-sources`): app code templates without app/interfaces - executed always
+* ``generateInterfacesAndCodeTemplates`` (default lifecycle phase `generate-sources`): generate app interfaces and code templates, but no apps - executed only if `outputDirectory` is empty or IVML files in `modelDirectory`are newer than `outputDirectory`
 * ``generateBroker`` (default lifecycle phase `package`): create a sample broker - executed only if `outputDirectory` is empty or IVML files in `modelDirectory` are newer than `outputDirectory`
 * ``generatePlatform`` (default lifecycle phase `package`): exclusively platform components - executed only if `outputDirectory` is empty or IVML files in `modelDirectory` are newer than `outputDirectory`
 * ``generateAll`` (default lifecycle phase `package`): generate everything (except for ``generateApi``)
@@ -110,6 +114,7 @@ The goals support the following configuration settings:
   - `allTypes` (default `false`, `-Dconfiguration.allServices=<true|false>`) whether all types shall be considered for instantiation rather than those that are specified as part of apps and their service meshes, may take precedence over `allServices`
   - `incremental` (default `false`, `-Dconfiguration.incremental=<true|false>`) whether incremental builds rather than full builds with cleanup shall be performed
   - `inTest` (default `false`, `-Dconfiguration.inTest=<true|false>`) whether instantiation shall run in test mode, e.g., certain logging may be switched on/off
+  - `nestedGoal` (default `""`, `-Dconfiguration.nestedGoal=...`) the Maven build goal to be passed to the Maven execution of the generated POM. By default empty leads to the `install` goal. Other goals could be, e.g., `deploy`.
   - `skip` (default `false``, `-Dconfiguration.skip=...`) whether the configuration build plugin shall be executed/skipped
   
 All goals take over the maven offline mode and pass it on to the instantiation for further consideration in maven sub-calls.

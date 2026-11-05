@@ -9,7 +9,7 @@
   <parent>
      <groupId>de.iip-ecosphere.platform</groupId>
      <artifactId>platformDependenciesBOM</artifactId>
-     <version>0.8.1-SNAPSHOT</version>
+     <version>0.8.2-SNAPSHOT</version>
      <relativePath/>
   </parent>
 
@@ -68,7 +68,8 @@
 	    	<dependency>
 		      <artifactId>SimplePythonDemoFlowApp</artifactId>
 		      <groupId>de.iip-ecosphere.platform.apps</groupId>
-		      <version>0.1.0-SNAPSHOT</version> <!-- from config -->
+		      <version>0.1.0-SNAPSHOT</version>
+              <scope>test</scope>
    			 </dependency>
 	    </dependencies>
         <build>
@@ -125,7 +126,7 @@
              <plugin>
                  <groupId>org.apache.maven.plugins</groupId>
                  <artifactId>maven-assembly-plugin</artifactId>
-                 <version>3.1.1</version>
+                 <version>${org.apache.maven.assembly.version}</version>
                  <executions>
                      <execution>
                          <id>python</id>
@@ -141,12 +142,26 @@
                              <attach>true</attach>
                          </configuration>
                      </execution>
+                        <execution>
+                            <id>resources</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>single</goal>
+                            </goals>
+                            <configuration>
+                                <descriptors>
+                                    <descriptor>${project.basedir}/src/main/assembly/resources.xml</descriptor>
+                                </descriptors>
+                                <outputDirectory>${project.build.directory}</outputDirectory>
+                                <attach>true</attach>
+                            </configuration>
+                        </execution>
                  </executions>
              </plugin>
               <plugin>
                   <groupId>org.codehaus.mojo</groupId>
                   <artifactId>exec-maven-plugin</artifactId>
-                  <version>3.0.0</version>
+                  <version>${org.codehaus.mojo.exec-maven-plugin.version}</version>
                   <configuration>
                       <mainClass>de.iip_ecosphere.platform.examples.SpringStartup</mainClass>
                       <arguments>
@@ -220,15 +235,15 @@
                         </goals>
                     </execution>
 	                <execution>
-	                    <id>generateAppsNoDeps</id>
+	                    <id>generateBootstrappedApps</id>
 	                    <goals>
-	                        <goal>generateAppsNoDeps</goal>
+	                        <goal>generateBootstrappedApps</goal>
 	                    </goals>
 	                </execution>
 	                <execution>
-	                    <id>generateApps</id>
+	                    <id>generateAppsDirect</id>
 	                    <goals>
-	                        <goal>generateApps</goal>
+	                        <goal>generateAppsDirect</goal>
 	                    </goals>
 	                </execution>
                     <execution>
@@ -325,6 +340,7 @@
                                     <invokeGoal>package</invokeGoal>
                                 </invokeGoals>
                                 <disableBuild>true</disableBuild>
+                                <skipGenerateSources>true</skipGenerateSources>
                             </configuration>
                         </execution>
                     </executions>

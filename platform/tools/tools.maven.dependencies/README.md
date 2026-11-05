@@ -53,6 +53,7 @@ The extended unpack goal supports the following additional configuration setting
   - `skipIfExists` (default `false`, user property `unpack.skipIfExists`) skips the execution of this plugin if the file or folder specified in this property exists.
   - `forceCleanup` (default `false`, user property `unpack.forceCleanup`) forces the cleanup of `cleanup` before doing any checks/validating the artifacts/executing the plugin.
   - `logCleanup` (default `false`, user property `unpack.logCleanup`) enables/disables logging the cleaned up files
+  - `defaultEncoding` (default `UTF-8`, user property `unpack.defaultEncoding`) sets the default encoding in case that none is specified, a required property at least since maven 3.9.17. Usually, the encoding is taken from the property `project.build.sourceEncoding`.
   
 ## copy-dependencies goal
 
@@ -85,6 +86,43 @@ The ``copy`` goal is the same as in the original plugin and included here just f
 ## tree goal
 
 The ``tree`` goal is the same as in the original plugin and included here just for convenience.
+
+## copy-resources
+
+The ``copy-resources`` is a variant of the equally named goal of the maven resources plugin, however, tailored for the use in oktoflow, in particular considering multiple potential source directories at build time. A potential execution looks like:
+
+```
+    <execution>
+        <id>platf-res</id>
+        <goals>
+            <goal>copy-resources</goal>
+        </goals>
+        <phase>validate</phase>
+        <configuration>
+            <outputDirectory>${project.build.outputDirectory}/resources</outputDirectory>
+            <resources>
+                <resource>
+                    <directory>W:\offlineFiles\git\IIP-ecosphere\platform\platform\configuration\configuration.easy\resources.ipr/platform</directory>
+                    <filtering>false</filtering>
+                    <include>*.jpg</include>
+                    <include>*.json</include>
+                    <include>*.png</include>
+                    <include>*.yml</include>
+                </resource>
+            </resources>
+        </configuration>
+    </execution>
+
+```
+
+The following parameters are supported:
+* `resources` the resources to be copied from `directory`, similar to the resources-plugin, but without filtering. May specify includes/excludes with usual patterns. If `prependResourceDirectories` is `true`, starting with `${project.basedir}` and its parent folders (at least one level, up to `maxLevels`) are searched for contained folders `resources.ipr` or `resources` and the first existing in this sequence postfixed with the original folder name of `directory` is taken as source directory; then `directory` and, if not existing, additional entires from the string list `directories` are considered.
+* `prependResourceDirectories` enables first searching the parent levels of `${project.basedir}` as stated above
+* `maxLevels` the maximum number of parent levels (default `5`)  of `${project.basedir}` to be considerd if `prependResourceDirectories` is `true`.
+* `outputDirectory` the mandatory directory where resources shall be written to. If `outputDirectory` is not existing, it will be created.
+* `skip` (user property `-Dmaven.resources.skip`, default `false`) whether the execution shall be skipped
+* `failOnError` (default `true`) whether copying exceptions shall fail the plugin execution
+* `failOnNotExists` (default `false`) whether a not existing source directory shall fail the plugin execution
 
 ## delete goal
 
@@ -154,7 +192,10 @@ Touches a file.
 Further settings:
 - `skip` (default `false`, user setting `-Dtouch.skip`) skips the execution 
 - `file` (default unset, required, user setting `-Dtouch.file`) the file to touch
-- `deleteBefore` (default `false`, required, user setting `-Dtouch.deleteBefore`) whether the ``file`` shall be deleted before touching
+- `deleteBefore` (default `false`, user setting `-Dtouch.deleteBefore`) whether the `file` shall be deleted before touching
+- `onServiceUpdates` (default `true`, user setting `-touch.onServiceUpdates`) whether changed services shall be recorded in `file` (rather than just an empty file), requiring `services.properties` in the oktoflow app being present and filled with the service mapping
+- `passJava` (default `false`, user setting `-Dtouch.passJava`) whether Java changes shall be passed without considering the changes of the artifact of this project (with group name prepended) or whether they shall be checked
+- `javaArtifactsProperty` (default `okto.service.artifacts`) the Maven property defining the Java artifacts to be checked for changes, may contain a comma-separated list
 
 ## update-archive goal
 
@@ -256,8 +297,16 @@ Specialized goal to build a plugin classpath file. Based on the refined ``build-
 - `pluginIds` (default empty, user property `mdep.pluginIds`) specifies pluginIds for the `PluginBased` setup descriptor (comma separated, only first considered by now), may also be used with others whereby then the plugin is also announced by `PluginBased`
 - `validateJsl` (default `WARN`, user property `mdep.validateJsl`) specifies whether classes listed in JSL files shall be validated for their counterparts in `target`, leads to warnings (`WARN`), information (`INFO`), errors (`ERROR`) or build failures (`FAIL`) if classes do not exist. Can be switched warnings `OFF`.
 - `resolvedFile` (default `${project.build.directory}/classes/resolved`, user property `mdep.resolvedFile`) specifies where to store the `resolved` file if `unpackMode` is `resolved`
+- `copyArtifacts` (default `false`) copy Java service artifacts as `copy-plugin-dependencies` would do, needed for standalone execution in apps
 
 The inherited setting ``excludeArtifactIds`` shall be configured in a way that prerequiste platform layers are excluded. Usually, the plugin detects and determins the respective artifact ids automatically.
+
+## copy-artifacts goal
+
+Goal for copying build Java service artifacts into `target`, with name prefixed by groupId, as `copy-plugin-dependencies` would do. Explicit goal for later phase than `build-plugin-classpath` with same functionality as `copyArtifacts` there.
+
+- `skip` (default `false`) skips the execution
+- `asTest` include test artifacts (default `false`).
 
 ## copy-plugin-dependencies goal
 
@@ -267,6 +316,7 @@ The inherited setting ``excludeArtifactIds`` shall be configured in a way that p
 
 Further settings are:
 - `createIndex` (default `true`, user property `mdep.createIndex`) whether a classpath index file shall be created for the plugin
+- `incrementalIndex` (default `false`, user property `mdep.incrementalIndex`) whether existing index files and contents hashing information shall be considered to incrementally build/update the index; may require 2 initial runs to show effect
 - `asTest` include test code (default `false`).
 - `clean` delete jars in target folder (default `false`, user properts `mdep.clean`).
 

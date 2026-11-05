@@ -9,7 +9,7 @@
   <parent>
      <groupId>de.iip-ecosphere.platform</groupId>
      <artifactId>platformDependencies</artifactId>
-     <version>0.8.1-SNAPSHOT</version>
+     <version>0.8.2-SNAPSHOT</version>
      <relativePath/>
   </parent>
 
@@ -52,10 +52,11 @@
   </dependencies>
   <build>
   	<plugins>
-  	<plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-assembly-plugin</artifactId>
-           <version>3.1.1</version>
+  	
+  	  <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-assembly-plugin</artifactId>
+           <version>${org.apache.maven.assembly.version}</version>
            <executions>
                <execution>
                    <id>python-qr-scan</id>
@@ -89,6 +90,24 @@
                </execution>
            </executions>
        </plugin>
+       
+        <!-- future: overriding platformDependencies, tests work differently in here -->
+         <plugin>
+            <groupId>de.iip-ecosphere.platform</groupId>
+            <artifactId>maven-python</artifactId>
+            <version>${project.version}</version>
+            <executions>
+                <execution>
+                    <id>compile</id>
+                    <goals>
+                        <goal>compile-python</goal>
+                    </goals>
+                    <configuration>
+                        <failOnError>true</failOnError>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>       
         
   	</plugins>
   </build>

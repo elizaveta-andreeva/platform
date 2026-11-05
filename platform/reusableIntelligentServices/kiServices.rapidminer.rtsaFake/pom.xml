@@ -9,9 +9,14 @@
   <parent>
      <groupId>de.iip-ecosphere.platform</groupId>
      <artifactId>platformDependencies</artifactId>
-     <version>0.8.1-SNAPSHOT</version>
+     <version>0.8.2-SNAPSHOT</version>
      <relativePath/>
   </parent>
+  
+  <properties>
+      <maven.compiler.target>8</maven.compiler.target>
+      <maven.compiler.source>8</maven.compiler.source>    
+  </properties>
 
   <dependencies>
     
@@ -61,21 +66,11 @@
   
   <build>
     <plugins>
-       <plugin>
-         <artifactId>maven-compiler-plugin</artifactId>
-         <version>${org.apache.maven.compiler.version}</version>
-           <configuration>
-             <!-- Must be the JDK of RTSA -->
-             <source>8</source>
-             <target>8</target>
-             <encoding>${java.encoding}</encoding>
-           </configuration>
-       </plugin>      
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-antrun-plugin</artifactId>
-        <version>1.8</version>
+        <version>${org.apache.maven.antrun.version}</version>
         <executions>
             <execution>
                 <phase>process-test-resources</phase>
@@ -121,7 +116,7 @@
       <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-dependency-plugin</artifactId>
-          <version>3.2.0</version>
+          <version>${org.apache.maven.dependency.version}</version>
           <executions>
               <execution>
                   <id>copy-dependencies</id>
@@ -158,7 +153,7 @@
       <plugin>
          <groupId>org.apache.maven.plugins</groupId>
          <artifactId>maven-assembly-plugin</artifactId>
-         <version>3.1.1</version>
+         <version>${org.apache.maven.assembly.version}</version>
          <executions>
              <execution>
                  <id>make-assembly</id>

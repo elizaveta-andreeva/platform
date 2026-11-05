@@ -53,6 +53,7 @@ public class PlatformInstantiatorExecutor implements PlatformInstantiation {
     public static final String PROP_ALL_SERVICES = "okto.easy.allServices";
     public static final String PROP_LOG_PATH = "okto.easy.logPath";
     public static final String PROP_INCREMENTAL = "easy.vil.incremental";
+    public static final String PROP_GOAL = "iip.easy.mvnGoal";
 
     private File localRepo;
     private Consumer<Long> executionTimeConsumer;
@@ -108,28 +109,40 @@ public class PlatformInstantiatorExecutor implements PlatformInstantiation {
         properties.put(key, value);
         return this;
     }
-    
+
     @Override
     public PlatformInstantiation setAllTypes(boolean allTypes) {
-        setProperty(PROP_ALL_TYPES, String.valueOf(allTypes));
+        setProperty(PROP_ALL_TYPES, allTypes);
         return this;
     }
 
     @Override
     public PlatformInstantiation setAllServices(boolean allServices) {
-        setProperty(PROP_ALL_SERVICES, String.valueOf(allServices));
+        setProperty(PROP_ALL_SERVICES, allServices);
         return this;
     }
 
     @Override
     public PlatformInstantiation setIncremental(boolean incremental) {
-        setProperty(PROP_INCREMENTAL, String.valueOf(incremental));
+        setProperty(PROP_INCREMENTAL, incremental);
+        return this;
+    }
+
+    @Override
+    public PlatformInstantiation setGoal(String goal) {
+        setProperty(PROP_GOAL, goal);
         return this;
     }
 
     @Override
     public PlatformInstantiation setInTest(boolean test) {
-        setProperty(Starter.IIP_TEST, String.valueOf(test));
+        setProperty(Starter.IIP_TEST, test);
+        return this;
+    }
+    
+    @Override
+    public PlatformInstantiation setUnpackResources(boolean unpack) {
+        setProperty(PlatformInstantiator.KEY_PROPERTY_UNPACKRESOURCES, unpack);
         return this;
     }
 
@@ -146,8 +159,25 @@ public class PlatformInstantiatorExecutor implements PlatformInstantiation {
         setAllTypes(OsUtils.getBooleanProperty(PROP_ALL_TYPES, false));
         setAllServices(OsUtils.getBooleanProperty(PROP_ALL_SERVICES, false));
         setIncremental(OsUtils.getBooleanProperty(PROP_INCREMENTAL, false));
-        setIncremental(OsUtils.getBooleanProperty(Starter.IIP_TEST, false));
+        setGoal(System.getProperty(PROP_GOAL, ""));
+        setInTest(OsUtils.getBooleanProperty(Starter.IIP_TEST, false));
+        setUnpackResources(OsUtils.getBooleanProperty(PlatformInstantiator.KEY_PROPERTY_UNPACKRESOURCES, false));
         setLogPath(System.getProperty(PROP_LOG_PATH, ""));
+    }
+
+    /**
+     * Takes over a system property if defined as argument.
+     * 
+     * @param key the property name/key
+     * @param args the command line arguments to add the property if defined
+     * 
+     * @see #createJvmArg(String, String)
+     */
+    private void takeOverJvmArg(String key, List<String> args) {
+        String prop = System.getProperty(key);
+        if (prop != null && prop.length() > 0) {
+            args.add(createJvmArg(key, prop));
+        }
     }
         
     @Override
@@ -181,6 +211,12 @@ public class PlatformInstantiatorExecutor implements PlatformInstantiation {
         if (null != resourcesDir) {
             pArgs.add(createJvmArg("iip.resources", resourcesDir));
         }
+        takeOverJvmArg("aether.remoteRepositoryFilter.prefixes.basedir", pArgs);
+        takeOverJvmArg("aether.remoteRepositoryFilter.prefixes.resolvePrefixFiles", pArgs);
+        takeOverJvmArg("aether.remoteRepositoryFilter.prefixes.verifyDenied", pArgs);
+        takeOverJvmArg("maven.resolver.validation", pArgs);
+        takeOverJvmArg(PlatformInstantiator.KEY_PROPERTY_HOME_DIR, pArgs);
+        
         try {
             getLogger().info("Calling platform instantiator as process with {}, tracing {}{}", 
                 java.util.Arrays.toString(args), tracingLevel, 

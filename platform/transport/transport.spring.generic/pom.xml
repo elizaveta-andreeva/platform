@@ -9,7 +9,7 @@
   <parent>
      <groupId>de.iip-ecosphere.platform</groupId>
      <artifactId>platformDependenciesSpring</artifactId>
-     <version>0.8.1-SNAPSHOT</version>
+     <version>0.8.2-SNAPSHOT</version>
      <relativePath/>
   </parent>
 
@@ -63,13 +63,6 @@
       <artifactId>qpid-broker</artifactId>
       <scope>test</scope>
       <version>${org.apache.qpid.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>de.iip-ecosphere.platform</groupId>
-      <artifactId>test.amqp.qpid</artifactId>
-      <version>${project.version}</version>
-      <type>test-jar</type>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>de.iip-ecosphere.platform</groupId>

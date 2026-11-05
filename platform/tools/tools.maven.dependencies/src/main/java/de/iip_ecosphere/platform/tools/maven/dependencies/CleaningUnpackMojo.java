@@ -21,8 +21,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.inject.Inject;
+
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOCase;
+import org.apache.maven.artifact.handler.manager.ArtifactHandlerManager;
+import org.apache.maven.execution.MavenSession;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.logging.Log;
@@ -31,8 +35,14 @@ import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.plugins.dependency.fromConfiguration.ArtifactItem;
 import org.apache.maven.plugins.dependency.fromConfiguration.UnpackMojo;
+import org.apache.maven.plugins.dependency.utils.ResolverUtil;
+import org.apache.maven.plugins.dependency.utils.UnpackUtil;
+import org.apache.maven.project.MavenProject;
 import org.apache.maven.shared.model.fileset.FileSet;
 import org.apache.maven.shared.transfer.artifact.resolve.ArtifactResolverException;
+import org.eclipse.aether.RepositorySystem;
+import org.eclipse.aether.resolution.ArtifactResolutionException;
+import org.sonatype.plexus.build.incremental.BuildContext;
 
 import de.iip_ecosphere.platform.tools.maven.python.FilesetUtils;
 
@@ -71,6 +81,38 @@ public class CleaningUnpackMojo extends UnpackMojo {
     @Parameter( property = "unpack.logCleanup", required = false, defaultValue = "false" )
     private boolean logCleanup;
 
+    @Parameter( property = "unpack.defaultEncoding", required = false, defaultValue = "UTF-8" )
+    private String defaultEncoding;
+
+    private boolean execute;
+
+    // checkstyle: stop parameter number check
+
+    /**
+     * Creates a mojo instance.
+     * 
+     * @param session the session
+     * @param buildContext the build context
+     * @param project the project instance
+     * @param artifactHandlerManager the artifact handler manager
+     * @param unpackUtil the unpack utility instance
+     * @param repositorySystem the repository system
+     * @param resolverUtil the resolver utilities
+     */
+    @Inject
+    public CleaningUnpackMojo(
+        MavenSession session,
+        BuildContext buildContext,
+        MavenProject project,
+        ArtifactHandlerManager artifactHandlerManager,
+        UnpackUtil unpackUtil,
+        RepositorySystem repositorySystem,
+        ResolverUtil resolverUtil) {
+        super(session, buildContext, project, artifactHandlerManager, unpackUtil, repositorySystem, resolverUtil);
+    }    
+    
+    // checkstyle: resume parameter number check
+    
     /**
      * Returns whether there is a setup for initially allowed files, considering {@link #initiallyAllowedFile} and 
      * {@link #initiallyAllowed}.
@@ -147,26 +189,41 @@ public class CleaningUnpackMojo extends UnpackMojo {
         if (forceCleanup) {
             FilesetUtils.deletePaths(cleanup, getCleanupLog());
         }
-        boolean execute;
         if (force) {
             execute = true;
         } else {
             execute = false;
+            getLog().info("Checking artifacts...");
             for (ArtifactItem ai : getArtifactItems()) {
-                boolean outDirExists = ai.getOutputDirectory().exists();
-                execute |= ai.isNeedsProcessing() || !outDirExists;
-                if (!execute && outDirExists && hasInitiallyAllowed()) {
-                    Set<String> allowed = getInitiallyAllowed(initiallyAllowed, initiallyAllowedFile, getLog());
-                    getLog().info("Output directory " + ai.getOutputDirectory() + " exists. "
-                        + "Checking for initially allowed files: " + allowed);
-                    execute = true;
-                    for (File f : ai.getOutputDirectory().listFiles()) {
-                        if (matches(f, allowed)) {
-                            getLog().info("Disabling execution as " + f + " is not initially allowed");
-                            execute = false;
-                        }
-                    }
+                if (null == ai.getEncoding()) {
+                    ai.setEncoding(defaultEncoding);
                 }
+                boolean outDirNull = ai.getOutputDirectory() == null;
+                if (outDirNull) {
+                    getLog().warn("Output directory of " + ai.getArtifactId() + " not specified");
+                }
+                boolean outDirExists = !outDirNull && ai.getOutputDirectory().exists();
+                boolean exec = ai.isNeedsProcessing() || !outDirExists;
+                if (!exec && outDirExists) {
+                    if (hasInitiallyAllowed()) {
+                        Set<String> allowed = getInitiallyAllowed(initiallyAllowed, initiallyAllowedFile, getLog());
+                        getLog().info("Output directory " + ai.getOutputDirectory() + " exists. "
+                            + "Checking for initially allowed files: " + allowed);
+                        execute = true;
+                        for (File f : ai.getOutputDirectory().listFiles()) {
+                            if (matches(f, allowed)) {
+                                getLog().info("Disabling execution as " + f + " is not initially allowed");
+                                execute = false;
+                            }
+                        }
+                    } else {
+                        execute = true;
+                    }
+                } else {
+                    execute = true;
+                }
+                getLog().info(" - " + ai + " unpack: " + execute + " overwrite: " + ai.getOverWrite() + " outDir: " 
+                        + ai.getOutputDirectory() + " encoding " + ai.getEncoding());
             }
             if (skipIfExists != null && skipIfExists.toString().length() > 0) {
                 if (skipIfExists.exists()) {
@@ -175,7 +232,6 @@ public class CleaningUnpackMojo extends UnpackMojo {
                 }
             }            
         }        
-        
         if (execute) {
             if (!forceCleanup) {
                 FilesetUtils.deletePaths(cleanup, getCleanupLog());
@@ -183,7 +239,8 @@ public class CleaningUnpackMojo extends UnpackMojo {
             try {
                 super.doExecute();
             } catch (MojoExecutionException e) {
-                if (skipIfNotFound && e.getCause() instanceof ArtifactResolverException) {
+                if (skipIfNotFound && (e.getCause() instanceof ArtifactResolverException 
+                    || e.getCause() instanceof ArtifactResolutionException)) {
                     getLog().info("Artifact not found. Skipping execution. (" + e.getMessage() + ")");
                 } else {
                     throw e;
@@ -191,6 +248,21 @@ public class CleaningUnpackMojo extends UnpackMojo {
             }
         }
     }
+    
+    
+    @Override
+    public boolean isSkip() {
+        boolean skip;
+        if (execute || force) {
+            skip = false;
+        } else {
+            skip = super.isSkip();
+            if (skip) {
+                getLog().info("Skipping execution (original)");
+            }
+        }
+        return skip;
+    }    
     
     /**
      * Sets the forceCleanup flag.
@@ -244,6 +316,6 @@ public class CleaningUnpackMojo extends UnpackMojo {
      */
     public void setForce(boolean force) {
         this.force = force;
-    }        
+    }
     
 }

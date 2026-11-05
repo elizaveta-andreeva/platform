@@ -9,24 +9,9 @@
   <parent>
      <groupId>de.iip-ecosphere.platform</groupId>
      <artifactId>platformDependencies</artifactId>
-     <version>0.8.1-SNAPSHOT</version>
+     <version>0.8.2-SNAPSHOT</version>
      <relativePath/>
   </parent>
-  
-  <!-- required for container building on github when release is not already in Mvn central -->  
-  <repositories>       
-    <repository>
-      <id>SSE-mvn</id>
-      <name>SSE</name>
-      <url>https://projects.sse.uni-hildesheim.de/qm/maven/</url>
-      <layout>default</layout>
-    </repository>
-    
-    <repository>
-        <id>bintray</id>
-        <url>https://jcenter.bintray.com</url>
-    </repository>
-  </repositories>
 
   <dependencies>
     <dependency>
@@ -203,7 +188,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>build-helper-maven-plugin</artifactId>
-        <version>3.4.0</version>
+        <version>${org.codehaus.mojo.build-helper-maven-plugin.version}</version>
         <executions>
           <execution>
             <id>attach-artifacts</id>
@@ -236,7 +221,7 @@
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>exec-maven-plugin</artifactId>
-          <version>3.0.0</version>
+          <version>${org.codehaus.mojo.exec-maven-plugin.version}</version>
           <executions>
               <execution>
                  <id>testAasIvml</id>

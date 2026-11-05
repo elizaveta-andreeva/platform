@@ -48,6 +48,7 @@ import de.iip_ecosphere.platform.support.metrics.MeterFilter;
 import de.iip_ecosphere.platform.support.metrics.MeterFilter.MeterFilterReply;
 import de.iip_ecosphere.platform.support.metrics.MeterRegistry;
 import de.iip_ecosphere.platform.support.metrics.MetricsFactory;
+import de.iip_ecosphere.platform.support.metrics.MonitoringService;
 import de.iip_ecosphere.platform.support.metrics.SystemMetrics;
 import de.iip_ecosphere.platform.support.metrics.SystemMetricsFactory;
 import de.iip_ecosphere.platform.support.metrics.Tag;
@@ -73,7 +74,7 @@ import de.iip_ecosphere.platform.support.metrics.Timer;
  * 
  * @author Miguel Gomez
  */
-public class MetricsProvider {
+public class MetricsProvider implements de.iip_ecosphere.platform.support.metrics.MetricsProvider {
 
     /**
      * Tag matching predicate. Pre-matched deviceIds assumed.
@@ -241,20 +242,12 @@ public class MetricsProvider {
         this.monitorNonNative = monitorNonNative;
     }
     
-    /**
-     * Returns the meter registry.
-     * 
-     * @return the meter registry
-     */
+    @Override
     public MeterRegistry getRegistry() {
         return registry;
     }
-    
-    /**
-     * Returns the clock used in the underlying meter registry.
-     * 
-     * @return the clock
-     */
+
+    @Override
     public Clock getClock() {
         return clock;
     }
@@ -414,16 +407,7 @@ public class MetricsProvider {
         return timers.size();
     }
 
-    /**
-     * Adds a gauge value to the MeterRegistry.<br>
-     * If the identifier does not correspond to an existing gauge, a new gauge will
-     * be created and registered. If it is an existing gauge, the value will simply
-     * be modified.
-     * 
-     * @param gaugeId identifier for the gauge
-     * @param value   value we want to set the gauge to
-     * @throws IllegalArgumentException if the identifier is null
-     */
+    @Override
     public void addGaugeValue(String gaugeId, double value) {
         if (gaugeId == null) {
             throw new IllegalArgumentException("gaugeId" + NULL_ARG);
@@ -436,12 +420,7 @@ public class MetricsProvider {
         }
     }
 
-    /**
-     * Remove a custom gauge from the Meter Registry.
-     * 
-     * @param gaugeId identifier of the custom gauge
-     * @throws IllegalArgumentException if there is no gauge with that identifier
-     */
+    @Override
     public void removeGauge(String gaugeId) {
         if (!gauges.containsKey(gaugeId)) {
             throw new IllegalArgumentException(gaugeId + ID_NOT_FOUND_ERRMSG);
@@ -494,17 +473,7 @@ public class MetricsProvider {
         counters.put(counterId, counter);
     }
 
-    /**
-     * Increases the counter by a certain value.<br>
-     * If the identifier does not correspond to an existing counter, a new counter
-     * will be created and registered. If it is an existing counter, the value will
-     * simply be incremented by the amount requested.
-     * 
-     * @param counterId identifier of the custom counter
-     * @param value     the amount we want to increases the counter
-     * @throws IllegalArgumentException if {@code value} is negative or if
-     *                                  {@code counterId} is null
-     */
+    @Override
     public void increaseCounterBy(String counterId, double value) {
         if (counterId == null) {
             throw new IllegalArgumentException("counterId" + NULL_ARG);
@@ -515,12 +484,12 @@ public class MetricsProvider {
         if (!counters.containsKey(counterId)) {
             addCounter(counterId);
         }
-        increaseCounterBy(counters.get(counterId), value);
+        de.iip_ecosphere.platform.support.metrics.MetricsProvider.increaseCounterBy(counters.get(counterId), value);
     }
-
+    
     /**
      * Helper method to increase/increment the given {@code counter} by the specified {@code value} if {@code data}
-     * is not <b>null</b>. Does nothing if {@code counter} is <b>null</b>.
+     * is not <b>null</b>. Does nothing if {@code counter} is <b>null</b>. [convenience]
      * 
      * @param counter the counter
      * @param value the value
@@ -528,64 +497,41 @@ public class MetricsProvider {
      * @return {@code data}
      */
     public static <T> T increaseCounterBy(Counter counter, double value, T data) {
-        if (null != data) {
-            increaseCounterBy(counter, value);
-        }
-        return data;
+        return de.iip_ecosphere.platform.support.metrics.MetricsProvider.increaseCounterBy(counter, value, data);
     }
 
     
     /**
      * Helper method to increase/increment the given {@code counter} by the specified {@code value}.
-     * Does nothing if {@code counter} is <b>null</b>.
+     * Does nothing if {@code counter} is <b>null</b>. [convenience]
      * 
      * @param counter the counter
      * @param value the value
      */
     public static void increaseCounterBy(Counter counter, double value) {
-        if (null != counter) {
-            counter.increment(value);
-        }
-    }
-
-    /**
-     * Supplies access to a time measurement.
-     * 
-     * @author Holger Eichelberger, SSE
-     */
-    public static interface TimeSupplier {
-
-        /**
-         * Returns the time value.
-         * 
-         * @return the time value (usually ms, depends on utilizing call)
-         */
-        public long get();
-        
-    }
+        de.iip_ecosphere.platform.support.metrics.MetricsProvider.increaseCounterBy(counter, value);
+    }    
     
     /**
-     * Record milliseconds time.
+     * Record milliseconds time. [convenience]
      * 
      * @param timer the timer to record the time on
      * @param timeSupplier the time supplier returning the time after executing {@code function}
      * @param function the function to execute
      */
     public static void recordMsTime(Timer timer, TimeSupplier timeSupplier, Runnable function) {
-        function.run();
-        timer.record(timeSupplier.get(), TimeUnit.MILLISECONDS);
+        de.iip_ecosphere.platform.support.metrics.MetricsProvider.recordMsTime(timer, timeSupplier, function);
     }
 
     /**
-     * Record nanoseconds time.
+     * Record nanoseconds time. [convenience]
      * 
      * @param timer the timer to record the time on
      * @param timeSupplier the time supplier returning the time after executing {@code function}
      * @param function the function to execute
      */
     public static void recordNsTime(Timer timer, TimeSupplier timeSupplier, Runnable function) {
-        function.run();
-        timer.record(timeSupplier.get(), TimeUnit.NANOSECONDS);
+        de.iip_ecosphere.platform.support.metrics.MetricsProvider.recordNsTime(timer, timeSupplier, function);
     }
 
     /**
@@ -680,13 +626,7 @@ public class MetricsProvider {
         registry.remove(timerId);
     }
 
-    /**
-     * Records the execution of a runnable using a timer.
-     * 
-     * @param timerId  identifier of the custom timer
-     * @param runnable runnable function that we want to record
-     * @throws IllegalArgumentException if the runnable or the identifier are null
-     */
+    @Override
     public void recordWithTimer(String timerId, Runnable runnable) {
         if (runnable == null) {
             throw new IllegalArgumentException("runnable" + NULL_ARG);
@@ -698,15 +638,7 @@ public class MetricsProvider {
         timers.get(timerId).record(runnable);
     }
 
-    /**
-     * Records the execution of a supplier using a timer.
-     * 
-     * @param <T>      the datatype that the supplier returns
-     * @param timerId  identifier of the custom timer
-     * @param supplier supplier function that we want to record
-     * @throws IllegalArgumentException if the identifier or the supplier are null
-     * @return the value returned by the supplier
-     */
+    @Override
     public <T> T recordWithTimer(String timerId, Supplier<T> supplier) {
         if (supplier == null) {
             throw new IllegalArgumentException("supplier" + NULL_ARG);
@@ -718,15 +650,7 @@ public class MetricsProvider {
         return timers.get(timerId).record(supplier);
     }
 
-    /**
-     * Adds time from a specific timer.
-     * 
-     * @param timerId identifier of the custom timer
-     * @param time    amount of time we want to record
-     * @param unit    base unit of the time we want to record
-     * @throws IllegalArgumentException if the identifier or the supplier are null
-     * @throws IllegalArgumentException if the {@code time} is negative
-     */
+    @Override
     public void recordWithTimer(String timerId, long time, TimeUnit unit) {
         if (time < 0) {
             throw new IllegalArgumentException("cannot record negative time!");
@@ -817,13 +741,14 @@ public class MetricsProvider {
      * 
      * @param service the service, ignored if <b>null</b>
      */
-    public void addService(UpdatingMonitoringService service) {
-        if (null != service) {
+    public void addService(MonitoringService service) {
+        if (service instanceof UpdatingMonitoringService) {
+            UpdatingMonitoringService uService = (UpdatingMonitoringService) service;
             if (null == updaters) {
                 updaters = new ArrayList<>();
             }
-            if (!updaters.contains(service)) { // prevent double updates
-                updaters.add(service);
+            if (!updaters.contains(uService)) { // prevent double updates
+                updaters.add(uService);
             }
         }
     }
@@ -1289,52 +1214,7 @@ public class MetricsProvider {
         return sb.toString();
     }
 
-    /**
-     * Creates and registers a default service received counter. The device id tag will be set from 
-     * {@link de.iip_ecosphere.platform.support.iip_aas.Id#getDeviceId()}.
-     * 
-     * @param serviceName the static name/id of the service
-     * @param serviceId the (complete) id of the service
-     * @param appId the id of the application
-     * @param appInstanceId the id of the application instance, as validated by 
-     *     {@link ServiceBase#validateApplicationInstanceId(String)}
-     * @return the registered counter instance
-     * @see #createServiceSentReceivedCounter(boolean, String, String, String, String)
-     */
-    public Counter createServiceReceivedCounter(String serviceName, String serviceId, 
-        String appId, String appInstanceId) {
-        return createServiceSentReceivedCounter(true, serviceName, serviceId, appId, appInstanceId);
-    }
-
-    /**
-     * Creates and registers a default service sent counter. The device id tag will be set from 
-     * {@link de.iip_ecosphere.platform.support.iip_aas.Id#getDeviceId()}.
-     * 
-     * @param serviceName the static name/id of the service
-     * @param serviceId the (complete) id of the service
-     * @param appId the id of the application
-     * @param appInstanceId the id of the application instance, as validated by 
-     *     {@link ServiceBase#validateApplicationInstanceId(String)}
-     * @return the registered counter instance
-     * @see #createServiceSentReceivedCounter(boolean, String, String, String, String)
-     */
-    public Counter createServiceSentCounter(String serviceName, String serviceId, 
-        String appId, String appInstanceId) {
-        return createServiceSentReceivedCounter(false, serviceName, serviceId, appId, appInstanceId);
-    }
-
-    /**
-     * Creates and registers a default service send/receive counter. The device id tag will be set from 
-     * {@link de.iip_ecosphere.platform.support.iip_aas.Id#getDeviceId()}.
-     * 
-     * @param receive is it for receiving ({@code true}) or sending
-     * @param serviceName the static name/id of the service
-     * @param serviceId the (complete) id of the service
-     * @param appId the id of the application
-     * @param appInstanceId the id of the application instance, as validated by 
-     *     {@link ServiceBase#validateApplicationInstanceId(String)}
-     * @return the registered counter instance
-     */
+    @Override
     public Counter createServiceSentReceivedCounter(boolean receive, String serviceName, String serviceId, 
         String appId, String appInstanceId) {
         String description;

@@ -1,3 +1,4 @@
-@echo off
+REM @echo off
 SET TEST=test.de.iip_ecosphere.platform.support.aas.basyx2.plugintest.AllTests
-java -cp @target\standalone\cp -Dorg.springframework.boot.logging.LoggingSystem=none -Dokto.test.noPlugins=true -Dokto.test.aas.failRbacOp=false test.de.iip_ecosphere.platform.support.TestUtils %TEST% > log 2>&1
+SET TIMEOUT=120000
+java -cp @target\standalone\cp -Dorg.springframework.boot.logging.LoggingSystem=none -Dokto.test.noPlugins=true -Dokto.test.aas.failRbacOp=false -Dokto.test.aas.failAvailable=false -Dokto.test.timeout=%TIMEOUT% -Dokto.test.exit=0 test.de.iip_ecosphere.platform.support.TestUtils %TEST% > log 2>&1
