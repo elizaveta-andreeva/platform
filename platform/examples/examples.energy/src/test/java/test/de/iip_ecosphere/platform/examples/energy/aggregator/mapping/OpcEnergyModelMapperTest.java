@@ -220,4 +220,30 @@ public class OpcEnergyModelMapperTest {
 
         mapper.map(measurement);
     }
+    
+    // The mapper keeps the machine the value belongs to
+    @Test
+    public void testDeviceIdIsPreserved() {
+        OpcEnergyModelMapper mapper = new OpcEnergyModelMapper();
+
+        MachineEnergyMeasurement power = new MachineEnergyMeasurement(
+            "SentronPAC", "MarkingLaser", MeasurementType.CURRENT_POWER, 1.25, "kW",
+            Instant.parse("2026-10-26T10:00:00Z"), MeasurementQuality.VALID);
+        MachineEnergyMeasurement energy = new MachineEnergyMeasurement(
+            "ShellyPro3EM", "LatheNEF400", MeasurementType.CUMULATIVE_ENERGY, 12.5, "kWh",
+            Instant.parse("2026-10-26T10:00:00Z"), MeasurementQuality.VALID);
+
+        assertEquals("MarkingLaser", mapper.map(power).deviceId());
+        assertEquals("LatheNEF400", mapper.map(energy).deviceId());
+    }
+
+    // A measurement without a type is rejected (covers the "unsupported type" branch)
+    @Test(expected = IllegalArgumentException.class)
+    public void testMissingMeasurementTypeIsRejected() {
+        OpcEnergyModelMapper mapper = new OpcEnergyModelMapper();
+
+        mapper.map(new MachineEnergyMeasurement(
+            "shelly-1", "lathe", null, 500.0, "W",
+            Instant.parse("2026-10-26T10:00:00Z"), MeasurementQuality.VALID));
+    }
 }
