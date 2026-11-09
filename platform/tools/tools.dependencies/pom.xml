@@ -1,0 +1,649 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>de.iip-ecosphere.platform</groupId>
+  <artifactId>toolsDependencies</artifactId>
+  <version>0.8.2-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>toolsDependencies with basic dependencies</name>
+  <description>The managed dependencies for the common tools of the oktoflow platform.</description>
+  <url>https://oktoflow.de/</url>
+
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+    <license>
+      <name>Eclipse Public License, Version 1.0</name>
+      <url>https://projects.eclipse.org/content/eclipse-public-license-1.0</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <id>eichelbe</id>
+      <name>Holger Eichelberger</name>
+      <email>eichelberger@sse.uni-hildesheim.de</email>
+      <url>https://sse.uni-hildesheim.de/mitglieder/dr-holger-eichelberger/</url>
+      <organization>SSE @ University of Hildesheim</organization>
+      <organizationUrl>https://sse.uni-hildesheim.de/</organizationUrl>
+      <roles>
+        <role>architect</role>
+        <role>developer</role>
+      </roles>
+      <timezone>Europe/Berlin</timezone>
+    </developer>
+    <developer>
+      <id>staciwa</id>
+      <name>Monika Staciwa</name>
+      <organization>SSE @ University of Hildesheim</organization>
+      <organizationUrl>https://sse.uni-hildesheim.de/</organizationUrl>
+      <roles>
+        <role>developer</role>
+      </roles>
+      <timezone>Europe/Berlin</timezone>
+    </developer>
+    <developer>
+      <id>casado</id>
+      <name>Miguel Gomez Casado</name>
+      <organization>University of Valladolid/University of Hildesheim</organization>
+      <organizationUrl>https://sse.uni-hildesheim.de/</organizationUrl>
+      <roles>
+        <role>developer</role>
+      </roles>
+      <timezone>Europe/Berlin</timezone>
+    </developer>
+    <developer>
+      <id>alamoush</id>
+      <name>Ahmad Alamoush</name>
+      <organization>University of Hildesheim</organization>
+      <organizationUrl>https://sse.uni-hildesheim.de/mitglieder/ahmad-alamoush/</organizationUrl>
+      <roles>
+        <role>developer</role>
+      </roles>
+      <timezone>Europe/Berlin</timezone>
+    </developer>
+    <developer>
+      <id>pidun</id>
+      <name>Dennis Pidun</name>
+      <organization>University of Hildesheim</organization>
+      <organizationUrl>https://sse.uni-hildesheim.de/</organizationUrl>
+      <roles>
+        <role>developer</role>
+      </roles>
+      <timezone>Europe/Berlin</timezone>
+    </developer>
+    <developer>
+      <id>noehre</id>
+      <name>Marcel NÃ¶hre</name>
+      <organization>University of Hildesheim</organization>
+      <organizationUrl>https://sse.uni-hildesheim.de/</organizationUrl>
+      <roles>
+        <role>developer</role>
+      </roles>
+      <timezone>Europe/Berlin</timezone>
+    </developer>
+    <developer>
+      <id>bettelsc</id>
+      <name>Constantin Bettels</name>
+      <organization>University of Hildesheim</organization>
+      <organizationUrl>https://sse.uni-hildesheim.de/</organizationUrl>
+      <roles>
+        <role>developer</role>
+      </roles>
+      <timezone>Europe/Berlin</timezone>
+    </developer>
+    <developer>
+      <id>ChrisKHil</id>
+      <name>Christopher Knappe</name>
+      <email>knappe@uni-hildesheim.de</email>
+      <url>https://sse.uni-hildesheim.de/</url>
+      <organization>SSE @ University of Hildesheim</organization>
+      <organizationUrl>https://sse.uni-hildesheim.de/</organizationUrl>
+      <roles>
+        <role>developer</role>
+      </roles>
+      <timezone>Europe/Berlin</timezone>
+    </developer>
+    <developer>
+      <id>JimmiAppel</id>
+      <name>Alexander Weber</name>
+      <email>weber@sse.uni-hildesheim.de</email>
+      <url>https://sse.uni-hildesheim.de/</url>
+      <organization>SSE @ University of Hildesheim</organization>
+      <organizationUrl>https://sse.uni-hildesheim.de/</organizationUrl>
+      <roles>
+        <role>developer</role>
+      </roles>
+      <timezone>Europe/Berlin</timezone>
+    </developer>
+    <developer>
+      <id>Cepok</id>
+      <name>Jan-Hendrik Cepok</name>
+      <email>cepokj@uni-hildesheim.de</email>
+      <url>https://sse.uni-hildesheim.de/</url>
+      <organization>SSE @ University of Hildesheim</organization>
+      <organizationUrl>https://sse.uni-hildesheim.de/</organizationUrl>
+      <roles>
+        <role>developer</role>
+      </roles>
+      <timezone>Europe/Berlin</timezone>
+    </developer>
+    <developer>
+      <id>schulzlu</id>
+      <name>Luca Schulz</name>
+      <email>schulzlu@uni-hildesheim.de</email>
+      <url>https://sse.uni-hildesheim.de/</url>
+      <organization>SSE @ University of Hildesheim</organization>
+      <organizationUrl>https://sse.uni-hildesheim.de/</organizationUrl>
+      <roles>
+        <role>developer</role>
+      </roles>
+      <timezone>Europe/Berlin</timezone>
+    </developer>
+    <developer>
+      <id>nikolajew</id>
+      <name>Christian Nikolajew</name>
+      <email>nikolajew@uni-hildesheim.de</email>
+      <url>https://sse.uni-hildesheim.de/</url>
+      <organization>SSE @ University of Hildesheim</organization>
+      <organizationUrl>https://sse.uni-hildesheim.de/</organizationUrl>
+      <roles>
+        <role>developer</role>
+      </roles>
+      <timezone>Europe/Berlin</timezone>
+    </developer>
+    <developer>
+      <id>kschmid</id>
+      <name>Klaus Schmid</name>
+      <email>schmid@sse.uni-hildesheim.de</email>
+      <url>https://sse.uni-hildesheim.de/</url>
+      <organization>SSE @ University of Hildesheim</organization>
+      <organizationUrl>https://sse.uni-hildesheim.de/</organizationUrl>
+      <roles>
+        <role>developer</role>
+      </roles>
+      <timezone>Europe/Berlin</timezone>
+    </developer>
+    <developer>
+      <id>elizaveta-andreeva</id>
+      <name>Elizaveta Andreeva</name>
+      <url>https://uni-hildesheim.de/</url>
+      <organization>University of Hildesheim</organization>
+      <organizationUrl>https://sse.uni-hildesheim.de/</organizationUrl>
+      <roles>
+        <role>developer</role>
+      </roles>
+      <timezone>Europe/Berlin</timezone>
+    </developer>
+    <developer>
+      <id>ivioje</id>
+      <name>Eboreime Rhoda</name>
+      <url>https://uni-hildesheim.de/</url>
+      <organization>University of Hildesheim</organization>
+      <organizationUrl>https://sse.uni-hildesheim.de/</organizationUrl>
+      <roles>
+        <role>developer</role>
+      </roles>
+      <timezone>Europe/Berlin</timezone>
+    </developer>
+    <developer>
+      <id>Ullah</id>
+      <name>Muhammad Asad Ullah</name>
+      <url>https://uni-hildesheim.de/</url>
+      <organization>University of Hildesheim</organization>
+      <organizationUrl>https://sse.uni-hildesheim.de/</organizationUrl>
+      <roles>
+        <role>developer</role>
+      </roles>
+      <timezone>Europe/Berlin</timezone>
+    </developer>
+    <developer>
+      <id>adjroloh</id>
+      <name>Kodjo Adjroloh</name>
+      <url>https://uni-hildesheim.de/</url>
+      <organization>University of Hildesheim</organization>
+      <organizationUrl>https://sse.uni-hildesheim.de/</organizationUrl>
+      <roles>
+        <role>developer</role>
+      </roles>
+      <timezone>Europe/Berlin</timezone>
+    </developer>
+  </developers>  
+
+  <scm>
+    <url>https://github.com/iip-ecosphere/platform.git</url>
+  </scm>
+
+  <repositories>       
+    <repository>
+      <id>SSE-mvn</id> <!-- same ID as in easy-maven-settings.xml -->
+      <name>SSE</name>
+      <url>https://projects.sse.uni-hildesheim.de/qm/maven/</url>
+      <layout>default</layout>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+     <pluginRepository>
+       <id>SSE-plugins</id>
+       <name>SSE</name>
+       <url>https://projects.sse.uni-hildesheim.de/qm/maven/</url>
+       <layout>default</layout>
+     </pluginRepository>
+  </pluginRepositories>
+
+  <properties>
+      <jacocoArgLine/>
+      <surefireArgLine/>
+      <surefireCiLine/>
+      <surefireForkCount>1</surefireForkCount>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <maven.compiler.target>8</maven.compiler.target>
+      <maven.compiler.source>8</maven.compiler.source>    
+      <java.encoding>Cp1252</java.encoding>
+
+     <!-- If changed, check against forced JUnit provider -->
+      <junit.version>4.12</junit.version>
+  
+      <org.apache.maven.deploy.version>3.2.0</org.apache.maven.deploy.version>
+      <kr.motd.maven.os.version>1.6.2</kr.motd.maven.os.version>
+      <org.apache.maven.compiler.version>3.16.0</org.apache.maven.compiler.version>
+      <org.apache.maven.javadoc.version>3.12.0</org.apache.maven.javadoc.version>
+      <org.apache.maven.jar.version>3.4.2</org.apache.maven.jar.version> <!-- 3.5.1 does not work with Eclipse m2e -->
+      <org.apache.maven.surefire.version>3.6.0</org.apache.maven.surefire.version>
+      <org.apache.maven.assembly.version>3.8.0</org.apache.maven.assembly.version>
+      <org.jacoco.maven.jacoco.version>0.8.15</org.jacoco.maven.jacoco.version>
+      <org.apache.maven.source.version>3.4.0</org.apache.maven.source.version>
+      <org.xolstice.maven.protobuf.version>0.6.1</org.xolstice.maven.protobuf.version>
+      <io.github.ascopes.protobuf.version>5.1.10</io.github.ascopes.protobuf.version>
+      <org.apache.maven.dependency.version>3.11.0</org.apache.maven.dependency.version>
+      <org.apache.maven.shade.version>3.6.2</org.apache.maven.shade.version>
+      <org.apache.maven.clean.version>3.5.0</org.apache.maven.clean.version>
+      <org.apache.maven.resources.version>3.5.0</org.apache.maven.resources.version>
+      <org.apache.maven.antrun.version>3.2.0</org.apache.maven.antrun.version>
+      <org.codehaus.mojo.exec-maven-plugin.version>3.6.4</org.codehaus.mojo.exec-maven-plugin.version>
+      <org.codehaus.mojo.build-helper-maven-plugin.version>3.6.2</org.codehaus.mojo.build-helper-maven-plugin.version>
+      <eclipse.m2e.lifecycle.mapping>1.0.0</eclipse.m2e.lifecycle.mapping>
+      
+      <!-- for custom maven plugins -->
+      <maven.version>3.9.7</maven.version>
+	  <maven.aether.version>3.1.1</maven.aether.version>
+	  <maven.plugin.version>3.15.2</maven.plugin.version>
+      <maven.plugin-annotations.version>3.15.2</maven.plugin-annotations.version>
+      <maven.shared.file-management.version>3.2.0</maven.shared.file-management.version>
+      <maven.plugin.testing.harness.version>3.3.0</maven.plugin.testing.harness.version>
+      
+      <maven.build.cache.enabled>false</maven.build.cache.enabled>
+      <surefireProcessTimeout>3600</surefireProcessTimeout>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  
+  <build>
+  
+    <plugins>
+	  <plugin>
+		 <artifactId>maven-compiler-plugin</artifactId>
+		 <version>${org.apache.maven.compiler.version}</version>
+		 <configuration>
+		   <!-- Somehow it does not work with properties, at least on my side -->
+		   <source>${maven.compiler.source}</source>
+		   <target>${maven.compiler.target}</target>
+		   <encoding>${java.encoding}</encoding>
+		   <compilerArgs>
+			 <arg>-Xlint:-options</arg>
+		   </compilerArgs>
+		 </configuration>
+	   </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>${org.apache.maven.source.version}</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <phase>package</phase>
+            <goals>
+              <goal>jar-no-fork</goal>
+              <goal>test-jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>      
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${org.apache.maven.surefire.version}</version>
+        <configuration>
+          <reuseForks>false</reuseForks> <!-- run each suite in an own JVM (Spring binders) -->
+          <includes> <!-- suites only, allow for multiple suites (Spring binders)  -->
+            <include>**/AllTests*</include>
+          </includes>
+          <forkedProcessTimeoutInSeconds>${surefireProcessTimeout}</forkedProcessTimeoutInSeconds>
+          <redirectTestOutputToFile>true</redirectTestOutputToFile>
+          <argLine>@{jacocoArgLine} @{surefireArgLine} @{surefireCiLine}</argLine>
+          <forkCount>${surefireForkCount}</forkCount>
+        </configuration>
+      </plugin>
+
+	   <!-- Java 11 complains about links from non-module to module see 
+		   https://stackoverflow.com/questions/58836862/jdk-11-and-javadoc -->       
+	   <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-javadoc-plugin</artifactId>
+		<version>${org.apache.maven.javadoc.version}</version>
+		<configuration>
+		  <show>private</show>
+		  <encoding>${java.encoding}</encoding>
+		  <source>8</source>
+		  <excludePackageNames>*.proto.*</excludePackageNames>
+		  <failOnError>false</failOnError>
+		  <detectJavaApiLink>false</detectJavaApiLink> 
+		  <detectOfflineLinks>false</detectOfflineLinks>
+		  <doclint>all,-missing</doclint>
+		</configuration>
+		<executions>
+		  <execution>
+			<id>default-cli</id>
+			<goals>
+			  <goal>javadoc</goal>
+			  <goal>test-javadoc</goal>
+			  <goal>jar</goal>
+			  <goal>test-jar</goal>
+			</goals>
+		  </execution>
+		</executions>
+	  </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>${org.apache.maven.jar.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>test-jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>${org.apache.maven.deploy.version}</version>
+      </plugin>     
+
+    </plugins>
+	
+    <pluginManagement>
+        <plugins>
+            <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+            <plugin>
+                <groupId>org.eclipse.m2e</groupId>
+                <artifactId>lifecycle-mapping</artifactId>
+                <version>${eclipse.m2e.lifecycle.mapping}</version>
+                <configuration>
+                    <lifecycleMappingMetadata>
+                        <pluginExecutions>
+                            <pluginExecution>
+                                <pluginExecutionFilter>
+                                    <groupId>
+                                        org.apache.maven.plugins
+                                    </groupId>
+                                    <artifactId>
+                                        maven-dependency-plugin
+                                    </artifactId>
+                                    <versionRange>
+                                        [3.1.2,)
+                                    </versionRange>
+                                    <goals>
+                                        <goal>unpack</goal>
+                                        <goal>copy</goal>
+                                        <goal>build-classpath</goal>                                        
+                                        <goal>unpack-dependencies</goal>
+                                        <goal>copy-dependencies</goal>
+                                    </goals>
+                                </pluginExecutionFilter>
+                                <action>
+                                    <ignore/>
+                                </action>
+                            </pluginExecution>
+                            <pluginExecution>
+                                <pluginExecutionFilter>
+                                    <groupId>
+                                        de.iip-ecosphere.platform
+                                    </groupId>
+                                    <artifactId>
+                                        maven-python
+                                    </artifactId>
+                                    <versionRange>
+                                        [${iip.version},)
+                                    </versionRange>
+                                    <goals>
+                                        <goal>compile-python</goal>
+                                        <goal>test-python</goal>
+                                    </goals>
+                                </pluginExecutionFilter>
+                                <action>
+                                    <ignore/>
+                                </action>
+                            </pluginExecution>
+                            <pluginExecution>
+                                <pluginExecutionFilter>
+                                    <groupId>
+                                        org.apache.maven.plugins
+                                    </groupId>
+                                    <artifactId>
+                                        maven-antrun-plugin
+                                    </artifactId>
+                                    <versionRange>
+                                        [1.8,)
+                                    </versionRange>
+                                    <goals>
+                                        <goal>run</goal>
+                                    </goals>
+                                </pluginExecutionFilter>
+                                <action>
+                                    <ignore/>
+                                </action>
+                            </pluginExecution>
+                            <pluginExecution>
+                                <pluginExecutionFilter>
+                                    <groupId>
+                                        org.apache.maven.plugins
+                                    </groupId>
+                                    <artifactId>
+                                        maven-plugin-plugin
+                                    </artifactId>
+                                    <versionRange>
+                                        [3.2,)
+                                    </versionRange>
+                                    <goals>
+                                        <goal>descriptor</goal>
+                                        <goal>helpmojo</goal>
+                                    </goals>
+                                </pluginExecutionFilter>
+                                <action>
+                                    <ignore/>
+                                </action>
+                            </pluginExecution>
+                            <pluginExecution>
+                                <pluginExecutionFilter>
+                                    <groupId>
+                                        de.iip-ecosphere.platform
+                                    </groupId>
+                                    <artifactId>
+                                        dependency-plugin
+                                    </artifactId>
+                                    <versionRange>
+                                        [${iip.version},)
+                                    </versionRange>
+                                    <goals>
+                                        <goal>unpack</goal>
+                                        <goal>unpack-plugins</goal>
+                                        <goal>copy</goal>
+                                        <goal>build-classpath</goal>                                        
+                                        <goal>build-plugin-classpath</goal>                                        
+                                        <goal>unpack-dependencies</goal>
+                                        <goal>copy-dependencies</goal>
+                                        <goal>copy-plugin-dependencies</goal>
+                                        <goal>assemble-plugin</goal>
+                                        <goal>split-classpath</goal>
+                                    </goals>
+                                </pluginExecutionFilter>
+                                <action>
+                                    <ignore/>
+                                </action>
+                            </pluginExecution>
+                            <pluginExecution>
+                                <pluginExecutionFilter>
+                                    <groupId>
+                                        de.iip-ecosphere.platform
+                                    </groupId>
+                                    <artifactId>
+                                        configuration-plugin
+                                    </artifactId>
+                                    <versionRange>
+                                        [${iip.version},)
+                                    </versionRange>
+                                    <goals>
+                                        <goal>generateAppsNoDeps</goal>
+                                        <goal>generateApps</goal>
+                                        <goal>generateBroker</goal>
+                                        <goal>generateInterfaces</goal>
+                                        <goal>generatePlatform</goal>
+                                        <goal>generateAll</goal>
+                                        <goal>textFile</goal>
+                                        <goal>ngBuild</goal>
+                                        <goal>ngTest</goal>
+                                    </goals>
+                                </pluginExecutionFilter>
+                                <action>
+                                    <ignore/>
+                                </action>
+                            </pluginExecution>
+                            <pluginExecution>
+                                <pluginExecutionFilter>
+                                    <groupId>
+                                        de.iip-ecosphere.platform
+                                    </groupId>
+                                    <artifactId>
+                                        invoker-plugin
+                                    </artifactId>
+                                    <versionRange>
+                                        [${iip.version},)
+                                    </versionRange>
+                                    <goals>
+                                        <goal>install</goal>
+                                        <goal>generate-sources</goal>
+                                    </goals>
+                                </pluginExecutionFilter>
+                                <action>
+                                    <ignore/>
+                                </action>
+                            </pluginExecution>
+                        </pluginExecutions>
+                    </lifecycleMappingMetadata>
+                </configuration>
+            </plugin>
+        </plugins>
+    </pluginManagement>
+
+    <extensions>
+      <!-- failing with a NPE if multi project directory is not set, bug #503-->
+      <!--
+      <extension>
+        <groupId>org.apache.maven.extensions</groupId>
+        <artifactId>maven-build-cache-extension</artifactId>
+        <version>1.3.0</version>
+      </extension>
+      -->
+      <!-- Enabling SSH -->
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+         <artifactId>wagon-ssh-external</artifactId>
+         <version>1.0-beta-6</version>
+      </extension>       
+    </extensions>
+  </build>
+  
+  <distributionManagement>
+    <repository>
+      <id>sse-projects</id>
+      <url>scpexe://projects.sse.uni-hildesheim.de/var/www/qm/maven/</url>
+    </repository>
+    <snapshotRepository>
+      <id>sse-projects</id>
+      <url>scpexe://projects.sse.uni-hildesheim.de/var/www/qm/maven/</url>
+    </snapshotRepository>
+  </distributionManagement>  
+  
+  <profiles>
+    <profile>
+      <id>CI</id>
+      <activation>
+        <property>
+          <name>inCI</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>${org.jacoco.maven.jacoco.version}</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>prepare-agent</goal>
+                    </goals>
+                    <configuration>
+                        <propertyName>jacocoArgLine</propertyName>
+                    </configuration>
+                </execution>
+                <execution>
+                    <id>report</id>
+                    <phase>test</phase>
+                    <goals>
+                        <goal>report</goal>
+                    </goals>
+                </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>WithCache</id>
+      <!-- if there is a global build cache file, not the usual location in .mvn, activate the build cache -->
+      <!-- in the past, it failed on windows. suggested configuration file is in tools.dependencies, copy it there -->
+      <!-- we do not aim for a global, distributed cache -->
+      <activation>
+        <file>
+          <exists>${user.home}/.m2/maven-build-cache-config.xml</exists>
+        </file>
+      </activation>
+      <properties>
+        <maven.build.cache.configPath>${user.home}/.m2/maven-build-cache-config.xml</maven.build.cache.configPath>
+        <maven.build.cache.enabled>true</maven.build.cache.enabled>
+      </properties>
+    </profile>
+  </profiles>
+  
+</project>

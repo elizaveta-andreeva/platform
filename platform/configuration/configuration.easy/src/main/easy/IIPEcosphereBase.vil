@@ -170,23 +170,32 @@ vilScript IIPEcosphereBase (Project source, Configuration config, Project target
         mvn(path, "");
     }
     
+    addPropertyIfDefined(String key, sequenceOf(String) args) = {
+        String prop = getProperty(key, "");
+        if (prop.length() > 0) {
+            args.add("-D${key}=${prop}");
+        }
+    }
+    
     mvn(Path path, String addArgs) = {
         String a = getProperty("iip.easy.mvnArgs", "");
         if (addArgs.length() > 0) {
             a = appendWithSeparator(a, ",", addArgs);
         }
+        sequenceOf(String) goals = {};
+        //goals.add("clean"); // easy default
+        goals.add(getProperty("iip.easy.mvnGoal", "install"));
         sequenceOf(String) args = a.split(",")->reject(s|s.trim().length()==0);
         //args.add("-o");  // uncomment for testing
-        String prop = getProperty("easy.docker.skip", "");
-        if (prop.length() > 0) {
-            args.add("-Deasy.docker.skip=${prop}");
-        }
-        prop = getProperty("easy.docker.failOnError", "");
-        if (prop.length() > 0) {
-            args.add("-Deasy.docker.failOnError=${prop}");
-        }
-        println("Calling maven with ${path} ${args}");        
-        maven("${path}", args, false);
+        addPropertyIfDefined("easy.docker.skip", args);
+        addPropertyIfDefined("easy.docker.failOnError", args);
+        addPropertyIfDefined("aether.remoteRepositoryFilter.prefixes.basedir", args);
+        addPropertyIfDefined("aether.remoteRepositoryFilter.prefixes.resolvePrefixFiles", args);
+        addPropertyIfDefined("aether.remoteRepositoryFilter.prefixes.verifyDenied", args);
+        addPropertyIfDefined("maven.resolver.validation", args);
+
+        println("Calling maven with ${path} ${goals} ${args}");        
+        maven("${path}", args, isUpdateSnapshots(), goals);
     }
     
     setOf(Application) getDefinedApplications() = {

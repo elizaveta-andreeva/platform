@@ -20,6 +20,7 @@ import org.apache.qpid.server.model.Broker;
 import org.slf4j.LoggerFactory;
 
 import de.iip_ecosphere.platform.support.FileUtils;
+import de.iip_ecosphere.platform.support.OsUtils;
 import de.iip_ecosphere.platform.support.Schema;
 import de.iip_ecosphere.platform.support.Server;
 import de.iip_ecosphere.platform.support.ServerAddress;
@@ -90,12 +91,20 @@ public class TestQpidServer extends AbstractTestServer {
             } catch (IllegalStateException e) {
                 // we just ignore this
             }
+            systemLauncher = null;
             if (dispose) {
-                String workDir = System.getProperty("QPID_WORK");
-                if (workDir != null) {
-                    FileUtils.deleteQuietly(new File(workDir));
-                }
+                cleanup();
             }
+        }
+    }
+
+    /**
+     * Cleaning up the work directory.
+     */
+    private static void cleanup() {
+        String workDir = System.getProperty("QPID_WORK");
+        if (workDir != null) {
+            FileUtils.deleteQuietly(new File(workDir));
         }
     }
 
@@ -107,10 +116,12 @@ public class TestQpidServer extends AbstractTestServer {
      */
     public static void main(String[] args) {
         if (applyBaseDir(args, 1, "./src/test") != null) {
-            File tmpWork = new File(FileUtils.getTempDirectory(), "qpid");
+            File tmpWork = new File(FileUtils.getTempDirectory(), 
+                "qpid-" + OsUtils.getUserName("1")); // "1" usually not needed, ensure directory name
             FileUtils.deleteQuietly(tmpWork);
             System.setProperty("QPID_WORK", tmpWork.getAbsolutePath());
         } // leave it as it was, only within process-based plugin executions
+        cleanup();
         TestQpidServer server = new TestQpidServer(new ServerAddress(Schema.IGNORE, getInteger(args, 8883)));
         server.scheduleShutdownHook(true);
         server.start();

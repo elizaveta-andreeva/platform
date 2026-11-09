@@ -117,6 +117,15 @@ template JavaConnector(Configuration config, JavaCodeArtifact target) extends Da
         getConnectorGenerics(conn, conn.input.get(0), conn.output.get(0), withMachine, pkg=pkg, typeAdd=typeAdd, prefix=prefix);
     }
     
+    def addConnectorGenericsAsArgs(Connector conn, IOType inType, IOType outType, boolean withMachine, JavaCodeMethodCall call, String pkg = "", String typeAdd="") {
+        if (withMachine) {
+            call.arg(getMachineOutputTypeName(conn) + typeAdd + ".class");
+            call.arg(getMachineInputTypeName(conn) + typeAdd + ".class");
+        }
+        call.classArg(getConnectorGenericsType(outType, pkg) + typeAdd);
+        call.classArg(getConnectorGenericsType(inType, pkg) + typeAdd);
+    }    
+    
     def getConnectorGenerics(Connector conn, IOType inType, IOType outType, boolean withMachine, String pkg = "", String typeAdd="", String prefix="") {
         String type = "<" + prefix;
         if (withMachine) {
@@ -733,7 +742,7 @@ template JavaConnector(Configuration config, JavaCodeArtifact target) extends Da
                     c.method("received").(m|{
                         m.param(coType, "data");
                         m.override();
-                        m.call("de.iip_ecosphere.platform.services.environment.spring.metricsProvider.MetricsProvider.increaseCounterBy", JavaCodeImportScope.CLASS)
+                        m.call("de.iip_ecosphere.platform.support.metrics.MetricsProvider.increaseCounterBy", JavaCodeImportScope.CLASS)
                             .arg("serviceSent").arg("1.0");
                         m.call("de.iip_ecosphere.platform.transport.Transport.send", JavaCodeImportScope.CLASS).lambdaArg().var("c")
                             .expr('c.asyncSend(${composeDestination("${conn.id}_${coType}", app, "appInstId")}, data), "${conn.id}"${connectionIds}'); // lazy for now

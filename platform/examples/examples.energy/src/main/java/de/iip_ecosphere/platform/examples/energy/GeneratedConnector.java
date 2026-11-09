@@ -24,10 +24,8 @@ import de.iip_ecosphere.platform.support.TimeUtils;
 import de.iip_ecosphere.platform.support.iip_aas.ActiveAasBase;
 import de.iip_ecosphere.platform.support.iip_aas.ActiveAasBase.NotificationMode;
 import de.iip_ecosphere.platform.transport.connectors.ReceptionCallback;
-
 import iip.datatypes.OpcIn;
 import iip.datatypes.OpcOut;
-import iip.nodes.MyOpcConnExample;
 
 /**
  * Runs the generated connector.
@@ -48,17 +46,18 @@ public class GeneratedConnector {
     public static void main(String[] args) throws IOException {
         if (args.length > 0 && "--skip".equals(args[0])) {
             // our Jenkins cannot contact the umati server. well let's figure out whether it could run at all
-            System.out.println("UMATI OPCUA Connector test");
+            System.out.println("Energy OPCUA Connector test");
             System.exit(0);
         }
         ActiveAasBase.setNotificationMode(NotificationMode.NONE); // disable AAS connector registration
         AtomicInteger count = new AtomicInteger(0);
         ReceptionCallback<OpcOut> cb = new ReceptionCallback<OpcOut>() {
 
-        	@Override
-        	public void received(OpcOut data) {
-        	    System.out.println("RCV " + data);
-        	}
+            @Override
+            public void received(OpcOut data) {
+                System.out.println("RCV " + data);
+                count.incrementAndGet();
+            }
             
             @Override
             public Class<OpcOut> getType() {
@@ -89,22 +88,14 @@ public class GeneratedConnector {
      * @throws IOException if creating the connector fails
      */
     public static Connector<Object, Object, OpcOut, OpcIn> createPlatformConnector(
-    	    ReceptionCallback<OpcOut> callback) throws IOException {
-
-    	    Connector<Object, Object, OpcOut, OpcIn> conn = ConnectorFactory.createConnector(
-    	        "de.iip_ecosphere.platform.connectors.opcuav1.OpcUaConnector",
-    	        () -> MyOpcConnExample.createConnectorParameter(),
-    	        MyOpcConnExample.createConnectorAdapter(metrics, new File("opcTest.txt")));
-
-    	    ConnectorParameter params =
-    	        ConnectorParameter.ConnectorParameterBuilder.newBuilder(
-    	            MyOpcConnExample.createConnectorParameter())
-    	            .setNotificationInterval(0)
-    	            .build();
-
-    	    conn.connect(params);
-    	    conn.setReceptionCallback(callback);
-    	    return conn;
-    	}
+        ReceptionCallback<OpcOut> callback) throws IOException {
+        ConnectorParameter params = ConnectorFactory.createConnectorParameter("myOpcConn");
+        Connector<Object, Object, OpcOut, OpcIn> conn = ConnectorFactory.createConnector(
+            "myOpcConn", params, metrics, new File("opcTest.txt"), Object.class, Object.class, 
+            OpcOut.class, OpcIn.class);
+        conn.connect(params);
+        conn.setReceptionCallback(callback);
+        return conn;
+    }
 
 }

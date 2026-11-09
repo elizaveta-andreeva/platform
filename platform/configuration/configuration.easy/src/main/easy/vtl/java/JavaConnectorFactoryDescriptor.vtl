@@ -1,0 +1,126 @@
+import Basics;
+import JavaBasics;
+import ServiceBasics;
+import MeshBasics;
+import JavaConnector;
+
+@advice(IIPEcosphere)
+@indent(indentation = 4, additional = 0)
+@format(profile="java", profileArg_javadocIndent=" * ", lineLength = 120)
+template JavaConnectorFactoryDescriptor(IIPEcosphere config, JavaCodeArtifact target, sequenceOf(MeshElement) nodes, String pkg, Boolean bootstrapApp) {
+    
+    def main(IIPEcosphere config, JavaCodeArtifact target, sequenceOf(MeshElement) nodes, String pkg, Boolean bootstrapApp) {
+        JavaCodeClass mainCls = codeCreateClass(target, pkg, target.getPlainName(), "App-wide connector factory descriptor");
+        mainCls.addExtends("de.iip_ecosphere.platform.connectors.DefaultConnectorFactoryDescriptor");
+        mainCls.addConstructor("Called via JSL, registers connector creation.").(cons|{
+            for (MeshElement n: nodes) {
+                produceAdd(n.impl, cons, bootstrapApp);
+            }
+        });
+    }
+
+    @DispatchBasis    
+    def produceAdd(ServiceBase service, JavaCodeMethod m, Boolean bootstrapApp) {
+    }
+
+    @DispatchCase
+    def produceAdd(Connector conn, JavaCodeMethod m, Boolean bootstrapApp) {
+        produce(conn, "supply", "", "", m, bootstrapApp);
+    }
+
+    @DispatchCase
+    def produceAdd(ChannelConnector conn, JavaCodeMethod m, Boolean bootstrapApp) {
+        String adapterSupplyName = "supply";
+        if (getOutChannels(conn).size() > 1) {
+            adapterSupplyName = "supplyMulti";
+        }
+        produce(conn, adapterSupplyName, "", "", m, bootstrapApp);
+    }
+    
+    @DispatchBasis
+    def getParserName(Connector conn, ConnectorTypes cType) {
+        "";
+    }
+
+    @DispatchCase
+    def getParserName(ChannelConnector conn, ConnectorTypes cType) {
+        String parserName = "";
+        if (isConfigured(conn.machineParser) and conn.machineParser <> null) {
+            parserName = getParserSerializerClassName(conn, cType.inType);
+        }
+        parserName;
+    }
+
+    @DispatchBasis
+    def getFormatterName(Connector conn, ConnectorTypes cType) {
+        "";
+    }
+
+    @DispatchCase
+    def getFormatterName(ChannelConnector conn, ConnectorTypes cType) {
+        String formatterName = "";
+        if (isConfigured(conn.machineFormatter) and conn.machineFormatter <> null) {
+            formatterName = getFormatterSerializerClassName(conn, cType.outType);
+        }
+        formatterName;
+    }
+    
+    def produce(Connector conn, String adapterSupplyName, String inSerializer, String outSerializer, JavaCodeMethod m, Boolean bootstrapApp) {
+        sequenceOf(ConnectorTypes) cTypes = pairTypes(conn);
+        while(cTypes.size() > 1) { // for now, limit to 1 in test
+            cTypes.removeLast();
+        }
+        
+        String clsName = asTypeName(conn.name);
+        String connFqn = getConnectorCls(conn);
+        if (!bootstrapApp) {
+            m.addImport("iip.nodes.${clsName}");
+        }
+        
+        for (ConnectorTypes cType : cTypes) {
+            IOType outType = cType.outType;
+            IOType inType = cType.inType;
+            DataType platfIn = cType.outType.type;
+            DataType platfOut = cType.inType.type;
+        
+            JavaCodeLambdaExpression paramSupplier = new JavaCodeLambdaExpression();
+            paramSupplier.call("${clsName}.createConnectorParameter");
+            JavaCodeLambdaExpression pathAdapterSupplier = new JavaCodeLambdaExpression();
+            pathAdapterSupplier.var("m");
+            pathAdapterSupplier.var("l");
+            pathAdapterSupplier.var("i");
+            pathAdapterSupplier.var("o");
+            pathAdapterSupplier.call("${clsName}.createConnectorAdapter").arg("m").arg("l").arg("i").arg("o");
+            
+            JavaCodeMethodCall cl = m.call("addCreator")
+              .stringArg(conn.id)
+              .newArg("de.iip_ecosphere.platform.connectors.DefaultConnectorFactoryDescriptor.DefaultConnectorFactoryCreator")
+                .stringArg(connFqn);
+            if (!bootstrapApp) {
+                cl.call("supply").(c|{
+                    c.arg(paramSupplier);
+                }).call(adapterSupplyName).(c|{
+                    c.arg(pathAdapterSupplier);
+                    addConnectorGenericsAsArgs(conn, inType, outType, true, c);
+                });
+            }
+            cl.(c|{
+                String parserName = getParserName(conn, cType);
+                if (parserName <> "") {
+                    JavaCodeLambdaExpression supplier = new JavaCodeLambdaExpression();
+                    supplier.expr(new JavaCodeConstructorCall("iip.nodes.${parserName}"));
+                    String pltfInTypeNameQn = asTypeName(toQualifiedTypeName(platfIn));
+                    c.call("supplyForInput").arg(supplier).classArg(pltfInTypeNameQn);
+                }
+                String formatterName = getFormatterName(conn, cType);
+                if (formatterName <> "") {
+                    JavaCodeLambdaExpression supplier = new JavaCodeLambdaExpression();
+                    supplier.expr(new JavaCodeConstructorCall("iip.nodes.${formatterName}"));
+                    String pltfOutTypeNameQn = asTypeName(toQualifiedTypeName(platfOut));
+                    c.call("supplyForOutput").arg(supplier).classArg(pltfOutTypeNameQn);
+                }
+            });
+        }
+    }
+    
+}

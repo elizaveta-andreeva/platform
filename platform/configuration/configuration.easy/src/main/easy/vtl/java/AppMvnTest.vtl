@@ -37,6 +37,8 @@ template AppMvnTest(IIPEcosphere config, XmlFileArtifact target, setOf(String) u
         XmlElement properties = new XmlElement(project, "properties");
         new XmlElement(properties, "iip.version", projectVersion);
         new XmlComment(properties, "Could be project.version, but that may differ depending on implementation, context, ...");
+        new XmlElement(properties, "iip.resources", "resources");
+        new XmlElement(properties, "iip.unpackResources.skip", "false");
         projectVersion = "\\${iip.version}";
         
         XmlElement globalDeps = createDependencies(project);
@@ -55,11 +57,11 @@ template AppMvnTest(IIPEcosphere config, XmlFileArtifact target, setOf(String) u
         appendExclusion(e, "org.springframework.boot", "spring-boot-starter-web");
         appendExclusion(e, "org.springframework.boot", "spring-boot-starter-actuator"); 
         appendExclusion(e, "org.springframework.boot", "spring-boot"); 
-        d = appendDependency(dep, gId, appName, appVersion);
+        d = appendDependency(dep, gId, appName, appVersion, scope="test");
         e = appendExclusions(d);
         appendExclusion(e, "org.springframework.boot", "spring-boot-starter-web");
         appendExclusion(e, "org.springframework.boot", "spring-boot-starter-actuator"); 
-        appendDependency(dep, gId, appName, appVersion, scope="test", type="test-jar");
+        d = appendDependency(dep, gId, appName, appVersion, scope="test", type="test-jar");
         appendDependencies(globalDeps, oktoPlugins, projectVersion, enable=withoutPlugins(config));
      
         XmlElement build = createMavenBuildElement(profile, "", false);
@@ -76,6 +78,7 @@ template AppMvnTest(IIPEcosphere config, XmlFileArtifact target, setOf(String) u
         appendMavenDependencyPluginArtifactItem(unpackItems, config.sharedArtifact, "python", 
             "\\${project.build.directory}/pySrc", "pyIf.zip", type="zip");
         appendMavenIipDependencyPluginBuildClasspathPluginExecution(execs, furtherFiles="\\${project.build.directory}/classes/\\${project.groupId}.\\${project.artifactId}");
+        appendMavenIipDependencyPluginCopyArtifactsExecution(execs);
 //appendMavenIipDependencyPluginUnpackPluginsExecution(execs, oktoPlugins, projectVersion, enable=withPlugins(config));
         //appendIipPythonPlugin(plugins, projectVersion);
         //XmlElement pluginMgt = createPlugins(createPluginManagement(build));
@@ -84,7 +87,7 @@ template AppMvnTest(IIPEcosphere config, XmlFileArtifact target, setOf(String) u
         XmlElement assemblyPlugin = appendAssemblyPlugin(plugins);
         appendAssemblyDescriptors(assemblyPlugin, assemblies);
         new XmlComment(dep, "Your other plugins extending/overriding the parent build plugins go here or after.");
-        XmlElement execPlugin = appendPlugin(plugins, "org.codehaus.mojo", "exec-maven-plugin", "3.0.0", false);
+        XmlElement execPlugin = appendPlugin(plugins, "org.codehaus.mojo", "exec-maven-plugin", "\\${org.codehaus.mojo.exec-maven-plugin.version}", false);
         XmlElement execPluginExecs = appendExecutionsParent(execPlugin);
 
         String testClasspathFnExclusions = "${transportProtocolModule(config)}-${projectVersion}.jar";
@@ -161,7 +164,7 @@ template AppMvnTest(IIPEcosphere config, XmlFileArtifact target, setOf(String) u
             gId+":"+appName+":"+appVersion, "bin", 
             "\\${project.build.directory}/apps", "${appName}.jar", type="jar", id="app", phase="validate");
         
-        execPlugin = appendPlugin(plugins, "org.codehaus.mojo", "exec-maven-plugin", "3.0.0", false);
+        execPlugin = appendPlugin(plugins, "org.codehaus.mojo", "exec-maven-plugin", "\\${org.codehaus.mojo.exec-maven-plugin.version}", false);
         execPluginExecs = appendExecutionsParent(execPlugin);
         exec = new XmlElement(execPluginExecs, "execution");
         new XmlElement(exec, "id", "app");

@@ -22,6 +22,8 @@
           <arg value="-Dokto.mvn.home=${maven.bin.dir}/bin"/>
         </maven>
 		
+		<!-- let's keep that, it seems to be faster -->
+		
         <mvnDeployResolveArtifact folderName="IIP-configuration.easy" pomFile="pom.xml" jarFolder="target" artifactPattern="configuration.easy-*.*.*.jar" />
 
         <ant dir="${genFolderTests}/SimpleMesh/ApplicationInterfaces" antfile="build-jk.xml" />

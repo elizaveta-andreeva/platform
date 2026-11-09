@@ -38,6 +38,7 @@ import de.iip_ecosphere.platform.support.OsUtils;
 import de.iip_ecosphere.platform.support.ZipUtils;
 import net.ssehub.easy.reasoning.core.reasoner.ReasoningResult;
 import net.ssehub.easy.varModel.confModel.Configuration;
+import test.de.iip_ecosphere.platform.support.TestUtils;
 import test.de.iip_ecosphere.platform.support.aas.TestWithPlugin;
 
 import static test.de.iip_ecosphere.platform.services.environment.PythonEnvironmentTest.*;
@@ -71,6 +72,7 @@ public abstract class AbstractIvmlTests extends TestWithPlugin {
         if (!f.exists()) {
             f = new File("resources");
         }
+        System.out.println("Test setting iip.resources to " + f.getAbsolutePath());
         System.setProperty("iip.resources", f.getAbsolutePath());
         PlatformInstantiator.setTraceFilter();
     }
@@ -594,6 +596,36 @@ public abstract class AbstractIvmlTests extends TestWithPlugin {
     }
 
     /**
+     * Helper method to configure for partial instantiation, i.e., app bootstrapping.
+     * 
+     * @param cfg the configurer instance
+     * @return {@code cfg}
+     */
+    public static InstantiationConfigurer genBootstrap(InstantiationConfigurer cfg) {
+        return cfg.setStartRuleName("generateBootstrappedApps");
+    }
+
+    /**
+     * Helper method to configure for partial instantiation, i.e., apps without interfaces and templates.
+     * 
+     * @param cfg the configurer instance
+     * @return {@code cfg}
+     */
+    public static InstantiationConfigurer genDirect(InstantiationConfigurer cfg) {
+        return cfg.setStartRuleName("generateAppsDirect");
+    }
+
+    /**
+     * Helper method to configure for partial instantiation, i.e., apps without interfaces but with templates.
+     * 
+     * @param cfg the configurer instance
+     * @return {@code cfg}
+     */
+    public static InstantiationConfigurer genATDirect(InstantiationConfigurer cfg) {
+        return cfg.setStartRuleName("generateAppsTemplatesDirect");
+    }
+
+    /**
      * Helper method to configure for partial instantiation, i.e., apps without dependencies and no platform components.
      * 
      * @param cfg the configurer instance
@@ -642,6 +674,16 @@ public abstract class AbstractIvmlTests extends TestWithPlugin {
      */
     public static InstantiationConfigurer incremental(InstantiationConfigurer cfg) {
         return cfg.setProperty(PlatformInstantiator.KEY_PROPERTY_INCREMENTAL, "true");
+    }
+
+    /**
+     * Helper method to enable deploying instead of "install", but only if {@link TestUtils#isInCI()}.
+     * 
+     * @param cfg the configurer instance
+     * @return {@code cfg}
+     */
+    public static InstantiationConfigurer deployInCI(InstantiationConfigurer cfg) {
+        return TestUtils.isInCI() ? cfg.setProperty(PlatformInstantiator.KEY_PROPERTY_MVNGOAL, "deploy") : cfg;
     }
 
 }

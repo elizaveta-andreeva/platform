@@ -14,6 +14,7 @@ import { IvmlFormatterService } from 'src/app/components/services/ivml/ivml-form
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ConfigExpertModeService } from '../../services/config-expert-mode.service';
 import { OnlyIdPipe } from 'src/app/pipes/only-id.pipe';
+import { ConfigDashboardingModeService } from 'src/app/services/config-dashboarding-mode.service';
 
 /**
  * Information on a file being uploaded.
@@ -58,6 +59,7 @@ export class ListComponent extends Utils implements OnInit {
   currentTab = "";
   selectedTabIndex = 0;
   currentExpertMode = false;
+  currentDashboardingMode = false;
   rawData: any;
   filteredData: any;
   varValue = "varValue"
@@ -78,7 +80,8 @@ export class ListComponent extends Utils implements OnInit {
     private snackBar: MatSnackBar,
     private onlyId: OnlyIdPipe,
     private ivmlFormatter: IvmlFormatterService, 
-    public configExpertMode: ConfigExpertModeService) {
+    public configExpertMode: ConfigExpertModeService,
+    public configDashboardingMode: ConfigDashboardingModeService) {
     super();
     this.sub = websocketService.getMsgSubject().subscribe((value: any) => {
       collector.receiveStatus(JSON.parse(value))
@@ -110,6 +113,15 @@ export class ListComponent extends Utils implements OnInit {
   ]
   defaultNormalTab = 'Types'
 
+  dashboardingTabsParam = [
+    { tabName: "Display", metaProject: "AllTypes", submodelElement: null },
+    { tabName: "Types", metaProject: "AllTypes", submodelElement: null },
+    { tabName: "Services", metaProject: null, submodelElement: "ServiceBase" },
+    { tabName: "Meshes", metaProject: null, submodelElement: "ServiceMesh" },
+    { tabName: "Applications", metaProject: null, submodelElement: "Application" }
+  ]
+  defaultdashboardingTabs = 'Display'
+
   // Display ---------------------------------------------------------------------
   paramToDisplay = [
     ["ver", "Version: ", ""],
@@ -134,9 +146,14 @@ export class ListComponent extends Utils implements OnInit {
   }
 
   ngDoCheck() {
-    if (this.currentExpertMode !== this.configExpertMode.expertMode) {
+    if (this.currentExpertMode !== this.configExpertMode.expertMode
+      || this.currentDashboardingMode !== this.configDashboardingMode.dashboardingMode
+    ) {
       if (this.configExpertMode.expertMode) {
         this.selectedTabIndex = this.expertTabsParam.findIndex(tab => tab.tabName === this.currentTab);
+        //this.currentTab = 'Setup';
+      } else if (this.configDashboardingMode.dashboardingMode) {
+        this.selectedTabIndex = this.dashboardingTabsParam.findIndex(tab => tab.tabName === this.currentTab);
         //this.currentTab = 'Setup';
       } else {
         this.selectedTabIndex = this.normalTabsParam.findIndex(tab => tab.tabName === this.currentTab);
@@ -146,6 +163,7 @@ export class ListComponent extends Utils implements OnInit {
         }
       }
       this.currentExpertMode = this.configExpertMode.expertMode;
+      this.currentDashboardingMode = this.configDashboardingMode.dashboardingMode;
       this.populateMeta();
     }
   }
@@ -515,6 +533,15 @@ export class ListComponent extends Utils implements OnInit {
       //component.showDropdown = false;
       component.category = this.currentTab;
       component.selectedType = this.selectedType;
+
+      // Subscribe to dialog close event
+      dialogRef.afterClosed().subscribe(result => {
+        const tabName = this.currentTab === '' ? 'Setup' : this.currentTab;
+        const selectedTab = this.visibleTabs.find(tab => tab.tabName === tabName);
+        if (selectedTab) {
+          this.getDisplayData(selectedTab?.tabName, selectedTab?.metaProject, selectedTab?.submodelElement)
+        }
+      });
     }
   }
 
@@ -526,7 +553,7 @@ export class ListComponent extends Utils implements OnInit {
       // Toast: upload finished
       this.snackBar.open(
         `Deleting: ${item.idShort}`,
-        'Close',
+        undefined,
         { 
           duration: 7000,
           horizontalPosition: 'center',
@@ -604,20 +631,6 @@ export class ListComponent extends Utils implements OnInit {
   public genTemplate(appId: string) {
     let inputVariables: InputVariable[] = [];
     inputVariables.push(ApiService.createAasOperationParameter("appId", AAS_TYPE_STRING, appId));
-    // const snackRef = this.snackBar.open(
-    //   `Generate application template for ${appId}, please wait...`,
-    //   undefined,
-    //   {
-    //     horizontalPosition: 'center',
-    //     verticalPosition: 'top'
-    //   }
-    // );
-    // const tempSub = this.websocketService.getMsgSubject().subscribe((value: string) => {
-    //   if (value.includes('"id":"Configuration"')) {
-    //     snackRef.dismiss();
-    //     tempSub.unsubscribe();
-    //   }
-    // })
     this.execFunctionInConfig("genAppsNoDepsAsync", inputVariables);
   }
 
@@ -658,20 +671,6 @@ export class ListComponent extends Utils implements OnInit {
     let fileName = fileInfo?.file.name || '';
     this.appFiles.delete(appId);
     inputVariables.push(ApiService.createAasOperationParameter("codeFile", AAS_TYPE_STRING, fileName));
-    // const snackRef = this.snackBar.open(
-    //   `Integrate the application with the uploaded template, please wait...`,
-    //   undefined,
-    //   {
-    //     horizontalPosition: 'center',
-    //     verticalPosition: 'top'
-    //   }
-    // );
-    // const tempSub = this.websocketService.getMsgSubject().subscribe((value: string) => {
-    //   if (value.includes('"id":"Configuration"')) {
-    //     snackRef.dismiss();
-    //     tempSub.unsubscribe();
-    //   }
-    // })
     this.execFunctionInConfig("genAppsAsync", inputVariables)
   }
 
@@ -715,7 +714,7 @@ export class ListComponent extends Utils implements OnInit {
         const ws: WebsocketService = new WebsocketService();
         ws.connect(taskUrl);
         const tempSub = ws.getMsgSubject().subscribe((value: any) => {
-          this.requestReceivedMessage(`${value}`, this.taskId, ST_PROCESS);
+          this.collector.receiveStatus(JSON.parse(value));
           if (value.includes('"id":"Configuration"')) {
             ws.close();
             tempSub.unsubscribe();
@@ -769,10 +768,15 @@ export class ListComponent extends Utils implements OnInit {
    * @returns the list of tabs
    */
   get visibleTabs() {
-    if (!this.configExpertMode.expertMode) {
-      return this.normalTabsParam;
+    if (this.configDashboardingMode.dashboardingMode) {
+      return this.dashboardingTabsParam;
     }
-    return this.expertTabsParam;
+
+    if (this.configExpertMode.expertMode) {
+      return this.expertTabsParam;
+    }
+
+    return this.normalTabsParam;
   }
 
 }

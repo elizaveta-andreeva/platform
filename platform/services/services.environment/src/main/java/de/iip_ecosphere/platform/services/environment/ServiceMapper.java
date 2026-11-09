@@ -73,6 +73,8 @@ public class ServiceMapper {
     
     /**
      * Maps the given service onto the protocol service builder.
+     * Maps the given service onto the protocol service builder. Registers the service 
+     * calling {@link Starter#setService(Service)}. [testing]
      * 
      * @param service the service to define
      */
@@ -147,7 +149,7 @@ public class ServiceMapper {
             LoggerFactory.getLogger(ServiceMapper.class).error("Cannot map/register service: " + e.getMessage());
         }
     }
-    
+
     /**
      * Defines the update operation taking into account {@link Starter#getUpdateHandler(String)}.
      * 
@@ -174,9 +176,14 @@ public class ServiceMapper {
         Supplier<? extends Service> updateHandler = Starter.getUpdateHandler(service.getId());
         if (null != updateHandler) {
             Service updatedService = updateHandler.get();
-            if (null != updatedService) {
+            if (null != updatedService && updatedService != service) {
                 updatedService.transferState(service);
-                Starter.mapService(updatedService, updateHandler); // redefine operations
+                ServiceMapper mapper = Starter.getServiceMapper();
+                mapper.builder.enableOverwrite(true);
+                mapper.mapService(updatedService);
+                mapper.builder.enableOverwrite(false);
+                Starter.setService(updatedService);
+                LoggerFactory.getLogger(ServiceMapper.class).info("Updated service '{}'", service.getId());
             }
         }
     }

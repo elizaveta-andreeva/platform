@@ -27,7 +27,7 @@ The following build steps are automatically executed by an all-in-one example bu
 
 The generated code template contains helper scripts for Windows/Linux that call a default variant of the build process (`build.bat`, `build.sh`).
 Sometimes, it makes sense to execute individual steps separately, e.g., `mvn -P EasyGen configuration:generateAppsNoDeps` for a run building all integration code files leaving out all dependencies (no deps). Although this application may not run, the build process creates the application templates in this step.
-Currently the goals `generateInterfaces`, `generateAppsNoDeps` and `generateApps` create as last step the application templates.
+Currently the goals `generateInterfaces`, `generateAppsNoDeps` and `generateApps` create as last step the application templates, while more recent goals like `generateBootstrappedApps` or `generateAppsDirect` allow for more efficient build processes.
 
 ## Updating artifacts
 
@@ -54,8 +54,9 @@ The default folder for resources to be packaged directly into application artifa
 Ensure that the Maven `platformDependencies` are installed (see [install](../../tools/Install))
 
   * `mvn install`, for component updates `mvn -U install`
-  
-For running tests with plugins (tests are implied in `mvn install`) within the git workspace, please build all required plugins stated in the respective pom first. If built in the git workspace, the tests try to do a shortcut using the local JARs rather than those from Maven, which fails if there are no local builds.
+  * The initial build of `configuration.easy` requires multiple steps. Please refer to the [component documentation](../configuration/configuration.easy/README.md).
+
+A shortcut build path for the absolutely required components excluding all potential alternatives is summarized in the [release documentation](RELEASE.md). For running tests with plugins (tests are implied in `mvn install`) within the git workspace, please build all required plugins stated in the respective pom first. If built in the git workspace, the tests try to do a shortcut using the local JARs rather than those from Maven, which fails if there are no local builds.
 
 ## Failures
 
@@ -83,6 +84,7 @@ We summarize now some helpful build flags, either realized by Maven, Maven build
 |           | install, package          | `-Dokto.easy.allServices=<bool>`            | enables/disables focusing on declared services only, default is `true`                                                                        | oktoflow metamodel                                                 |
 |           | install, package          | `-Dpython-compile.skip=<bool>`              | enables/disables Python "compilation", i.e., syntax check                                                                                     | [python build plugin](../tools/tools.maven.python)                 |
 |           | install, package          | `-Dpython-test.skip=<bool>`                 | enables/disables Python unit test execution                                                                                                   | [python build plugin](../tools/tools.maven.python)                 |
+|           | install, package          | `-Dtouch.passJava=<bool>`                   | for updating artifacts, notifies Java always as changed if `true`, only if Java artifact has changed (excluding dependencies) if `false`      | [resources touch plugin](../tools/maven.dependences)               |                          
 
 Please note that complex build processes, e.g., for examples or platform components like AAS, service execution or configuration, typically run in multiple stages using the extended [invoker](../tools/tools.maven.invoker). These stages are typically specified in terms of common dependencies and build steps as well as Maven profiles to add specific dependencies or build steps. As oktoflow builds inherit from the core platform POMs, also the default dependencies and build steps become active in the profiles. To prevent this, e.g., in the profile that is active by default and shall only execute the invoker, some profiles use switches/properties like those summarized above as presets to disable unneeded or even problematic build steps. Due to these presets, which cannot be overwritten by the invoker, the oktoflow invoker defines additional switches like those shown below that can take precedence in these cases.
 

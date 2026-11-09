@@ -9,7 +9,7 @@
   <parent>
      <groupId>de.iip-ecosphere.platform</groupId>
      <artifactId>platformDependenciesBOM</artifactId>
-     <version>0.8.1-SNAPSHOT</version>
+     <version>0.8.2-SNAPSHOT</version>
      <relativePath/>
   </parent>
 
@@ -107,6 +107,7 @@
         <iip.resources>resources</iip.resources>
         <test.docker.skip>true</test.docker.skip> <!-- default for local execution -->
         <test.exec.args>--skip</test.exec.args>
+        <test.exec.regEx>.*Energy OPCUA Connector test.*</test.exec.regEx>
         <iip.gen>target/gen/energy</iip.gen>
   </properties>
 
@@ -247,22 +248,23 @@
                    <version>${project.version}</version>
                    <executions>
 	                   <execution>
-	                      <id>generateAppsNoDeps</id>
+	                      <id>generateBootstrappedApps</id>
 	                      <goals>
-	                          <goal>generateAppsNoDeps</goal>
+	                          <goal>generateBootstrappedApps</goal>
 	                      </goals>
 	                   </execution>
                        <execution>
-                         <id>generateApps</id>
+                         <id>generateAppsDirect</id>
                          <goals>
-                           <goal>generateApps</goal>
+                           <goal>generateAppsDirect</goal>
                          </goals>
                        </execution>
-	                   <!-- <execution>
+	                    <execution>
 	                        <id>testApp</id>
 	                        <goals>
 	                            <goal>testApp</goal>
 	                        </goals>
+	                        <!-- WARNING: Jenkins cannot contact UMATI OPCUA service. Disabling execution! -->
 	                        <configuration>
 	                            <appId>generatedConnector</appId>
 	                            <mvnArgs>
@@ -270,11 +272,10 @@
 	                            </mvnArgs>
 	                            <brokerPort>0</brokerPort>
 	                            <logRegExprs>
-	                                <logRegExpr>.*UMATI OPCUA Connector test.*</logRegExpr>
+	                                <logRegExpr>${test.exec.regEx}</logRegExpr>
 	                            </logRegExprs>
 	                        </configuration>
 	                    </execution>
-	                    -->
                    </executions>
                    <configuration>
                        <model>Energy</model>
@@ -358,6 +359,7 @@
                         <invokeGoal>package</invokeGoal>
                       </invokeGoals>
                       <disableBuild>true</disableBuild>
+                      <skipGenerateSources>true</skipGenerateSources>
                     </configuration>
                   </execution>
                 </executions>

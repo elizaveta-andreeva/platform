@@ -27,12 +27,12 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.apache.maven.artifact.resolver.ArtifactResolver;
+import javax.inject.Inject;
+
 import org.apache.maven.execution.MavenSession;
 import org.apache.maven.plugin.MojoExecution;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.project.ProjectBuilder;
@@ -59,16 +59,11 @@ public abstract class AbstractConfigurationMojo extends AbstractLoggingMojo impl
     @Parameter(defaultValue = "${session}", required = true, readonly = true)
     private MavenSession session;
     
-    @Component
     private ProjectBuilder projectBuilder;
 
-    @Component
-    private ArtifactResolver resolver;
-    
     @Parameter(defaultValue = "${project.remotePluginRepositories}", readonly = true)
     private List<RemoteRepository> remoteRepos;
     
-    @Component
     private RepositorySystem repoSystem;
     
     @Parameter(defaultValue = "${mojoExecution}", readonly = true, required = true)
@@ -118,6 +113,12 @@ public abstract class AbstractConfigurationMojo extends AbstractLoggingMojo impl
     
     @Parameter(property = "configuration.inTest", required = false, defaultValue = "false")
     private boolean inTest;
+    
+    @Parameter(property = "configuration.nestedGoal", required = false, defaultValue = "")
+    private String nestedGoal;
+
+    @Parameter(property = "iip.unpackResources", required = false, defaultValue = "false") 
+    private boolean unpackResources;
 
     @Parameter(property = "configuration.changeCheckArtifacts", required = false, defaultValue = "")
     private String changeCheckArtifacts;
@@ -132,12 +133,28 @@ public abstract class AbstractConfigurationMojo extends AbstractLoggingMojo impl
     @Parameter(property = "configuration.skip", required = false, defaultValue = "false")
     private boolean skip;
 
+    @Parameter(property = "configuration.skipGenerateSources", required = false, defaultValue = "false")
+    private boolean skipGenerateSources;
+
     /**
      * The home directory of the Maven installation to use for the forked builds. Defaults to the current Maven
      * installation.
      */
     @Parameter
     private File mavenHome;
+
+    /**
+     * Creates an instance.
+     * 
+     * @param projectBuilder the project builder
+     * @param repoSystem the repo system
+     */
+    @Inject
+    public AbstractConfigurationMojo(ProjectBuilder projectBuilder, 
+        RepositorySystem repoSystem) {
+        this.projectBuilder = projectBuilder;
+        this.repoSystem = repoSystem;
+    }
 
     @Override
     public MavenProject getProject() {
@@ -469,7 +486,11 @@ public abstract class AbstractConfigurationMojo extends AbstractLoggingMojo impl
                 executor.setAllTypes(allTypes)
                     .setAllServices(allServices)
                     .setIncremental(incremental)
-                    .setInTest(inTest);
+                    .setInTest(inTest)
+                    .setUnpackResources(unpackResources);
+                if (null != nestedGoal && nestedGoal.length() > 0) {
+                    executor.setGoal(nestedGoal);
+                }
                 try {
                     if (asProcess) {
                         executor.executeAsProcess(getClass().getClassLoader(), resourcesDir, getTracingLevel(), 
@@ -548,6 +569,19 @@ public abstract class AbstractConfigurationMojo extends AbstractLoggingMojo impl
     @Override
     public RepositorySystem getRepoSystem() {
         return repoSystem;
+    }
+    
+    /**
+     * Disables execution if {@link #skipGenerateSources} is true, else returns {@code enable}.
+     * 
+     * @return {@code true} if enabled, {@code false} if disabled
+     */
+    protected boolean enableBySkipGenerateSources(boolean enable) {
+        boolean result = enable;
+        if (skipGenerateSources) {
+            result = false;
+        }
+        return result;
     }
 
 }
