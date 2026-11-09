@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-
+import org.eclipse.milo.opcua.sdk.core.Reference;
 /**
  * OPC UA address space for the Energy Aggregator.
  */
@@ -73,16 +73,21 @@ public class EnergyNamespace extends ManagedNamespaceWithLifecycle {
         UaNodeContext ctx = getNodeContext();
 
         UaFolderNode root = folder(ctx, "EnergyAggregator", "Energy Aggregator");
-        UaFolderNode machines = folder(ctx, "Machines", "Machines");
-        machines.addOrganizes(root);
-
-        for (String machineId : KNOWN_MACHINES) {
-            UaFolderNode machineFolder = folder(ctx, machineId, machineId);
-            machineFolder.addOrganizes(machines);
-
-            addVariable(machineFolder, machineId, POWER_TARGET, "Power");
-            addVariable(machineFolder, machineId, ENERGY_TARGET, "Energy");
-        }
+     // Make the top folder visible under the server's standard Objects folder
+     root.addReference(new Reference(
+         root.getNodeId(),
+         Identifiers.Organizes,
+         Identifiers.ObjectsFolder.expanded(),
+         false));
+	     UaFolderNode machines = folder(ctx, "Machines", "Machines");
+	     root.addOrganizes(machines);              // EnergyAggregator contains Machines
+	     for (String machineId : KNOWN_MACHINES) {
+	         UaFolderNode machineFolder = folder(ctx, machineId, machineId);
+	         machines.addOrganizes(machineFolder); // Machines contains the machine
+	
+	            addVariable(machineFolder, machineId, POWER_TARGET, "Power");
+	            addVariable(machineFolder, machineId, ENERGY_TARGET, "Energy");
+	        }
 
         LOG.info("EnergyNamespace initialized with {} variables", nodesByKey.size());
     }

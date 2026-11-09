@@ -82,6 +82,7 @@ public class EnergyAggregatorServer {
         // 4. Initialize the namespace BEFORE starting the server
         namespace = new EnergyNamespace(server);
         namespace.initialize();
+        namespace.startup();
 
         // 5. Start
         server.startup().get(10, TimeUnit.SECONDS);
@@ -94,6 +95,9 @@ public class EnergyAggregatorServer {
     /** Stops the server and prevents further updates. */
     public void stop() {
         acceptingUpdates = false;
+        if (namespace != null) {
+            namespace.shutdown();
+        }
         if (server != null) {
             try {
                 server.shutdown().get(5, TimeUnit.SECONDS);
