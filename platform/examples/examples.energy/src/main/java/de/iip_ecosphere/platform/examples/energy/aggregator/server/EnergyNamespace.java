@@ -111,9 +111,9 @@ public class EnergyNamespace extends ManagedNamespaceWithLifecycle {
 
         UaVariableNode node = UaVariableNode.builder(ctx)
             .setNodeId(nodeId)
-            .setBrowseName(newQualifiedName(nodeKey))
-            .setDisplayName(LocalizedText.english(displayName))
-            .setDataType(Identifiers.Double)
+            .setBrowseName(newQualifiedName(target))
+            .setDisplayName(LocalizedText.english(target))
+            .setDataType(Identifiers.Float)
             .setTypeDefinition(Identifiers.BaseDataVariableType)
             .setAccessLevel(AccessLevel.toValue(AccessLevel.READ_ONLY))
             .setUserAccessLevel(AccessLevel.toValue(AccessLevel.READ_ONLY))
@@ -123,7 +123,7 @@ public class EnergyNamespace extends ManagedNamespaceWithLifecycle {
         // Initial state: no value yet. Clients see Bad_WaitingForInitialData
         // until a real measurement arrives — no fake 0.0 / GOOD seed.
         node.setValue(new DataValue(
-            new Variant(0.0),
+            new Variant(0.0f),
             new StatusCode(StatusCodes.Bad_WaitingForInitialData),
             DateTime.MIN_VALUE, DateTime.now()));
 
@@ -151,9 +151,9 @@ public class EnergyNamespace extends ManagedNamespaceWithLifecycle {
         lastAppliedTimestamps.compute(nodeKey, (key, previous) -> {
             if (previous == null || incoming.isAfter(previous)) {
                 DataValue value = new DataValue(
-                    new Variant(update.value()),
+                	new Variant((float) update.value()),
                     toStatusCode(update.quality()),
-                    new DateTime(incoming.toEpochMilli()),
+                    new DateTime(java.util.Date.from(incoming)),
                     DateTime.now());
                 node.setValue(value);
                 LOG.debug("Applied '{}' = {} (ts={})", key, update.value(), incoming);

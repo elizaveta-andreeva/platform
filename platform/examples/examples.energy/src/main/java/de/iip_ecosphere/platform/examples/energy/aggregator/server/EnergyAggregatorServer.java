@@ -58,7 +58,7 @@ public class EnergyAggregatorServer {
         EndpointConfiguration endpoint = EndpointConfiguration.newBuilder()
             .setBindAddress(host)
             .setBindPort(port)
-            .setPath("/energy-aggregator")
+            .setPath("/")
             .setSecurityPolicy(SecurityPolicy.None)
             .setSecurityMode(MessageSecurityMode.None)
             .addTokenPolicies(new UserTokenPolicy(
@@ -129,7 +129,7 @@ public class EnergyAggregatorServer {
 
     public boolean isRunning() { return running; }
     public String getEndpointUrl() {
-        return "opc.tcp://" + host + ":" + port + "/energy-aggregator";
+    	return "opc.tcp://" + host + ":" + port + "/";
     }
     public EnergyNamespace getNamespace() { return namespace; }
 }
