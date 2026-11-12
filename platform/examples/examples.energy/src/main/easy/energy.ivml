@@ -2,7 +2,7 @@ project Energy {
 
     import IIPEcosphere;
     import OpcUaDataTypes;
-    import OpcEnergy;
+    import OpcECM;
 
     annotate BindingTime bindingTime = BindingTime::compile to .;
 
@@ -55,20 +55,8 @@ project Energy {
         name = "OpcIn",
         fields = {
             Field {
-                name = "NonElectricalEnergy",
-                type = refBy(opcINonElectricalEnergyType),
-                cachingTime = CACHE_ALWAYS
-            }, Field {
-                name = "BaseFlow",
-                type = refBy(opcIBaseFlowType),
-                cachingTime = CACHE_ALWAYS
-            }, Field {
-                name = "VolumeFlow",
-                type = refBy(opcIVolumeFlowType),
-                cachingTime = CACHE_ALWAYS
-            }, Field {
-                name = "MassFlow",
-                type = refBy(opcIMassFlowType),
+                name = "EnergyProfile",
+                type = refBy(opcIEnergyProfileE2Type),
                 cachingTime = CACHE_ALWAYS
             }
         }
@@ -78,42 +66,12 @@ RecordType opcOut = {
     name = "OpcOut",
     fields = {
         Field {
-            name = "NeEnergyImportHp",
-            type = refBy(DoubleType),
-            cachingTime = CACHE_ALWAYS
-        },
-        Field {
-            name = "NeEnergyExportHp",
-            type = refBy(DoubleType),
-            cachingTime = CACHE_ALWAYS
-        },
-        Field {
-            name = "Pressure",
+            name = "AcActivePowerTotal",
             type = refBy(FloatType),
             cachingTime = CACHE_ALWAYS
         },
         Field {
-            name = "Temperature",
-            type = refBy(FloatType),
-            cachingTime = CACHE_ALWAYS
-        },
-        Field {
-            name = "Volume",
-            type = refBy(FloatType),
-            cachingTime = CACHE_ALWAYS
-        },
-        Field {
-            name = "VolumeFlowRate",
-            type = refBy(FloatType),
-            cachingTime = CACHE_ALWAYS
-        },
-        Field {
-            name = "Mass",
-            type = refBy(FloatType),
-            cachingTime = CACHE_ALWAYS
-        },
-        Field {
-            name = "MassFlowRate",
+            name = "AcActiveEnergyTotalImportLp",
             type = refBy(FloatType),
             cachingTime = CACHE_ALWAYS
         }
@@ -132,8 +90,8 @@ RecordType opcOut = {
         
         input = {{type=refBy(opcIn)}},
         output = {{type=refBy(opcOut)}},
-        inInterface = {{type=refBy(opcIn), path="Objects/Sinumerik/Energy/"}}, 
-        outInterface = {{type=refBy(opcOut), path="Objects/Sinumerik/Energy/"}}
+        inInterface = {{type=refBy(opcIn), path="Objects/EnergyAggregator/Machines/LatheNEF400/"}}, 
+        outInterface = {{type=refBy(opcOut), path="Objects/EnergyAggregator/Machines/LatheNEF400/"}}
         /*operations = {
           FieldAssignmentOperation{field=myConnPltfIn.fields[1], 
             operation=AddDataTranslationOperation{
@@ -228,7 +186,7 @@ RecordType opcOut = {
         managementUi;
         artifactsFolder;
         artifactsUriPrefix;
-        OpcEnergy; // now freeze also cachingTime
+        OpcECM;
         .; // every variable declared in this project
     } but (f|f.bindingTime >= BindingTime.runtimeMon);
 
