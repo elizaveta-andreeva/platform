@@ -84,19 +84,12 @@ public class EnergyNamespace extends ManagedNamespaceWithLifecycle {
         UaNodeContext ctx = getNodeContext();
 
         UaFolderNode root = folder(ctx, "EnergyAggregator", "Energy Aggregator");
-        // Link the top folder into the Objects folder so browsing works.
-        UaNode objectsFolder = getNodeManager().get(Identifiers.ObjectsFolder);
-        if (objectsFolder != null) {
-         //   objectsFolder.addOrganizes(root);
-        	root.addReference(new Reference(
-        		    root.getNodeId(),
-        		    Identifiers.Organizes,
-        		    objectsFolder.getNodeId().expanded(),
-        		    true
-        		));
-        } else {
-            LOG.warn("ObjectsFolder not found in node manager; namespace may not be browsable");
-        }
+        // Make the top folder visible under the server's standard Objects folder
+        root.addReference(new Reference(
+            root.getNodeId(),
+            Identifiers.Organizes,
+            Identifiers.ObjectsFolder.expanded(),
+            false));
 
         UaFolderNode machines = folder(ctx, "Machines", "Machines");
         root.addOrganizes(machines);
