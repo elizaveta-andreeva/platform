@@ -14,22 +14,28 @@ import org.slf4j.LoggerFactory;
 
 import java.nio.charset.StandardCharsets;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 
 /**
- * MQTT ingestor for the Shelly Pro3EM.
+ * MQTT ingestor for the Shelly Pro 3EM.
  *
- * <p>Each Shelly payload may contain multiple measurements (power, total energy).
- * This ingestor emits <b>one {@link MachineEnergyMeasurement} per measurement type</b>,
- * matching P4's event-based model. It does not group values.</p>
+ * <p>Accepts both the Gen2 field names used by IFW's mapping
+ * ({@code total_act_power}, {@code total_act}) and the Gen1 names
+ * ({@code power}, {@code total}) so existing test messages keep working.</p>
+ *
+ * <p>One incoming MQTT message may contain only power or only energy; the
+ * parser checks for the fields, not the topic, so both cases produce the
+ * correct single measurement.</p>
  */
 public class ShellyMqttIngestor {
 
     private static final Logger LOG = LoggerFactory.getLogger(ShellyMqttIngestor.class);
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
-    private final String sourceId;      // e.g. "mqtt"
-    private final String deviceId;      // e.g. "ShellyPro3EM"
+    private final String sourceId;   // "ShellyPro3EM" — the meter
+    private final String deviceId;   // "LatheNEF400" — the machine
     private final String brokerUrl;
     private final String clientId;
     private final String topic;
@@ -58,6 +64,10 @@ public class ShellyMqttIngestor {
         this.errorConsumer = errorConsumer;
     }
 
+    // -----------------------------------------------------------------
+    // Lifecycle
+    // -----------------------------------------------------------------
+
     public void connect() throws MqttException {
         client = new MqttClient(brokerUrl, clientId, new MemoryPersistence());
 
@@ -69,7 +79,7 @@ public class ShellyMqttIngestor {
 
         client.setCallback(new MqttCallbackExtended() {
             @Override public void connectComplete(boolean reconnect, String serverURI) {
-                LOG.info("[{}] MQTT connected (reconnect={})", deviceId, reconnect);
+                LOG.info("[{}] MQTT connected (reconnect={}) to {}", deviceId, reconnect, serverURI);
                 try {
                     client.subscribe(topic, qos, (t, msg) -> handleMessage(msg));
                 } catch (MqttException e) {
@@ -87,7 +97,9 @@ public class ShellyMqttIngestor {
         client.connect(opts);
     }
 
-    public void start() { running = true; }
+    public void start() {
+        running = true;
+    }
 
     public void disconnect() {
         running = false;
@@ -96,24 +108,20 @@ public class ShellyMqttIngestor {
         }
     }
 
-    public boolean isConnected() { return client != null && client.isConnected(); }
+    public boolean isConnected() {
+        return client != null && client.isConnected();
+    }
 
     // -----------------------------------------------------------------
-    // Payload handling — ONE event per measurement
+    // Parsing — package-private so it can be unit-tested without MQTT
     // -----------------------------------------------------------------
 
     private void handleMessage(MqttMessage msg) {
         if (!running) return;
         try {
             String payload = new String(msg.getPayload(), StandardCharsets.UTF_8);
-            JsonNode node = MAPPER.readTree(payload);
-            Instant now = Instant.now();
-
-            if (node.has("power")) {
-                emit(MeasurementType.CURRENT_POWER, node.get("power").asDouble(), "W", now);
-            }
-            if (node.has("total")) {
-                emit(MeasurementType.CUMULATIVE_ENERGY, node.get("total").asDouble(), "Wh", now);
+            for (MachineEnergyMeasurement m : parse(payload)) {
+                consumer.accept(m);
             }
         } catch (Exception e) {
             LOG.warn("[{}] Failed to parse Shelly payload", deviceId, e);
@@ -121,14 +129,46 @@ public class ShellyMqttIngestor {
         }
     }
 
-    
-    private void emit(MeasurementType type, double value, String unit, Instant timestamp) {
-        consumer.accept(new MachineEnergyMeasurement(
-            sourceId, deviceId, type, value, unit, timestamp, MeasurementQuality.VALID));
+    /**
+     * Parses a Shelly status payload. Gen2 names are preferred; Gen1 names are
+     * accepted as fallback. Returns an empty list if the JSON is valid but
+     * contains neither pair of fields.
+     *
+     * @throws Exception if the payload is not valid JSON
+     */
+    List<MachineEnergyMeasurement> parse(String json) throws Exception {
+        JsonNode node = MAPPER.readTree(json);
+        Instant now = Instant.now();
+        List<MachineEnergyMeasurement> out = new ArrayList<>(2);
+
+        if (node.has("total_act_power")) {
+            out.add(build(MeasurementType.CURRENT_POWER,
+                node.get("total_act_power").asDouble(), "W", now));
+        } else if (node.has("power")) {
+            out.add(build(MeasurementType.CURRENT_POWER,
+                node.get("power").asDouble(), "W", now));
+        }
+
+        if (node.has("total_act")) {
+            out.add(build(MeasurementType.CUMULATIVE_ENERGY,
+                node.get("total_act").asDouble(), "Wh", now));
+        } else if (node.has("total")) {
+            out.add(build(MeasurementType.CUMULATIVE_ENERGY,
+                node.get("total").asDouble(), "Wh", now));
+        }
+
+        return out;
+    }
+
+    private MachineEnergyMeasurement build(MeasurementType type,
+                                           double value,
+                                           String unit,
+                                           Instant timestamp) {
+        return new MachineEnergyMeasurement(
+            sourceId, deviceId, type, value, unit, timestamp, MeasurementQuality.VALID);
     }
 
     private void notifyError(Throwable t) {
         if (errorConsumer != null) errorConsumer.accept(t);
     }
 }
- 

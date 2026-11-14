@@ -17,16 +17,6 @@ import org.slf4j.LoggerFactory;
 import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Thin OPC UA server for the Energy Aggregator.
- * 
- * <p>Lifecycle:</p>
- * <ol>
- *   <li>{@link #start()} — bind endpoint, initialize namespace, then accept updates.</li>
- *   <li>{@link #applyUpdate(MappedModelUpdate)} — delegate to {@link EnergyNamespace}.</li>
- *   <li>{@link #stop()} — shut down cleanly; no further updates accepted.</li>
- * </ol>
- */
 public class EnergyAggregatorServer {
 
     private static final Logger LOG = LoggerFactory.getLogger(EnergyAggregatorServer.class);
@@ -46,45 +36,29 @@ public class EnergyAggregatorServer {
         this.serverName = serverName;
     }
 
-    // -----------------------------------------------------------------
-    // Lifecycle
-    // -----------------------------------------------------------------
-
-    /**
-     * Starts the server. Order matters: initialize namespace, start server, then accept updates.
-     */
     public void start() throws Exception {
-        // 1. Build the endpoint configuration
         EndpointConfiguration endpoint = EndpointConfiguration.newBuilder()
             .setBindAddress(host)
             .setBindPort(port)
-            .setPath("/")
+            .setPath("/")                              // oktoflow's generated connector uses "/"
             .setSecurityPolicy(SecurityPolicy.None)
             .setSecurityMode(MessageSecurityMode.None)
             .addTokenPolicies(new UserTokenPolicy(
-                "anonymous",
-                UserTokenType.Anonymous,
-                null, null, null))
+                "anonymous", UserTokenType.Anonymous, null, null, null))
             .build();
 
-        // 2. Build the server configuration
-        // Note: setEndpoints requires a Set<EndpointConfiguration>
         OpcUaServerConfig config = OpcUaServerConfig.builder()
             .setApplicationUri("urn:iip:energy:aggregator:" + serverName)
             .setApplicationName(LocalizedText.english("Energy Aggregator"))
             .setEndpoints(Collections.singleton(endpoint))
-            .setIdentityValidator(AnonymousIdentityValidator.INSTANCE) // Milo 0.6.4 style
+            .setIdentityValidator(AnonymousIdentityValidator.INSTANCE)
             .build();
 
-        // 3. Create and start the server
         server = new OpcUaServer(config);
-
-        // 4. Initialize the namespace BEFORE starting the server
         namespace = new EnergyNamespace(server);
         namespace.initialize();
-        namespace.startup();
+        namespace.startup();                           // required: register the namespace
 
-        // 5. Start
         server.startup().get(10, TimeUnit.SECONDS);
         running = true;
         acceptingUpdates = true;
@@ -92,11 +66,14 @@ public class EnergyAggregatorServer {
         LOG.info("EnergyAggregatorServer started at {}", getEndpointUrl());
     }
 
-    /** Stops the server and prevents further updates. */
     public void stop() {
         acceptingUpdates = false;
         if (namespace != null) {
-            namespace.shutdown();
+            try {
+                namespace.shutdown();
+            } catch (Exception e) {
+                LOG.warn("Error during namespace shutdown", e);
+            }
         }
         if (server != null) {
             try {
@@ -109,27 +86,16 @@ public class EnergyAggregatorServer {
         running = false;
     }
 
-    // -----------------------------------------------------------------
-    // Update application
-    // -----------------------------------------------------------------
-
-    /**
-     * Applies a mapped update. Rejects updates after {@link #stop()} or before {@link #start()}.
-     */
     public void applyUpdate(MappedModelUpdate update) throws EnergyNamespace.UnknownTargetException {
-        if (!acceptingUpdates) {
-            throw new IllegalStateException("Server is not accepting updates");
-        }
+        if (!acceptingUpdates) throw new IllegalStateException("Server is not accepting updates");
         namespace.applyUpdate(update);
     }
 
-    // -----------------------------------------------------------------
-    // Accessors
-    // -----------------------------------------------------------------
-
     public boolean isRunning() { return running; }
+
     public String getEndpointUrl() {
-    	return "opc.tcp://" + host + ":" + port + "/";
+        return "opc.tcp://" + host + ":" + port + "/";
     }
+
     public EnergyNamespace getNamespace() { return namespace; }
 }

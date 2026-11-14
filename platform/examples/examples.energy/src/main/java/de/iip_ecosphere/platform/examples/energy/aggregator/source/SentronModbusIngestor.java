@@ -5,8 +5,8 @@ import de.iip_ecosphere.platform.examples.energy.aggregator.model.MeasurementQua
 import de.iip_ecosphere.platform.examples.energy.aggregator.model.MeasurementType;
 
 import net.wimpi.modbus.io.ModbusTCPTransaction;
-import net.wimpi.modbus.msg.ReadInputRegistersRequest;
-import net.wimpi.modbus.msg.ReadInputRegistersResponse;
+import net.wimpi.modbus.msg.ReadMultipleRegistersRequest;
+import net.wimpi.modbus.msg.ReadMultipleRegistersResponse;
 import net.wimpi.modbus.net.TCPMasterConnection;
 
 import org.slf4j.Logger;
@@ -21,14 +21,27 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 
 /**
- * ModbusTCP ingestor for the Siemens Sentron PAC.
+ * ModbusTCP ingestor for the Siemens Sentron PAC (PAC4200).
+ *
+ * <p>Reads holding registers (Modbus function 03) at 200 ms intervals,
+ * decodes FLOAT32 total active power (registers 65–66) and FLOAT64 imported
+ * active energy tariff 1 (registers 801–804), and emits one
+ * {@link MachineEnergyMeasurement} per value.</p>
+ *
+ * <p>Register map: IFW Telegraf configuration, byte order big-endian
+ * (ABCD / ABCDEFGH).</p>
  */
 public class SentronModbusIngestor {
 
     private static final Logger LOG = LoggerFactory.getLogger(SentronModbusIngestor.class);
 
-    private final String sourceId;
-    private final String deviceId;
+    /** FLOAT32, 2 registers, W — register 65. */
+    private static final int REG_TOTAL_ACT_POWER = 65;
+    /** FLOAT64, 4 registers, Wh — register 801. Verify unit with one real reading. */
+    private static final int REG_TOTAL_ACT_ENERGY = 801;
+
+    private final String sourceId;   // "ShellyPro3EM" / "SentronPAC" — the meter
+    private final String deviceId;   // "LatheNEF400" / "MarkingLaser" — the machine
     private final String host;
     private final int port;
     private final int unitId;
@@ -40,8 +53,6 @@ public class SentronModbusIngestor {
     private ScheduledFuture<?> task;
     private volatile boolean running = false;
     private volatile boolean connected = false;
-
-    private static final int REG_POWER_CONSUMPTION = 25;
 
     public SentronModbusIngestor(String sourceId,
                                  String deviceId,
@@ -61,7 +72,11 @@ public class SentronModbusIngestor {
         this.errorConsumer = errorConsumer;
     }
 
-    /** Verifies connectivity with a single probe connection. */
+    // -----------------------------------------------------------------
+    // Lifecycle
+    // -----------------------------------------------------------------
+
+    /** Single probe connection; the real polling opens its own connection per cycle. */
     public void connect() throws Exception {
         TCPMasterConnection probe = openConnection();
         try {
@@ -84,12 +99,8 @@ public class SentronModbusIngestor {
 
     public void stop() {
         running = false;
-        if (task != null) {
-            task.cancel(false);
-        }
-        if (scheduler != null) {
-            scheduler.shutdown();
-        }
+        if (task != null) task.cancel(false);
+        if (scheduler != null) scheduler.shutdown();
     }
 
     public void disconnect() {
@@ -101,31 +112,30 @@ public class SentronModbusIngestor {
         return connected;
     }
 
+    // -----------------------------------------------------------------
+    // Polling
+    // -----------------------------------------------------------------
+
     private void pollOnce() {
-        if (!running) {
-            return;
-        }
+        if (!running) return;
         TCPMasterConnection con = null;
         try {
             con = openConnection();
             connected = true;
-
-            ModbusTCPTransaction trans = new ModbusTCPTransaction(con);
-            ReadInputRegistersRequest req = new ReadInputRegistersRequest(REG_POWER_CONSUMPTION, 2);
-            req.setUnitID(unitId);
-            trans.setRequest(req);
-            trans.execute();
-
-            ReadInputRegistersResponse res = (ReadInputRegistersResponse) trans.getResponse();
-
-            int high = res.getRegisterValue(0);
-            int low = res.getRegisterValue(1);
-            float power = Float.intBitsToFloat((high << 16) | (low & 0xFFFF));
-
             Instant now = Instant.now();
+
+            int[] p = readHolding(con, REG_TOTAL_ACT_POWER, 2);
+            float power = decodeFloat32(p[0], p[1]);
             consumer.accept(new MachineEnergyMeasurement(
                 sourceId, deviceId,
                 MeasurementType.CURRENT_POWER, power, "W",
+                now, MeasurementQuality.VALID));
+
+            int[] e = readHolding(con, REG_TOTAL_ACT_ENERGY, 4);
+            double energy = decodeFloat64(e[0], e[1], e[2], e[3]);
+            consumer.accept(new MachineEnergyMeasurement(
+                sourceId, deviceId,
+                MeasurementType.CUMULATIVE_ENERGY, energy, "Wh",
                 now, MeasurementQuality.VALID));
 
         } catch (Exception e) {
@@ -147,16 +157,62 @@ public class SentronModbusIngestor {
         return con;
     }
 
+    /** Reads {@code count} holding registers (function 03) starting at {@code ref}. */
+    private int[] readHolding(TCPMasterConnection con, int ref, int count) throws Exception {
+        ModbusTCPTransaction trans = new ModbusTCPTransaction(con);
+        ReadMultipleRegistersRequest req = new ReadMultipleRegistersRequest(ref, count);
+        req.setUnitID(unitId);
+        trans.setRequest(req);
+        trans.execute();
+
+        ReadMultipleRegistersResponse res =
+            (ReadMultipleRegistersResponse) trans.getResponse();
+        int[] values = new int[count];
+        for (int i = 0; i < count; i++) {
+            values[i] = res.getRegisterValue(i);
+        }
+        return values;
+    }
+
+    /** Emits UNAVAILABLE for both measurement types on a failed poll. */
     private void emitBadQuality() {
+        Instant now = Instant.now();
         consumer.accept(new MachineEnergyMeasurement(
             sourceId, deviceId,
             MeasurementType.CURRENT_POWER, 0.0, "W",
-            Instant.now(), MeasurementQuality.UNAVAILABLE));
+            now, MeasurementQuality.UNAVAILABLE));
+        consumer.accept(new MachineEnergyMeasurement(
+            sourceId, deviceId,
+            MeasurementType.CUMULATIVE_ENERGY, 0.0, "Wh",
+            now, MeasurementQuality.UNAVAILABLE));
+    }
+    
+    
+    /** Test hook — do not use in production. */
+    void emitBadQualityForTest() {
+        emitBadQuality();
     }
 
     private void notifyError(Throwable t) {
-        if (errorConsumer != null) {
-            errorConsumer.accept(t);
-        }
+        if (errorConsumer != null) errorConsumer.accept(t);
+    }
+
+    // -----------------------------------------------------------------
+    // Decoders — package-private and static so they can be unit-tested
+    // without a live device.
+    // -----------------------------------------------------------------
+
+    /** Big-endian FLOAT32 from two 16-bit registers. */
+    static float decodeFloat32(int r0, int r1) {
+        return Float.intBitsToFloat(((r0 & 0xFFFF) << 16) | (r1 & 0xFFFF));
+    }
+
+    /** Big-endian FLOAT64 from four 16-bit registers. */
+    static double decodeFloat64(int r0, int r1, int r2, int r3) {
+        long bits = ((long) (r0 & 0xFFFF) << 48)
+                  | ((long) (r1 & 0xFFFF) << 32)
+                  | ((long) (r2 & 0xFFFF) << 16)
+                  |  (long) (r3 & 0xFFFF);
+        return Double.longBitsToDouble(bits);
     }
 }

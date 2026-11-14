@@ -36,6 +36,7 @@
       <version>1.7.25</version>
 	</dependency>
     
+    <!-- ModbusTCP client (Jamod, same library as connectors.modbustcpipv1) -->
     <dependency>
       <groupId>net.wimpi</groupId>
       <artifactId>jamod</artifactId>
@@ -46,6 +47,21 @@
       <artifactId>junit</artifactId>
       <scope>test</scope>
     </dependency>
+    
+    <dependency>
+	  <groupId>org.junit.jupiter</groupId>
+	  <artifactId>junit-jupiter-api</artifactId>
+	  <version>5.10.0</version>
+	  <scope>test</scope>
+	</dependency>
+	<dependency>
+	  <groupId>org.junit.jupiter</groupId>
+	  <artifactId>junit-jupiter-engine</artifactId>
+	  <version>5.10.0</version>
+	  <scope>test</scope>
+	</dependency>
+    
+    
     <dependency>
       <groupId>de.iip-ecosphere.platform</groupId>
       <artifactId>support</artifactId>
@@ -88,12 +104,8 @@
       <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
       <version>1.2.5</version>  <!-- verify against the version in connectors.mqttv3 -->
 	</dependency>
-	<!-- ModbusTCP client (j2mod, same library as the platform) -->
-	<dependency>
-	    <groupId>com.ghgande</groupId>
-	    <artifactId>j2mod</artifactId>
-	    <version>3.2.1</version>
-	</dependency>
+	
+	
 	
 	<!-- JSON (Jackson, managed by platformDependenciesBOM) -->
 	<dependency>

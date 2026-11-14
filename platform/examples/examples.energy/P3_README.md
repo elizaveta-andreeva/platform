@@ -1,82 +1,70 @@
-# P3 Source Ingestion — Integration Notes for P4
+# P3 Source Ingestion — current state
 
-## What This Provides
+## Where the code lives
 
-Source ingestion for four protocols, converting each into a unified
-`MachineEnergyMeasurement`, and an OPC UA server (`EnergyAggregatorServer`)
-that exposes the values.
+    aggregator/source/
+      ShellyMqttIngestor.java
+      SentronModbusIngestor.java
+      SourceConfig.java
+      SourceHealthMonitor.java
+    aggregator/server/
+      EnergyAggregatorServer.java
+      EnergyNamespace.java
+    EnergyAggregatorMain.java   (smoke test harness, not production)
 
-## Handover Boundary
+## How to run the smoke test
 
-    MQTT / Modbus / OPC UA
+    cd examples/examples.energy
+    mvn -U clean install -DskipTests
+    mvn exec:java -Dexec.mainClass=de.iip_ecosphere.platform.examples.energy.EnergyAggregatorMain
+
+Server address: `opc.tcp://127.0.0.1:4840/` (root, no path).
+
+Browse:
+
+    Objects → EnergyAggregator → Machines → LatheNEF400 → AcActivePowerTotal
+                                                      → AcActiveEnergyTotalImportLp
+                                → MarkingLaser → AcActivePowerTotal
+                                               → AcActiveEnergyTotalImportLp
+
+## How to run with ingestors
+
+    # Shelly over MQTT (Gen2 fields preferred, Gen1 fallback)
+    -Dp3.mqtt.enabled=true
+    -Dp3.mqtt.broker=tcp://localhost:1883
+    -Dp3.mqtt.topic=shellies/shellypro3em/+/emeter/0
+
+    # SENTRON over ModbusTCP (holding registers, FLOAT32 power 65–66, FLOAT64 energy 801–804)
+    -Dp3.modbus.enabled=true
+    -Dp3.modbus.host=b7-lasertisch.ifw.uni-hannover.de
+    -Dp3.modbus.port=502
+
+If neither `p3.mqtt.enabled` nor `p3.modbus.enabled` is set, the harness
+applies two hand-crafted updates to `LatheNEF400` so the server can be
+inspected alone.
+
+## Boundary with P4
+
+    MQTT / ModbusTCP / OPC UA
             ↓
-    MachineEnergyMeasurement     ← P3 owns this type (proposed contract)
+    aggregator.source.* → MachineEnergyMeasurement
             ↓
-    MappedModelUpdate            ← P3 owns this type
+    aggregator.core.EnergyAggregator → latest state per (deviceId, type)
             ↓
-    EnergyAggregatorServer       ← P3 owns the server
+    aggregator.mapping.OpcEnergyModelMapper → MappedModelUpdate
             ↓
-    OPC UA namespace (browsable) ← P4 will replace / extend this with the
-                                    full OPC 40001-4 model
+    aggregator.server.EnergyNamespace.applyUpdate → OPC UA address space
+            ↓
+    generated oktoflow OPC UA connector reads the values
 
-## Key Classes for P4
+## Known items to verify against the real device
 
-| Class | Package | Purpose |
-|-------|---------|---------|
-| `MachineEnergyMeasurement` | `...energy.model` | P3/P4 handover contract (PROPOSED — fields TBD) |
-| `MappedModelUpdate` | `...energy.model` | Server update message |
-| `EnergyAggregatorServer` | `...energy.server` | OPC UA server lifecycle |
-| `EnergyNamespace` | `...energy.server` | Address-space builder — P4 replaces this |
-
-## Integration Points for P4
-
-1. **Replace `EnergyNamespace.initialize()`** with the full OPC 40001-4
-   address space. The current implementation creates a minimal
-   `Machines/<source>/<var>` tree as a placeholder.
-
-2. **Replace `EnergyNamespace.applyUpdate()`** if the mapping from
-   `MappedModelUpdate` to OPC 40001-4 nodes needs a different scheme.
-
-3. **Agree on `MachineEnergyMeasurement` fields** — the current set is:
-   - `sourceId` (String)
-   - `timestamp` (long, epoch ms)
-   - `powerWatts` (double)
-   - `energyWh` (double)
-   - `machineState` (String: RUNNING / IDLE / OFF / UNKNOWN)
-   - `quality` (enum: GOOD / BAD / UNCERTAIN / STALE)
-
-## How to Run the Server Standalone (Smoke Test)
-
-    mvn -U compile
-    mvn exec:java -Dexec.mainClass=\
-      de.iip_ecosphere.platform.examples.energy.server.ServerSmokeTest
-
-Then connect with UaExpert or `opcua-client` to:
-    opc.tcp://127.0.0.1:4840/energy-aggregator
-
-Browse: `Objects → EnergyAggregator → Machines → ShellyPro3EM → Power`
-
-## Dependencies Added
-
-- `org.eclipse.milo:sdk-server:0.6.4`
-- `org.eclipse.milo:sdk-core:0.6.4`
-- `org.eclipse.paho:org.eclipse.paho.client.mqttv3:<platform version>`
-- Modbus client (pending — see pom.xml)
-
-## Not Included (Out of Scope for P3)
-
-- Aggregator logic (P4)
-- OPC 40001-4 information model (P4)
-- Persistent storage (P4)
-- Real device validation (later phase)
-
-## Status
-
-- Compiles: yes / no (update this)
-- Server smoke test: passing / pending
-- MQTT ingestion: passing / pending
-- Modbus ingestion: passing / pending
-
-## Contact
-
-P3 
+- Register offset: IFW's Telegraf map uses 65 and 801. Some Modbus
+  libraries are 0-based; if readings look wrong, try 64 and 800.
+- Unit of `AcActiveEnergyTotalImportLp`: currently emitted as `Wh`.
+  Confirm from one real reading or the PAC4200 manual; change to `kWh`
+  in the ingestor if the device is in kWh (the mapper normalizes).
+- Shelly topic: Gen2 typically publishes on `<device-id>/status/em:0`
+  (power) and `<device-id>/status/emdata:0` (energy). Subscribe to
+  both, or one topic that carries both fields. The parser accepts
+  either shape.
