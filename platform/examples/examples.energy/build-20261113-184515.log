@@ -1,924 +1,0 @@
-[[1;34mINFO[m] Scanning for projects...
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/platformDependenciesBOM/0.8.2-SNAPSHOT/maven-metadata.xml
-Progress (1): 840 B                   Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/platformDependenciesBOM/0.8.2-SNAPSHOT/maven-metadata.xml (840 B at 936 B/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/platformDependenciesBOM/0.8.2-SNAPSHOT/platformDependenciesBOM-0.8.2-20261113.143504-87.pom
-Progress (1): 4.1/8.7 kBProgress (1): 7.8/8.7 kBProgress (1): 8.7 kB                        Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/platformDependenciesBOM/0.8.2-SNAPSHOT/platformDependenciesBOM-0.8.2-20261113.143504-87.pom (8.7 kB at 83 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/platformDependencies/0.8.2-SNAPSHOT/maven-metadata.xml
-Progress (1): 837 B                   Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/platformDependencies/0.8.2-SNAPSHOT/maven-metadata.xml (837 B at 12 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/platformDependencies/0.8.2-SNAPSHOT/platformDependencies-0.8.2-20261113.143502-88.pom
-Progress (1): 3.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/platformDependencies/0.8.2-SNAPSHOT/platformDependencies-0.8.2-20261113.143502-88.pom (3.7 kB at 21 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/toolsDependencies/0.8.2-SNAPSHOT/maven-metadata.xml
-Progress (1): 834 B                   Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/toolsDependencies/0.8.2-SNAPSHOT/maven-metadata.xml (834 B at 5.9 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/toolsDependencies/0.8.2-SNAPSHOT/toolsDependencies-0.8.2-20261113.143435-38.pom
-Progress (1): 4.1/26 kBProgress (1): 7.8/26 kBProgress (1): 12/26 kB Progress (1): 16/26 kBProgress (1): 20/26 kBProgress (1): 24/26 kBProgress (1): 26 kB                      Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/toolsDependencies/0.8.2-SNAPSHOT/toolsDependencies-0.8.2-20261113.143435-38.pom (26 kB at 145 kB/s)
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m-------------< [0;36mde.iip-ecosphere.platform:examples.energy[0;1m >--------------[m
-[[1;34mINFO[m] [1mBuilding Energy OPC-UA 0.8.2-SNAPSHOT[m
-[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
-Downloading from SSE-plugins: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/invoker-plugin/0.8.2-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.9 kB                    Downloaded from SSE-plugins: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/invoker-plugin/0.8.2-SNAPSHOT/maven-metadata.xml (1.9 kB at 13 kB/s)
-Downloading from SSE-plugins: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/invoker-plugin/0.8.2-SNAPSHOT/invoker-plugin-0.8.2-20261113.143446-59.pom
-Progress (1): 3.9 kB                    Downloaded from SSE-plugins: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/invoker-plugin/0.8.2-SNAPSHOT/invoker-plugin-0.8.2-20261113.143446-59.pom (3.9 kB at 44 kB/s)
-Downloading from SSE-plugins: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/toolsDependencies/0.8.2-SNAPSHOT/maven-metadata.xml
-Progress (1): 834 B                   Downloaded from SSE-plugins: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/toolsDependencies/0.8.2-SNAPSHOT/maven-metadata.xml (834 B at 7.0 kB/s)
-Downloading from SSE-plugins: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/toolsDependencies/0.8.2-SNAPSHOT/toolsDependencies-0.8.2-20261113.143435-38.pom
-Downloaded from SSE-plugins: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/toolsDependencies/0.8.2-SNAPSHOT/toolsDependencies-0.8.2-20261113.143435-38.pom (0 B at 0 B/s)
-Downloading from SSE-plugins: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/invoker-plugin/0.8.2-SNAPSHOT/invoker-plugin-0.8.2-20261113.143446-59.jar
-Progress (1): 4.1/24 kBProgress (1): 7.8/24 kBProgress (1): 12/24 kB Progress (1): 16/24 kBProgress (1): 20/24 kBProgress (1): 24/24 kBProgress (1): 24 kB                      Downloaded from SSE-plugins: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/invoker-plugin/0.8.2-SNAPSHOT/invoker-plugin-0.8.2-20261113.143446-59.jar (24 kB at 162 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/connectors/0.8.2-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.9 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/connectors/0.8.2-SNAPSHOT/maven-metadata.xml (1.9 kB at 30 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/connectors/0.8.2-SNAPSHOT/connectors-0.8.2-20261113.144302-97.pom
-Progress (1): 4.1/4.9 kBProgress (1): 4.9 kB                        Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/connectors/0.8.2-SNAPSHOT/connectors-0.8.2-20261113.144302-97.pom (4.9 kB at 83 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/transport/0.8.2-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.9 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/transport/0.8.2-SNAPSHOT/maven-metadata.xml (1.9 kB at 14 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/transport/0.8.2-SNAPSHOT/transport-0.8.2-20261113.144141-91.pom
-Progress (1): 4.1/7.0 kBProgress (1): 7.0 kB                        Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/transport/0.8.2-SNAPSHOT/transport-0.8.2-20261113.144141-91.pom (7.0 kB at 44 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support.aas/0.8.2-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.9 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support.aas/0.8.2-SNAPSHOT/maven-metadata.xml (1.9 kB at 23 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support.aas/0.8.2-SNAPSHOT/support.aas-0.8.2-20261113.143600-95.pom
-Progress (1): 2.1 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support.aas/0.8.2-SNAPSHOT/support.aas-0.8.2-20261113.143600-95.pom (2.1 kB at 18 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support/0.8.2-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.9 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support/0.8.2-SNAPSHOT/maven-metadata.xml (1.9 kB at 27 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support/0.8.2-SNAPSHOT/support-0.8.2-20261113.143536-94.pom
-Progress (1): 2.9 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support/0.8.2-SNAPSHOT/support-0.8.2-20261113.143536-94.pom (2.9 kB at 20 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support.boot/0.8.2-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.9 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support.boot/0.8.2-SNAPSHOT/maven-metadata.xml (1.9 kB at 35 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support.boot/0.8.2-SNAPSHOT/support.boot-0.8.2-20261113.143509-95.pom
-Progress (1): 2.8 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support.boot/0.8.2-SNAPSHOT/support.boot-0.8.2-20261113.143509-95.pom (2.8 kB at 23 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/tools.lib/0.8.2-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.9 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/tools.lib/0.8.2-SNAPSHOT/maven-metadata.xml (1.9 kB at 14 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/tools.lib/0.8.2-SNAPSHOT/tools.lib-0.8.2-20261113.143437-42.pom
-Progress (1): 974 B                   Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/tools.lib/0.8.2-SNAPSHOT/tools.lib-0.8.2-20261113.143437-42.pom (974 B at 15 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support.iip-aas/0.8.2-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.9 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support.iip-aas/0.8.2-SNAPSHOT/maven-metadata.xml (1.9 kB at 15 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support.iip-aas/0.8.2-SNAPSHOT/support.iip-aas-0.8.2-20261113.143855-90.pom
-Progress (1): 4.1/4.6 kBProgress (1): 4.6 kB                        Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support.iip-aas/0.8.2-SNAPSHOT/support.iip-aas-0.8.2-20261113.143855-90.pom (4.6 kB at 60 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/connectors.opcuav1/0.8.2-SNAPSHOT/maven-metadata.xml
-Progress (1): 2.1 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/connectors.opcuav1/0.8.2-SNAPSHOT/maven-metadata.xml (2.1 kB at 15 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/connectors.opcuav1/0.8.2-SNAPSHOT/connectors.opcuav1-0.8.2-20261113.144824-97.pom
-Progress (1): 4.1/5.0 kBProgress (1): 5.0 kB                        Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/connectors.opcuav1/0.8.2-SNAPSHOT/connectors.opcuav1-0.8.2-20261113.144824-97.pom (5.0 kB at 66 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/services.environment/0.8.2-SNAPSHOT/maven-metadata.xml
-Progress (1): 2.1 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/services.environment/0.8.2-SNAPSHOT/maven-metadata.xml (2.1 kB at 38 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/services.environment/0.8.2-SNAPSHOT/services.environment-0.8.2-20261113.143928-97.pom
-Progress (1): 4.1/10 kBProgress (1): 7.8/10 kBProgress (1): 10 kB                       Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/services.environment/0.8.2-SNAPSHOT/services.environment-0.8.2-20261113.143928-97.pom (10 kB at 180 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/configuration.easy/0.8.2-SNAPSHOT/maven-metadata.xml
-Progress (1): 2.8 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/configuration.easy/0.8.2-SNAPSHOT/maven-metadata.xml (2.8 kB at 31 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/runtime/EASy-dependencies/1.3.12-SNAPSHOT/maven-metadata.xml
-Progress (1): 621 B                   Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/runtime/EASy-dependencies/1.3.12-SNAPSHOT/maven-metadata.xml (621 B at 5.2 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/dependencies/1.3.12-SNAPSHOT/maven-metadata.xml
-Downloading from sse: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/dependencies/1.3.12-SNAPSHOT/maven-metadata.xml
-Progress (1): 606 B                   Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/dependencies/1.3.12-SNAPSHOT/maven-metadata.xml (606 B at 7.4 kB/s)
-Progress (1): 606 B                   Downloaded from sse: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/dependencies/1.3.12-SNAPSHOT/maven-metadata.xml (606 B at 2.6 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.basics/1.3.12-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.basics/1.3.12-SNAPSHOT/maven-metadata.xml (1.7 kB at 13 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.varModel/1.3.12-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.varModel/1.3.12-SNAPSHOT/maven-metadata.xml (1.7 kB at 18 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/de.uni_hildesheim.sse.ivml/1.3.12-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/de.uni_hildesheim.sse.ivml/1.3.12-SNAPSHOT/maven-metadata.xml (1.7 kB at 13 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/commons-logging/commons-logging/maven-metadata.xml
-Downloading from central: https://repo.maven.apache.org/maven2/commons-logging/commons-logging/maven-metadata.xml
-Progress (1): 879 B                   Downloaded from central: https://repo.maven.apache.org/maven2/commons-logging/commons-logging/maven-metadata.xml (879 B at 2.2 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/org/eclipse/platform/org.eclipse.osgi/maven-metadata.xml
-Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/platform/org.eclipse.osgi/maven-metadata.xml
-Progress (1): 1.6 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/platform/org.eclipse.osgi/maven-metadata.xml (1.6 kB at 7.0 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/org/eclipse/xtext/org.eclipse.xtext/maven-metadata.xml
-Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/xtext/org.eclipse.xtext/maven-metadata.xml
-Progress (1): 4.1 kBProgress (1): 5.8 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/xtext/org.eclipse.xtext/maven-metadata.xml (5.8 kB at 10 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/org/eclipse/emf/org.eclipse.emf.common/maven-metadata.xml
-Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/emf/org.eclipse.emf.common/maven-metadata.xml
-Downloading from sonatype-snapshots: https://oss.sonatype.org/content/repositories/snapshots/org/eclipse/emf/org.eclipse.emf.common/maven-metadata.xml
-Progress (1): 1.7 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/emf/org.eclipse.emf.common/maven-metadata.xml (1.7 kB at 10 kB/s)
-Downloading from sonatype-snapshots: https://oss.sonatype.org/content/repositories/snapshots/org/eclipse/emf/org.eclipse.emf.ecore/maven-metadata.xml
-Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/emf/org.eclipse.emf.ecore/maven-metadata.xml
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/org/eclipse/emf/org.eclipse.emf.ecore/maven-metadata.xml
-Progress (1): 1.7 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/emf/org.eclipse.emf.ecore/maven-metadata.xml (1.7 kB at 9.6 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/org/antlr/antlr-runtime/maven-metadata.xml
-Downloading from central: https://repo.maven.apache.org/maven2/org/antlr/antlr-runtime/maven-metadata.xml
-Progress (1): 881 B                   Downloaded from central: https://repo.maven.apache.org/maven2/org/antlr/antlr-runtime/maven-metadata.xml (881 B at 3.7 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/org/eclipse/platform/org.eclipse.equinox.common/maven-metadata.xml
-Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/platform/org.eclipse.equinox.common/maven-metadata.xml
-Progress (1): 1.4 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/platform/org.eclipse.equinox.common/maven-metadata.xml (1.4 kB at 5.2 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/org/eclipse/platform/org.eclipse.core.runtime/maven-metadata.xml
-Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/platform/org.eclipse.core.runtime/maven-metadata.xml
-Progress (1): 1.4 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/platform/org.eclipse.core.runtime/maven-metadata.xml (1.4 kB at 4.3 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.dslCore/1.3.12-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.dslCore/1.3.12-SNAPSHOT/maven-metadata.xml (1.7 kB at 12 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/org/eclipse/platform/org.eclipse.core.resources/maven-metadata.xml
-Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/platform/org.eclipse.core.resources/maven-metadata.xml
-Progress (1): 1.5 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/platform/org.eclipse.core.resources/maven-metadata.xml (1.5 kB at 9.3 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/de.uni_hildesheim.sse.vil.buildlang/1.3.12-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/de.uni_hildesheim.sse.vil.buildlang/1.3.12-SNAPSHOT/maven-metadata.xml (1.7 kB at 21 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.core/1.3.12-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.core/1.3.12-SNAPSHOT/maven-metadata.xml (1.7 kB at 15 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.reasoning.core/1.3.12-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.reasoning.core/1.3.12-SNAPSHOT/maven-metadata.xml (1.7 kB at 28 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/org/apache/ant/ant/maven-metadata.xml
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/ant/ant/maven-metadata.xml
-Progress (1): 1.7 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/ant/ant/maven-metadata.xml (1.7 kB at 4.9 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/de.uni_hildesheim.sse.vil.expressions/1.3.12-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/de.uni_hildesheim.sse.vil.expressions/1.3.12-SNAPSHOT/maven-metadata.xml (1.7 kB at 26 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/org/apache/felix/org.apache.felix.scr/maven-metadata.xml
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/felix/org.apache.felix.scr/maven-metadata.xml
-Progress (1): 1.7 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/felix/org.apache.felix.scr/maven-metadata.xml (1.7 kB at 6.2 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/de.uni_hildesheim.sse.vil.templatelang/1.3.12-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/de.uni_hildesheim.sse.vil.templatelang/1.3.12-SNAPSHOT/maven-metadata.xml (1.7 kB at 12 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.reasoning.sseReasoner/1.3.12-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.reasoning.sseReasoner/1.3.12-SNAPSHOT/maven-metadata.xml (1.7 kB at 27 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.producer.core/1.3.12-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.producer.core/1.3.12-SNAPSHOT/maven-metadata.xml (1.7 kB at 13 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.producer.eclipse/1.3.12-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.producer.eclipse/1.3.12-SNAPSHOT/maven-metadata.xml (1.7 kB at 11 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/jdt/org.eclipse.jdt.core/maven-metadata.xml
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/org/eclipse/jdt/org.eclipse.jdt.core/maven-metadata.xml
-Progress (1): 1.7 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/jdt/org.eclipse.jdt.core/maven-metadata.xml (1.7 kB at 9.1 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.loader/1.3.12-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.9 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.loader/1.3.12-SNAPSHOT/maven-metadata.xml (1.9 kB at 13 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.maven/1.3.12-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.maven/1.3.12-SNAPSHOT/maven-metadata.xml (1.7 kB at 28 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.java/1.3.12-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.java/1.3.12-SNAPSHOT/maven-metadata.xml (1.7 kB at 13 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/platform/org.eclipse.text/maven-metadata.xml
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/org/eclipse/platform/org.eclipse.text/maven-metadata.xml
-Progress (1): 1.3 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/platform/org.eclipse.text/maven-metadata.xml (1.3 kB at 7.4 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/org/eclipse/platform/org.eclipse.core.filesystem/maven-metadata.xml
-Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/platform/org.eclipse.core.filesystem/maven-metadata.xml
-Progress (1): 1.2 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/platform/org.eclipse.core.filesystem/maven-metadata.xml (1.2 kB at 11 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.python/1.3.12-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.python/1.3.12-SNAPSHOT/maven-metadata.xml (1.7 kB at 14 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.ant/1.3.12-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.ant/1.3.12-SNAPSHOT/maven-metadata.xml (1.7 kB at 7.4 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/org/apache/ant/ant-launcher/maven-metadata.xml
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/ant/ant-launcher/maven-metadata.xml
-Progress (1): 1.7 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/ant/ant-launcher/maven-metadata.xml (1.7 kB at 5.7 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.docker/1.3.12-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.docker/1.3.12-SNAPSHOT/maven-metadata.xml (1.7 kB at 15 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.lxc/1.3.12-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.lxc/1.3.12-SNAPSHOT/maven-metadata.xml (1.7 kB at 29 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.json/1.3.12-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.json/1.3.12-SNAPSHOT/maven-metadata.xml (1.7 kB at 11 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.yaml/1.3.12-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.7 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/net/ssehub/easy/net.ssehub.easy.instantiation.yaml/1.3.12-SNAPSHOT/maven-metadata.xml (1.7 kB at 14 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/configuration.iface/0.8.2-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.9 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/configuration.iface/0.8.2-SNAPSHOT/maven-metadata.xml (1.9 kB at 28 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/configuration.iface/0.8.2-SNAPSHOT/configuration.iface-0.8.2-20261113.145213-17.pom
-Progress (1): 1.2 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/configuration.iface/0.8.2-SNAPSHOT/configuration.iface-0.8.2-20261113.145213-17.pom (1.2 kB at 9.8 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/deviceMgt/0.8.2-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.9 kB                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/deviceMgt/0.8.2-SNAPSHOT/maven-metadata.xml (1.9 kB at 35 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/deviceMgt/0.8.2-SNAPSHOT/deviceMgt-0.8.2-20261113.144434-97.pom
-Progress (1): 4.1/4.8 kBProgress (1): 4.8 kB                        Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/deviceMgt/0.8.2-SNAPSHOT/deviceMgt-0.8.2-20261113.144434-97.pom (4.8 kB at 45 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/transport/0.8.2-SNAPSHOT/transport-0.8.2-20261113.144141-91.jar
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/connectors/0.8.2-SNAPSHOT/connectors-0.8.2-20261113.144302-97.jar
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support.aas/0.8.2-SNAPSHOT/support.aas-0.8.2-20261113.143600-95.jar
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support.iip-aas/0.8.2-SNAPSHOT/support.iip-aas-0.8.2-20261113.143855-90.jar
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/connectors.opcuav1/0.8.2-SNAPSHOT/connectors.opcuav1-0.8.2-20261113.144824-97.jar
-Progress (1): 4.1/147 kBProgress (1): 7.8/147 kBProgress (1): 12/147 kB Progress (1): 16/147 kBProgress (1): 20/147 kBProgress (1): 24/147 kBProgress (1): 28/147 kBProgress (1): 32/147 kBProgress (1): 36/147 kBProgress (1): 40/147 kBProgress (1): 44/147 kBProgress (1): 48/147 kBProgress (1): 52/147 kBProgress (1): 56/147 kBProgress (1): 60/147 kBProgress (1): 64/147 kBProgress (1): 68/147 kBProgress (1): 72/147 kBProgress (1): 76/147 kBProgress (1): 80/147 kBProgress (1): 84/147 kBProgress (1): 88/147 kBProgress (1): 92/147 kBProgress (1): 96/147 kBProgress (1): 100/147 kBProgress (1): 104/147 kBProgress (1): 108/147 kBProgress (1): 112/147 kBProgress (1): 116/147 kBProgress (1): 120/147 kBProgress (1): 124/147 kBProgress (1): 128/147 kBProgress (1): 132/147 kBProgress (1): 136/147 kBProgress (1): 140/147 kBProgress (1): 144/147 kBProgress (1): 147 kB    Progress (2): 147 kB | 4.1/110 kBProgress (2): 147 kB | 7.8/110 kBProgress (2): 147 kB | 12/110 kB Progress (2): 147 kB | 16/110 kBProgress (3): 147 kB | 16/110 kB | 4.1/35 kBProgress (3): 147 kB | 16/110 kB | 7.8/35 kB                                            Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/connectors/0.8.2-SNAPSHOT/connectors-0.8.2-20261113.144302-97.jar (147 kB at 483 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/services.environment/0.8.2-SNAPSHOT/services.environment-0.8.2-20261113.143928-97.jar
-Progress (2): 16/110 kB | 12/35 kBProgress (2): 16/110 kB | 16/35 kBProgress (2): 16/110 kB | 20/35 kBProgress (2): 20/110 kB | 20/35 kBProgress (2): 24/110 kB | 20/35 kBProgress (2): 28/110 kB | 20/35 kBProgress (2): 32/110 kB | 20/35 kBProgress (2): 32/110 kB | 24/35 kBProgress (2): 32/110 kB | 28/35 kBProgress (2): 32/110 kB | 32/35 kBProgress (3): 32/110 kB | 32/35 kB | 4.1/329 kBProgress (4): 32/110 kB | 32/35 kB | 4.1/329 kB | 4.1/426 kBProgress (4): 32/110 kB | 32/35 kB | 4.1/329 kB | 7.8/426 kBProgress (4): 32/110 kB | 32/35 kB | 4.1/329 kB | 12/426 kB Progress (4): 32/110 kB | 35 kB | 4.1/329 kB | 12/426 kB   Progress (5): 32/110 kB | 35 kB | 4.1/329 kB | 12/426 kB | 4.1/96 kBProgress (5): 36/110 kB | 35 kB | 4.1/329 kB | 12/426 kB | 4.1/96 kBProgress (5): 40/110 kB | 35 kB | 4.1/329 kB | 12/426 kB | 4.1/96 kBProgress (5): 40/110 kB | 35 kB | 7.8/329 kB | 12/426 kB | 4.1/96 kBProgress (5): 44/110 kB | 35 kB | 7.8/329 kB | 12/426 kB | 4.1/96 kBProgress (5): 48/110 kB | 35 kB | 7.8/329 kB | 12/426 kB | 4.1/96 kBProgress (5): 48/110 kB | 35 kB | 12/329 kB | 12/426 kB | 4.1/96 kB Progress (5): 48/110 kB | 35 kB | 16/329 kB | 12/426 kB | 4.1/96 kBProgress (5): 48/110 kB | 35 kB | 20/329 kB | 12/426 kB | 4.1/96 kBProgress (5): 48/110 kB | 35 kB | 24/329 kB | 12/426 kB | 4.1/96 kBProgress (5): 48/110 kB | 35 kB | 24/329 kB | 12/426 kB | 7.8/96 kBProgress (5): 48/110 kB | 35 kB | 24/329 kB | 12/426 kB | 12/96 kB Progress (5): 48/110 kB | 35 kB | 24/329 kB | 12/426 kB | 16/96 kBProgress (5): 48/110 kB | 35 kB | 24/329 kB | 12/426 kB | 20/96 kBProgress (5): 48/110 kB | 35 kB | 24/329 kB | 12/426 kB | 24/96 kBProgress (5): 48/110 kB | 35 kB | 24/329 kB | 12/426 kB | 28/96 kBProgress (5): 48/110 kB | 35 kB | 24/329 kB | 16/426 kB | 28/96 kBProgress (5): 48/110 kB | 35 kB | 24/329 kB | 20/426 kB | 28/96 kBProgress (5): 48/110 kB | 35 kB | 24/329 kB | 24/426 kB | 28/96 kBProgress (5): 48/110 kB | 35 kB | 28/329 kB | 24/426 kB | 28/96 kBProgress (5): 48/110 kB | 35 kB | 32/329 kB | 24/426 kB | 28/96 kBProgress (5): 52/110 kB | 35 kB | 32/329 kB | 24/426 kB | 28/96 kBProgress (5): 52/110 kB | 35 kB | 32/329 kB | 24/426 kB | 32/96 kBProgress (5): 52/110 kB | 35 kB | 32/329 kB | 24/426 kB | 36/96 kBProgress (5): 52/110 kB | 35 kB | 32/329 kB | 24/426 kB | 40/96 kBProgress (5): 56/110 kB | 35 kB | 32/329 kB | 24/426 kB | 40/96 kBProgress (5): 60/110 kB | 35 kB | 32/329 kB | 24/426 kB | 40/96 kBProgress (5): 64/110 kB | 35 kB | 32/329 kB | 24/426 kB | 40/96 kBProgress (5): 68/110 kB | 35 kB | 32/329 kB | 24/426 kB | 40/96 kBProgress (5): 68/110 kB | 35 kB | 36/329 kB | 24/426 kB | 40/96 kBProgress (5): 68/110 kB | 35 kB | 40/329 kB | 24/426 kB | 40/96 kBProgress (5): 68/110 kB | 35 kB | 40/329 kB | 24/426 kB | 44/96 kBProgress (5): 68/110 kB | 35 kB | 40/329 kB | 24/426 kB | 48/96 kBProgress (5): 68/110 kB | 35 kB | 40/329 kB | 28/426 kB | 48/96 kBProgress (5): 68/110 kB | 35 kB | 40/329 kB | 32/426 kB | 48/96 kBProgress (5): 68/110 kB | 35 kB | 40/329 kB | 32/426 kB | 52/96 kBProgress (5): 72/110 kB | 35 kB | 40/329 kB | 32/426 kB | 52/96 kBProgress (5): 72/110 kB | 35 kB | 40/329 kB | 32/426 kB | 56/96 kBProgress (5): 76/110 kB | 35 kB | 40/329 kB | 32/426 kB | 56/96 kBProgress (5): 80/110 kB | 35 kB | 40/329 kB | 32/426 kB | 56/96 kBProgress (5): 80/110 kB | 35 kB | 40/329 kB | 36/426 kB | 56/96 kBProgress (5): 80/110 kB | 35 kB | 40/329 kB | 40/426 kB | 56/96 kBProgress (5): 80/110 kB | 35 kB | 44/329 kB | 40/426 kB | 56/96 kBProgress (5): 80/110 kB | 35 kB | 48/329 kB | 40/426 kB | 56/96 kB                                                                  Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/connectors.opcuav1/0.8.2-SNAPSHOT/connectors.opcuav1-0.8.2-20261113.144824-97.jar (35 kB at 71 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/tools.lib/0.8.2-SNAPSHOT/tools.lib-0.8.2-20261113.143437-42.jar
-Progress (4): 80/110 kB | 48/329 kB | 44/426 kB | 56/96 kBProgress (4): 84/110 kB | 48/329 kB | 44/426 kB | 56/96 kBProgress (4): 88/110 kB | 48/329 kB | 44/426 kB | 56/96 kBProgress (4): 92/110 kB | 48/329 kB | 44/426 kB | 56/96 kBProgress (4): 96/110 kB | 48/329 kB | 44/426 kB | 56/96 kBProgress (4): 96/110 kB | 48/329 kB | 44/426 kB | 60/96 kBProgress (4): 96/110 kB | 48/329 kB | 48/426 kB | 60/96 kBProgress (4): 96/110 kB | 48/329 kB | 48/426 kB | 64/96 kBProgress (4): 96/110 kB | 48/329 kB | 52/426 kB | 64/96 kBProgress (4): 96/110 kB | 48/329 kB | 56/426 kB | 64/96 kBProgress (4): 96/110 kB | 48/329 kB | 56/426 kB | 68/96 kBProgress (4): 96/110 kB | 48/329 kB | 56/426 kB | 72/96 kBProgress (4): 96/110 kB | 48/329 kB | 60/426 kB | 72/96 kBProgress (4): 96/110 kB | 48/329 kB | 64/426 kB | 72/96 kBProgress (4): 96/110 kB | 48/329 kB | 64/426 kB | 76/96 kBProgress (4): 96/110 kB | 48/329 kB | 64/426 kB | 80/96 kBProgress (4): 96/110 kB | 48/329 kB | 68/426 kB | 80/96 kBProgress (4): 96/110 kB | 52/329 kB | 68/426 kB | 80/96 kBProgress (4): 96/110 kB | 52/329 kB | 68/426 kB | 84/96 kBProgress (4): 96/110 kB | 52/329 kB | 68/426 kB | 88/96 kBProgress (4): 96/110 kB | 52/329 kB | 68/426 kB | 92/96 kBProgress (4): 96/110 kB | 52/329 kB | 68/426 kB | 96/96 kBProgress (4): 96/110 kB | 52/329 kB | 68/426 kB | 96 kB   Progress (5): 96/110 kB | 52/329 kB | 68/426 kB | 96 kB | 4.1/26 kBProgress (5): 96/110 kB | 52/329 kB | 68/426 kB | 96 kB | 7.8/26 kBProgress (5): 96/110 kB | 52/329 kB | 68/426 kB | 96 kB | 12/26 kB Progress (5): 96/110 kB | 52/329 kB | 68/426 kB | 96 kB | 16/26 kBProgress (5): 100/110 kB | 52/329 kB | 68/426 kB | 96 kB | 16/26 kBProgress (5): 104/110 kB | 52/329 kB | 68/426 kB | 96 kB | 16/26 kBProgress (5): 104/110 kB | 52/329 kB | 72/426 kB | 96 kB | 16/26 kBProgress (5): 104/110 kB | 52/329 kB | 76/426 kB | 96 kB | 16/26 kBProgress (5): 104/110 kB | 52/329 kB | 80/426 kB | 96 kB | 16/26 kBProgress (5): 104/110 kB | 56/329 kB | 80/426 kB | 96 kB | 16/26 kBProgress (5): 104/110 kB | 60/329 kB | 80/426 kB | 96 kB | 16/26 kBProgress (5): 104/110 kB | 64/329 kB | 80/426 kB | 96 kB | 16/26 kBProgress (5): 104/110 kB | 68/329 kB | 80/426 kB | 96 kB | 16/26 kBProgress (5): 104/110 kB | 72/329 kB | 80/426 kB | 96 kB | 16/26 kBProgress (5): 104/110 kB | 76/329 kB | 80/426 kB | 96 kB | 16/26 kBProgress (5): 104/110 kB | 80/329 kB | 80/426 kB | 96 kB | 16/26 kBProgress (5): 104/110 kB | 84/329 kB | 80/426 kB | 96 kB | 16/26 kBProgress (5): 104/110 kB | 88/329 kB | 80/426 kB | 96 kB | 16/26 kBProgress (5): 108/110 kB | 88/329 kB | 80/426 kB | 96 kB | 16/26 kBProgress (5): 110 kB | 88/329 kB | 80/426 kB | 96 kB | 16/26 kB    Progress (5): 110 kB | 88/329 kB | 84/426 kB | 96 kB | 16/26 kBProgress (5): 110 kB | 88/329 kB | 88/426 kB | 96 kB | 16/26 kBProgress (5): 110 kB | 92/329 kB | 88/426 kB | 96 kB | 16/26 kBProgress (5): 110 kB | 92/329 kB | 92/426 kB | 96 kB | 16/26 kBProgress (5): 110 kB | 92/329 kB | 96/426 kB | 96 kB | 16/26 kBProgress (5): 110 kB | 92/329 kB | 96/426 kB | 96 kB | 20/26 kBProgress (5): 110 kB | 92/329 kB | 96/426 kB | 96 kB | 24/26 kBProgress (5): 110 kB | 92/329 kB | 96/426 kB | 96 kB | 26 kB                                                               Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/transport/0.8.2-SNAPSHOT/transport-0.8.2-20261113.144141-91.jar (96 kB at 148 kB/s)
-Progress (4): 110 kB | 96/329 kB | 96/426 kB | 26 kB                                                    Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support/0.8.2-SNAPSHOT/support-0.8.2-20261113.143536-94-tests.jar
-Progress (4): 110 kB | 100/329 kB | 96/426 kB | 26 kBProgress (4): 110 kB | 104/329 kB | 96/426 kB | 26 kBProgress (4): 110 kB | 104/329 kB | 100/426 kB | 26 kBProgress (4): 110 kB | 104/329 kB | 104/426 kB | 26 kBProgress (4): 110 kB | 108/329 kB | 104/426 kB | 26 kBProgress (4): 110 kB | 112/329 kB | 104/426 kB | 26 kBProgress (4): 110 kB | 116/329 kB | 104/426 kB | 26 kBProgress (4): 110 kB | 120/329 kB | 104/426 kB | 26 kBProgress (4): 110 kB | 124/329 kB | 104/426 kB | 26 kBProgress (4): 110 kB | 128/329 kB | 104/426 kB | 26 kBProgress (4): 110 kB | 132/329 kB | 104/426 kB | 26 kBProgress (4): 110 kB | 136/329 kB | 104/426 kB | 26 kBProgress (4): 110 kB | 136/329 kB | 108/426 kB | 26 kBProgress (4): 110 kB | 136/329 kB | 112/426 kB | 26 kBProgress (4): 110 kB | 140/329 kB | 112/426 kB | 26 kBProgress (4): 110 kB | 144/329 kB | 112/426 kB | 26 kBProgress (4): 110 kB | 144/329 kB | 116/426 kB | 26 kBProgress (4): 110 kB | 144/329 kB | 120/426 kB | 26 kBProgress (4): 110 kB | 144/329 kB | 124/426 kB | 26 kBProgress (4): 110 kB | 148/329 kB | 124/426 kB | 26 kBProgress (4): 110 kB | 152/329 kB | 124/426 kB | 26 kBProgress (4): 110 kB | 152/329 kB | 128/426 kB | 26 kBProgress (4): 110 kB | 156/329 kB | 128/426 kB | 26 kBProgress (4): 110 kB | 156/329 kB | 132/426 kB | 26 kBProgress (4): 110 kB | 160/329 kB | 132/426 kB | 26 kBProgress (4): 110 kB | 160/329 kB | 136/426 kB | 26 kBProgress (4): 110 kB | 160/329 kB | 140/426 kB | 26 kBProgress (4): 110 kB | 160/329 kB | 144/426 kB | 26 kBProgress (4): 110 kB | 160/329 kB | 148/426 kB | 26 kBProgress (4): 110 kB | 160/329 kB | 152/426 kB | 26 kBProgress (4): 110 kB | 160/329 kB | 156/426 kB | 26 kBProgress (4): 110 kB | 160/329 kB | 160/426 kB | 26 kBProgress (4): 110 kB | 160/329 kB | 164/426 kB | 26 kBProgress (4): 110 kB | 160/329 kB | 168/426 kB | 26 kBProgress (5): 110 kB | 160/329 kB | 168/426 kB | 26 kB | 4.1/184 kBProgress (5): 110 kB | 164/329 kB | 168/426 kB | 26 kB | 4.1/184 kB                                                                   Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support.iip-aas/0.8.2-SNAPSHOT/support.iip-aas-0.8.2-20261113.143855-90.jar (110 kB at 161 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support.boot/0.8.2-SNAPSHOT/support.boot-0.8.2-20261113.143509-95.jar
-Progress (4): 164/329 kB | 168/426 kB | 26 kB | 7.8/184 kBProgress (4): 164/329 kB | 168/426 kB | 26 kB | 12/184 kB Progress (4): 164/329 kB | 168/426 kB | 26 kB | 16/184 kBProgress (4): 168/329 kB | 168/426 kB | 26 kB | 16/184 kBProgress (4): 172/329 kB | 168/426 kB | 26 kB | 16/184 kBProgress (4): 176/329 kB | 168/426 kB | 26 kB | 16/184 kBProgress (4): 176/329 kB | 168/426 kB | 26 kB | 20/184 kBProgress (4): 176/329 kB | 168/426 kB | 26 kB | 24/184 kBProgress (4): 176/329 kB | 168/426 kB | 26 kB | 28/184 kBProgress (4): 176/329 kB | 168/426 kB | 26 kB | 32/184 kB                                                         Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/tools.lib/0.8.2-SNAPSHOT/tools.lib-0.8.2-20261113.143437-42.jar (26 kB at 37 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support.aas/0.8.2-SNAPSHOT/support.aas-0.8.2-20261113.143600-95-tests.jar
-Progress (3): 176/329 kB | 172/426 kB | 32/184 kBProgress (3): 180/329 kB | 172/426 kB | 32/184 kBProgress (3): 180/329 kB | 176/426 kB | 32/184 kBProgress (3): 180/329 kB | 180/426 kB | 32/184 kBProgress (3): 180/329 kB | 184/426 kB | 32/184 kBProgress (3): 184/329 kB | 184/426 kB | 32/184 kBProgress (3): 184/329 kB | 184/426 kB | 36/184 kBProgress (3): 188/329 kB | 184/426 kB | 36/184 kBProgress (3): 188/329 kB | 184/426 kB | 40/184 kBProgress (3): 192/329 kB | 184/426 kB | 40/184 kBProgress (3): 192/329 kB | 188/426 kB | 40/184 kBProgress (3): 192/329 kB | 192/426 kB | 40/184 kBProgress (3): 196/329 kB | 192/426 kB | 40/184 kBProgress (3): 200/329 kB | 192/426 kB | 40/184 kBProgress (3): 200/329 kB | 196/426 kB | 40/184 kBProgress (3): 200/329 kB | 200/426 kB | 40/184 kBProgress (3): 204/329 kB | 200/426 kB | 40/184 kBProgress (3): 204/329 kB | 200/426 kB | 44/184 kBProgress (3): 208/329 kB | 200/426 kB | 44/184 kBProgress (3): 212/329 kB | 200/426 kB | 44/184 kBProgress (3): 212/329 kB | 200/426 kB | 48/184 kBProgress (3): 212/329 kB | 200/426 kB | 52/184 kBProgress (3): 212/329 kB | 200/426 kB | 56/184 kBProgress (3): 216/329 kB | 200/426 kB | 56/184 kBProgress (3): 216/329 kB | 204/426 kB | 56/184 kBProgress (3): 216/329 kB | 208/426 kB | 56/184 kBProgress (3): 216/329 kB | 212/426 kB | 56/184 kBProgress (3): 216/329 kB | 216/426 kB | 56/184 kBProgress (3): 216/329 kB | 220/426 kB | 56/184 kBProgress (3): 216/329 kB | 224/426 kB | 56/184 kBProgress (3): 220/329 kB | 224/426 kB | 56/184 kBProgress (3): 224/329 kB | 224/426 kB | 56/184 kBProgress (3): 224/329 kB | 224/426 kB | 60/184 kBProgress (3): 228/329 kB | 224/426 kB | 60/184 kBProgress (3): 228/329 kB | 224/426 kB | 64/184 kBProgress (3): 228/329 kB | 224/426 kB | 68/184 kBProgress (3): 228/329 kB | 224/426 kB | 72/184 kBProgress (3): 232/329 kB | 224/426 kB | 72/184 kBProgress (3): 236/329 kB | 224/426 kB | 72/184 kBProgress (3): 240/329 kB | 224/426 kB | 72/184 kBProgress (3): 240/329 kB | 224/426 kB | 76/184 kBProgress (3): 240/329 kB | 224/426 kB | 80/184 kBProgress (3): 240/329 kB | 228/426 kB | 80/184 kBProgress (3): 240/329 kB | 232/426 kB | 80/184 kBProgress (3): 240/329 kB | 232/426 kB | 84/184 kBProgress (3): 240/329 kB | 232/426 kB | 88/184 kBProgress (3): 244/329 kB | 232/426 kB | 88/184 kBProgress (3): 248/329 kB | 232/426 kB | 88/184 kBProgress (3): 252/329 kB | 232/426 kB | 88/184 kBProgress (3): 256/329 kB | 232/426 kB | 88/184 kBProgress (3): 256/329 kB | 232/426 kB | 92/184 kBProgress (3): 256/329 kB | 236/426 kB | 92/184 kBProgress (3): 256/329 kB | 240/426 kB | 92/184 kBProgress (3): 260/329 kB | 240/426 kB | 92/184 kBProgress (3): 260/329 kB | 240/426 kB | 96/184 kBProgress (3): 260/329 kB | 240/426 kB | 100/184 kBProgress (3): 260/329 kB | 240/426 kB | 104/184 kBProgress (3): 260/329 kB | 244/426 kB | 104/184 kBProgress (3): 260/329 kB | 248/426 kB | 104/184 kBProgress (3): 264/329 kB | 248/426 kB | 104/184 kBProgress (3): 264/329 kB | 248/426 kB | 108/184 kBProgress (3): 268/329 kB | 248/426 kB | 108/184 kBProgress (3): 272/329 kB | 248/426 kB | 108/184 kBProgress (3): 276/329 kB | 248/426 kB | 108/184 kBProgress (3): 276/329 kB | 248/426 kB | 112/184 kBProgress (3): 276/329 kB | 248/426 kB | 116/184 kBProgress (3): 276/329 kB | 248/426 kB | 120/184 kBProgress (4): 276/329 kB | 248/426 kB | 120/184 kB | 4.1/165 kBProgress (4): 276/329 kB | 248/426 kB | 124/184 kB | 4.1/165 kBProgress (4): 280/329 kB | 248/426 kB | 124/184 kB | 4.1/165 kBProgress (4): 280/329 kB | 248/426 kB | 128/184 kB | 4.1/165 kBProgress (4): 280/329 kB | 252/426 kB | 128/184 kB | 4.1/165 kBProgress (4): 280/329 kB | 256/426 kB | 128/184 kB | 4.1/165 kBProgress (4): 280/329 kB | 260/426 kB | 128/184 kB | 4.1/165 kBProgress (4): 280/329 kB | 260/426 kB | 128/184 kB | 7.8/165 kBProgress (4): 280/329 kB | 260/426 kB | 132/184 kB | 7.8/165 kBProgress (4): 280/329 kB | 260/426 kB | 136/184 kB | 7.8/165 kBProgress (4): 284/329 kB | 260/426 kB | 136/184 kB | 7.8/165 kBProgress (4): 288/329 kB | 260/426 kB | 136/184 kB | 7.8/165 kBProgress (4): 292/329 kB | 260/426 kB | 136/184 kB | 7.8/165 kBProgress (4): 296/329 kB | 260/426 kB | 136/184 kB | 7.8/165 kBProgress (4): 300/329 kB | 260/426 kB | 136/184 kB | 7.8/165 kBProgress (4): 300/329 kB | 264/426 kB | 136/184 kB | 7.8/165 kBProgress (4): 300/329 kB | 268/426 kB | 136/184 kB | 7.8/165 kBProgress (4): 300/329 kB | 272/426 kB | 136/184 kB | 7.8/165 kBProgress (4): 300/329 kB | 272/426 kB | 136/184 kB | 12/165 kB Progress (4): 300/329 kB | 272/426 kB | 140/184 kB | 12/165 kBProgress (4): 304/329 kB | 272/426 kB | 140/184 kB | 12/165 kBProgress (4): 308/329 kB | 272/426 kB | 140/184 kB | 12/165 kBProgress (4): 312/329 kB | 272/426 kB | 140/184 kB | 12/165 kBProgress (4): 312/329 kB | 276/426 kB | 140/184 kB | 12/165 kBProgress (4): 312/329 kB | 280/426 kB | 140/184 kB | 12/165 kBProgress (4): 312/329 kB | 284/426 kB | 140/184 kB | 12/165 kBProgress (4): 312/329 kB | 288/426 kB | 140/184 kB | 12/165 kBProgress (4): 312/329 kB | 288/426 kB | 140/184 kB | 16/165 kBProgress (4): 312/329 kB | 288/426 kB | 140/184 kB | 20/165 kBProgress (4): 312/329 kB | 288/426 kB | 140/184 kB | 24/165 kBProgress (4): 312/329 kB | 288/426 kB | 140/184 kB | 28/165 kBProgress (4): 312/329 kB | 288/426 kB | 140/184 kB | 32/165 kBProgress (4): 316/329 kB | 288/426 kB | 140/184 kB | 32/165 kBProgress (4): 320/329 kB | 288/426 kB | 140/184 kB | 32/165 kBProgress (4): 320/329 kB | 288/426 kB | 144/184 kB | 32/165 kBProgress (4): 324/329 kB | 288/426 kB | 144/184 kB | 32/165 kBProgress (4): 328/329 kB | 288/426 kB | 144/184 kB | 32/165 kBProgress (4): 328/329 kB | 288/426 kB | 148/184 kB | 32/165 kBProgress (4): 328/329 kB | 288/426 kB | 152/184 kB | 32/165 kBProgress (4): 328/329 kB | 288/426 kB | 152/184 kB | 36/165 kBProgress (4): 328/329 kB | 288/426 kB | 152/184 kB | 40/165 kBProgress (4): 328/329 kB | 288/426 kB | 152/184 kB | 44/165 kBProgress (4): 328/329 kB | 288/426 kB | 152/184 kB | 48/165 kBProgress (4): 328/329 kB | 288/426 kB | 152/184 kB | 52/165 kBProgress (4): 328/329 kB | 288/426 kB | 152/184 kB | 56/165 kBProgress (4): 328/329 kB | 292/426 kB | 152/184 kB | 56/165 kBProgress (4): 328/329 kB | 292/426 kB | 156/184 kB | 56/165 kBProgress (4): 328/329 kB | 292/426 kB | 160/184 kB | 56/165 kBProgress (4): 328/329 kB | 292/426 kB | 164/184 kB | 56/165 kBProgress (4): 328/329 kB | 292/426 kB | 168/184 kB | 56/165 kBProgress (4): 328/329 kB | 292/426 kB | 172/184 kB | 56/165 kBProgress (4): 328/329 kB | 292/426 kB | 176/184 kB | 56/165 kBProgress (4): 329 kB | 292/426 kB | 176/184 kB | 56/165 kB    Progress (4): 329 kB | 296/426 kB | 176/184 kB | 56/165 kBProgress (4): 329 kB | 300/426 kB | 176/184 kB | 56/165 kBProgress (4): 329 kB | 300/426 kB | 180/184 kB | 56/165 kBProgress (4): 329 kB | 300/426 kB | 180/184 kB | 60/165 kBProgress (4): 329 kB | 300/426 kB | 180/184 kB | 64/165 kBProgress (4): 329 kB | 300/426 kB | 180/184 kB | 68/165 kBProgress (4): 329 kB | 300/426 kB | 184/184 kB | 68/165 kBProgress (4): 329 kB | 304/426 kB | 184/184 kB | 68/165 kBProgress (4): 329 kB | 308/426 kB | 184/184 kB | 68/165 kBProgress (4): 329 kB | 312/426 kB | 184/184 kB | 68/165 kBProgress (4): 329 kB | 312/426 kB | 184/184 kB | 72/165 kBProgress (4): 329 kB | 312/426 kB | 184 kB | 72/165 kB    Progress (4): 329 kB | 312/426 kB | 184 kB | 76/165 kBProgress (4): 329 kB | 312/426 kB | 184 kB | 80/165 kBProgress (4): 329 kB | 312/426 kB | 184 kB | 84/165 kBProgress (4): 329 kB | 312/426 kB | 184 kB | 88/165 kBProgress (4): 329 kB | 316/426 kB | 184 kB | 88/165 kBProgress (4): 329 kB | 320/426 kB | 184 kB | 88/165 kBProgress (4): 329 kB | 324/426 kB | 184 kB | 88/165 kBProgress (4): 329 kB | 328/426 kB | 184 kB | 88/165 kBProgress (5): 329 kB | 328/426 kB | 184 kB | 88/165 kB | 0/7.8 MBProgress (5): 329 kB | 332/426 kB | 184 kB | 88/165 kB | 0/7.8 MBProgress (5): 329 kB | 336/426 kB | 184 kB | 88/165 kB | 0/7.8 MBProgress (5): 329 kB | 340/426 kB | 184 kB | 88/165 kB | 0/7.8 MBProgress (5): 329 kB | 344/426 kB | 184 kB | 88/165 kB | 0/7.8 MBProgress (5): 329 kB | 348/426 kB | 184 kB | 88/165 kB | 0/7.8 MBProgress (5): 329 kB | 352/426 kB | 184 kB | 88/165 kB | 0/7.8 MB                                                                 Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support/0.8.2-SNAPSHOT/support-0.8.2-20261113.143536-94-tests.jar (184 kB at 206 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support/0.8.2-SNAPSHOT/support-0.8.2-20261113.143536-94.jar
-Progress (4): 329 kB | 356/426 kB | 88/165 kB | 0/7.8 MBProgress (4): 329 kB | 360/426 kB | 88/165 kB | 0/7.8 MBProgress (4): 329 kB | 364/426 kB | 88/165 kB | 0/7.8 MBProgress (4): 329 kB | 368/426 kB | 88/165 kB | 0/7.8 MBProgress (4): 329 kB | 372/426 kB | 88/165 kB | 0/7.8 MBProgress (4): 329 kB | 376/426 kB | 88/165 kB | 0/7.8 MBProgress (4): 329 kB | 376/426 kB | 88/165 kB | 0.1/7.8 MBProgress (4): 329 kB | 376/426 kB | 92/165 kB | 0.1/7.8 MBProgress (4): 329 kB | 376/426 kB | 96/165 kB | 0.1/7.8 MBProgress (4): 329 kB | 376/426 kB | 100/165 kB | 0.1/7.8 MBProgress (4): 329 kB | 376/426 kB | 104/165 kB | 0.1/7.8 MBProgress (4): 329 kB | 376/426 kB | 108/165 kB | 0.1/7.8 MBProgress (4): 329 kB | 376/426 kB | 112/165 kB | 0.1/7.8 MB                                                           Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/services.environment/0.8.2-SNAPSHOT/services.environment-0.8.2-20261113.143928-97.jar (329 kB at 364 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/configuration.iface/0.8.2-SNAPSHOT/configuration.iface-0.8.2-20261113.145213-17.jar
-Progress (3): 376/426 kB | 116/165 kB | 0.1/7.8 MBProgress (3): 376/426 kB | 120/165 kB | 0.1/7.8 MBProgress (3): 376/426 kB | 124/165 kB | 0.1/7.8 MBProgress (3): 376/426 kB | 128/165 kB | 0.1/7.8 MBProgress (3): 376/426 kB | 132/165 kB | 0.1/7.8 MBProgress (3): 376/426 kB | 136/165 kB | 0.1/7.8 MBProgress (3): 380/426 kB | 136/165 kB | 0.1/7.8 MBProgress (3): 380/426 kB | 136/165 kB | 0.1/7.8 MBProgress (3): 380/426 kB | 140/165 kB | 0.1/7.8 MBProgress (3): 380/426 kB | 144/165 kB | 0.1/7.8 MBProgress (3): 380/426 kB | 148/165 kB | 0.1/7.8 MBProgress (3): 380/426 kB | 152/165 kB | 0.1/7.8 MBProgress (3): 380/426 kB | 156/165 kB | 0.1/7.8 MBProgress (3): 380/426 kB | 160/165 kB | 0.1/7.8 MBProgress (3): 380/426 kB | 160/165 kB | 0.2/7.8 MBProgress (3): 384/426 kB | 160/165 kB | 0.2/7.8 MBProgress (3): 388/426 kB | 160/165 kB | 0.2/7.8 MBProgress (3): 392/426 kB | 160/165 kB | 0.2/7.8 MBProgress (3): 396/426 kB | 160/165 kB | 0.2/7.8 MBProgress (3): 400/426 kB | 160/165 kB | 0.2/7.8 MBProgress (3): 404/426 kB | 160/165 kB | 0.2/7.8 MBProgress (3): 408/426 kB | 160/165 kB | 0.2/7.8 MBProgress (3): 412/426 kB | 160/165 kB | 0.2/7.8 MBProgress (3): 412/426 kB | 164/165 kB | 0.2/7.8 MBProgress (3): 412/426 kB | 165 kB | 0.2/7.8 MB    Progress (3): 412/426 kB | 165 kB | 0.2/7.8 MBProgress (3): 416/426 kB | 165 kB | 0.2/7.8 MBProgress (3): 420/426 kB | 165 kB | 0.2/7.8 MBProgress (3): 424/426 kB | 165 kB | 0.2/7.8 MBProgress (3): 426 kB | 165 kB | 0.2/7.8 MB    Progress (3): 426 kB | 165 kB | 0.2/7.8 MBProgress (3): 426 kB | 165 kB | 0.3/7.8 MBProgress (4): 426 kB | 165 kB | 0.3/7.8 MB | 4.1/16 kBProgress (4): 426 kB | 165 kB | 0.3/7.8 MB | 7.8/16 kBProgress (4): 426 kB | 165 kB | 0.3/7.8 MB | 12/16 kB Progress (4): 426 kB | 165 kB | 0.3/7.8 MB | 16 kB   Progress (5): 426 kB | 165 kB | 0.3/7.8 MB | 16 kB | 4.1/81 kBProgress (5): 426 kB | 165 kB | 0.3/7.8 MB | 16 kB | 7.8/81 kBProgress (5): 426 kB | 165 kB | 0.3/7.8 MB | 16 kB | 12/81 kB Progress (5): 426 kB | 165 kB | 0.3/7.8 MB | 16 kB | 16/81 kBProgress (5): 426 kB | 165 kB | 0.3/7.8 MB | 16 kB | 16/81 kBProgress (5): 426 kB | 165 kB | 0.3/7.8 MB | 16 kB | 20/81 kBProgress (5): 426 kB | 165 kB | 0.3/7.8 MB | 16 kB | 24/81 kBProgress (5): 426 kB | 165 kB | 0.4/7.8 MB | 16 kB | 24/81 kBProgress (5): 426 kB | 165 kB | 0.4/7.8 MB | 16 kB | 28/81 kB                                                             Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support.boot/0.8.2-SNAPSHOT/support.boot-0.8.2-20261113.143509-95.jar (165 kB at 171 kB/s)
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/deviceMgt/0.8.2-SNAPSHOT/deviceMgt-0.8.2-20261113.144434-97.jar
-Progress (4): 426 kB | 0.4/7.8 MB | 16 kB | 32/81 kBProgress (4): 426 kB | 0.4/7.8 MB | 16 kB | 36/81 kBProgress (4): 426 kB | 0.4/7.8 MB | 16 kB | 40/81 kBProgress (4): 426 kB | 0.4/7.8 MB | 16 kB | 44/81 kBProgress (4): 426 kB | 0.4/7.8 MB | 16 kB | 48/81 kBProgress (4): 426 kB | 0.4/7.8 MB | 16 kB | 48/81 kBProgress (4): 426 kB | 0.4/7.8 MB | 16 kB | 48/81 kB                                                    Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support.aas/0.8.2-SNAPSHOT/support.aas-0.8.2-20261113.143600-95.jar (426 kB at 430 kB/s)
-Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/configuration.iface/0.8.2-SNAPSHOT/configuration.iface-0.8.2-20261113.145213-17.jar (16 kB at 16 kB/s)
-Progress (3): 0.4/7.8 MB | 48/81 kB | 4.1/46 kBProgress (3): 0.4/7.8 MB | 48/81 kB | 7.8/46 kBProgress (3): 0.4/7.8 MB | 48/81 kB | 12/46 kB Progress (3): 0.4/7.8 MB | 48/81 kB | 16/46 kBProgress (3): 0.4/7.8 MB | 48/81 kB | 20/46 kBProgress (3): 0.4/7.8 MB | 48/81 kB | 24/46 kBProgress (3): 0.4/7.8 MB | 48/81 kB | 28/46 kBProgress (3): 0.4/7.8 MB | 48/81 kB | 32/46 kBProgress (3): 0.5/7.8 MB | 48/81 kB | 32/46 kBProgress (3): 0.5/7.8 MB | 48/81 kB | 32/46 kBProgress (3): 0.6/7.8 MB | 48/81 kB | 32/46 kBProgress (3): 0.6/7.8 MB | 48/81 kB | 36/46 kBProgress (3): 0.6/7.8 MB | 48/81 kB | 40/46 kBProgress (3): 0.6/7.8 MB | 48/81 kB | 44/46 kBProgress (3): 0.6/7.8 MB | 48/81 kB | 46 kB   Progress (3): 0.6/7.8 MB | 52/81 kB | 46 kBProgress (3): 0.6/7.8 MB | 56/81 kB | 46 kBProgress (3): 0.6/7.8 MB | 56/81 kB | 46 kBProgress (3): 0.6/7.8 MB | 56/81 kB | 46 kB                                           Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/deviceMgt/0.8.2-SNAPSHOT/deviceMgt-0.8.2-20261113.144434-97.jar (46 kB at 41 kB/s)
-Progress (2): 0.7/7.8 MB | 56/81 kBProgress (2): 0.7/7.8 MB | 56/81 kBProgress (2): 0.8/7.8 MB | 56/81 kBProgress (2): 0.8/7.8 MB | 56/81 kBProgress (2): 0.8/7.8 MB | 60/81 kBProgress (2): 0.8/7.8 MB | 64/81 kBProgress (2): 0.8/7.8 MB | 64/81 kBProgress (2): 0.8/7.8 MB | 68/81 kBProgress (2): 0.8/7.8 MB | 72/81 kBProgress (2): 0.9/7.8 MB | 72/81 kBProgress (2): 0.9/7.8 MB | 76/81 kBProgress (2): 0.9/7.8 MB | 80/81 kBProgress (2): 0.9/7.8 MB | 81 kB   Progress (2): 0.9/7.8 MB | 81 kBProgress (2): 1.0/7.8 MB | 81 kBProgress (2): 1.0/7.8 MB | 81 kB                                Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support/0.8.2-SNAPSHOT/support-0.8.2-20261113.143536-94.jar (81 kB at 65 kB/s)
-Progress (1): 1.0/7.8 MBProgress (1): 1.1/7.8 MBProgress (1): 1.1/7.8 MBProgress (1): 1.2/7.8 MBProgress (1): 1.2/7.8 MBProgress (1): 1.2/7.8 MBProgress (1): 1.3/7.8 MBProgress (1): 1.3/7.8 MBProgress (1): 1.4/7.8 MBProgress (1): 1.4/7.8 MBProgress (1): 1.4/7.8 MBProgress (1): 1.5/7.8 MBProgress (1): 1.5/7.8 MBProgress (1): 1.6/7.8 MBProgress (1): 1.6/7.8 MBProgress (1): 1.6/7.8 MBProgress (1): 1.7/7.8 MBProgress (1): 1.7/7.8 MBProgress (1): 1.8/7.8 MBProgress (1): 1.8/7.8 MBProgress (1): 1.8/7.8 MBProgress (1): 1.9/7.8 MBProgress (1): 1.9/7.8 MBProgress (1): 2.0/7.8 MBProgress (1): 2.0/7.8 MBProgress (1): 2.0/7.8 MBProgress (1): 2.1/7.8 MBProgress (1): 2.1/7.8 MBProgress (1): 2.2/7.8 MBProgress (1): 2.2/7.8 MBProgress (1): 2.2/7.8 MBProgress (1): 2.3/7.8 MBProgress (1): 2.3/7.8 MBProgress (1): 2.4/7.8 MBProgress (1): 2.4/7.8 MBProgress (1): 2.4/7.8 MBProgress (1): 2.5/7.8 MBProgress (1): 2.5/7.8 MBProgress (1): 2.6/7.8 MBProgress (1): 2.6/7.8 MBProgress (1): 2.6/7.8 MBProgress (1): 2.7/7.8 MBProgress (1): 2.7/7.8 MBProgress (1): 2.8/7.8 MBProgress (1): 2.8/7.8 MBProgress (1): 2.8/7.8 MBProgress (1): 2.9/7.8 MBProgress (1): 2.9/7.8 MBProgress (1): 3.0/7.8 MBProgress (1): 3.0/7.8 MBProgress (1): 3.0/7.8 MBProgress (1): 3.1/7.8 MBProgress (1): 3.1/7.8 MBProgress (1): 3.2/7.8 MBProgress (1): 3.2/7.8 MBProgress (1): 3.2/7.8 MBProgress (1): 3.3/7.8 MBProgress (1): 3.3/7.8 MBProgress (1): 3.4/7.8 MBProgress (1): 3.4/7.8 MBProgress (1): 3.4/7.8 MBProgress (1): 3.5/7.8 MBProgress (1): 3.5/7.8 MBProgress (1): 3.6/7.8 MBProgress (1): 3.6/7.8 MBProgress (1): 3.6/7.8 MBProgress (1): 3.7/7.8 MBProgress (1): 3.7/7.8 MBProgress (1): 3.8/7.8 MBProgress (1): 3.8/7.8 MBProgress (1): 3.8/7.8 MBProgress (1): 3.9/7.8 MBProgress (1): 3.9/7.8 MBProgress (1): 4.0/7.8 MBProgress (1): 4.0/7.8 MBProgress (1): 4.0/7.8 MBProgress (1): 4.1/7.8 MBProgress (1): 4.1/7.8 MBProgress (1): 4.2/7.8 MBProgress (1): 4.2/7.8 MBProgress (1): 4.2/7.8 MBProgress (1): 4.3/7.8 MBProgress (1): 4.3/7.8 MBProgress (1): 4.4/7.8 MBProgress (1): 4.4/7.8 MBProgress (1): 4.4/7.8 MBProgress (1): 4.5/7.8 MBProgress (1): 4.5/7.8 MBProgress (1): 4.6/7.8 MBProgress (1): 4.6/7.8 MBProgress (1): 4.6/7.8 MBProgress (1): 4.7/7.8 MBProgress (1): 4.7/7.8 MBProgress (1): 4.8/7.8 MBProgress (1): 4.8/7.8 MBProgress (1): 4.8/7.8 MBProgress (1): 4.9/7.8 MBProgress (1): 4.9/7.8 MBProgress (1): 5.0/7.8 MBProgress (1): 5.0/7.8 MBProgress (1): 5.0/7.8 MBProgress (1): 5.1/7.8 MBProgress (1): 5.1/7.8 MBProgress (1): 5.2/7.8 MBProgress (1): 5.2/7.8 MBProgress (1): 5.2/7.8 MBProgress (1): 5.3/7.8 MBProgress (1): 5.3/7.8 MBProgress (1): 5.4/7.8 MBProgress (1): 5.4/7.8 MBProgress (1): 5.4/7.8 MBProgress (1): 5.5/7.8 MBProgress (1): 5.5/7.8 MBProgress (1): 5.6/7.8 MBProgress (1): 5.6/7.8 MBProgress (1): 5.6/7.8 MBProgress (1): 5.7/7.8 MBProgress (1): 5.7/7.8 MBProgress (1): 5.8/7.8 MBProgress (1): 5.8/7.8 MBProgress (1): 5.8/7.8 MBProgress (1): 5.9/7.8 MBProgress (1): 5.9/7.8 MBProgress (1): 6.0/7.8 MBProgress (1): 6.0/7.8 MBProgress (1): 6.0/7.8 MBProgress (1): 6.1/7.8 MBProgress (1): 6.1/7.8 MBProgress (1): 6.2/7.8 MBProgress (1): 6.2/7.8 MBProgress (1): 6.2/7.8 MBProgress (1): 6.3/7.8 MBProgress (1): 6.3/7.8 MBProgress (1): 6.4/7.8 MBProgress (1): 6.4/7.8 MBProgress (1): 6.4/7.8 MBProgress (1): 6.5/7.8 MBProgress (1): 6.5/7.8 MBProgress (1): 6.6/7.8 MBProgress (1): 6.6/7.8 MBProgress (1): 6.6/7.8 MBProgress (1): 6.7/7.8 MBProgress (1): 6.7/7.8 MBProgress (1): 6.8/7.8 MBProgress (1): 6.8/7.8 MBProgress (1): 6.8/7.8 MBProgress (1): 6.9/7.8 MBProgress (1): 6.9/7.8 MBProgress (1): 7.0/7.8 MBProgress (1): 7.0/7.8 MBProgress (1): 7.0/7.8 MBProgress (1): 7.1/7.8 MBProgress (1): 7.1/7.8 MBProgress (1): 7.2/7.8 MBProgress (1): 7.2/7.8 MBProgress (1): 7.2/7.8 MBProgress (1): 7.3/7.8 MBProgress (1): 7.3/7.8 MBProgress (1): 7.4/7.8 MBProgress (1): 7.4/7.8 MBProgress (1): 7.4/7.8 MBProgress (1): 7.5/7.8 MBProgress (1): 7.5/7.8 MBProgress (1): 7.6/7.8 MBProgress (1): 7.6/7.8 MBProgress (1): 7.6/7.8 MBProgress (1): 7.7/7.8 MBProgress (1): 7.7/7.8 MBProgress (1): 7.8/7.8 MBProgress (1): 7.8/7.8 MBProgress (1): 7.8 MB                        Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/support.aas/0.8.2-SNAPSHOT/support.aas-0.8.2-20261113.143600-95-tests.jar (7.8 MB at 2.1 MB/s)
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32mmaven-clean-plugin:2.5:clean[m [1m(default-clean)[m @ [36mexamples.energy[0;1m ---[m
-[[1;34mINFO[m] Deleting /home/dev/platform/platform/examples/examples.energy/target
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mexamples.energy[0;1m ---[m
-[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
-[[1;34mINFO[m] skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/src/main/resources
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.16.0:compile[m [1m(default-compile)[m @ [36mexamples.energy[0;1m ---[m
-[[1;34mINFO[m] Not compiling main sources
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mexamples.energy[0;1m ---[m
-[[1;34mINFO[m] Not copying test resources
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.16.0:testCompile[m [1m(default-testCompile)[m @ [36mexamples.energy[0;1m ---[m
-[[1;34mINFO[m] Not compiling test sources
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:3.6.0:test[m [1m(default-test)[m @ [36mexamples.energy[0;1m ---[m
-[[1;34mINFO[m] Tests are skipped.
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:3.4.2:jar[m [1m(default-jar)[m @ [36mexamples.energy[0;1m ---[m
-[[1;33mWARNING[m] JAR will be empty - no content was marked for inclusion!
-[[1;34mINFO[m] Building jar: /home/dev/platform/platform/examples/examples.energy/target/examples.energy-0.8.2-SNAPSHOT.jar
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32mmaven-source-plugin:3.4.0:jar-no-fork[m [1m(attach-sources)[m @ [36mexamples.energy[0;1m ---[m
-[[1;34mINFO[m] Building jar: /home/dev/platform/platform/examples/examples.energy/target/examples.energy-0.8.2-SNAPSHOT-sources.jar
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m>>> [0;32mmaven-source-plugin:3.4.0:test-jar[m [1m(attach-sources)[0;1m > [0;1mgenerate-sources[m @ [36mexamples.energy[0;1m >>>[m
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m<<< [0;32mmaven-source-plugin:3.4.0:test-jar[m [1m(attach-sources)[0;1m < [0;1mgenerate-sources[m @ [36mexamples.energy[0;1m <<<[m
-[[1;34mINFO[m] 
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32mmaven-source-plugin:3.4.0:test-jar[m [1m(attach-sources)[m @ [36mexamples.energy[0;1m ---[m
-[[1;34mINFO[m] Building jar: /home/dev/platform/platform/examples/examples.energy/target/examples.energy-0.8.2-SNAPSHOT-test-sources.jar
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32mmaven-javadoc-plugin:3.12.0:jar[m [1m(default-cli)[m @ [36mexamples.energy[0;1m ---[m
-[[1;34mINFO[m] Skipping javadoc generation
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32mmaven-javadoc-plugin:3.12.0:test-jar[m [1m(default-cli)[m @ [36mexamples.energy[0;1m ---[m
-[[1;34mINFO[m] Skipping javadoc generation
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:3.4.2:test-jar[m [1m(default)[m @ [36mexamples.energy[0;1m ---[m
-[[1;34mINFO[m] Skipping packaging of the test-jar
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32mmaven-install-plugin:2.4:install[m [1m(default-install)[m @ [36mexamples.energy[0;1m ---[m
-[[1;34mINFO[m] Installing /home/dev/platform/platform/examples/examples.energy/target/examples.energy-0.8.2-SNAPSHOT.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/examples.energy/0.8.2-SNAPSHOT/examples.energy-0.8.2-SNAPSHOT.jar
-[[1;34mINFO[m] Installing /home/dev/platform/platform/examples/examples.energy/pom.xml to /home/dev/.m2/repository/de/iip-ecosphere/platform/examples.energy/0.8.2-SNAPSHOT/examples.energy-0.8.2-SNAPSHOT.pom
-[[1;34mINFO[m] Installing /home/dev/platform/platform/examples/examples.energy/target/examples.energy-0.8.2-SNAPSHOT-sources.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/examples.energy/0.8.2-SNAPSHOT/examples.energy-0.8.2-SNAPSHOT-sources.jar
-[[1;34mINFO[m] Installing /home/dev/platform/platform/examples/examples.energy/target/examples.energy-0.8.2-SNAPSHOT-test-sources.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/examples.energy/0.8.2-SNAPSHOT/examples.energy-0.8.2-SNAPSHOT-test-sources.jar
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32minvoker-plugin:0.8.2-SNAPSHOT:install[m [1m(genInterfaces)[m @ [36mexamples.energy[0;1m ---[m
-Downloading from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/maven-python/0.8.2-SNAPSHOT/maven-metadata.xml
-Downloading from SSE-plugins: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/maven-python/0.8.2-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.9 kBProgress (2): 1.9 kB | 1.9 kB                             Downloaded from SSE-mvn: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/maven-python/0.8.2-SNAPSHOT/maven-metadata.xml (1.9 kB at 8.3 kB/s)
-Downloaded from SSE-plugins: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/maven-python/0.8.2-SNAPSHOT/maven-metadata.xml (1.9 kB at 8.3 kB/s)
-Downloading from SSE-plugins: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/maven-python/0.8.2-SNAPSHOT/maven-python-0.8.2-20261113.143441-43.pom
-Progress (1): 4.0 kB                    Downloaded from SSE-plugins: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/maven-python/0.8.2-SNAPSHOT/maven-python-0.8.2-20261113.143441-43.pom (4.0 kB at 36 kB/s)
-Downloading from SSE-plugins: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/tools.lib/0.8.2-SNAPSHOT/maven-metadata.xml
-Progress (1): 1.9 kB                    Downloaded from SSE-plugins: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/tools.lib/0.8.2-SNAPSHOT/maven-metadata.xml (1.9 kB at 10 kB/s)
-Downloading from SSE-plugins: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/maven-python/0.8.2-SNAPSHOT/maven-python-0.8.2-20261113.143441-43.jar
-Downloading from SSE-plugins: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/tools.lib/0.8.2-SNAPSHOT/tools.lib-0.8.2-20261113.143437-42.jar
-Downloaded from SSE-plugins: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/tools.lib/0.8.2-SNAPSHOT/tools.lib-0.8.2-20261113.143437-42.jar (0 B at 0 B/s)
-Progress (1): 4.1/30 kBProgress (1): 7.8/30 kBProgress (1): 12/30 kB Progress (1): 16/30 kBProgress (1): 20/30 kBProgress (1): 24/30 kBProgress (1): 28/30 kBProgress (1): 30 kB                      Downloaded from SSE-plugins: https://projects.sse.uni-hildesheim.de/qm/maven/de/iip-ecosphere/platform/maven-python/0.8.2-SNAPSHOT/maven-python-0.8.2-20261113.143441-43.jar (30 kB at 204 kB/s)
-[[1;34mINFO[m] Setting sys properties {python-test.skip=false, maven.test.skip=true, configuration.testApp.skip=false, python-compile.hashDir=/home/dev/platform/platform/examples/examples.energy/target, test.exec.args=--skip, test.exec.regEx=.*Energy OPCUA Connector test.*, assembly.skipAssembly=false, maven.javadoc.skip=true, jacoco.skip=true, maven.main.skip=true, maven.source.skip=false, skipTests=true, maven.build.cache.enabled=false, python-compile.skip=true}
-[[1;34mINFO[m] Taking over global settings file /usr/share/maven/conf/settings.xml
-[[1;34mINFO[m] Actual POM: /home/dev/platform/platform/examples/examples.energy/pom.xml
-[[1;34mINFO[m] >>> Maven invoker: Using MAVEN_OPTS: null
-[[1;34mINFO[m] >>> Executing: /bin/sh -c cd '/home/dev/platform/platform/examples/examples.energy' && '/usr/share/maven/bin/mvn' '-B' '-e' '-D' 'maven.repo.local=/home/dev/.m2/repository' '-gs' '/etc/maven/settings.xml' '-D' 'python-test.skip=false' '-D' 'maven.test.skip=true' '-D' 'configuration.testApp.skip=false' '-D' 'python-compile.hashDir=/home/dev/platform/platform/examples/examples.energy/target' '-D' 'test.exec.args=--skip' '-D' 'test.exec.regEx=.*Energy OPCUA Connector test.*' '-D' 'assembly.skipAssembly=false' '-D' 'maven.javadoc.skip=true' '-D' 'jacoco.skip=true' '-D' 'maven.main.skip=true' '-D' 'maven.source.skip=false' '-D' 'skipTests=true' '-D' 'maven.build.cache.enabled=false' '-D' 'python-compile.skip=true' '-P' 'EasyGen' 'process-sources'
-[INFO] Error stacktraces are turned on.
-[INFO] Scanning for projects...
-[INFO] 
-[INFO] -------------< de.iip-ecosphere.platform:examples.energy >--------------
-[INFO] Building Energy OPC-UA 0.8.2-SNAPSHOT
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO] 
-[INFO] --- dependency-plugin:0.8.2-SNAPSHOT:unpack (unpack) @ examples.energy ---
-[INFO] Checking artifacts...
-[INFO]  - de.iip-ecosphere.platform:configuration.configuration:easy:0.8.2-SNAPSHOT:zip unpack: true overwrite: true outDir: /home/dev/platform/platform/examples/examples.energy/target/easy encoding UTF-8
-[INFO] Unpacks 'zip' with encoding 'UTF-8'.
-[INFO] 
-[INFO] --- configuration-plugin:0.8.2-SNAPSHOT:generateBootstrappedApps (generateBootstrappedApps) @ examples.energy ---
-[INFO] Downloading from maven-default-http-blocker: http://0.0.0.0/commons-logging/commons-logging/maven-metadata.xml
-[WARNING] Could not transfer metadata commons-logging:commons-logging/maven-metadata.xml from/to maven-default-http-blocker (http://0.0.0.0/): transfer failed for http://0.0.0.0/commons-logging/commons-logging/maven-metadata.xml
-[INFO] Downloading from maven-default-http-blocker: http://0.0.0.0/commons-codec/commons-codec/maven-metadata.xml
-[WARNING] Could not transfer metadata commons-codec:commons-codec/maven-metadata.xml from/to maven-default-http-blocker (http://0.0.0.0/): transfer failed for http://0.0.0.0/commons-codec/commons-codec/maven-metadata.xml
-[INFO] Using Maven bin path: null
-[INFO] Wrote hash file /home/dev/platform/platform/examples/examples.energy/target/easy-meta-generateBootstrappedApps.fpf
-[INFO] Changed null files: [/home/dev/platform/platform/examples/examples.energy/target/easy/files/python.xml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/ServiceStateMachines.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Applications.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/UI.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Nameplate.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Devices.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/types/DataTypesPartEnergy.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/types/DataTypesPartEnergy.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/MetaConcepts.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Nameplate.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/DataOperations.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Devices.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/README.md, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/ServiceStateMachines.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/DataOperations.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Services.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/NameplateBase.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/NameplatePartRapidminer.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/README.md, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/ServicePartFlowerAI.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/ConnectorsPartNovoAI.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/NameplatePartKiprotect.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/ConnectorsPartMIP.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/ServerPartFlowerAI.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/ServerPartFlowerAI.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/ServicePartRtsa.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/NameplatePartKiprotect.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/ServicePartRtsa.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/NameplatePartRapidminer.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/ServicePartKodex.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/ServicePartFlowerAI.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/ServicePartKodex.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/ConnectorsPartMIP.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/services/ConnectorsPartNovoAI.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/DataTypes.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/devices/README.md, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/devices/DevicePartPhoenixContact.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/devices/PhoenixContactEem.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/devices/DevicePartBitmotec.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/devices/DevicePartPhoenixContact.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/devices/DevicePartBitmotec.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/devices/PhoenixContactEem.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Connectors.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Connectors.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Resources.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/NameplateBase.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Resources.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Applications.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Transport.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Services.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Aas.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/easy-base.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/UI.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Aas.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/DataTypes.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/Transport.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/MetaConcepts.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/connectors/AASDataTypes.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/connectors/OpcUaBaseTypes.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/connectors/OpcUaDataTypes.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/connectors/AASDataTypes.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/connectors/OpcUaDataTypes.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/connectors/OpcUaBaseTypes.text, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/connectors/Vdma40001_4DataTypes.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/meta/connectors/Vdma40001_4DataTypes.text, /home/dev/platform/platform/examples/examples.energy/target/easy/README.md, /home/dev/platform/platform/examples/examples.energy/target/easy/IIPEcosphere.vil, /home/dev/platform/platform/examples/examples.energy/target/easy/constraints.txt, /home/dev/platform/platform/examples/examples.energy/target/easy/.EASyConfig, /home/dev/platform/platform/examples/examples.energy/target/easy/IIPEcosphereBase.vil, /home/dev/platform/platform/examples/examples.energy/target/easy/IIPEcosphere.ivml, /home/dev/platform/platform/examples/examples.energy/target/easy/Broker.vil, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/README.md, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonServer.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonMeshElementTemplateBase.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonAssembly.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonServerBase.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonServiceInterface.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonTestTemplate.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonMeshElementInterface.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonEnum.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonServerInterface.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonAssemblyTemplate.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonBasics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonJsonSerializer.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonServerTestTemplate.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonMeshElementTemplate.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/python/PythonType.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/amqp/AmqpWin.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/amqp/AmqpLinux.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/amqp/AmqpPom.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/amqp/AmqpConf.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/amqp/AmqpLinuxSysd.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/NoBroker.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/mqtt/MqttLinuxSysd.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/mqtt/MqttConf.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/mqtt/MqttBasics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/mqtt/MqttLinux.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/mqtt/MqttPom.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/mqtt/MqttWin.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/README.md, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/ui/UiAngularExpress.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/ui/UiAngularBasics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/ui/UiAngularPom.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/ui/UiAngularWin.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/ui/UiAngularConfig.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/ui/UiAngularLinux.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/ui/UiAngularLinuxSysd.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/JavaServiceInterfacePartTraceToAas.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/DeploymentPlan.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/README.md, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/Rtsa.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/JavaSpringCloudStreamMeshElementPartTraceToAas.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/JavaSpringCloudStreamMeshElementPartKodex.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/flower/PythonServerPartFlowerAI.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/flower/PythonFlowerServerStrategy.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/flower/IIPEcospherePartFlowerAI.vil, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/flower/TemplatesFlowerConfig.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/flower/PythonMeshElementTemplatePartFlowerAI.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/flower/SpringCloudStreamDeploymentDescriptorPartFlowerAI.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/flower/PythonFlowerServerClient.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/SpringCloudStreamDeploymentDescriptorPartRtsa.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/KodexMapping.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/IIPEcospherePartRtsa.vil, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/IIPEcospherePartKodex.vil, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/SpringCloudStreamDeploymentDescriptorPartKodex.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/KodexActions.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/KodexApi.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/JavaSpringCloudStreamMeshElementPartRtsa.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/KodexData.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/services/KodexArtifactsAssembly.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesArtifactAssemblyTemplate.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesResourcesAssembly.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesMvnBash.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesTestLogbackXml.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/vscode/TemplatesVsCodeEnvProject.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/vscode/TemplatesVsCodeExtraPathProject.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesTestDataJson.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesMvnBatch.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesIdentityStoreYaml.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEasyProducer.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEclipsePyDevProject.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEclipseReadme.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEclipseClasspath.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEclipseProject.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEclipseGitignore.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesArtifactsAssembly.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/ServiceBasics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/DockerfileAllApps.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/WrapperScriptPlatform.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/IIPEcospherePartLxc.vil, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/InstalledDependencies.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/MeshInfoAllApps.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/ContainerRunScriptAllApps.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/IIPEcospherePartDocker.vil, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/Dockerfile_3_ecs.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/Dockerfile_PythonAllApps.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/PythonReq.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/DockerfileBase_Python.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/DockerBasics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/DockerfileBaseAllApps_Python.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/LxcTemplateFile.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/PythonReqPlatform.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/MeshInfo.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/DockerfilePlatform.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/PythonBaseReq.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/Dockerfile_Python.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/Dockerfile.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/DockerfileBase.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/WrapperScript.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/ContainerRunScript.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/DockerfileBaseAllApps.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/Dockerfile_3_ecsAllApps.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/docker/LxcTemplate_Python.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/Basics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/os/README.md, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/os/LinuxSysd.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/os/Readme.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/os/LinuxBash.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/os/JavaOsBasics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/os/WinBatch.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaConnectorSerializer.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AasImplTest.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaBasics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaAllTestsTemplate.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaXmlSerializer.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaPluginSetupDescriptor.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaConnector.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/ConnectorResource.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaYamlTest.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/EcsServiceControlMvn.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServiceImplStateMachine.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaProtoBufSpec.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/README.md, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/ServiceControlSpringCloudStreamYaml.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSerializerBase.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AppMvn.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/EcsRuntimeDockerContainerManagerYaml.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudStreamStarter.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/SpringCloudStreamBasics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/PlatformMvn.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudStreamMeshElement.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServiceInterfaceBase.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudFamilyInterface.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/SpringBasics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/MavenBasics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaLogbackXml.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AppAnt.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudStreamYaml.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaMeshElementTemplate.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaEnum.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServiceBaseImpl.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServiceTestTemplate.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServer.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaConnectorRestImpl.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AasBuilderImpl.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AasAccessorImpl.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaMapping.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaConnectorConnectivityTest.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AasBasics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaMeshElementInterface.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AppMvnTest.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/PlatformYaml.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/ServiceControlMvn.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaProtoBufSerializer.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/MeshBasics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/DataOperationBasics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServices.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaInterfaceAssembly.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/SpringCloudStreamDeploymentDescriptor.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaConnectorFactoryDescriptor.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudStreamMeshElementTest.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/LoggingBasics.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/ApiMvn.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudStreamAssembly.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/EcsServiceControlSpringCloudStreamYaml.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudStreamMeshElementBase.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaConnectorRestType.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServiceInterface.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/EcsRuntimeMvn.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/SpringCloudStreamDeploymentDescriptorBase.vtl, /home/dev/platform/platform/examples/examples.energy/target/easy/IIPEcosphere.text]
-[INFO] Wrote hash file /home/dev/platform/platform/examples/examples.energy/target/easy-generateBootstrappedApps.fpf
-[INFO] Changed IVML model files: [/home/dev/platform/platform/examples/examples.energy/src/main/easy/energy.ivml, /home/dev/platform/platform/examples/examples.energy/src/main/easy/.EASyConfig, /home/dev/platform/platform/examples/examples.energy/src/main/easy/OpcECM.ivml, /home/dev/platform/platform/examples/examples.energy/src/main/easy/Opc.ivml, /home/dev/platform/platform/examples/examples.energy/src/main/easy/OpcEnergy.ivml, /home/dev/platform/platform/examples/examples.energy/src/main/easy/OpcWoodworking.ivml]
-Loading classpath from config.classpath
-[INFO] Calling platform instantiator as process with [Energy, /home/dev/platform/platform/examples/examples.energy/src/main/easy, /home/dev/platform/platform/examples/examples.energy/target/gen/energy, generateBootstrappedApps, /home/dev/platform/platform/examples/examples.energy/target/easy], tracing TOP
-18:45:55 [main] INFO d.i.p.s.r.ResourceLoader - Registered resource resolver Classloader
-18:45:56 [main] WARN d.i.p.s.a.AasFactory - No AAS factory implementation known. This may be intended in a simple testing setup where AAS operations are optional, but also a severe misconfiguration if this occurs in the context of a full platform instance where AAS operations are mandatory.
-18:45:56 [main] INFO d.i.p.c.e.PlatformInstantiator - Deleting /home/dev/platform/platform/examples/examples.energy/target/gen/energy ...
-18:45:56 [main] INFO d.i.p.c.e.PlatformInstantiator - Cleaned output folder /home/dev/platform/platform/examples/examples.energy/target/gen/energy for rule generateBootstrappedApps in 48 ms
-18:45:57 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - EASy-Producer is starting (TOOLING mode)
-18:46:01 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - EASy-Producer started in 4740 ms
-18:46:01 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - Setting up configuration base: .
-18:46:01 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - Setting up configuration meta model: /home/dev/platform/platform/examples/examples.energy/target/easy
-18:46:01 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - Setting up configuration model name: Energy
-18:46:01 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - Setting up generation target: /home/dev/platform/platform/examples/examples.energy/target/gen/energy
-18:46:01 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - Setting up configuration folder: /home/dev/platform/platform/examples/examples.energy/src/main/easy
-18:46:01 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - Setting up EASy-Producer locations, loading models
-18:46:05 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - EASy-Producer models loaded in 3901 ms
-18:46:12 [main] INFO d.i.p.c.e.ConfigurationManager - EASy-Producer model reasoning done in 3742 ms
-18:46:12 [main] WARN d.i.p.c.e.ConfigurationManager - No (username) identity token for key 'docker' found. Container deployment may fail
-18:46:12 [main] INFO d.i.p.c.e.ConfigurationManager - EASy-Producer instantiating with rule 'generateBootstrappedApps'
-executing script IIPEcosphere (VIL)  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/IIPEcosphere.vil
-  JavaEnum  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaEnum.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcMeasurementPeriodEnumType.java
-  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcIn.java
-  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcInImpl.java
-  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcInSerializer.java
-  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcInImplSerializer.java
-  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcIEnergyProfileE2Type.java
-  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcIEnergyProfileE2TypeImpl.java
-  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcIEnergyProfileE2TypeSerializer.java
-  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcIEnergyProfileE2TypeImplSerializer.java
-  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcOut.java
-  JavaType  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaType.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/datatypes/OpcOutImpl.java
-  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcOutSerializer.java
-  JavaJsonSerializer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaJsonSerializer.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/serializers/OpcOutImplSerializer.java
-  JavaServiceInterface  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServiceInterface.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/interfaces/OPCReceiverInterface.java
-  JavaServiceBaseImpl  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServiceBaseImpl.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/java/iip/impl/OPCReceiverImpl.java
-  AppMvn  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AppMvn.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/pom.xml
-  AppAnt  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AppAnt.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/build-jk.xml
-  Calling maven with /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces {install} {}
-   Scanning for projects...
-   
-   -------< de.iip-ecosphere.platform:apps.EnergyOpcAppInterfaces >--------
-   Building apps.EnergyOpcAppInterfaces 0.8.2-SNAPSHOT
-     from pom.xml
-   --------------------------------[ jar ]---------------------------------
-   
-   --- dependency:0.8.2-SNAPSHOT:copy-resources (platf-res) @ apps.EnergyOpcAppInterfaces ---
-   Copied 0 resource files
-   
-   --- dependency:0.8.2-SNAPSHOT:copy-resources (sw-res) @ apps.EnergyOpcAppInterfaces ---
-   Copied 0 resource files
-   
-   --- clean:3.5.0:clean (auto-clean) @ apps.EnergyOpcAppInterfaces ---
-   
-   --- resources:3.4.0:resources (default-resources) @ apps.EnergyOpcAppInterfaces ---
-   skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/main/resources
-   
-   --- compiler:3.16.0:compile (default-compile) @ apps.EnergyOpcAppInterfaces ---
-   Recompiling the module because of changed source code.
-   Compiling 15 source files with javac [debug target 17] to target/classes
-   
-   --- resources:3.4.0:testResources (default-testResources) @ apps.EnergyOpcAppInterfaces ---
-   skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/src/test/resources
-   
-   --- compiler:3.16.0:testCompile (default-testCompile) @ apps.EnergyOpcAppInterfaces ---
-   No sources to compile
-   
-   --- surefire:3.6.0:test (default-test) @ apps.EnergyOpcAppInterfaces ---
-   No tests to run.
-   
-   --- dependency:0.8.2-SNAPSHOT:copy-dependencies (copy-dependencies) @ apps.EnergyOpcAppInterfaces ---
-   
-   --- dependency:0.8.2-SNAPSHOT:build-classpath (build-classpath) @ apps.EnergyOpcAppInterfaces ---
-   Wrote classpath file '/home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/classes/classpath'.
-   
-   --- jar:3.4.2:jar (default-jar) @ apps.EnergyOpcAppInterfaces ---
-   Building jar: /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/apps.EnergyOpcAppInterfaces-0.8.2-SNAPSHOT.jar
-   
-   --- source:3.4.0:jar-no-fork (attach-sources) @ apps.EnergyOpcAppInterfaces ---
-   Building jar: /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/apps.EnergyOpcAppInterfaces-0.8.2-SNAPSHOT-sources.jar
-   
-   >>> source:3.4.0:test-jar (attach-sources) > generate-sources @ apps.EnergyOpcAppInterfaces >>>
-   
-   --- dependency:0.8.2-SNAPSHOT:copy-resources (platf-res) @ apps.EnergyOpcAppInterfaces ---
-   Copied 0 resource files
-   
-   --- dependency:0.8.2-SNAPSHOT:copy-resources (sw-res) @ apps.EnergyOpcAppInterfaces ---
-   Copied 0 resource files
-   
-   --- clean:3.5.0:clean (auto-clean) @ apps.EnergyOpcAppInterfaces ---
-   Deleting /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target (includes = [*-bin.jar, *-spring.jar], excludes = [])
-   
-   <<< source:3.4.0:test-jar (attach-sources) < generate-sources @ apps.EnergyOpcAppInterfaces <<<
-   
-   
-   --- source:3.4.0:test-jar (attach-sources) @ apps.EnergyOpcAppInterfaces ---
-   No sources in project. Archive not created.
-   
-   --- javadoc:3.12.0:jar (default-cli) @ apps.EnergyOpcAppInterfaces ---
-   Skipping javadoc generation
-   
-   --- javadoc:3.12.0:test-jar (default-cli) @ apps.EnergyOpcAppInterfaces ---
-   Skipping javadoc generation
-   
-   --- jar:3.4.2:test-jar (default) @ apps.EnergyOpcAppInterfaces ---
-   Building jar: /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/apps.EnergyOpcAppInterfaces-0.8.2-SNAPSHOT-tests.jar
-   
-   --- dependency:0.8.2-SNAPSHOT:touch (touch-deployed) @ apps.EnergyOpcAppInterfaces ---
-   Cannot read /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/services.properties: file does not exist
-   
-   --- install:3.1.4:install (default-install) @ apps.EnergyOpcAppInterfaces ---
-   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/pom.xml to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps.EnergyOpcAppInterfaces/0.8.2-SNAPSHOT/apps.EnergyOpcAppInterfaces-0.8.2-SNAPSHOT.pom
-   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/apps.EnergyOpcAppInterfaces-0.8.2-SNAPSHOT.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps.EnergyOpcAppInterfaces/0.8.2-SNAPSHOT/apps.EnergyOpcAppInterfaces-0.8.2-SNAPSHOT.jar
-   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/apps.EnergyOpcAppInterfaces-0.8.2-SNAPSHOT-sources.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps.EnergyOpcAppInterfaces/0.8.2-SNAPSHOT/apps.EnergyOpcAppInterfaces-0.8.2-SNAPSHOT-sources.jar
-   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/ApplicationInterfaces/target/apps.EnergyOpcAppInterfaces-0.8.2-SNAPSHOT-tests.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps.EnergyOpcAppInterfaces/0.8.2-SNAPSHOT/apps.EnergyOpcAppInterfaces-0.8.2-SNAPSHOT-tests.jar
-   ------------------------------------------------------------------------
-   BUILD SUCCESS
-   ------------------------------------------------------------------------
-   Total time:  8.547 s
-   Finished at: 2026-11-13T18:46:37Z
-   ------------------------------------------------------------------------
-  JavaSpringCloudStreamStarter  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudStreamStarter.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/main/java/iip/Starter.java
-  JavaConnectorFactoryDescriptor  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaConnectorFactoryDescriptor.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/main/java/iip/nodes/SimpleEnergyOPCDemoAppConnectorFactoryDescriptor.java
-  JavaServices  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServices.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/main/resources/META-INF/services/de.iip_ecosphere.platform.connectors.ConnectorFactoryDescriptor
-  AppMvn  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AppMvn.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/pom.xml
-  Calling maven with /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp {install} {}
-   Scanning for projects...
-   
-   -------< de.iip-ecosphere.platform.apps:SimpleEnergyOPCDemoApp >--------
-   Building SimpleEnergyOPCDemoApp 0.1.0-SNAPSHOT
-     from pom.xml
-   --------------------------------[ jar ]---------------------------------
-   
-   --- resources:3.4.0:resources (default-resources) @ SimpleEnergyOPCDemoApp ---
-   Copying 1 resource from src/main/resources to target/classes
-   
-   --- compiler:3.16.0:compile (default-compile) @ SimpleEnergyOPCDemoApp ---
-   Recompiling the module because of changed source code.
-   Compiling 2 source files with javac [debug target 17] to target/classes
-   
-   --- resources:3.4.0:testResources (default-testResources) @ SimpleEnergyOPCDemoApp ---
-   skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/test/resources
-   
-   --- compiler:3.16.0:testCompile (default-testCompile) @ SimpleEnergyOPCDemoApp ---
-   No sources to compile
-   
-   --- surefire:3.6.0:test (default-test) @ SimpleEnergyOPCDemoApp ---
-   No tests to run.
-   
-   --- jar:3.4.2:jar (default-jar) @ SimpleEnergyOPCDemoApp ---
-   Building jar: /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT.jar
-   
-   --- source:3.4.0:jar-no-fork (attach-sources) @ SimpleEnergyOPCDemoApp ---
-   Building jar: /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-sources.jar
-   
-   >>> source:3.4.0:test-jar (attach-sources) > generate-sources @ SimpleEnergyOPCDemoApp >>>
-   
-   <<< source:3.4.0:test-jar (attach-sources) < generate-sources @ SimpleEnergyOPCDemoApp <<<
-   
-   
-   --- source:3.4.0:test-jar (attach-sources) @ SimpleEnergyOPCDemoApp ---
-   No sources in project. Archive not created.
-   
-   --- javadoc:3.12.0:jar (default-cli) @ SimpleEnergyOPCDemoApp ---
-   Skipping javadoc generation
-   
-   --- javadoc:3.12.0:test-jar (default-cli) @ SimpleEnergyOPCDemoApp ---
-   Skipping javadoc generation
-   
-   --- jar:3.4.2:test-jar (default) @ SimpleEnergyOPCDemoApp ---
-   Building jar: /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-tests.jar
-   
-   --- install:3.1.4:install (default-install) @ SimpleEnergyOPCDemoApp ---
-   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/pom.xml to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps/SimpleEnergyOPCDemoApp/0.1.0-SNAPSHOT/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT.pom
-   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps/SimpleEnergyOPCDemoApp/0.1.0-SNAPSHOT/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT.jar
-   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-sources.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps/SimpleEnergyOPCDemoApp/0.1.0-SNAPSHOT/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-sources.jar
-   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-tests.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps/SimpleEnergyOPCDemoApp/0.1.0-SNAPSHOT/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-tests.jar
-   ------------------------------------------------------------------------
-   BUILD SUCCESS
-   ------------------------------------------------------------------------
-   Total time:  9.321 s
-   Finished at: 2026-11-13T18:46:52Z
-   ------------------------------------------------------------------------
-  TemplatesEclipseProject  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEclipseProject.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/.project
-  TemplatesEclipseClasspath  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEclipseClasspath.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/.classpath
-  TemplatesEclipsePyDevProject  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEclipsePyDevProject.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/.pydevproject
-  TemplatesEclipseGitignore  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEclipseGitignore.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/.gitignore
-  TemplatesEasyProducer  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEasyProducer.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/.EASyProducer
-  TemplatesMvnBash  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesMvnBash.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/build.sh
-  TemplatesMvnBash  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesMvnBash.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/updateModel.sh
-  TemplatesMvnBash  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesMvnBash.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/run.sh
-  TemplatesMvnBash  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesMvnBash.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/updateArtifacts.sh
-  TemplatesMvnBatch  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesMvnBatch.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/build.bat
-  TemplatesMvnBatch  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesMvnBatch.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/updateModel.bat
-  TemplatesMvnBatch  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesMvnBatch.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/run.bat
-  TemplatesMvnBatch  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesMvnBatch.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/updateArtifacts.bat
-  MqttPom  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/mqtt/MqttPom.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/target/gen/broker/pom.xml
-  MqttLinuxSysd  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/mqtt/MqttLinuxSysd.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/target/gen/broker/iip-broker.service
-  MqttLinux  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/mqtt/MqttLinux.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/target/gen/broker/broker.sh
-  MqttWin  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/mqtt/MqttWin.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/target/gen/broker/broker.bat
-  MqttConf  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/broker/mqtt/MqttConf.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/target/gen/broker/src/test/config.xml
-  TemplatesVsCodeEnvProject  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/vscode/TemplatesVsCodeEnvProject.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/.vscode/settings.json
-  JavaConnectorConnectivityTest  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaConnectorConnectivityTest.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/src/test/java/iip/connectivity/MyOpcConnExampleTest.java
-  TemplatesTestDataJson  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesTestDataJson.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/resources/software/testData-OpcUaConnector_OpcOut.json.tmpl
-  JavaMeshElementTemplate  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaMeshElementTemplate.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/src/main/java/ReceiverImpl/ReceiverImpl.java
-  TemplatesTestDataJson  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesTestDataJson.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/src/test/resources/testData-OPCReceiver.json.tmpl
-  JavaServiceTestTemplate  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServiceTestTemplate.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/src/test/java/ReceiverImpl/ReceiverImplTest.java
-  JavaAllTestsTemplate  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaAllTestsTemplate.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/src/test/java/AllTests.java
-  JavaServices  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServices.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/src/main/resources/META-INF/services/de.iip_ecosphere.platform.support.plugins.PluginDescriptor
-  TemplatesEclipseReadme  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/eclipse/TemplatesEclipseReadme.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/README.md
-  TemplatesResourcesAssembly  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesResourcesAssembly.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/src/main/assembly/resources.xml
-  AppMvnTest  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AppMvnTest.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/pom.xml
-  TemplatesIdentityStoreYaml  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesIdentityStoreYaml.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/src/main/resources/identityStore.yml
-  TemplatesTestLogbackXml  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/templates/TemplatesTestLogbackXml.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/src/test/resources/logback.xml
-  JavaServices  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServices.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/templates/eclipse/impl.SimpleEnergyOPCDemoApp/src/test/resources/META-INF/services/de.iip_ecosphere.platform.support.identities.IdentityStoreDescriptor
-18:46:57 [main] INFO d.i.p.c.e.ConfigurationManager - EASy-Producer instantiation done in 44942 ms
-18:46:57 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - EASy-Producer is stopping
-18:46:57 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - EASy-Producer stopped
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  01:10 min
-[INFO] Finished at: 2026-11-13T18:46:57Z
-[INFO] ------------------------------------------------------------------------
-[[1;34mINFO[m] <<< Maven invoker completed
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32minvoker-plugin:0.8.2-SNAPSHOT:install[m [1m(installServices)[m @ [36mexamples.energy[0;1m ---[m
-[[1;34mINFO[m] Setting sys properties {python-test.skip=false, maven.test.skip=true, configuration.testApp.skip=false, python-compile.hashDir=/home/dev/platform/platform/examples/examples.energy/target, test.exec.args=--skip, test.exec.regEx=.*Energy OPCUA Connector test.*, assembly.skipAssembly=false, maven.javadoc.skip=false, jacoco.skip=true, maven.main.skip=false, maven.source.skip=false, skipTests=true, maven.build.cache.enabled=false, python-compile.skip=false}
-[[1;34mINFO[m] Taking over global settings file /usr/share/maven/conf/settings.xml
-[[1;34mINFO[m] Actual POM: /home/dev/platform/platform/examples/examples.energy/pom.xml
-[[1;34mINFO[m] >>> Maven invoker: Using MAVEN_OPTS: null
-[[1;34mINFO[m] >>> Executing: /bin/sh -c cd '/home/dev/platform/platform/examples/examples.energy' && '/usr/share/maven/bin/mvn' '-B' '-e' '-D' 'maven.repo.local=/home/dev/.m2/repository' '-gs' '/etc/maven/settings.xml' '-D' 'python-test.skip=false' '-D' 'maven.test.skip=true' '-D' 'configuration.testApp.skip=false' '-D' 'python-compile.hashDir=/home/dev/platform/platform/examples/examples.energy/target' '-D' 'test.exec.args=--skip' '-D' 'test.exec.regEx=.*Energy OPCUA Connector test.*' '-D' 'assembly.skipAssembly=false' '-D' 'maven.javadoc.skip=false' '-D' 'jacoco.skip=true' '-D' 'maven.main.skip=false' '-D' 'maven.source.skip=false' '-D' 'skipTests=true' '-D' 'maven.build.cache.enabled=false' '-D' 'python-compile.skip=false' '-P' 'App' 'install'
-[INFO] Error stacktraces are turned on.
-[INFO] Scanning for projects...
-[INFO] 
-[INFO] -------------< de.iip-ecosphere.platform:examples.energy >--------------
-[INFO] Building Energy OPC-UA 0.8.2-SNAPSHOT
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO] 
-[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ examples.energy ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/src/main/resources
-[INFO] 
-[INFO] --- maven-compiler-plugin:3.16.0:compile (default-compile) @ examples.energy ---
-[INFO] Recompiling the module because of changed source code.
-[INFO] Compiling 22 source files with javac [debug target 17] to target/classes
-[INFO] /home/dev/platform/platform/examples/examples.energy/src/main/java/de/iip_ecosphere/platform/examples/energy/aggregator/server/EnergyNamespace.java: /home/dev/platform/platform/examples/examples.energy/src/main/java/de/iip_ecosphere/platform/examples/energy/aggregator/server/EnergyNamespace.java uses or overrides a deprecated API.
-[INFO] /home/dev/platform/platform/examples/examples.energy/src/main/java/de/iip_ecosphere/platform/examples/energy/aggregator/server/EnergyNamespace.java: Recompile with -Xlint:deprecation for details.
-[INFO] 
-[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ examples.energy ---
-[INFO] Not copying test resources
-[INFO] 
-[INFO] --- maven-compiler-plugin:3.16.0:testCompile (default-testCompile) @ examples.energy ---
-[INFO] Not compiling test sources
-[INFO] 
-[INFO] --- maven-surefire-plugin:3.6.0:test (default-test) @ examples.energy ---
-[INFO] Tests are skipped.
-[INFO] 
-[INFO] --- maven-jar-plugin:3.4.2:jar (default-jar) @ examples.energy ---
-[INFO] Building jar: /home/dev/platform/platform/examples/examples.energy/target/examples.energy-0.8.2-SNAPSHOT.jar
-[INFO] 
-[INFO] --- maven-source-plugin:3.4.0:jar-no-fork (attach-sources) @ examples.energy ---
-[INFO] Building jar: /home/dev/platform/platform/examples/examples.energy/target/examples.energy-0.8.2-SNAPSHOT-sources.jar
-[INFO] 
-[INFO] >>> maven-source-plugin:3.4.0:test-jar (attach-sources) > generate-sources @ examples.energy >>>
-[INFO] 
-[INFO] <<< maven-source-plugin:3.4.0:test-jar (attach-sources) < generate-sources @ examples.energy <<<
-[INFO] 
-[INFO] 
-[INFO] --- maven-source-plugin:3.4.0:test-jar (attach-sources) @ examples.energy ---
-[INFO] 
-[INFO] --- maven-javadoc-plugin:3.12.0:jar (default-cli) @ examples.energy ---
-[INFO] Building jar: /home/dev/platform/platform/examples/examples.energy/target/examples.energy-0.8.2-SNAPSHOT-javadoc.jar
-[INFO] 
-[INFO] --- maven-javadoc-plugin:3.12.0:test-jar (default-cli) @ examples.energy ---
-[INFO] Building jar: /home/dev/platform/platform/examples/examples.energy/target/examples.energy-0.8.2-SNAPSHOT-test-javadoc.jar
-[INFO] 
-[INFO] --- maven-jar-plugin:3.4.2:test-jar (default) @ examples.energy ---
-[INFO] Skipping packaging of the test-jar
-[INFO] 
-[INFO] --- maven-install-plugin:2.4:install (default-install) @ examples.energy ---
-[INFO] Installing /home/dev/platform/platform/examples/examples.energy/target/examples.energy-0.8.2-SNAPSHOT.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/examples.energy/0.8.2-SNAPSHOT/examples.energy-0.8.2-SNAPSHOT.jar
-[INFO] Installing /home/dev/platform/platform/examples/examples.energy/pom.xml to /home/dev/.m2/repository/de/iip-ecosphere/platform/examples.energy/0.8.2-SNAPSHOT/examples.energy-0.8.2-SNAPSHOT.pom
-[INFO] Installing /home/dev/platform/platform/examples/examples.energy/target/examples.energy-0.8.2-SNAPSHOT-sources.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/examples.energy/0.8.2-SNAPSHOT/examples.energy-0.8.2-SNAPSHOT-sources.jar
-[INFO] Installing /home/dev/platform/platform/examples/examples.energy/target/examples.energy-0.8.2-SNAPSHOT-test-sources.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/examples.energy/0.8.2-SNAPSHOT/examples.energy-0.8.2-SNAPSHOT-test-sources.jar
-[INFO] Installing /home/dev/platform/platform/examples/examples.energy/target/examples.energy-0.8.2-SNAPSHOT-javadoc.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/examples.energy/0.8.2-SNAPSHOT/examples.energy-0.8.2-SNAPSHOT-javadoc.jar
-[INFO] Installing /home/dev/platform/platform/examples/examples.energy/target/examples.energy-0.8.2-SNAPSHOT-test-javadoc.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/examples.energy/0.8.2-SNAPSHOT/examples.energy-0.8.2-SNAPSHOT-test-javadoc.jar
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  20.829 s
-[INFO] Finished at: 2026-11-13T18:47:21Z
-[INFO] ------------------------------------------------------------------------
-[[1;34mINFO[m] <<< Maven invoker completed
-[[1;34mINFO[m] 
-[[1;34mINFO[m] [1m--- [0;32minvoker-plugin:0.8.2-SNAPSHOT:install[m [1m(integrateApp)[m @ [36mexamples.energy[0;1m ---[m
-[[1;34mINFO[m] Setting sys properties {python-test.skip=false, maven.test.skip=true, configuration.testApp.skip=false, python-compile.hashDir=/home/dev/platform/platform/examples/examples.energy/target, test.exec.args=--skip, test.exec.regEx=.*Energy OPCUA Connector test.*, assembly.skipAssembly=false, maven.javadoc.skip=true, jacoco.skip=true, maven.main.skip=true, configuration.skipGenerateSources=true, maven.source.skip=false, skipTests=true, maven.build.cache.enabled=false, python-compile.skip=true}
-[[1;34mINFO[m] Taking over global settings file /usr/share/maven/conf/settings.xml
-[[1;34mINFO[m] Actual POM: /home/dev/platform/platform/examples/examples.energy/pom.xml
-[[1;34mINFO[m] >>> Maven invoker: Using MAVEN_OPTS: null
-[[1;34mINFO[m] >>> Executing: /bin/sh -c cd '/home/dev/platform/platform/examples/examples.energy' && '/usr/share/maven/bin/mvn' '-B' '-e' '-D' 'maven.repo.local=/home/dev/.m2/repository' '-gs' '/etc/maven/settings.xml' '-D' 'python-test.skip=false' '-D' 'maven.test.skip=true' '-D' 'configuration.testApp.skip=false' '-D' 'python-compile.hashDir=/home/dev/platform/platform/examples/examples.energy/target' '-D' 'test.exec.args=--skip' '-D' 'test.exec.regEx=.*Energy OPCUA Connector test.*' '-D' 'assembly.skipAssembly=false' '-D' 'maven.javadoc.skip=true' '-D' 'jacoco.skip=true' '-D' 'maven.main.skip=true' '-D' 'configuration.skipGenerateSources=true' '-D' 'maven.source.skip=false' '-D' 'skipTests=true' '-D' 'maven.build.cache.enabled=false' '-D' 'python-compile.skip=true' '-P' 'EasyGen' 'package'
-[INFO] Error stacktraces are turned on.
-[INFO] Scanning for projects...
-[INFO] 
-[INFO] -------------< de.iip-ecosphere.platform:examples.energy >--------------
-[INFO] Building Energy OPC-UA 0.8.2-SNAPSHOT
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO] 
-[INFO] --- dependency-plugin:0.8.2-SNAPSHOT:unpack (unpack) @ examples.energy ---
-[INFO] Checking artifacts...
-[INFO]  - de.iip-ecosphere.platform:configuration.configuration:easy:0.8.2-SNAPSHOT:zip unpack: true overwrite: true outDir: /home/dev/platform/platform/examples/examples.energy/target/easy encoding UTF-8
-[INFO] Unpacks 'zip' with encoding 'UTF-8'.
-[INFO] 
-[INFO] --- configuration-plugin:0.8.2-SNAPSHOT:generateBootstrappedApps (generateBootstrappedApps) @ examples.energy ---
-[INFO] Downloading from maven-default-http-blocker: http://0.0.0.0/commons-logging/commons-logging/maven-metadata.xml
-[WARNING] Could not transfer metadata commons-logging:commons-logging/maven-metadata.xml from/to maven-default-http-blocker (http://0.0.0.0/): transfer failed for http://0.0.0.0/commons-logging/commons-logging/maven-metadata.xml
-[INFO] Downloading from maven-default-http-blocker: http://0.0.0.0/commons-codec/commons-codec/maven-metadata.xml
-[WARNING] Could not transfer metadata commons-codec:commons-codec/maven-metadata.xml from/to maven-default-http-blocker (http://0.0.0.0/): transfer failed for http://0.0.0.0/commons-codec/commons-codec/maven-metadata.xml
-[INFO] Using Maven bin path: null
-[INFO] Using hash file /home/dev/platform/platform/examples/examples.energy/target/easy-meta-generateBootstrappedApps.fpf
-[INFO] Wrote hash file /home/dev/platform/platform/examples/examples.energy/target/easy-meta-generateBootstrappedApps.fpf
-[INFO] Changed null files: []
-[INFO] Using hash file /home/dev/platform/platform/examples/examples.energy/target/easy-generateBootstrappedApps.fpf
-[INFO] Skipping IVML model for /home/dev/platform/platform/examples/examples.energy/src/main/easy/energy.ivml as unchanged.
-[INFO] Skipping IVML model for /home/dev/platform/platform/examples/examples.energy/src/main/easy/.EASyConfig as unchanged.
-[INFO] Skipping IVML model for /home/dev/platform/platform/examples/examples.energy/src/main/easy/OpcECM.ivml as unchanged.
-[INFO] Skipping IVML model for /home/dev/platform/platform/examples/examples.energy/src/main/easy/Opc.ivml as unchanged.
-[INFO] Skipping IVML model for /home/dev/platform/platform/examples/examples.energy/src/main/easy/OpcEnergy.ivml as unchanged.
-[INFO] Skipping IVML model for /home/dev/platform/platform/examples/examples.energy/src/main/easy/OpcWoodworking.ivml as unchanged.
-[INFO] Wrote hash file /home/dev/platform/platform/examples/examples.energy/target/easy-generateBootstrappedApps.fpf
-[INFO] Changed IVML model files: []
-[INFO] Skipped as code in output directory '/home/dev/platform/platform/examples/examples.energy/target/gen/energy' is newer than IVML model.
-[INFO] 
-[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ examples.energy ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/src/main/resources
-[INFO] 
-[INFO] --- maven-compiler-plugin:3.16.0:compile (default-compile) @ examples.energy ---
-[INFO] Not compiling main sources
-[INFO] 
-[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ examples.energy ---
-[INFO] Not copying test resources
-[INFO] 
-[INFO] --- maven-compiler-plugin:3.16.0:testCompile (default-testCompile) @ examples.energy ---
-[INFO] Not compiling test sources
-[INFO] 
-[INFO] --- maven-surefire-plugin:3.6.0:test (default-test) @ examples.energy ---
-[INFO] Tests are skipped.
-[INFO] 
-[INFO] --- maven-jar-plugin:3.4.2:jar (default-jar) @ examples.energy ---
-[INFO] 
-[INFO] --- maven-source-plugin:3.4.0:jar-no-fork (attach-sources) @ examples.energy ---
-[INFO] 
-[INFO] >>> maven-source-plugin:3.4.0:test-jar (attach-sources) > generate-sources @ examples.energy >>>
-[INFO] 
-[INFO] --- dependency-plugin:0.8.2-SNAPSHOT:unpack (unpack) @ examples.energy ---
-[INFO] Checking artifacts...
-[INFO]  - de.iip-ecosphere.platform:configuration.configuration:easy:0.8.2-SNAPSHOT:zip unpack: true overwrite: true outDir: /home/dev/platform/platform/examples/examples.energy/target/easy encoding UTF-8
-[INFO] Unpacks 'zip' with encoding 'UTF-8'.
-[INFO] 
-[INFO] --- configuration-plugin:0.8.2-SNAPSHOT:generateBootstrappedApps (generateBootstrappedApps) @ examples.energy ---
-[INFO] Using Maven bin path: null
-[INFO] Using hash file /home/dev/platform/platform/examples/examples.energy/target/easy-meta-generateBootstrappedApps.fpf
-[INFO] Wrote hash file /home/dev/platform/platform/examples/examples.energy/target/easy-meta-generateBootstrappedApps.fpf
-[INFO] Changed null files: []
-[INFO] Using hash file /home/dev/platform/platform/examples/examples.energy/target/easy-generateBootstrappedApps.fpf
-[INFO] Skipping IVML model for /home/dev/platform/platform/examples/examples.energy/src/main/easy/energy.ivml as unchanged.
-[INFO] Skipping IVML model for /home/dev/platform/platform/examples/examples.energy/src/main/easy/.EASyConfig as unchanged.
-[INFO] Skipping IVML model for /home/dev/platform/platform/examples/examples.energy/src/main/easy/OpcECM.ivml as unchanged.
-[INFO] Skipping IVML model for /home/dev/platform/platform/examples/examples.energy/src/main/easy/Opc.ivml as unchanged.
-[INFO] Skipping IVML model for /home/dev/platform/platform/examples/examples.energy/src/main/easy/OpcEnergy.ivml as unchanged.
-[INFO] Skipping IVML model for /home/dev/platform/platform/examples/examples.energy/src/main/easy/OpcWoodworking.ivml as unchanged.
-[INFO] Wrote hash file /home/dev/platform/platform/examples/examples.energy/target/easy-generateBootstrappedApps.fpf
-[INFO] Changed IVML model files: []
-[INFO] Skipped as code in output directory '/home/dev/platform/platform/examples/examples.energy/target/gen/energy' is newer than IVML model.
-[INFO] 
-[INFO] <<< maven-source-plugin:3.4.0:test-jar (attach-sources) < generate-sources @ examples.energy <<<
-[INFO] 
-[INFO] 
-[INFO] --- maven-source-plugin:3.4.0:test-jar (attach-sources) @ examples.energy ---
-[INFO] 
-[INFO] --- maven-javadoc-plugin:3.12.0:jar (default-cli) @ examples.energy ---
-[INFO] Skipping javadoc generation
-[INFO] 
-[INFO] --- maven-javadoc-plugin:3.12.0:test-jar (default-cli) @ examples.energy ---
-[INFO] Skipping javadoc generation
-[INFO] 
-[INFO] --- maven-jar-plugin:3.4.2:test-jar (default) @ examples.energy ---
-[INFO] Skipping packaging of the test-jar
-[INFO] 
-[INFO] --- configuration-plugin:0.8.2-SNAPSHOT:generateAppsDirect (generateAppsDirect) @ examples.energy ---
-[INFO] Using Maven bin path: null
-Loading classpath from config.classpath
-[INFO] Calling platform instantiator as process with [Energy, /home/dev/platform/platform/examples/examples.energy/src/main/easy, /home/dev/platform/platform/examples/examples.energy/target/gen/energy, generateAppsDirect, /home/dev/platform/platform/examples/examples.energy/target/easy], tracing TOP
-18:47:34 [main] INFO d.i.p.s.r.ResourceLoader - Registered resource resolver Classloader
-18:47:35 [main] WARN d.i.p.s.a.AasFactory - No AAS factory implementation known. This may be intended in a simple testing setup where AAS operations are optional, but also a severe misconfiguration if this occurs in the context of a full platform instance where AAS operations are mandatory.
-18:47:35 [main] INFO d.i.p.c.e.PlatformInstantiator - Deleting /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp ...
-18:47:35 [main] INFO d.i.p.c.e.PlatformInstantiator - Cleaned output folder /home/dev/platform/platform/examples/examples.energy/target/gen/energy for rule generateAppsDirect in 64 ms
-18:47:36 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - EASy-Producer is starting (TOOLING mode)
-18:47:39 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - EASy-Producer started in 4624 ms
-18:47:39 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - Setting up configuration base: .
-18:47:39 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - Setting up configuration meta model: /home/dev/platform/platform/examples/examples.energy/target/easy
-18:47:39 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - Setting up configuration model name: Energy
-18:47:39 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - Setting up generation target: /home/dev/platform/platform/examples/examples.energy/target/gen/energy
-18:47:39 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - Setting up configuration folder: /home/dev/platform/platform/examples/examples.energy/src/main/easy
-18:47:39 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - Setting up EASy-Producer locations, loading models
-18:47:43 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - EASy-Producer models loaded in 3808 ms
-18:47:51 [main] INFO d.i.p.c.e.ConfigurationManager - EASy-Producer model reasoning done in 3288 ms
-18:47:51 [main] WARN d.i.p.c.e.ConfigurationManager - No (username) identity token for key 'docker' found. Container deployment may fail
-18:47:51 [main] INFO d.i.p.c.e.ConfigurationManager - EASy-Producer instantiating with rule 'generateAppsDirect'
-executing script IIPEcosphere (VIL)  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/IIPEcosphere.vil
-  JavaSpringCloudStreamMeshElement  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudStreamMeshElement.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/main/java/iip/nodes/MyOpcConnExample.java
-  JavaSpringCloudStreamMeshElementTest  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudStreamMeshElementTest.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/test/java/iip/nodes/MyOpcConnExampleTest.java
-  JavaSpringCloudStreamMeshElement  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudStreamMeshElement.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/main/java/iip/nodes/OPCReceiver.java
-  JavaSpringCloudStreamMeshElementTest  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudStreamMeshElementTest.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/test/java/iip/nodes/OPCReceiverTest.java
-  JavaSpringCloudStreamStarter  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudStreamStarter.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/main/java/iip/Starter.java
-  JavaConnectorFactoryDescriptor  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaConnectorFactoryDescriptor.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/main/java/iip/nodes/SimpleEnergyOPCDemoAppConnectorFactoryDescriptor.java
-  JavaServices  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServices.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/main/resources/META-INF/services/de.iip_ecosphere.platform.connectors.ConnectorFactoryDescriptor
-  JavaSpringCloudStreamYaml  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaSpringCloudStreamYaml.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/main/resources/application.yml
-  SpringCloudStreamDeploymentDescriptor  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/SpringCloudStreamDeploymentDescriptor.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/main/resources/deployment.yml
-  JavaLogbackXml  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaLogbackXml.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/main/resources/logback.xml
-  JavaServices  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServices.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/main/resources/META-INF/services/de.iip_ecosphere.platform.support.identities.IdentityStoreDescriptor
-  JavaServices  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/JavaServices.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/main/resources/META-INF/services/de.iip_ecosphere.platform.support.iip_aas.IdProviderDescriptor
-  AppAnt  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AppAnt.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/build-jk.xml
-  AppMvn  @ file:/home/dev/platform/platform/examples/examples.energy/target/easy/vtl/java/AppMvn.vtl
-      -> /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/pom.xml
-  Calling maven with /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp {install} {}
-   Scanning for projects...
-   
-   -------< de.iip-ecosphere.platform.apps:SimpleEnergyOPCDemoApp >--------
-   Building SimpleEnergyOPCDemoApp 0.1.0-SNAPSHOT
-     from pom.xml
-   --------------------------------[ jar ]---------------------------------
-   
-   --- dependency:0.8.2-SNAPSHOT:copy-resources (platf-res) @ SimpleEnergyOPCDemoApp ---
-   Copied 0 resource files
-   
-   --- dependency:0.8.2-SNAPSHOT:copy-resources (sw-res) @ SimpleEnergyOPCDemoApp ---
-   Copied 0 resource files
-   
-   --- clean:3.5.0:clean (auto-clean) @ SimpleEnergyOPCDemoApp ---
-   
-   --- resources:3.4.0:resources (default-resources) @ SimpleEnergyOPCDemoApp ---
-   Copying 6 resources from src/main/resources to target/classes
-   
-   --- compiler:3.16.0:compile (default-compile) @ SimpleEnergyOPCDemoApp ---
-   Recompiling the module because of changed source code.
-   Compiling 4 source files with javac [debug target 17] to target/classes
-   
-   --- resources:3.4.0:testResources (default-testResources) @ SimpleEnergyOPCDemoApp ---
-   skip non existing resourceDirectory /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/src/test/resources
-   
-   --- compiler:3.16.0:testCompile (default-testCompile) @ SimpleEnergyOPCDemoApp ---
-   Recompiling the module because of changed dependency.
-   Compiling 2 source files with javac [debug target 17] to target/test-classes
-   
-   --- surefire:3.6.0:test (default-test) @ SimpleEnergyOPCDemoApp ---
-   
-   --- dependency:0.8.2-SNAPSHOT:build-classpath (build-classpath) @ SimpleEnergyOPCDemoApp ---
-   Wrote classpath file '/home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/classes/classpath'.
-   
-   --- jar:3.4.2:jar (default-jar) @ SimpleEnergyOPCDemoApp ---
-   Building jar: /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT.jar
-   
-   --- source:3.4.0:jar-no-fork (attach-sources) @ SimpleEnergyOPCDemoApp ---
-   Building jar: /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-sources.jar
-   
-   >>> source:3.4.0:test-jar (attach-sources) > generate-sources @ SimpleEnergyOPCDemoApp >>>
-   
-   --- dependency:0.8.2-SNAPSHOT:copy-resources (platf-res) @ SimpleEnergyOPCDemoApp ---
-   Copied 0 resource files
-   
-   --- dependency:0.8.2-SNAPSHOT:copy-resources (sw-res) @ SimpleEnergyOPCDemoApp ---
-   Copied 0 resource files
-   
-   --- clean:3.5.0:clean (auto-clean) @ SimpleEnergyOPCDemoApp ---
-   Deleting /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target (includes = [*-bin.jar, *-spring.jar], excludes = [])
-   
-   <<< source:3.4.0:test-jar (attach-sources) < generate-sources @ SimpleEnergyOPCDemoApp <<<
-   
-   
-   --- source:3.4.0:test-jar (attach-sources) @ SimpleEnergyOPCDemoApp ---
-   Building jar: /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-test-sources.jar
-   
-   --- javadoc:3.12.0:jar (default-cli) @ SimpleEnergyOPCDemoApp ---
-   Skipping javadoc generation
-   
-   --- javadoc:3.12.0:test-jar (default-cli) @ SimpleEnergyOPCDemoApp ---
-   Skipping javadoc generation
-   
-   --- jar:3.4.2:test-jar (default) @ SimpleEnergyOPCDemoApp ---
-   Building jar: /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-tests.jar
-   
-   --- spring-boot:2.4.2:repackage (default) @ SimpleEnergyOPCDemoApp ---
-   Attaching repackaged archive /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-bin.jar with classifier bin
-   
-   --- dependency:0.8.2-SNAPSHOT:touch (touch-deployed) @ SimpleEnergyOPCDemoApp ---
-   
-   --- install:3.1.4:install (default-install) @ SimpleEnergyOPCDemoApp ---
-   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/pom.xml to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps/SimpleEnergyOPCDemoApp/0.1.0-SNAPSHOT/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT.pom
-   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps/SimpleEnergyOPCDemoApp/0.1.0-SNAPSHOT/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT.jar
-   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-sources.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps/SimpleEnergyOPCDemoApp/0.1.0-SNAPSHOT/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-sources.jar
-   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-test-sources.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps/SimpleEnergyOPCDemoApp/0.1.0-SNAPSHOT/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-test-sources.jar
-   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-tests.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps/SimpleEnergyOPCDemoApp/0.1.0-SNAPSHOT/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-tests.jar
-   Installing /home/dev/platform/platform/examples/examples.energy/target/gen/energy/SimpleEnergyOPCDemoApp/target/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-bin.jar to /home/dev/.m2/repository/de/iip-ecosphere/platform/apps/SimpleEnergyOPCDemoApp/0.1.0-SNAPSHOT/SimpleEnergyOPCDemoApp-0.1.0-SNAPSHOT-bin.jar
-   ------------------------------------------------------------------------
-   BUILD SUCCESS
-   ------------------------------------------------------------------------
-   Total time:  15.526 s
-   Finished at: 2026-11-13T18:48:28Z
-   ------------------------------------------------------------------------
-18:48:28 [main] INFO d.i.p.c.e.ConfigurationManager - EASy-Producer instantiation done in 37188 ms
-18:48:28 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - EASy-Producer is stopping
-18:48:28 [main] INFO d.i.p.c.e.ConfigurationLifecycleDescriptor - EASy-Producer stopped
-[INFO] Registered resource resolver Classloader
-[INFO] Registered resource resolver test.de.iip_ecosphere.platform.support.ResourceLoaderTest$MyResolver
-[INFO] Cannot load collector properties oktoflow-collector.yml. Disabling.
-[INFO] No collector setup, will discard collector entry for tag 'examples.energy-Energy-generateApps'.
-[INFO] 
-[INFO] --- configuration-plugin:0.8.2-SNAPSHOT:testApp (testApp) @ examples.energy ---
-[WARNING] First argument path '--add-opens=java.base' of the execution with id generatedConnector in exec-maven-plugin in profile App for appTest does not seem to be a path/an existing path
-[INFO] Trying to execute exec:java@ generatedConnector (must be defined as build step in POM) in profile App
-[INFO] Starting mvn -P App -Dexec.args="--skip" exec:java@generatedConnector -Diip.springStart.args="--iip.test.stop=120000 --iip.app.noAas=true --iip.test.brokerPort=0 --okto.test.watch=false" with /usr/lib/jvm/java-17-openjdk-amd64/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin in PATH
-[INFO] Waiting for test end, at maximum specified test time: 120000 ms
-[INFO] [INFO] Scanning for projects...
-[INFO] Downloading from SSE-plugins: https://projects.sse.uni-hildesheim.de/qm/maven/org/apache/maven/plugins/maven-deploy-plugin/3.2.0/maven-deploy-plugin-3.2.0.pom
-[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-deploy-plugin/3.2.0/maven-deploy-plugin-3.2.0.pom
-[INFO] Progress (1): 4.1 kB
-[INFO] Progress (1): 8.2 kB
-[INFO] Progress (1): 8.7 kB
-[INFO]                     
-[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-deploy-plugin/3.2.0/maven-deploy-plugin-3.2.0.pom (8.7 kB at 28 kB/s)
-[INFO] Downloading from SSE-plugins: https://projects.sse.uni-hildesheim.de/qm/maven/org/apache/maven/plugins/maven-deploy-plugin/3.2.0/maven-deploy-plugin-3.2.0.jar
-[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-deploy-plugin/3.2.0/maven-deploy-plugin-3.2.0.jar
-[INFO] Progress (1): 3.3/43 kB
-[INFO] Progress (1): 6.0/43 kB
-[INFO] Progress (1): 9.1/43 kB
-[INFO] Progress (1): 12/43 kB 
-[INFO] Progress (1): 15/43 kB
-[INFO] Progress (1): 17/43 kB
-[INFO] Progress (1): 20/43 kB
-[INFO] Progress (1): 23/43 kB
-[INFO] Progress (1): 26/43 kB
-[INFO] Progress (1): 28/43 kB
-[INFO] Progress (1): 31/43 kB
-[INFO] Progress (1): 34/43 kB
-[INFO] Progress (1): 36/43 kB
-[INFO] Progress (1): 39/43 kB
-[INFO] Progress (1): 42/43 kB
-[INFO] Progress (1): 43 kB   
-[INFO]                    
-[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-deploy-plugin/3.2.0/maven-deploy-plugin-3.2.0.jar (43 kB at 161 kB/s)
-[INFO] [INFO] 
-[INFO] [INFO] -------------< de.iip-ecosphere.platform:examples.energy >--------------
-[INFO] [INFO] Building Energy OPC-UA 0.8.2-SNAPSHOT
-[INFO] [INFO] --------------------------------[ jar ]---------------------------------
-[INFO] [INFO] 
-[INFO] [INFO] --- exec-maven-plugin:3.0.0:java (generatedConnector) @ examples.energy ---
-[INFO] Energy OPCUA Connector test
-[INFO] Required regEx matches complete. Stopping test.
-[INFO] Cannot load collector properties oktoflow-collector.yml. Disabling.
-[INFO] No collector setup, will discard collector entry for tag 'examples.energy'.
-[INFO] Stopping process 'test app'
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  01:15 min
-[INFO] Finished at: 2026-11-13T18:48:39Z
-[INFO] ------------------------------------------------------------------------
-[[1;34mINFO[m] <<< Maven invoker completed
-[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
-[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
-[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
-[[1;34mINFO[m] Total time:  03:20 min
-[[1;34mINFO[m] Finished at: 2026-11-13T18:48:39Z
-[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
